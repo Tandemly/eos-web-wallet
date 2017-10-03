@@ -1,0 +1,40 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../node_modules/bulma/sass/utilities/functions.sass";
+
+$primary: #9bca3b;
+
+$secondary: #1e91d6;
+$secondary-inverse: findColorInvert($secondary);
+$accent: #ae3379;
+$accent-inverse: findColorInvert($accent);
+
+$additional-colors: (
+  "secondary": ($secondary, $secondary-inverse),
+  "accent": ($accent, $accent-inverse)
+);
+
+$family-primary: "Fira Sans";
+
+// navbar related variables
+// $navbar-background-color:	$white
+// $navbar-height:	3.25rem
+$navbar-item-color: $black;
+$navbar-item-hover-color: $white;
+// $navbar-item-hover-background-color:	$background;
+$navbar-item-active-color: $white;
+$navbar-item-active-background-color: rgba($black, 0.2);
+
+// Titles & Subtitles
+// $title-color:	$grey-darker;
+$title-color: $secondary;
+// $title-size:	$size-3;
+// $title-weight:	$weight-semibold;
+// $title-strong-weight:	inherit;
+// $title-strong-color:	inherit;
+// $subtitle-color:	$grey-dark;
+// $subtitle-size:	$size-5;
+// $subtitle-weight:	$weight-normal;
+// $subtitle-strong-color:	$grey-darker;
+// $subtitle-strong-weight:	$weight-semibold;
+
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";

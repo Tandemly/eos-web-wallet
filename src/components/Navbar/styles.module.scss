@@ -1,0 +1,13 @@
+.navbar {
+  composes: navbar from "../../styles/index.css";
+}
+
+.navbar_toggle {
+  // composes: navbar-burger from "../../styles/index.css";
+  background: transparent;
+  border-color: transparent;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
