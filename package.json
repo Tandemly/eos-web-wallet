@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@tandem.ly/react-scripts": "1.0.14",
+    "@tandem.ly/react-scripts": "^1.0.15",
     "bulma": "^0.5.3",
     "classnames": "^2.2.5",
     "color": "^2.0.0",
@@ -14,19 +14,28 @@
     "npm-run-all": "^4.1.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-helmet": "^5.2.0",
+    "react-modal": "^2.3.2",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-styleable": "^3.2.0",
-    "react-styleguidist": "^6.0.26"
+    "react-styleguidist": "^6.0.26",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^4.10.1",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "npm-run-all -p watch-css start-js",
-    "start-js": "react-scripts start",
-    "build": "npm run build-css && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-css": "node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles/ -o src/styles/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles/ -o src/styles/ --watch --recursive",
     "flow": "flow",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"
+  },
+  "devDependencies": {
+    "resolve-url-loader": "^2.1.0"
   }
 }

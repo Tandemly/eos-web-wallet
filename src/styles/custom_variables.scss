@@ -1,8 +1,8 @@
 @import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
 @import "../../node_modules/bulma/sass/utilities/functions.sass";
+@import "../../node_modules/bulma/sass/utilities/mixins.sass";
 
 $primary: #9bca3b;
-
 $secondary: #1e91d6;
 $secondary-inverse: findColorInvert($secondary);
 $accent: #ae3379;
@@ -38,3 +38,26 @@ $title-color: $secondary;
 // $subtitle-strong-weight:	$weight-semibold;
 
 @import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+// Header
+.logo {
+  height: 55px;
+  @include mobile {
+    height: 35px;
+  }
+}
+
+// Narrow Column
+.is-narrow {
+  width: 250px;
+  background-color: #dddddd;
+}
+
+.level.is-mobile .level-item:not(:last-child) {
+  margin-right: 0.75rem;
+}
+
+// Transaction History
+.level.is-mobile .level-item:not(:last-child) {
+  margin-right: 0.75rem;
+}
