@@ -1,0 +1,132 @@
+// Overrides
+body, button, input, select, textarea {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.title.is-1 {
+  font-size: 3.625rem;
+}
+
+.title.is-2 {
+  font-size: 2rem;
+}
+
+.title.is-3 {
+  font-size: 1.75rem;
+}
+
+.title.is-4 {
+  font-size: 1.625rem;
+  color: white;
+  font-weight: 100;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+}
+
+.title.is-5 {
+  font-size: 1.25rem;
+}
+
+// Header
+.header {
+  background-color: $grey-dark;
+  position: relative;
+  padding: 1em;
+  @include mobile {
+    padding: 0;
+  }
+  .menu-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 0;
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  .logo {
+    height: 55px;
+    @include mobile {
+      height: 25px;
+    }
+  }
+  .user-info {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 80%;
+    .user-meta {
+      position: absolute;
+      right: 110px;
+      top: 0;
+      > * {
+        word-break: normal;
+      }
+      .title {
+        margin-top: .25rem
+      }
+      .subtitle, a {
+        color: $secondary;
+        margin-bottom: 0;
+        span {
+          color: $primary;
+        }
+      }
+      .settings {
+        position: absolute;
+        right: -35px;
+        top: 55px;
+        border: 5px solid $primary;
+        border-radius: 15px;
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        z-index: 1;
+        span {
+          color: $grey-dark;
+          position: absolute;
+          top: -1px;
+          left: 3px;
+          font-size: .9rem;
+        }
+      }
+    }
+    .profile-thumbnail {
+      position: absolute;
+      right: 0;
+      top: 0;
+      @include mobile {
+        top: -25px;
+      }
+      img {
+        border-radius: 50px;
+        border: 8px solid $orange;
+        width: 100px;
+        height: 100px;
+        @include mobile {
+          border-radius: 35px;
+          border: 5px solid $orange;
+          width: 70px;
+          height: 70px;
+        }
+      }
+    }
+  }
+}
+
+// Narrow Column
+.is-narrow {
+  width: 250px;
+  background-color: $grey-mid;
+  .-is-logged-in {
+    background-color: $grey-light;
+  }
+}
+
+.level.is-mobile .level-item:not(:last-child) {
+  margin-right: 0.75rem;
+}
+
+// Transaction History
+.level.is-mobile .level-item:not(:last-child) {
+  margin-right: 0.75rem;
+}

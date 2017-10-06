@@ -2,18 +2,20 @@
 @import "../../node_modules/bulma/sass/utilities/functions.sass";
 @import "../../node_modules/bulma/sass/utilities/mixins.sass";
 
-$primary: #9bca3b;
-$secondary: #1e91d6;
+$primary: #4b9af5;
+$secondary: #6a7e95;
 $secondary-inverse: findColorInvert($secondary);
 $accent: #ae3379;
 $accent-inverse: findColorInvert($accent);
+$grey-dark: #3a4249;
+$grey-mid: #575f68;
+$grey-light: #69727c;
+$orange: #d75f4c;
 
 $additional-colors: (
   "secondary": ($secondary, $secondary-inverse),
   "accent": ($accent, $accent-inverse)
 );
-
-$family-primary: "Fira Sans";
 
 // navbar related variables
 // $navbar-background-color:	$white
@@ -38,26 +40,3 @@ $title-color: $secondary;
 // $subtitle-strong-weight:	$weight-semibold;
 
 @import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
-
-// Header
-.logo {
-  height: 55px;
-  @include mobile {
-    height: 35px;
-  }
-}
-
-// Narrow Column
-.is-narrow {
-  width: 250px;
-  background-color: #dddddd;
-}
-
-.level.is-mobile .level-item:not(:last-child) {
-  margin-right: 0.75rem;
-}
-
-// Transaction History
-.level.is-mobile .level-item:not(:last-child) {
-  margin-right: 0.75rem;
-}

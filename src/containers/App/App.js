@@ -6,11 +6,11 @@ import "./App.scss";
 const App = () => (
   <main>
     <Helmet titleTemplate="%s | EOS Wallet" defaultTitle="EOS Wallet" />
-    <section className="hero is-primary p-md">
+    <section className="hero header">
       <div className="level is-mobile">
         <div className="level-left">
           <div className="control level-item is-hidden-tablet">
-            <button className="button is-secondary"><span className="icon-menu"></span></button>
+            <button className="button is-primary menu-toggle"><span className="icon-menu"></span></button>
           </div>
           <div className="level-item">
             <a href="/">
@@ -18,18 +18,17 @@ const App = () => (
             </a>
           </div>
         </div>
-        <div className="level-right">
-          <div className="level-item has-text-right is-hidden-mobile">
-            <div>
-              <p className="title is-4 is-spaced">Hi, Display Name</p>
-              <p className="subtitle is-6">Customize your profile | <span className="icon-settings"></span> | <span className="icon-logout"></span></p>
+        <div className="user-info">
+          <div className="has-text-right is-hidden-mobile">
+            <div className="user-meta">
+              <h4 className="title is-4 is-spaced">Hi, Display Name</h4>
+              <p className="subtitle is-6"><a href="">Customize your profile</a> | <a href=""><span className="icon-logout"></span></a></p>
+              <a className="settings" href=""><span className="icon-settings"></span></a>
             </div>
           </div>
-          <div className="level-item">
-            <figure className="image is-48x48">
-              <img src="https://avatarfiles.alphacoders.com/696/69632.jpg" alt="Placeholder image" />
-            </figure>
-          </div>
+          <figure className="image profile-thumbnail">
+            <img src="https://avatarfiles.alphacoders.com/696/69632.jpg" alt="Placeholder image" />
+          </figure>
         </div>
       </div>
     </section>
@@ -37,8 +36,8 @@ const App = () => (
       <div className="column is-narrow is-hidden-mobile">
         <aside className="menu p-lg">
           <div className="-is-logged-in">
-            <h1 className="title is-1 balance">1.00m</h1>
-            <h6 className="subtitle is-6 full_balance">1,000,000.0080</h6>
+            <p className="title is-1 balance">1.00m</p>
+            <p className="subtitle is-6 full_balance">1,000,000.0080</p>
             <span className="tag is-primary is-medium change">+27,600</span>
             <ul className="menu-list">
               <li>

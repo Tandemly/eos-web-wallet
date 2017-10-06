@@ -1,7 +1,3 @@
-// Web fonts via CDN
-@import url("//fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,600,700");
-@import url("//fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700");
-
 // Custom font icons
 @import "./icons.scss";
 
@@ -15,6 +11,9 @@ $colors: map-merge($colors, $additional-colors);
 
 // Base style framework
 @import "../../node_modules/bulma/bulma.sass";
+
+// Custom styles for design
+@import "./overrides.scss";
 
 // Other custom styles/components
 // button.is-accent {

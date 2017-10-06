@@ -1,45 +1,18 @@
-$sizeUnit: rem;
-$marginKey: 'm';
-$paddingKey: 'p';
-$separator: '-';
-$sizes: (
-  ('none', 0),
-  ('xxs', 0.125),
-  ('xs', 0.25),
-  ('sm', 0.5),
-  ('md', 1),
-  ('lg', 2),
-  ('xl', 4),
-  ('xxl', 8),
-);
-$positions: (
-  ('t', 'top'),
-  ('r', 'right'),
-  ('b', 'bottom'),
-  ('l', 'left')
-);
-
-@function sizeValue($key, $value) {
-  @return if($key == 'none', 0, $value + $sizeUnit);
-}
-
-@each $size in $sizes {
-  $sizeKey: nth($size, 1);
-  $sizeValue: nth($size, 2);
-  .#{$marginKey}#{$separator}#{$sizeKey} {
-    margin: sizeValue($sizeKey, $sizeValue);
-  }
-  .#{$paddingKey}#{$separator}#{$sizeKey} {
-    padding: sizeValue($sizeKey, $sizeValue);
-  }
-  @each $position in $positions {
-    $posKey: nth($position, 1);
-    $posValue: nth($position, 2);
-    .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
-        margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
-    }
-    .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
-        padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+@mixin generateSpacingHelpers($spacingTypes: (margin, padding), $spacingIncrements: 8, $incrementSize: 0.5rem, $spacingSides: (top, right, bottom, left)) {
+  @each $spacingType in $spacingTypes {
+    $spacingTypeShort: str-slice($spacingType, 1, 1);
+    @for $i from 0 through $spacingIncrements {
+      .u-#{$spacingTypeShort}#{$i} {
+        #{$spacingType}: $i*$incrementSize;
+      }
+      @each $side in $spacingSides {
+        $sideShort: str-slice($side, 1, 1);
+        .u-#{$spacingTypeShort}#{$sideShort}#{$i} {
+          #{$spacingType}-#{$side}: $i*$incrementSize;
+        }
+      }
     }
   }
 }
+
+@include generateSpacingHelpers;
