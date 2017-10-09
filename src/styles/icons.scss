@@ -55,10 +55,10 @@
 .icon-settings:before {
   content: "\e908";
 }
-.icon-transfer_from:before {
+.icon-transfer_from:before, .icon-increase:before {
   content: "\e909";
 }
-.icon-transfer_to:before {
+.icon-transfer_to:before, .icon-decrease:before {
   content: "\e90a";
 }
 .icon-transfer:before {
