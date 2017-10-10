@@ -125,7 +125,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-6">$10.00</p>
+                      <p className="subtitle is-5">$10.00</p>
                     </div>
                     <div className="level-item">
                       <span className="icon-transfer_to"></span>
@@ -149,7 +149,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-6">$10.00</p>
+                      <p className="subtitle is-5">$10.00</p>
                     </div>
                     <div className="level-item">
                       <span className="icon-transfer_from"></span>
@@ -173,7 +173,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-6">$10.00</p>
+                      <p className="subtitle is-5">$10.00</p>
                     </div>
                     <div className="level-item">
                       <span className="icon-transfer_to"></span>
@@ -197,7 +197,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-6">$10.00</p>
+                      <p className="subtitle is-5">$10.00</p>
                     </div>
                     <div className="level-item">
                       <span className="icon-transfer_from"></span>
@@ -221,7 +221,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-6">$10.00</p>
+                      <p className="subtitle is-5">$10.00</p>
                     </div>
                     <div className="level-item">
                       <span className="icon-transfer_to"></span>
