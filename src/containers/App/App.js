@@ -10,7 +10,7 @@ const App = () => (
       <div className="level is-mobile">
         <div className="level-left">
           <div className="control level-item is-hidden-tablet">
-            <button className="button is-primary menu-toggle"><span className="icon-menu"></span></button>
+            <button className="button is-primary menu-toggle u-mr1"><span className="icon-menu"></span></button>
           </div>
           <div className="level-item">
             <a href="/">
