@@ -213,11 +213,9 @@ main {
       }
       .icon-transfer_to {
         color: $red;
-        vertical-align: text-bottom;
       }
       .icon-transfer_from {
         color: $green;
-        vertical-align: text-bottom;
       }
       [class^="icon-"]:before, [class*=" icon-"]:before {
         font-size: 15px;

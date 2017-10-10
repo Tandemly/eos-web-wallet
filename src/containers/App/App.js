@@ -188,7 +188,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-5">$10.00<span className="icon-transfer_from u-ml1"></span></p>
+                      <p className="subtitle is-5">$10.00<i className="icon-transfer_from u-ml1"></i></p>
                     </div>
                   </div>
                 </li>
