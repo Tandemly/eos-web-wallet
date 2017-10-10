@@ -217,9 +217,6 @@ main {
       .icon-transfer_from {
         color: $green;
       }
-      [class^="icon-"]:before, [class*=" icon-"]:before {
-        font-size: 15px;
-      }
       .image {
         border-radius: 20px;
         border: 3px solid $orange;
