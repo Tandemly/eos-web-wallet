@@ -43,16 +43,16 @@ const App = () => (
             </div>
             <ul className="menu-list">
               <li>
-                <a href="/" className="is-active"><span className="icon-transfer"></span> Transfer</a>
+                <a href="/" className="is-active"><span className="icon-transfer u-mr1"></span>Transfer</a>
               </li>
               <li>
-                <a href="/transactions"><span className="icon-history"></span> Transaction History</a>
+                <a href="/transactions"><span className="icon-history u-mr1"></span>Transaction History</a>
               </li>
               <li>
-                <a href="/permissions"><span className="icon-permissions"></span> Permission</a>
+                <a href="/permissions"><span className="icon-permissions u-mr1"></span>Permission</a>
               </li>
               <li>
-                <a href="/"><span className="icon-logout"></span> Logout</a>
+                <a href="/"><span className="icon-logout u-mr1"></span>Logout</a>
               </li>
             </ul>
           </div>
@@ -97,10 +97,10 @@ const App = () => (
                 </div>
                 <div className="field is-grouped u-mt4">
                   <div className="control">
-                    <button className="button is-large is-primary">Submit</button>
+                    <button className="button is-large is-fullwidth is-primary">Submit</button>
                   </div>
                   <div className="control">
-                    <button className="button is-large is-secondary">Clear</button>
+                    <button className="button is-large is-fullwidth is-secondary">Clear</button>
                   </div>
                 </div>
               </form>
@@ -125,10 +125,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-5">$10.00</p>
-                    </div>
-                    <div className="level-item">
-                      <span className="icon-transfer_to"></span>
+                      <p className="subtitle is-5">$10.00<span className="icon-transfer_to u-ml1"></span></p>
                     </div>
                   </div>
                 </li>
@@ -149,10 +146,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-5">$10.00</p>
-                    </div>
-                    <div className="level-item">
-                      <span className="icon-transfer_from"></span>
+                      <p className="subtitle is-5">$10.00<span className="icon-transfer_from u-ml1"></span></p>
                     </div>
                   </div>
                 </li>
@@ -173,10 +167,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-5">$10.00</p>
-                    </div>
-                    <div className="level-item">
-                      <span className="icon-transfer_to"></span>
+                      <p className="subtitle is-5">$10.00<span className="icon-transfer_to u-ml1"></span></p>
                     </div>
                   </div>
                 </li>
@@ -197,10 +188,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-5">$10.00</p>
-                    </div>
-                    <div className="level-item">
-                      <span className="icon-transfer_from"></span>
+                      <p className="subtitle is-5">$10.00<span className="icon-transfer_from u-ml1"></span></p>
                     </div>
                   </div>
                 </li>
@@ -221,10 +209,7 @@ const App = () => (
                   </div>
                   <div className="level-right">
                     <div className="level-item">
-                      <p className="subtitle is-5">$10.00</p>
-                    </div>
-                    <div className="level-item">
-                      <span className="icon-transfer_to"></span>
+                      <p className="subtitle is-5">$10.00<span className="icon-transfer_to u-ml1"></span></p>
                     </div>
                   </div>
                 </li>

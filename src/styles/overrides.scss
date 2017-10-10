@@ -213,12 +213,14 @@ main {
       }
       .icon-transfer_to {
         color: $red;
+        vertical-align: text-bottom;
       }
       .icon-transfer_from {
         color: $green;
+        vertical-align: text-bottom;
       }
       [class^="icon-"]:before, [class*=" icon-"]:before {
-        font-size: 14px;
+        font-size: 15px;
       }
       .image {
         border-radius: 20px;
@@ -285,7 +287,7 @@ main {
     }
     .tag {
       background-color: $green;
-      color: $grey-mid;
+      color: $grey-light;
       font-weight: bold;
       font-size: 0.875rem;
       span {
