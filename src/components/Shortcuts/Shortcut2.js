@@ -1,5 +1,4 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
 
 const Shortcut2 = ({
   className = 'col-link px-4 py-3',

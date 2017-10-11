@@ -56,11 +56,11 @@ module.exports = {
     //   components: "src/containers/**/[A-Z]*.js",
     //   isolatedSection: true
     // },
-    {
-      name: "Routes",
-      components: "src/routes/**/[A-Z]*.js",
-      isolatedSection: true
-    },
+    // {
+    //   name: "Routes",
+    //   components: "src/routes/**/[A-Z]*.js",
+    //   isolatedSection: true
+    // },
     {
       name: "Utility",
       components: "src/util/**/[A-Z]*.js",
