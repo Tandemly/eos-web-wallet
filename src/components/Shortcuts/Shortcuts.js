@@ -1,8 +1,8 @@
 import * as React from "react";
-import { NavLink, List } from '../';
+import List from "components/List";
+import Shortcut from "./Shortcut";
 
 const activeClassName = 'active';
-
 const data = [
   {
     to: '/',
@@ -30,26 +30,11 @@ const data = [
   },
 ];
 
-const ShortcutLink = ({
-  className = 'col-link px-4 py-3',
-  iconClass,
-  text,
-  ...props }) => (
-  <NavLink
-    className={className}
-    exact
-    {...props}
-  >
-    <span className={iconClass} />
-    {text}
-  </NavLink>
-);
-
-const Shortcuts = () => (
+const Shortcuts = ({ renderItem = Shortcut }) => (
   <List
     className="-links"
     data={data}
-    renderItem={ShortcutLink}
+    renderItem={renderItem}
   />
 );
 

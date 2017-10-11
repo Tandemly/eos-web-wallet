@@ -7,18 +7,22 @@ module.exports = {
     "**/__tests__/*",
     "**/*.test.js",
     "**/*.test.jsx",
+    "**/test.js",
     "**/*.spec.js",
+    "**/__snapshots__/*",
     "src/components/**/index.js",
-    "src/components/styleguide/*"
+    "src/components/styleguide/*",
+    "src/containers/**/*",
   ],
   require: [
     // The Application's specific styles
-    path.join(__dirname, "src/styles/index.css"),
+    path.join(__dirname, "src/styles/index.scss"),
     // Styles solely for react-styleguide
     path.join(__dirname, "src/styleguide/styles/styles.css")
   ],
   styleguideComponents: {
-    Logo: path.join(__dirname, "src/styleguide/components/Logo.js")
+    Logo: path.join(__dirname, "src/styleguide/components/Logo.js"),
+    //Wrapper: path.join(__dirname, 'src/components/Wrapper.js')
   },
   template: path.join(__dirname, "src/styleguide/template.html"),
   assetsDir: "",
@@ -45,11 +49,11 @@ module.exports = {
       components: "src/components/**/[A-Z]*.js",
       isolatedSection: true
     },
-    {
-      name: "Containers",
-      components: "src/containers/**/[A-Z]*.js",
-      isolatedSection: true
-    },
+    // {
+    //   name: "Containers",
+    //   components: "src/containers/**/[A-Z]*.js",
+    //   isolatedSection: true
+    // },
     {
       name: "Utility",
       components: "src/util/**/[A-Z]*.js",

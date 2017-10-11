@@ -7,9 +7,9 @@ let data = [
   { text: 'three' }
 ];
 
-const renderItem = ({ text }) => {
+const renderItem = ({ text }) => (
   <li><div>{text}</div></li>
-}
+);
 
 <div className="list-example">
   <List data={data} renderItem={renderItem} />

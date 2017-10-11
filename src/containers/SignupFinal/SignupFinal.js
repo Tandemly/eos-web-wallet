@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import SignupFinalForm from 'components/SingupFinalForm';
-import { tryPostSignup } from '../reducer';
+import SignupFinalForm from 'components/SignupFinalForm';
+import { tryPostSignup } from './actions';
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   callAPI(values) {
@@ -12,9 +12,9 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   },
 });
 
-const CreateAccountFormContainer = connect(
+const SignupFinal = connect(
   null,
   mapDispatchToProps,
-)(CreateAccountForm);
+)(SignupFinalForm);
 
-export default withRouter(CreateAccountFormContainer);
+export default withRouter(SignupFinal);

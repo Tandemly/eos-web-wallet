@@ -4,7 +4,7 @@ import { reduxForm, formValueSelector } from 'redux-form';
 
 // TODO show errors from server when unable to connect
 // { message: 'EOS is down currently, please try again later' }
-const CreateAccount = ({
+const SignupFinalForm = ({
   callAPI,
   formValues,
   error,
@@ -44,7 +44,7 @@ const CreateAccount = ({
 
 const ConnectedCreateAccount = connect(state => ({
   formValues: formValueSelector('sign-up')(state, 'account_name', 'email', 'phone')
-}))(CreateAccount);
+}))(SignupFinalForm);
 
 export default reduxForm({
   form: 'sign-up',

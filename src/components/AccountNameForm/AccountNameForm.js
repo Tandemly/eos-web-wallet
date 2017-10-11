@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
-import Field from 'components/Field';
+import renderField from 'components/Field';
 
 const AccountNameForm = ({ 
   callAPI,
@@ -16,7 +16,7 @@ const AccountNameForm = ({
       label="Your account name is how you will be known on EOS."
       name="account_name"
       required
-      component={Field}
+      component={renderField}
       type="text"
     />
 

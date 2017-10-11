@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
-import renderField from './renderField';
+import renderField from 'components/Field';
 
 const numbersOnly = (value, previousValue) => (
   /^\d*\.?\d*?$/.test(value) ? value : previousValue

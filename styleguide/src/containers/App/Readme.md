@@ -1,5 +1,0 @@
-App example: 
-
-```js
-<App/>
-```

@@ -1,7 +1,9 @@
 A list of shortcuts example:
 
 ```js
+
+
 <div className="shortcuts-example">
-  <Shortcuts />
+  <Shortcuts renderItem={Shortcut2} />
 </div>
 ```
