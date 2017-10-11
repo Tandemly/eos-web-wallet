@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 
 const Progress = ({ step }) => (
   <div className="login-progress">

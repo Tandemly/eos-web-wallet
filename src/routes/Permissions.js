@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { KeystoreContainer } from '../containers';
 import { ResetPasswordForm } from '../components';
 import { Helmet } from 'react-helmet';

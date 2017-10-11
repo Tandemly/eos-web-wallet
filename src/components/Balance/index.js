@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import numeral from 'numeral';
 
 const tmpStyle = {

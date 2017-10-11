@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 
 const LoginLink = () => (
   <div className="ml-auto mr-3 align-self-center hidden-md-up">

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { Redirect } from 'react-router-dom';
 
 const Authenticated = Component => ({ auth = false, ...props }) => (

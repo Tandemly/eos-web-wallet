@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 // import renderRoutes from '../func/renderRoutes';
 import { Progress } from '../components';
 import { Switch, Route, withRouter } from 'react-router-dom';

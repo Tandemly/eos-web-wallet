@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { TransactionsContainer } from '../containers';
 import { Helmet } from 'react-helmet';
 import Authenticated from './Authenticated';

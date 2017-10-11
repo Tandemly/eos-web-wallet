@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 
 const renderField = ({ children, input, label, showErrors, type, meta: { touched, error }, ...props }) => (
   <fieldset className={`form-group${error ? ' validation-error' : ''}`}>
