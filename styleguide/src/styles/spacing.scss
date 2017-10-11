@@ -1,0 +1,18 @@
+@mixin generateSpacingHelpers($spacingTypes: (margin, padding), $spacingIncrements: 8, $incrementSize: 0.5rem, $spacingSides: (top, right, bottom, left)) {
+  @each $spacingType in $spacingTypes {
+    $spacingTypeShort: str-slice($spacingType, 1, 1);
+    @for $i from 0 through $spacingIncrements {
+      .u-#{$spacingTypeShort}#{$i} {
+        #{$spacingType}: $i*$incrementSize;
+      }
+      @each $side in $spacingSides {
+        $sideShort: str-slice($side, 1, 1);
+        .u-#{$spacingTypeShort}#{$sideShort}#{$i} {
+          #{$spacingType}-#{$side}: $i*$incrementSize;
+        }
+      }
+    }
+  }
+}
+
+@include generateSpacingHelpers;

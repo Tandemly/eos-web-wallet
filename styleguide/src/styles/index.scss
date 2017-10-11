@@ -1,0 +1,42 @@
+// Custom font icons
+@import "./icons.scss";
+
+// Custom overrides for variables
+@import "./custom_variables.scss";
+
+// Spacing helpers
+@import "./spacing.scss";
+
+$colors: map-merge($colors, $additional-colors);
+
+// Base style framework
+@import "../../node_modules/bulma/bulma.sass";
+
+// Custom styles for design
+@import "./overrides.scss";
+
+// Other custom styles/components
+// button.is-accent {
+//   background-color: $accent;
+//   border-color: transparent;
+//   color: $accent-inverse;
+// }
+// button.is-secondary {
+//   background-color: $secondary;
+//   border-color: transparent;
+//   color: $secondary-inverse;
+// }
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: nth($color, 1);
+    color: nth($color, 2);
+  }
+  .text-#{$name} {
+    color: nth($color, 1);
+  }
+}
+
+.test {
+  color: #000 !important;
+}

@@ -1,0 +1,20 @@
+{
+  "extends": "prettier",
+  // "extends": "eslint:recommended",
+  "plugins": ["prettier", "prettier/flowtype", "prettier/react"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "prettier/prettier": "error"
+    // "no-console": "off",
+    // "strict": ["error", "global"],
+    // "curly": "warn"
+  }
+}

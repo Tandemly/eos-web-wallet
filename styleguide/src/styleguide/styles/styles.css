@@ -1,0 +1,27 @@
+.bd-color {
+  border-radius: 2px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  float: left;
+  height: 24px;
+  margin-right: 8px;
+  width: 24px;
+}
+.button-example button {
+  margin-right: 0.5rem;
+}
+
+.custom-button {
+  color: magenta;
+  font-weight: 700;
+}
+
+.rsg--code-41 {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 3px;
+}
