@@ -1,6 +1,6 @@
 import * as React from "react";
-import { UsersContainer } from '../containers';
 import { Helmet } from 'react-helmet';
+import _Users from "containers/Users";
 import Authenticated from './Authenticated';
 
 const Users = () => (
@@ -24,7 +24,7 @@ const Users = () => (
       </div>
       <div className="row">
         <div className="col-12">
-          <UsersContainer />
+          <_Users />
         </div>
       </div>
     </div>

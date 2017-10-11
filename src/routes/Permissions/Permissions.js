@@ -1,7 +1,7 @@
 import * as React from "react";
-import ResetPasswordForm from 'components/ResetPasswordForm';
 import { Helmet } from 'react-helmet';
-import Authenticated from './Authenticated';
+import ResetPasswordForm from 'components/ResetPasswordForm';
+import Authenticated from '../Authenticated';
 
 const Permissions = () => (
   <div>

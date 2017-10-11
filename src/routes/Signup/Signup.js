@@ -1,13 +1,12 @@
 import * as React from "react";
-// import renderRoutes from '../func/renderRoutes';
-import { Progress } from '../components';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import {
-  CreateAccountContainer,
-  EmailContainer,
-  NotificationContainer,
-  PhoneContainer,
-  UsernameContainer } from '../containers';
+import AccountName from "containers/AccountName";
+import Email from "containers/Email";
+import Notifications from "containers/Notifications";
+import Phone from "containers/Phone";
+import Signup from "containers/SignupFinal";
+import Progress from "components/Progress";
+import SignupFinal from 'components/Progress';
 
 const steps = {
   '/create-account': 1,
@@ -30,17 +29,15 @@ const CreateAccount = ({ handleModalClose, location /* , routes */ }) => {
       </div>
 
       <div className="modal-body">
-        <NotificationContainer />
+        <Notifications />
 
         <Progress step={step} />
         <Switch>
-          <Route exact path="/create-account" component={UsernameContainer} title="" />
-          <Route exact path="/create-account/email" component={EmailContainer} title="" />
-          <Route exact path="/create-account/phone" component={PhoneContainer} title="" />
-          <Route path="/create-account/complete" component={CreateAccountContainer} title="" />
+          <Route exact path="/create-account" component={AccountName} title="" />
+          <Route exact path="/create-account/email" component={Email} title="" />
+          <Route exact path="/create-account/phone" component={Phone} title="" />
+          <Route path="/create-account/complete" component={SignupFinal} title="" />
         </Switch>
-
-        {/* {renderRoutes(routes)} */}
       </div>
     </div>
   );

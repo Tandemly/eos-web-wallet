@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { TransferForm } from '../../components';
+import TransferForm from 'components/TransferForm';
 import { tryPostTransaction } from './reducer';
-// import { tryGetBalance } from '../BalanceContainer/reducer';
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   callAPI(values) {
@@ -10,9 +9,6 @@ const mapDispatchToProps = (dispatch, { history }) => ({
       history,
       ...values,
     }));
-  },
-  // TODO
-  updateAmount() {
   },
 });
 

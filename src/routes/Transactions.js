@@ -1,6 +1,6 @@
 import * as React from "react";
-import { TransactionsContainer } from '../containers';
 import { Helmet } from 'react-helmet';
+import Container from 'containers/Transactions';
 import Authenticated from './Authenticated';
 
 const Transactions = () => (
@@ -25,7 +25,7 @@ const Transactions = () => (
       </div>
       <div className="row">
         <div className="col-12">
-          <TransactionsContainer />
+          <Container />
         </div>
       </div>
     </div>

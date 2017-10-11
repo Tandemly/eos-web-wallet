@@ -1,7 +1,6 @@
 import * as React from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Icon } from '../../components';
 
 const User = ({
   className = 'meta',
@@ -52,10 +51,10 @@ const User = ({
         </span>}
       </div>
 
-      <Icon
+      {/* <Icon
         className={styles.icon}
         size={location ? Icon.small : Icon.large}
-      />
+      /> */}
 
       {status && <p className={styles.status}>{status}</p>}
     </div>

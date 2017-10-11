@@ -22,7 +22,8 @@ module.exports = {
   ],
   styleguideComponents: {
     Logo: path.join(__dirname, "src/styleguide/components/Logo.js"),
-    Wrapper: path.join(__dirname, 'src/util/component-utils/Wrapper.js')
+    Wrapper: path.join(__dirname, 'src/util/component-utils/Wrapper.js'),
+    Modal: path.join(__dirname, 'src/util/component-utils/Modal.js')
   },
   template: path.join(__dirname, "src/styleguide/template.html"),
   assetsDir: "",
@@ -49,11 +50,17 @@ module.exports = {
       components: "src/components/**/[A-Z]*.js",
       isolatedSection: true
     },
+    // TODO fix error with stack overflow
     // {
     //   name: "Containers",
     //   components: "src/containers/**/[A-Z]*.js",
     //   isolatedSection: true
     // },
+    {
+      name: "Routes",
+      components: "src/routes/**/[A-Z]*.js",
+      isolatedSection: true
+    },
     {
       name: "Utility",
       components: "src/util/**/[A-Z]*.js",

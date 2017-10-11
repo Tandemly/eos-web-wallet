@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
-import { BalanceContainer, TransactionsContainer } from '../containers';
+import Balance from "containers/Balance";
+import Transactions from "containers/Transactions";
 import Authenticated from './Authenticated';
 
 const Profile = () => (
@@ -29,7 +30,7 @@ const Profile = () => (
           </div>
           <div className="col-12 col-lg-4 mt-lg-0 mt-4">
             <div className="module snapshot text-lg-right text-left">
-              <BalanceContainer />
+              <Balance />
             </div>
           </div>
         </div>
@@ -50,7 +51,7 @@ const Profile = () => (
       </div>
       <div className="row">
         <div className="col-12">
-          <TransactionsContainer />
+          <Transactions />
         </div>
       </div>
     </div>

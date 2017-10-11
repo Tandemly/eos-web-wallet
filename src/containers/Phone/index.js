@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { PhoneForm } from 'components/PhoneForm';
+import PhoneForm from 'components/PhoneForm';
 import { tryPostPhone } from './reducer';
 
 const mapDispatchToProps = (dispatch, { history }) => ({

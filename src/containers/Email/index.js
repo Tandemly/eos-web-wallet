@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { EmailForm } from '../../../components';
-import { tryPostEmail } from '../reducer';
+import EmailForm from 'components/EmailForm';
+import { tryPostEmail } from './reducer';
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   callAPI(values) {
@@ -12,9 +12,9 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   },
 });
 
-const EmailContainer = connect(
+const Email = connect(
   null,
   mapDispatchToProps,
 )(EmailForm);
 
-export default withRouter(EmailContainer);
+export default withRouter(Email);

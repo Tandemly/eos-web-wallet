@@ -1,7 +1,7 @@
 import * as React from "react";
-import { PreferencesForm } from '../components';
 import { Helmet } from 'react-helmet';
-import Authenticated from './Authenticated';
+import PreferencesForm from 'components/PreferencesForm';
+import Authenticated from '../Authenticated';
 
 const Preferences = () => (
   <div className="profile">
