@@ -1,9 +1,7 @@
 import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
-// import validation
-// import mutation
 
-const ResetPassword = ({ handleSubmit }) => (
+const ResetPasswordForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <fieldset className="form-group">
       <label htmlFor="accountName">Account Name</label>
@@ -66,4 +64,4 @@ const ResetPassword = ({ handleSubmit }) => (
 
 export default reduxForm({
   form: 'resetPassword',
-})(ResetPassword);
+})(ResetPasswordForm);

@@ -22,7 +22,7 @@ module.exports = {
   ],
   styleguideComponents: {
     Logo: path.join(__dirname, "src/styleguide/components/Logo.js"),
-    //Wrapper: path.join(__dirname, 'src/components/Wrapper.js')
+    Wrapper: path.join(__dirname, 'src/util/component-utils/Wrapper.js')
   },
   template: path.join(__dirname, "src/styleguide/template.html"),
   assetsDir: "",
