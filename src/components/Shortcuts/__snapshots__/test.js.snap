@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Shortcuts /> renders without crashing 1`] = `
+<ul
+  className="-links"
+>
+  <li>
+    <a
+      aria-current="true"
+      className="col-link px-4 py-3 active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      <span
+        className="icon-eos_icons_transfer mr-2"
+      />
+      Transfer
+    </a>
+  </li>
+  <li>
+    <a
+      aria-current={false}
+      className="col-link px-4 py-3"
+      href="/transactions"
+      onClick={[Function]}
+      style={undefined}
+    >
+      <span
+        className="icon-eos_icons_history mr-2"
+      />
+      Transaction History
+    </a>
+  </li>
+  <li>
+    <a
+      aria-current={false}
+      className="col-link px-4 py-3"
+      href="/permissions"
+      onClick={[Function]}
+      style={undefined}
+    >
+      <span
+        className="icon-eos_icons_permissions mr-2"
+      />
+      Permissions
+    </a>
+  </li>
+  <li>
+    <a
+      aria-current={false}
+      className="col-link px-4 py-3"
+      href="/logout"
+      onClick={[Function]}
+      style={undefined}
+    >
+      <span
+        className="icon-eos_icons_logout mr-2"
+      />
+      Logout
+    </a>
+  </li>
+</ul>
+`;

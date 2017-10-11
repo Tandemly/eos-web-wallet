@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Balance /> renders without crashing 1`] = `
+<div
+  className="account-info logged-in p-4"
+>
+  <div
+    className="balance"
+  >
+    0.00 
+  </div>
+  <div
+    className="full_balance"
+    style={
+      Object {
+        "color": "#434b54",
+        "margin": "-.2rem 0 .5rem",
+      }
+    }
+  >
+    0
+  </div>
+  <div
+    className="change"
+  />
+</div>
+`;
