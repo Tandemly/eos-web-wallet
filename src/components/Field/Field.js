@@ -1,28 +1,29 @@
 import * as React from "react";
 
 const Field = ({ children, input, label, showErrors, type, meta: { touched, error }, ...props }) => (
-  <fieldset className={`form-group${error ? ' validation-error' : ''}`}>
-    <label htmlFor={input.name}>{label}</label>
+  <div className={`field${error ? ' validation-error' : ''}`}>
+    <label className="label" htmlFor={input.name}>{label}</label>
+    {/*
+    Needs to havd a conditional for the help class to add a <p> within the label
+    {difference && <div className="tag is-primary change">{symbol}{difference}</div>}
+    */}
 
-    <div className="input-container">
-      <div className={input.prefixed ? 'icon' : ''} />
-      <div className={input.prefixed ? 'input-prefix' : ''}>
-        <input
-          {...input}
-          {...props}
-          type={type}
-        />
+    <div className={`control${input.prefixed ? 'input-prefix' : ''}`}>
+      <input
+        {...input}
+        {...props}
+        type={type}
+      />
 
-        {showErrors && touched &&
-          error &&
-          <div className="error-message">
-            {error}
-          </div>}
-      </div>
+      {showErrors && touched &&
+        error &&
+        <div className="error-message">
+          {error}
+        </div>}
     </div>
 
     {children}
-  </fieldset>
+  </div>
 );
 
 export default Field;

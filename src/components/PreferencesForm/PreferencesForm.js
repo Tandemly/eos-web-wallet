@@ -1,73 +1,78 @@
 import * as React from "react";
+import { Field, reduxForm } from 'redux-form';
+import renderField from 'components/Field';
 
-const PreferencesForm = () => (
-  <form>
-    <fieldset className="form-group">
-      <label htmlFor="pictureURL">Picture URL</label>
-      <input
-        aria-describedby="pictureURL"
-        className="form-control form-control-lg"
-        name="pictureURL"
-        required
-        type="text"
-      />
-    </fieldset>
-
-    <fieldset className="form-group">
-      <label htmlFor="displayName">Display Name</label>
-      <input
-        aria-describedby="displayName"
-        className="form-control form-control-lg"
-        name="displayName"
-        required
-        type="text"
-      />
-    </fieldset>
-
-    <fieldset className="form-group">
-      <label htmlFor="about">About (150 Character Max)</label>
-      <input
-        aria-describedby="about"
-        className="form-control form-control-lg"
-        name="about"
-        required
-        type="text"
-      />
-    </fieldset>
-
-    <fieldset className="form-group">
-      <label htmlFor="location">Location</label>
-      <input
-        aria-describedby="location"
-        className="form-control form-control-lg"
-        name="location"
-        required
-        type="text"
-      />
-    </fieldset>
-
-    <fieldset className="form-group">
-      <label htmlFor="website">Website</label>
-      <input
-        aria-describedby="website"
-        className="form-control form-control-lg"
-        name="website"
-        required
-        type="text"
-      />
-    </fieldset>
-
-    <div className="row col-12 no-gutters p-0">
-      <div className="col-sm-auto col-12 pl-0 pr-0">
+const PreferencesForm = ({ 
+  callAPI,
+  handleSubmit,
+  submitting, }) => (
+  <form onSubmit={handleSubmit(callAPI)}>
+    <Field
+      aria-describedby="email"
+      className="input"
+      id="pictureURL"
+      label="Picture URL"
+      name="pictureURL"
+      required
+      component={renderField}
+      type="text"
+    />
+    <Field
+      aria-describedby="displayName"
+      className="input"
+      id="displayName"
+      label="Display Name"
+      name="displayName"
+      required
+      component={renderField}
+      type="text"
+    />
+    <Field
+      aria-describedby="about"
+      className="input"
+      id="about"
+      label="About (150 Character Max)"
+      name="about"
+      required
+      component={renderField}
+      type="text"
+    />
+    <Field
+      aria-describedby="location"
+      className="input"
+      id="location"
+      label="Location"
+      name="location"
+      required
+      component={renderField}
+      type="text"
+    />
+    <Field
+      aria-describedby="website"
+      className="input"
+      id="website"
+      label="Website"
+      name="website"
+      required
+      component={renderField}
+      type="text"
+    />
+    <div className="field u-mt4">
+      <div className="control">
         <button
-          className="btn btn-primary btn-lg btn-block"
+          disabled={submitting}
+          className="button is-large is-primary"
           type="submit"
         >
-          Update Information
+          {submitting ? 'Submitting...' : 'Update Information'}
         </button>
       </div>
     </div>
   </form>
 );
 
-export default PreferencesForm;
+export default reduxForm({
+  form: 'sign-up',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true,
+})(PreferencesForm);
