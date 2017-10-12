@@ -2,7 +2,7 @@
 import * as React from "react";
 import cx from "classnames";
 import css from "./styles.module.scss";
-import { Toggle } from "../../util/component-utils";
+import { Toggle } from "util/component-utils";
 import NavbarMenuToggle from "./NavbarMenuToggle";
 
 console.log("styles:", css);
