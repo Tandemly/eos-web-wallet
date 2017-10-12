@@ -2,6 +2,15 @@ import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
 import renderField from 'components/Field';
 
+const Label = () => (
+  <p>
+    Current Password
+    <span className="help">
+      <a>Regenerate Password</a>
+    </span>
+  </p>
+);
+
 const ResetPasswordForm = ({ 
   callAPI,
   handleSubmit,
@@ -21,21 +30,12 @@ const ResetPasswordForm = ({
       aria-describedby="currentPassword"
       className="input"
       id="currentPassword"
-      label="Current Password"
+      label={<Label />}
       name="currentPassword"
       required
       component={renderField}
       type="text"
     />
-    <div className="row col-12 no-gutters p-0 mb-3">
-      <div className="col-sm-auto col-12 pl-0 pr-0">
-        <button
-          className="btn btn-secondary btn-lg btn-block"
-          type="submit"
-        >Regenerate Password
-        </button>
-      </div>
-    </div>
     <div className="field u-mt4">
       <div className="control">
         <button

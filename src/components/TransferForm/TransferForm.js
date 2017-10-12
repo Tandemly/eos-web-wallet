@@ -6,6 +6,15 @@ const numbersOnly = (value, previousValue) => (
   /^\d*\.?\d*?$/.test(value) ? value : previousValue
 );
 
+const Label = () => (
+  <p>
+    Amount
+    <span className="help">
+      <a>Use Full Balance</a>
+    </span>
+  </p>
+);
+
 const TransferForm = ({
   callAPI,
   handleSubmit,
@@ -23,11 +32,12 @@ const TransferForm = ({
       component={renderField}
       type="text"
     />
+
     <Field
       aria-describedby="amount"
       className="input"
       id="amount"
-      label="Amount"
+      label={<Label />}
       name="amount"
       normalize={numbersOnly}
       pattern="^[0-9.]*$"
@@ -35,12 +45,6 @@ const TransferForm = ({
       component={renderField}
       type="text"
     />
-    {/* TODO review this feature, this should require verification */}
-    <div>
-      <small className="form-text text-muted">
-        <a onClick={updateAmount}>Use Full Balance</a>
-      </small>
-    </div>
 
     <Field
       aria-describedby="memo"

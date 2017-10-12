@@ -16,7 +16,7 @@ const Transfer = () => (
             </div>
           </div>
           <div className="field">
-            <label className="label" htmlFor="amount">Amount<p className="help"><a>Use Full Balance</a></p></label>
+            <label className="label" htmlFor="amount"><p>Amount<a className="help">Use Full Balance</a></p></label>
             <div className="control">
               <input type="text" name="amount" className="input" />
             </div>
@@ -38,7 +38,7 @@ const Transfer = () => (
         </form>
       </section>
       <section>
-        <h3 className="title is-3">Transaction History<p className="help"><a>See All</a></p></h3>
+        <h3 className="title is-3"><p>Transaction History<span className="help"><a>See All</a></span></p></h3>
 
         <Transactions data={transactions} />
         

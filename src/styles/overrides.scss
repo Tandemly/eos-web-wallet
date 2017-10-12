@@ -19,8 +19,10 @@ body,
 .label
 {
   color: white;
-  display: table;
-  width: 100%
+  p {
+    display: table;
+    width: 100%;
+  }
 }
 
 .title.is-1 {
@@ -52,6 +54,11 @@ body,
 .subtitle {
   color: white;
   font-weight: bold;
+}
+
+.help {
+  display: table-cell;
+  text-align: right;
 }
 
 .button {
@@ -253,11 +260,6 @@ main {
       color: darken($orange, 2%);
     }
   }
-}
-
-.help {
-  display: table-cell;
-  text-align: right;
 }
 
 // Narrow Column
