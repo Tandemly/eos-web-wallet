@@ -21,10 +21,10 @@ The color palette
     <div className="column is-one-quarter"><Swatch color="dark" /></div>
   </div>
   <div className="columns">
-    <div className="column is-one-quarter"><Swatch color="bg-grey-100" /></div>
-    <div className="column is-one-quarter"><Swatch color="bg-grey-80" /></div>
-    <div className="column is-one-quarter"><Swatch color="bg-grey-60" /></div>
-    <div className="column is-one-quarter"><Swatch color="bg-grey-40" /></div>
+    <div className="column is-one-quarter"><Swatch color="grey-100" /></div>
+    <div className="column is-one-quarter"><Swatch color="grey-80" /></div>
+    <div className="column is-one-quarter"><Swatch color="grey-60" /></div>
+    <div className="column is-one-quarter"><Swatch color="grey-40" /></div>
   </div>
 </div>
 ```

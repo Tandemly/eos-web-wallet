@@ -27,6 +27,7 @@ $grey-40-inverse: findColorInvert($grey-40);
 $additional-colors: (
   "secondary": ($secondary, $secondary-inverse),
   "accent": ($accent, $accent-inverse),
+  "accent-inverse": ($accent-inverse, $accent),
   "grey-100": ($grey-100, $grey-100-inverse),
   "grey-80": ($grey-80, $grey-80-inverse),
   "grey-60": ($grey-60, $grey-60-inverse),
