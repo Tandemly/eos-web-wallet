@@ -2,20 +2,20 @@ Icon example using Icomoon. Custom font files can be made at <a target="_blank" 
 
 ```js
 <div>
-  <Icon icon="icon-check-circle"/>
-  <Icon icon="icon-list-ul"/>
-  <Icon icon="icon-envelope"/>
-  <Icon icon="icon-plus"/>
-  <Icon icon="icon-navicon" className="text-primary"/>
-  <Icon icon="icon-forward" className="text-secondary"/>
+  <Icon icon="icon-edit"/>
+  <Icon icon="icon-export"/>
+  <Icon icon="icon-history"/>
+  <Icon icon="icon-permissions"/>
+  <Icon icon="icon-loader" className="text-primary"/>
+  <Icon icon="icon-logout" className="text-secondary"/>
 </div>
 ```
 
 ```js
 <div className="button-example">
-  <Button className="is-primary icon-navicon" />
-  <Button text={'Navigation'} className="is-primary icon-navicon" />
-  <Button text={'Navigation'} className="is-light icon-navicon" />
+  <Button className="is-primary icon-menu" />
+  <Button text={'Navigation'} className="is-primary icon-menu" />
+  <Button text={'Navigation'} className="is-light icon-menu" />
 </div>
 ```
 
