@@ -1,13 +1,11 @@
 import * as React from "react";
+import Balance from "containers/Balance";
 
 const Menu = () => (
   <aside className="menu p-lg">
     <div className="-is-logged-in">
-      <div className="financials u-p3">
-        <p className="title is-1 balance">2.34<span>B</span></p>
-        <p className="subtitle is-6 full-balance">1,000,000.0080</p>
-        <span className="tag is-primary change"><span className="icon-increase"></span>27,600</span>
-      </div>
+      <Balance />
+
       <ul className="menu-list">
         <li>
           <a href="/" className="is-active"><span className="icon-transfer u-mr1"></span>Transfer</a>

@@ -5,13 +5,20 @@ import App from "containers/App";
 import Loading from "containers/Loading";
 import { configureStore } from "util/configureStore";
 
+import store from "fixtures/store";
+
 class Bootloader extends Component {
   state = {
     store: null
   };
 
   async componentWillMount() {
-    const store = await configureStore();
+    const store = await configureStore(
+      process.env.NODE_ENV === "development" ? store : {}
+    );
+
+    console.log(store.getState());
+
     this.setState({ store });
   }
 
