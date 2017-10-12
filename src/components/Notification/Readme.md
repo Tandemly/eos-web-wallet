@@ -6,7 +6,7 @@ let notification = {
   status: "error",
 }
 
-<div className="notification-example">
+<Background className="notification-example">
   <Notification {...notification} />
-</div>
+</Background>
 ```

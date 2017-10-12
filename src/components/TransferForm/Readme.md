@@ -3,11 +3,11 @@ Transfer form example:
 ```js
 const noop = () => {};
 
-<div className="header-example">
+<Background className="transfer-form-example content">
   <DisplayRedux>
     <DisplayReactRouter>
       <TransferForm callAPI={noop} />
     </DisplayReactRouter>
   </DisplayRedux>
-</div>
+</Background>
 ```

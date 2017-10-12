@@ -1,6 +1,6 @@
 import * as React from "react";
 import Transactions from "containers/Transactions";
-import stub from "containers/Transactions/stub";
+import transactions from "fixtures/transactions";
 
 const Transfer = () => (
   <div className="columns is-desktop content is-variable is-6">
@@ -40,7 +40,7 @@ const Transfer = () => (
       <section>
         <h3 className="title is-3">Transaction History<p className="help"><a>See All</a></p></h3>
 
-        <Transactions data={stub} />
+        <Transactions data={transactions} />
         
         <div className="control u-mt4">
           <button className="button is-large is-primary">View All</button>

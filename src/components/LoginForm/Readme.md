@@ -1,12 +1,13 @@
 Login form example:
 
 ```js
+const noop = () => {};
 
-<div className="login-form-example">
+<Background className="login-form-example content">
   <DisplayRedux>
     <DisplayReactRouter>
-      <LoginForm />
+      <LoginForm callAPI={noop} />
     </DisplayReactRouter>
   </DisplayRedux>
-</div>
+</Background>
 ```

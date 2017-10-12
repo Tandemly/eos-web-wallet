@@ -3,11 +3,11 @@ A Header example:
 ```js
 const noop = () => {};
 
-<div className="header-example">
+<Background className="header-example">
   <DisplayRedux>
     <DisplayReactRouter>
       <PhoneForm callAPI={noop} />
     </DisplayReactRouter>
   </DisplayRedux>
-</div>
+</Background>
 ```

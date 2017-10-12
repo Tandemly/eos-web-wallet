@@ -3,11 +3,11 @@ Prefrences form example:
 ```js
 const noop = () => {};
 
-<div className="prefrences-form-example">
+<Background className="prefrences-form-example content">
   <DisplayRedux>
     <DisplayReactRouter>
       <PreferencesForm callAPI={noop} />
     </DisplayReactRouter>
   </DisplayRedux>
-</div>
+</Background>
 ```

@@ -1,13 +1,13 @@
-Reset Password form example:
+Users example:
 
 ```js
 const noop = () => {};
 
-<Background className="header-example content">
+<Background className="users-example content">
   <DisplayRedux>
     <DisplayReactRouter>
       <ErrorBoundary>
-        <ResetPasswordForm callAPI={noop} />
+        <Users callAPI={noop} />
       </ErrorBoundary>
     </DisplayReactRouter>
   </DisplayRedux>
