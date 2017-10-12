@@ -4,6 +4,8 @@ A list of shortcuts example:
 
 
 <div className="shortcuts-example">
-  <Shortcuts renderItem={Shortcut2} />
+  <DisplayReactRouter>
+    <Shortcuts />
+  </DisplayReactRouter>
 </div>
 ```

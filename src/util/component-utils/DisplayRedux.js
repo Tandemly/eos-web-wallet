@@ -4,7 +4,7 @@ import { configureStore } from "util/configureStore";
 
 const store = configureStore();
 
-class Wrapper extends React.Component {
+class DisplayRedux extends React.Component {
   render() {
     return (
       <Provider store={store}>
@@ -14,4 +14,4 @@ class Wrapper extends React.Component {
   }
 }
 
-export default Wrapper;
+export default DisplayRedux;

@@ -9,6 +9,11 @@ import Footer from "components/Footer";
 import Menu from "components/Menu";
 import Transfer from "routes/Transfer";
 import Modal from "util/component-utils/Modal";
+import {
+  toggleMenu,
+  closeMenu,
+  routeLoad
+} from "./actions";
 
 import "./App.scss";
 
@@ -61,7 +66,11 @@ class App extends React.Component {
           </div>
     
           <div className="column">
-            <div className="menu-closer" role="button" tabIndex="0" />
+            <div  
+              onClick={closeMenu}
+              className="menu-closer"
+              role="button"
+              tabIndex="0" />
 
             <Transfer />
     
