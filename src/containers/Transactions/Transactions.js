@@ -1,16 +1,13 @@
 import * as React from "react";
-import Transaction from "./";
+import Transaction from "./Transaction";
 import List from "components/List";
-
-import stub from "containers/Transactions/stub";
 
 type PropTypes = {
   data: Array<any>,
 };
 
-const Transactions = ({ data = stub }: PropTypes) => (
+const Transactions = ({ data = [] }: PropTypes) => (
   <div>
-    {console.log(data)}
     <List
       data={data}
       renderItem={Transaction} />
