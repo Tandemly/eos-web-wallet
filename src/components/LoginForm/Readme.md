@@ -3,8 +3,10 @@ Login form example:
 ```js
 
 <div className="login-form-example">
-  <Wrapper>
-    <LoginForm />
-  </Wrapper>
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <LoginForm />
+    </DisplayReactRouter>
+  </DisplayRedux>
 </div>
 ```

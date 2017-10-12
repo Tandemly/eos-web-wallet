@@ -22,7 +22,9 @@ module.exports = {
   ],
   styleguideComponents: {
     Logo: path.join(__dirname, "src/styleguide/components/Logo.js"),
-    Wrapper: path.join(__dirname, 'src/util/component-utils/Wrapper.js'),
+    DisplayRedux: path.join(__dirname, 'src/util/component-utils/DisplayRedux.js'),
+    DisplayReactRouter: path.join(__dirname, 'src/util/component-utils/DisplayReactRouter.js'),
+    ErrorBoundary: path.join(__dirname, 'src/containers/ErrorBoundary.js'),
     Modal: path.join(__dirname, 'src/util/component-utils/Modal.js')
   },
   template: path.join(__dirname, "src/styleguide/template.html"),
@@ -50,12 +52,11 @@ module.exports = {
       components: "src/components/**/[A-Z]*.js",
       isolatedSection: true
     },
-    // TODO fix error with stack overflow
-    // {
-    //   name: "Containers",
-    //   components: "src/containers/**/[A-Z]*.js",
-    //   isolatedSection: true
-    // },
+    {
+      name: "Containers",
+      components: "src/containers/**/[A-Z]*.js",
+      isolatedSection: true
+    },
     // {
     //   name: "Routes",
     //   components: "src/routes/**/[A-Z]*.js",

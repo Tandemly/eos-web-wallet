@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { Router, Route } from "react-router-dom";
-import App from "../App";
-import configureStore from "./configureStore";
+import App from "containers/App";
+import Loading from "containers/Loading";
+import { configureStore } from "util/configureStore";
 
 class Bootloader extends Component {
   state = {
@@ -19,24 +20,7 @@ class Bootloader extends Component {
     const { store } = this.state;
 
     if (!store) {
-      const styles = {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        width: "100%",
-        minHeight: "100vh"
-      };
-
-      return (
-        <div style={styles}>
-          <div>
-            <img alt="" className="logo" src="images/logo.svg" />
-          </div>
-
-          <h2>Loading EOS Wallet App</h2>
-        </div>
-      );
+      return <Loading />;
     }
 
     return (

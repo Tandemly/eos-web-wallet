@@ -4,8 +4,12 @@ Reset Password form example:
 const noop = () => {};
 
 <div className="header-example">
-  <Wrapper>
-    <ResetPasswordForm callAPI={noop} />
-  </Wrapper>
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <ErrorBoundary>
+        <ResetPasswordForm callAPI={noop} />
+      </ErrorBoundary>
+    </DisplayReactRouter>
+  </DisplayRedux>
 </div>
 ```

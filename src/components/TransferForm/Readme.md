@@ -4,8 +4,10 @@ Transfer form example:
 const noop = () => {};
 
 <div className="header-example">
-  <Wrapper>
-    <TransferForm callAPI={noop} />
-  </Wrapper>
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <TransferForm callAPI={noop} />
+    </DisplayReactRouter>
+  </DisplayRedux>
 </div>
 ```
