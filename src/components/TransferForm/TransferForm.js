@@ -15,60 +15,60 @@ const TransferForm = ({
   <form onSubmit={handleSubmit(callAPI)}>
     <Field
       aria-describedby="to"
-      className="form-control form-control-lg prefix"
-      component={renderField}
+      className="input prefix"
       id="to"
       label="To"
       name="to"
+      required
+      component={renderField}
       type="text"
     />
-
     <Field
       aria-describedby="amount"
-      className="form-control form-control-lg"
-      component={renderField}
+      className="input"
       id="amount"
       label="Amount"
       name="amount"
       normalize={numbersOnly}
       pattern="^[0-9.]*$"
       required
+      component={renderField}
       type="text"
-    >
-      {/* TODO review this feature, this should require verification */}
-      <div>
-        <small className="form-text text-muted">
-          <a onClick={updateAmount}>Use Full Balance</a>
-        </small>
-      </div>
-    </Field>
-
+    />
+    {/* TODO review this feature, this should require verification */}
+    <div>
+      <small className="form-text text-muted">
+        <a onClick={updateAmount}>Use Full Balance</a>
+      </small>
+    </div>
 
     <Field
       aria-describedby="memo"
-      className="form-control form-control-lg"
-      component={renderField}
+      className="input"
       id="memo"
       label="Memo"
       name="memo"
+      component={renderField}
       type="text"
     />
 
-    <div className="row col-12 no-gutters p-0">
-      <div className="col-sm-auto col-6 pl-0 pr-2">
+    <div class="field is-grouped u-mt4">
+      <div class="control">
         <button
-          className="btn btn-primary btn-lg btn-block px-0 px-sm-5"
-          type="submit"
           disabled={submitting}
-        >{submitting ? 'Submitting...' : 'Submit'}
+          className="button is-large is-primary"
+          type="submit"
+        >
+          {submitting ? 'Submitting...' : 'Submit'}
         </button>
       </div>
-      <div className="col-sm-auto col-6 pl-2 pr-0">
+      <div class="control">
         <button
-          className="btn btn-secondary btn-lg btn-block px-0 px-sm-5"
-          onClick={reset}
-          type="button"
-        >Clear
+          disabled={submitting}
+          className="button is-large is-secondary"
+          type="submit"
+        >
+          {submitting ? 'Clearing...' : 'Clear'}
         </button>
       </div>
     </div>
