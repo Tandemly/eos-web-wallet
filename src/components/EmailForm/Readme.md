@@ -4,8 +4,10 @@ Email form example:
 const noop = () => {};
 
 <div className="email-form-example">
-  <Wrapper>
-    <EmailForm callAPI={noop} />
-  </Wrapper>
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <EmailForm callAPI={noop} />
+    </DisplayReactRouter>
+  </DisplayRedux>
 </div>
 ```

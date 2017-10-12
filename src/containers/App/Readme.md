@@ -1,7 +1,9 @@
 App example: 
 
 ```js
-<Wrapper>
-  <App/>
-</Wrapper>
+<DisplayRedux>
+  <DisplayReactRouter>
+    <App/>
+  </DisplayReactRouter>
+</DisplayRedux>
 ```

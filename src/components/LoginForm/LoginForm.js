@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import renderField from 'components/Field';
 
-const Login = ({
+const LoginForm = ({
   callAPI,
   handleSubmit,
   handleClose,
@@ -76,4 +76,4 @@ const Login = ({
 
 export default reduxForm({
   form: 'login',
-})(Login);
+})(LoginForm);

@@ -52,8 +52,8 @@ const TransferForm = ({
       type="text"
     />
 
-    <div class="field is-grouped u-mt4">
-      <div class="control">
+    <div className="field is-grouped u-mt4">
+      <div className="control">
         <button
           disabled={submitting}
           className="button is-large is-primary"
@@ -62,7 +62,7 @@ const TransferForm = ({
           {submitting ? 'Submitting...' : 'Submit'}
         </button>
       </div>
-      <div class="control">
+      <div className="control">
         <button
           disabled={submitting}
           className="button is-large is-secondary"

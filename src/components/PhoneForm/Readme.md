@@ -2,8 +2,10 @@ A Header example:
 
 ```js
 <div className="header-example">
-  <Wrapper>
-    <PhoneForm />
-  </Wrapper>
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <PhoneForm />
+    </DisplayReactRouter>
+  </DisplayRedux>
 </div>
 ```

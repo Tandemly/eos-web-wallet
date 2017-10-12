@@ -5,8 +5,9 @@ const Shortcut = ({
   className = 'col-link px-4 py-3',
   iconClass,
   text,
+  key,
   ...props }) => (
-  <li>
+  <li key={key}>
     <NavLink
       className={className}
       exact
