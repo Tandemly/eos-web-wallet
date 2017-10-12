@@ -1,7 +1,7 @@
 A Footer example:
 
 ```js
-<Background className="footer-example">
+<Background className="footer-example content">
   <Footer />
 </Background>
 ```

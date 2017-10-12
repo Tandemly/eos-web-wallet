@@ -6,9 +6,9 @@ Basic navigation bar for the home page:
         transparent 
         renderLogo={() => <NavbarLogo img="/tandemly-full-logo-black-white.svg" alt="Tandem.ly Logo" href="http://tandem.ly" />}
         renderLeftMenu={() => [
-            <NavbarLink>One</NavbarLink>
-            <NavbarLink>Two</NavbarLink>
-            <NavbarLink className="is-active">Three</NavbarLink>
+            <NavbarLink>One</NavbarLink>,
+            <NavbarLink>Two</NavbarLink>,
+            <NavbarLink className="is-active">Three</NavbarLink>,
         ]}
     />
 </div>
