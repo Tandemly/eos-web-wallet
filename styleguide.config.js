@@ -50,12 +50,11 @@ module.exports = {
       components: "src/components/**/[A-Z]*.js",
       isolatedSection: true
     },
-    // TODO fix error with stack overflow
-    // {
-    //   name: "Containers",
-    //   components: "src/containers/**/[A-Z]*.js",
-    //   isolatedSection: true
-    // },
+    {
+      name: "Containers",
+      components: "src/containers/**/[A-Z]*.js",
+      isolatedSection: true
+    },
     // {
     //   name: "Routes",
     //   components: "src/routes/**/[A-Z]*.js",

@@ -1,5 +1,7 @@
 App example: 
 
 ```js
-<App/>
+<Wrapper>
+  <App/>
+</Wrapper>
 ```
