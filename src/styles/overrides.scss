@@ -63,6 +63,14 @@ body,
   }
 }
 
+.input {
+  height: 50px;
+}
+
+.input, .textarea {
+  border-radius: 3px;
+}
+
 main {
   background-color: $grey-main;
 }
@@ -231,14 +239,6 @@ main {
   .label:not(:last-child) {
     margin-bottom: 0.125rem;
   }
-  
-  .input {
-    height: 50px;
-  }
-  
-  .input, .textarea {
-    border-radius: 3px;
-  }
 
   .field:not(:last-child) {
     margin-bottom: 1.5rem;
@@ -300,12 +300,12 @@ main {
         content: "";
         height: 1px;
         width: 100%;
-        background: linear-gradient(to right, $bg-grey-40, #5B6168);
+        background: linear-gradient(to right, $grey-40, #5B6168);
       }
       a {
         text-transform: capitalize;
         &:after {
-          background: linear-gradient(to right, $bg-grey-40, #5B6168);
+          background: linear-gradient(to right, $grey-40, #5B6168);
         }
         &:hover {
           background-color: darken($grey-light, 2%);
@@ -314,7 +314,7 @@ main {
     }
   }
   .menu-list {
-    box-shadow: inset 0px 10px 10px -5px rgba($bg-grey-80,0.3);
+    box-shadow: inset 0px 10px 10px -5px rgba($grey-80,0.3);
     li {
       position: relative;
       a {
@@ -331,7 +331,7 @@ main {
           content: "";
           height: 1px;
           width: 100%;
-          background: linear-gradient(to right, $bg-grey-60, #4B5259);
+          background: linear-gradient(to right, $grey-60, #4B5259);
         }
         span {
           color: $primary;
