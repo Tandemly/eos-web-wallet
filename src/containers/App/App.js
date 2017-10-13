@@ -7,10 +7,10 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Menu from "components/Menu";
-import Modal from "util/component-utils/Modal";
+import Modal from "components/Modal";
 
-// import Login from "routes/Login";
-// import Signup from "routes/Signup";
+import Login from "routes/Login";
+import Signup from "routes/Signup";
 import About from "routes/About";
 import Faq from "routes/Faq";
 import Transfer from "routes/Transfer";
@@ -21,7 +21,6 @@ import Permissions from "routes/Permissions";
 import Preferences from "routes/Preferences";
 import NoMatch from "routes/NoMatch";
 
-
 import {
   toggleMenu,
   closeMenu,
@@ -29,6 +28,19 @@ import {
 } from "./actions";
 
 import "./App.scss";
+
+const renderModalRoutes = () => (
+  <Switch>
+    <Route path="/login" component={Login} />
+    <Route path="/signup" component={Signup} />
+  </Switch>
+);
+
+const modalRoutes = [
+  'login',
+  'sigup',
+  'connect-account'
+];
 
 class App extends React.Component {
   constructor(props, context) {
@@ -60,12 +72,10 @@ class App extends React.Component {
   }
 
   render() {
-    const {
-      isModalOpen,
-    } = this.props;
-    const renderRoute = () => {};
+    const { history: { location } } = this.props;
+    console.log(location);
     const handleModalClose = this.handleModalClose.bind(this);
-    // const isModal = modalRoutes.some(({ path }) => new RegExp(path).test(location.pathname));
+    const isModalOpen = modalRoutes.some(({ path }) => new RegExp(path).test(location.pathname));
 
     return (
       <main>
@@ -106,7 +116,7 @@ class App extends React.Component {
         <Modal
           isOpen={isModalOpen}
           onClose={handleModalClose}
-          renderRoute={renderRoute} />
+          renderRoute={renderModalRoutes} />
       </main>
     );
   }

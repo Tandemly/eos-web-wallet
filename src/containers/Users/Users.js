@@ -4,8 +4,10 @@ import Link from "react-router-dom";
 import List from "components/List";
 import User from "./User";
 
-const mapStateToProps = ({ users: { all } }) => ({
-  data: all,
+import users from "fixtures/users";
+
+const mapStateToProps = () => ({
+  data: users,
   renderItem: User,
 });
 

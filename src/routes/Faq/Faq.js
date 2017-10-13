@@ -2,23 +2,15 @@ import * as React from "react";
 import { Helmet } from 'react-helmet';
 
 const Faq = () => (
-  <div>
+  <div className="content">
     <Helmet>
       <title>FAQs</title>
     </Helmet>
 
-    <div className="container-full">
-      <div>
-        <div>
-          <h2>FAQs</h2>
-        </div>
-      </div>
+    <h2>FAQs</h2>
 
-      <div className="row">
-        <div className="col-12">
-          Content
-        </div>
-      </div>
+    <div className="col-12">
+      Content
     </div>
   </div>
 );
