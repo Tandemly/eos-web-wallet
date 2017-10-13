@@ -3,12 +3,25 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Menu from "components/Menu";
-import Transfer from "routes/Transfer";
 import Modal from "util/component-utils/Modal";
+
+// import Login from "routes/Login";
+// import Signup from "routes/Signup";
+import About from "routes/About";
+import Faq from "routes/Faq";
+import Transfer from "routes/Transfer";
+import Transactions from "routes/Transactions";
+import Users from "routes/Users";
+import Profile from "routes/Profile";
+import Permissions from "routes/Permissions";
+import Preferences from "routes/Preferences";
+import NoMatch from "routes/NoMatch";
+
+
 import {
   toggleMenu,
   closeMenu,
@@ -72,12 +85,24 @@ class App extends React.Component {
               role="button"
               tabIndex="0" />
 
-            <Transfer />
+            <Switch>
+              <Route path="/about" component={About} />
+              <Route path="/faq" component={Faq} />
+              <Route path="/" exact component={Transfer} />
+              <Route path="/transactions" component={Transactions} />
+              <Route path="/users" component={Users} />
+              <Route path="/user/:id" component={Profile} />
+              <Route path="/permissions" component={Permissions} />
+              <Route path="/preferences" component={Preferences} />
+              <Route path="*" component={NoMatch} />
+            </Switch>
     
             <Footer />
           </div>
         </section>
     
+        {/* <Route path="/login" exact component={Login} /> */}
+        {/* <Route path="/signup" exact component={Signup} /> */}
         <Modal
           isOpen={isModalOpen}
           onClose={handleModalClose}

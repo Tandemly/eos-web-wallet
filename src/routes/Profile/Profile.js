@@ -2,9 +2,8 @@ import * as React from "react";
 import { Helmet } from 'react-helmet';
 import Balance from "containers/Balance";
 import Transactions from "containers/Transactions";
-import Authenticated from './Authenticated';
 
-const Profile = () => (
+const Profile = ({ account_name }) => (
   <div>
     <Helmet>
       <title>Profile</title> {/* TODO: Show name of user here instead */}
@@ -30,7 +29,9 @@ const Profile = () => (
           </div>
           <div className="col-12 col-lg-4 mt-lg-0 mt-4">
             <div className="module snapshot text-lg-right text-left">
-              <Balance />
+              <Balance
+                account_name={account_name}
+              />
             </div>
           </div>
         </div>
@@ -51,11 +52,14 @@ const Profile = () => (
       </div>
       <div className="row">
         <div className="col-12">
-          <Transactions />
+          <Transactions
+            account_name={account_name}
+            count={5}
+          />
         </div>
       </div>
     </div>
   </div>
 );
 
-export default Authenticated(Profile);
+export default Profile;

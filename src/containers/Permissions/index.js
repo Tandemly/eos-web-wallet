@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Keystore } from '../../components';
+
 
 /* eslint-disable camelcase */
 const mapStateToProps = ({ errors, login: { user } }) => ({
@@ -11,6 +11,6 @@ const mapStateToProps = ({ errors, login: { user } }) => ({
 
 const KeystoreContainer = connect(
   mapStateToProps,
-)(Keystore);
+)();
 
 export default KeystoreContainer;

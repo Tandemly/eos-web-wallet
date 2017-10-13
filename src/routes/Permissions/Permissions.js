@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
-import ResetPasswordForm from 'components/ResetPasswordForm';
-import Authenticated from '../Authenticated';
+// import ResetPasswordForm from 'components/ResetPasswordForm';
 
 const Permissions = () => (
   <div>
@@ -15,13 +14,11 @@ const Permissions = () => (
         </div>
       </div>
 
-
-
       <div className="section">
         <h3>Reset Password</h3>
         <div className="row">
           <div className="col-12 col-lg-6">
-            <ResetPasswordForm />
+
           </div>
         </div>
       </div>
@@ -29,6 +26,4 @@ const Permissions = () => (
   </div>
 );
 
-export { Permissions };
-
-export default Authenticated(Permissions);
+export default Permissions;

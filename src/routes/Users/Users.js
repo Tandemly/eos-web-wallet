@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
-import _Users from "containers/Users";
-import Authenticated from './Authenticated';
+import Container from "containers/Users";
 
 const Users = () => (
   <div>
@@ -24,11 +23,11 @@ const Users = () => (
       </div>
       <div className="row">
         <div className="col-12">
-          <_Users />
+          <Container />
         </div>
       </div>
     </div>
   </div>
 );
 
-export default Authenticated(Users);
+export default Users;

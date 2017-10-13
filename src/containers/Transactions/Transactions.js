@@ -6,6 +6,7 @@ type PropTypes = {
   data: Array<any>,
 };
 
+// TODO add paging
 const Transactions = ({ data = [] }: PropTypes) => (
   <div>
     <List
