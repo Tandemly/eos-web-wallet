@@ -11,7 +11,6 @@ const LoginForm = ({
   submitting,
   accountName, }) => (
   <form onSubmit={handleSubmit(callAPI)}>
-    <p className={`${!modal && 'd-none'}`}>This operation requires your Active Key or Master password.</p>
     
     <Field
       aria-describedby="account_name"
@@ -37,19 +36,9 @@ const LoginForm = ({
       type="password"
     />
 
-    <Field
-      aria-describedby="logged_in"
-      className="checkbox"
-      component={renderField}
-      id="logged_in"
-      label=" Keep me logged in"
-      name="logged_in"
-      type="checkbox"
-    />
-
     <div className="field">
       <div className="control">
-        <label className="checkbox"><input type="checkbox" /> Keep me logged in</label>
+        <label className="label"><input type="checkbox" /> Keep me logged in</label>
       </div>
     </div>
 
