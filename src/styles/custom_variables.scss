@@ -5,8 +5,8 @@
 $primary: #4b9af5;
 $secondary: #6a7e95;
 $secondary-inverse: findColorInvert($secondary);
-$accent: #d75f4c;
-$accent-inverse: findColorInvert($accent);
+$orange: #d75f4c;
+$orange-inverse: findColorInvert($orange);
 $grey-text: #bbbbbb;
 $grey-dark: #3a4249;
 $grey-mid: #575f68;
@@ -14,7 +14,9 @@ $grey-light: #69727c;
 $grey-main: #434b54;
 $orange: #d75f4c;
 $green: #bedf5d;
+$green-inverse: findColorInvert($green);
 $red: #ba303e;
+$red-inverse: findColorInvert($red);
 $grey-100: #3a4249;
 $grey-100-inverse: findColorInvert($grey-100);
 $grey-80: #434B54;
@@ -26,8 +28,9 @@ $grey-40-inverse: findColorInvert($grey-40);
 
 $additional-colors: (
   "secondary": ($secondary, $secondary-inverse),
-  "accent": ($accent, $accent-inverse),
-  "accent-inverse": ($accent-inverse, $accent),
+  "orange": ($orange, $orange-inverse),
+  "green": ($green, $green-inverse),
+  "red": ($red, $red-inverse),
   "grey-100": ($grey-100, $grey-100-inverse),
   "grey-80": ($grey-80, $grey-80-inverse),
   "grey-60": ($grey-60, $grey-60-inverse),
