@@ -21,6 +21,7 @@ const LoginForm = ({
       label="Account Name"
       name="account_name"
       required
+      prefixed
       type="text"
       value={accountName}
     />

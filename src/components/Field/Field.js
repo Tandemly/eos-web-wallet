@@ -8,7 +8,7 @@ const Field = ({ children, input, label, prefixed, showErrors, type, meta: { tou
     {difference && <div className="tag is-primary change">{symbol}{difference}</div>}
     */}
 
-    <div className={`control${prefixed ? 'input-prefix' : ''}`}>
+    <div className={`control ${prefixed ? 'input-prefix' : ''}`}>
       <input
         {...input}
         {...props}

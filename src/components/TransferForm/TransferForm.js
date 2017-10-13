@@ -24,11 +24,12 @@ const TransferForm = ({
   <form onSubmit={handleSubmit(callAPI)}>
     <Field
       aria-describedby="to"
-      className="input prefix"
+      className="input"
       id="to"
       label="To"
       name="to"
       required
+      prefixed
       component={renderField}
       type="text"
     />
