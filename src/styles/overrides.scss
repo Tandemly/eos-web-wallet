@@ -283,8 +283,14 @@ main {
   @include tablet-only {
     width: 210px;
   }
+
   .menu-list {
     box-shadow: inset 0px 10px 10px -5px rgba($grey-80,0.3);
+
+    li & {
+      padding: 0;
+    }
+
     li {
       position: relative;
       a {
