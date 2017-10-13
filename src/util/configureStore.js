@@ -3,18 +3,31 @@ import { persistStore, autoRehydrate } from 'redux-persist';
 // import middlewares from './middleware';
 // import { reducers } from './containers';
 
-const initialState = {};
+import { combineReducers } from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form';
+import { reducer as account } from 'containers/Balance/reducer';
+import { reducer as login } from 'containers/Login/reducer';
+import { reducer as notification } from 'containers/Notifications/reducer';
+import { reducer as transactions } from 'containers/Transactions/reducer';
+import { reducer as user } from 'containers/User/reducer';
+import { reducer as users } from 'containers/Users/reducer';
 
-function blankReducer(state = initialState) {
-  return state;
-}
+const reducers = combineReducers({
+  account,
+  form: reduxFormReducer,
+  login,
+  notification,
+  transactions,
+  user,
+  users,
+});
 
 function configureStoreAsync() {
   return new Promise((resolve, reject) => {
     try {
       const store = 
         createStore(
-          blankReducer,
+          reducers,
           undefined,
           compose(
             autoRehydrate(),
@@ -34,7 +47,7 @@ function configureStoreAsync() {
 
 function configureStore(preloadState) {
   return createStore(
-    blankReducer,
+    reducers,
     preloadState
   );
 }

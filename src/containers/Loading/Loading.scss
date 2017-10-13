@@ -1,0 +1,17 @@
+.Loading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.Loading-header {
+  font-size: 1.5rem;
+}
+
+.Loading-div-img {
+  width: 200px;
+}

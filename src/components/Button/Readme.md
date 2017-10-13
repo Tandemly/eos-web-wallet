@@ -33,6 +33,15 @@ A primary color button:
 </div>
 ```
 
+```js
+<div className="button-example">
+  <Button text={'Small'} className="is-primary is-small" />
+  <Button text={'Normal'} className="is-primary"/>
+  <Button text={'Medium'} className="is-primary is-medium" />
+  <Button text={'Large'} className="is-primary is-large" />
+</div>
+```
+
 Overridding buttons styles:
 ```js
 // .custom-button is defined by user elsewhere

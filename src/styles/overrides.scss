@@ -9,16 +9,20 @@ body,
 .title.is-3,
 .title.is-4,
 .title.is-5,
+.title.is-6,
 .content h1,
 .content h2,
 .content h3,
-.content-h4,
-.content-h5,
+.content h4,
+.content h5,
+.content h6,
 .label
 {
   color: white;
-  display: table;
-  width: 100%
+  p {
+    display: table;
+    width: 100%;
+  }
 }
 
 .title.is-1 {
@@ -52,6 +56,11 @@ body,
   font-weight: bold;
 }
 
+.help {
+  display: table-cell;
+  text-align: right;
+}
+
 .button {
   text-transform: uppercase;
   font-weight: bold;
@@ -61,6 +70,31 @@ body,
     padding: 1rem 3rem;
     height: 55px;
   }
+}
+
+.input {
+  height: 50px;
+}
+
+.input-prefix {
+  position: relative;
+  &:after {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px 0 0 3px;
+    left: 0;
+    top: 0;
+    background-color: $grey-text;
+    content: "@";
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.25rem;
+  }
+}
+
+.input, .textarea {
+  border-radius: 3px;
 }
 
 main {
@@ -231,14 +265,6 @@ main {
   .label:not(:last-child) {
     margin-bottom: 0.125rem;
   }
-  
-  .input {
-    height: 50px;
-  }
-  
-  .input, .textarea {
-    border-radius: 3px;
-  }
 
   .field:not(:last-child) {
     margin-bottom: 1.5rem;
@@ -253,11 +279,6 @@ main {
   }
 }
 
-.help {
-  display: table-cell;
-  text-align: right;
-}
-
 // Narrow Column
 .is-narrow {
   background-color: $grey-mid;
@@ -265,56 +286,14 @@ main {
   @include tablet-only {
     width: 210px;
   }
-  .-is-logged-in {
-    background-color: $grey-light;
-    .balance {
-      line-height: 3rem;
-      margin-bottom: 0;
-      span {
-        font-size: 2rem;
-        line-height: 2rem;
-      }
-    }
-    .full-balance {
-      font-size: 1.125rem;
-      margin: 0;
-      color: $grey-text;
-    }
-    .tag {
-      background-color: $green;
-      color: $grey-light;
-      font-weight: bold;
-      font-size: 0.875rem;
-      span {
-        font-size: 0.5625rem;
-        padding-right: 2px;
-      }
-    }
-    .menu-list {
-      position: relative;
-      box-shadow: none;
-      &:before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: "";
-        height: 1px;
-        width: 100%;
-        background: linear-gradient(to right, $bg-grey-40, #5B6168);
-      }
-      a {
-        text-transform: capitalize;
-        &:after {
-          background: linear-gradient(to right, $bg-grey-40, #5B6168);
-        }
-        &:hover {
-          background-color: darken($grey-light, 2%);
-        }
-      }
-    }
-  }
+
   .menu-list {
-    box-shadow: inset 0px 10px 10px -5px rgba($bg-grey-80,0.3);
+    box-shadow: inset 0px 10px 10px -5px rgba($grey-80,0.3);
+
+    li & {
+      padding: 0;
+    }
+
     li {
       position: relative;
       a {
@@ -331,7 +310,7 @@ main {
           content: "";
           height: 1px;
           width: 100%;
-          background: linear-gradient(to right, $bg-grey-60, #4B5259);
+          background: linear-gradient(to right, $grey-60, $grey-80);
         }
         span {
           color: $primary;
@@ -361,6 +340,60 @@ main {
         &:hover {
           background-color: darken($grey-mid, 2%);
           padding-left: 2rem;
+        }
+      }
+    }
+  }
+}
+
+// Logged in
+.-is-logged-in {
+  background-color: $grey-light;
+  .financials {
+    .balance {
+      line-height: 3rem;
+      margin-bottom: 0;
+      span {
+        font-size: 2rem;
+        line-height: 2rem;
+      }
+    }
+    .full-balance {
+      font-size: 1.125rem;
+      margin: 0;
+      color: $grey-text;
+    }
+    .tag {
+      background-color: $green;
+      color: $grey-light;
+      font-weight: bold;
+      font-size: 0.875rem;
+      span {
+        font-size: 0.5625rem;
+        padding-right: 2px;
+      }
+    }
+  }
+  .menu-list {
+    position: relative;
+    box-shadow: none;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(to right, $grey-40, $grey-60);
+    }
+    li {
+      a {
+        text-transform: capitalize;
+        &:after {
+          background: linear-gradient(to right, $grey-40, $grey-60);
+        }
+        &:hover {
+          background-color: darken($grey-light, 2%);
         }
       }
     }

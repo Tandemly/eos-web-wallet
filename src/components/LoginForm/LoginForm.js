@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import renderField from 'components/Field';
 
-const Login = ({
+const LoginForm = ({
   callAPI,
   handleSubmit,
   handleClose,
@@ -15,19 +15,20 @@ const Login = ({
     
     <Field
       aria-describedby="account_name"
-      className="form-control form-control-lg prefix"
+      className="input"
       component={renderField}
       id="account_name"
       label="Account Name"
       name="account_name"
       required
+      prefixed
       type="text"
       value={accountName}
     />
 
     <Field
       aria-describedby="owner_key"
-      className="form-control form-control-lg"
+      className="input"
       component={renderField}
       id="owner_key"
       label="Owner Key"
@@ -36,44 +37,49 @@ const Login = ({
       type="password"
     />
 
-    <fieldset className="form-check">
-      <label htmlFor="keepLoggedIn">Keep me logged in</label>
-      <Field
-        name="keepLoggedIn"
-        component="input"
-        type="checkbox"
-        className="ml-2"
-      />
-    </fieldset>
+    <Field
+      aria-describedby="logged_in"
+      className="checkbox"
+      component={renderField}
+      id="logged_in"
+      label=" Keep me logged in"
+      name="logged_in"
+      type="checkbox"
+    />
 
-    <div className={`button-group ${modal && 'modal-cta'}`}>
-      <div className="row col-12 no-gutters p-0">
-        <div className={`col-12 pl-0 ${modal ? 'col-sm-auto pr-sm-2 mb-3' : 'pr-sm-0 mb-1'}`}>
-          <button
-            className={`btn btn-primary btn-block ${modal ? 'btn-lg' : 'btn-md'}`}
-            disabled={submitting}
-            type="submit"
-          >
-          Login
-          </button>
-        </div>
-        <div className={`${modal ? 'col-sm-auto col-12 p2-2 pl-sm-2 pl-0 mb-3' : 'd-none'}`}>
-          {modal &&
-          <button
-            className="btn btn-secondary btn-lg btn-block"
-            onClick={handleClose}
-          >
-            Cancel
-          </button>}
-        </div>
-        <div className={`col-12 ${modal ? 'text-left' : 'text-center'}`}>
-          <Link to="/create-account" className="text-link">Don&#39;t have an account?</Link>
-        </div>
+    <div className="field">
+      <div className="control">
+        <label className="checkbox"><input type="checkbox" /> Keep me logged in</label>
       </div>
+    </div>
+
+    <div className="field is-grouped u-mt4">
+      <div className="control">
+        <button
+          disabled={submitting}
+          className="button is-large is-primary"
+          type="submit"
+        >
+          {submitting ? 'Submitting...' : 'Login'}
+        </button>
+      </div>
+      <div className="control">
+        <button
+          disabled={submitting}
+          className="button is-large is-secondary"
+          type="submit"
+        >
+          {submitting ? 'Clearing...' : 'Cancel'}
+        </button>
+      </div>
+    </div>
+
+    <div className={`col-12 ${modal ? 'text-left' : 'text-center'}`}>
+      <Link to="/create-account" className="text-link">Don&#39;t have an account?</Link>
     </div>
   </form>
 );
 
 export default reduxForm({
   form: 'login',
-})(Login);
+})(LoginForm);

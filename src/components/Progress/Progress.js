@@ -1,12 +1,13 @@
 import * as React from "react";
+import css from "./styles.module.scss";
 
 const Progress = ({ step }) => (
-  <div className="login-progress">
-    <ul className="d-flex justify-content-between items-center col-12 mb-4">
-      <li className={['col-0', step >= 1 ? 'active' : ''].join(' ')} />
-      <li className={['col-4', step >= 2 ? 'active' : ''].join(' ')} />
-      <li className={['col-4', step >= 3 ? 'active' : ''].join(' ')} />
-      <li className={['col-4', step >= 4 ? 'active' : ''].join(' ')} />
+  <div className={css.progress}>
+    <ul className={css.list}>
+      <li className={[css.progressItem, step >= 1 ? css.active : ''].join(' ')} />
+      <li className={[css.progressItem, step >= 2 ? css.active : ''].join(' ')} />
+      <li className={[css.progressItem, step >= 3 ? css.active : ''].join(' ')} />
+      <li className={[css.progressItem, step >= 4 ? css.active : ''].join(' ')} />
     </ul>
   </div>
 );

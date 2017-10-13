@@ -4,7 +4,9 @@ const TRY_POST_LOGIN = 'TRY_POST_LOGIN';
 
 /* TODO review shape */
 const initialState = {
-  user: null,
+  user: {
+    account_name: "",
+  },
 };
 
 export function reducer(state = initialState, action = {}) {

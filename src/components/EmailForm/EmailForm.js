@@ -7,30 +7,26 @@ const EmailForm = ({
   handleSubmit,
   submitting, }) => (
   <form onSubmit={handleSubmit(callAPI)}>
-    <h3>Next enter your email</h3>
-
     <Field
       aria-describedby="email"
-      className="form-control form-control-lg"
+      className="input"
       id="email"
-      label="Email"
+      label="Next enter your email"
       name="email"
       required
       component={renderField}
       type="email"
     />
 
-    <div className="modal-cta">
-      <div className="row col-12 no-gutters p-0">
-        <div className="col-sm-auto col-12 pl-0 pr-sm-2 pr-0 mb-sm-0 mb-3">
-          <button
-            disabled={submitting}
-            className="btn btn-primary btn-lg btn-block"
-            type="submit"
-          >
-            {submitting ? 'Submitting...' : 'Continue'}
-          </button>
-        </div>
+    <div className="field u-mt4">
+      <div className="control">
+        <button
+          disabled={submitting}
+          className="button is-large is-primary"
+          type="submit"
+        >
+          {submitting ? 'Submitting...' : 'Continue'}
+        </button>
       </div>
     </div>
   </form>

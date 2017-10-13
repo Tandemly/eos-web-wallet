@@ -1,61 +1,70 @@
 import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
+import renderField from 'components/Field';
 
-const ResetPasswordForm = ({ handleSubmit }) => (
-  <form onSubmit={handleSubmit}>
-    <fieldset className="form-group">
-      <label htmlFor="accountName">Account Name</label>
-      <Field
-        aria-describedby="accountName"
-        className="form-control form-control-lg"
-        name="accountName"
-        required
-        component="input"
-        type="text"
-      />
-    </fieldset>
+const Label = () => (
+  <p>
+    Current Password
+    <span className="help">
+      <a>Regenerate Password</a>
+    </span>
+  </p>
+);
 
-    <fieldset className="form-group">
-      <small className="form-text text-muted"><a>Recover Account</a></small>
-      <label htmlFor="currentPassword">Current password</label>
-      <Field
-        aria-describedby="currentPassword"
-        className="form-control form-control-lg"
-        name="newPassword"
-        required
-        component="input"
-        type="password"
-      />
-    </fieldset>
-
-    <div className="row col-12 no-gutters p-0 mb-3">
-      <div className="col-sm-auto col-12 pl-0 pr-0">
+const ResetPasswordForm = ({ 
+  callAPI,
+  handleSubmit,
+  submitting, }) => (
+  <form onSubmit={handleSubmit(callAPI)}>
+    <Field
+      aria-describedby="accountName"
+      className="input"
+      id="accountName"
+      label="Account Name"
+      name="accountName"
+      required
+      component={renderField}
+      type="text"
+    />
+    <Field
+      aria-describedby="currentPassword"
+      className="input"
+      id="currentPassword"
+      label={<Label />}
+      name="currentPassword"
+      required
+      component={renderField}
+      type="text"
+    />
+    <div className="field u-mt4">
+      <div className="control">
         <button
-          className="btn btn-secondary btn-lg btn-block"
+          disabled={submitting}
+          className="button is-large is-secondary"
           type="submit"
-        >Regenerate Password
+        >
+          {submitting ? 'Submitting...' : 'Regenerate Password'}
         </button>
       </div>
     </div>
-
-    <fieldset className="form-group">
-      <label htmlFor="regeneratedPassword">Re-Generated password</label>
-      <Field
-        aria-describedby="regeneratedPassword"
-        className="form-control form-control-lg"
-        name="regeneratedPassword"
-        required
-        component="input"
-        type="password"
-      />
-    </fieldset>
-
-    <div className="row col-12 no-gutters p-0">
-      <div className="col-sm-auto col-12 pl-0 pr-0">
+    <Field
+      aria-describedby="regeneratedPassword"
+      className="input"
+      id="regeneratedPassword"
+      label="Re-Generated Password"
+      name="regeneratedPassword"
+      required
+      component={renderField}
+      type="text"
+    />
+    <div className="field u-mt4">
+      <div className="control">
         <button
-          className="btn btn-primary btn-lg btn-block"
+          disabled={submitting}
+          className="button is-large is-primary"
           type="submit"
-        >Update Password
+        >
+          {submitting ? 'Submitting...' : 'Update Password'}
         </button>
       </div>
     </div>
@@ -63,5 +72,7 @@ const ResetPasswordForm = ({ handleSubmit }) => (
 );
 
 export default reduxForm({
-  form: 'resetPassword',
+  form: 'sign-up',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true,
 })(ResetPasswordForm);

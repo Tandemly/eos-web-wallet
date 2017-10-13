@@ -1,9 +1,13 @@
-A Header example:
+Prefrences form example:
 
 ```js
-<div className="header-example">
-  <Wrapper>
-    <PreferencesForm />
-  </Wrapper>
-</div>
+const noop = () => {};
+
+<Background className="prefrences-form-example content">
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <PreferencesForm callAPI={noop} />
+    </DisplayReactRouter>
+  </DisplayRedux>
+</Background>
 ```

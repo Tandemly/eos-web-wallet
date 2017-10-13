@@ -26,7 +26,7 @@ const Transaction = ({
     <div className="level-right">
       <div className="level-item">
         <p className="subtitle is-6">
-          {date.amount}
+          {amount}
           <span className={`icon-transfer${kind === "deposit" ? "_to" : "_from"} u-ml1`}></span>
         </p>
       </div>

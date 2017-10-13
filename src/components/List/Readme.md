@@ -7,8 +7,9 @@ let data = [
   { text: 'three' }
 ];
 
-const renderItem = ({ text }) => (
-  <li><div>{text}</div></li>
+// The key is required on your renderItem
+const renderItem = ({ text }, key) => (
+  <li key={key}><div>{text}</div></li>
 );
 
 <div className="list-example">

@@ -1,39 +1,60 @@
 import * as React from "react";
 import List from "components/List";
 import Shortcut from "./Shortcut";
+import cx from "classnames";
 
 const activeClassName = 'active';
-const data = [
+const links = [
+  [
+    {
+      to: '/',
+      text: 'Transfer',
+      iconClass: 'icon-transfer u-mr1',
+      activeClassName,
+    },
+    {
+      to: '/transactions',
+      text: 'Transaction History',
+      iconClass: 'icon-history u-mr1',
+      activeClassName,
+    },
+    {
+      to: '/permissions',
+      text: 'Permissions',
+      iconClass: 'icon-permissions u-mr1',
+      activeClassName,
+    },
+    {
+      to: '/logout',
+      text: 'Logout',
+      iconClass: 'icon-logout u-mr1',
+      activeClassName,
+    },
+  ],
   {
-    to: '/',
-    text: 'Transfer',
-    iconClass: 'icon-eos_icons_transfer mr-2',
+    to: '/users',
+    text: 'Users',
     activeClassName,
   },
   {
-    to: '/transactions',
-    text: 'Transaction History',
-    iconClass: 'icon-eos_icons_history mr-2',
+    to: '/about',
+    text: 'About',
     activeClassName,
   },
   {
-    to: '/permissions',
-    text: 'Permissions',
-    iconClass: 'icon-eos_icons_permissions mr-2',
-    activeClassName,
-  },
-  {
-    to: '/logout',
-    text: 'Logout',
-    iconClass: 'icon-eos_icons_logout mr-2',
+    to: '/faq',
+    text: 'FAQ',
     activeClassName,
   },
 ];
 
-const Shortcuts = ({ renderItem = Shortcut }) => (
+const Shortcuts = ({
+  className,
+  data,
+  renderItem = Shortcut }) => (
   <List
-    className="-links"
-    data={data}
+    className={cx("menu-list", className)}
+    data={data || links}
     renderItem={renderItem}
   />
 );

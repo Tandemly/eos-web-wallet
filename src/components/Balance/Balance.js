@@ -1,16 +1,13 @@
 import * as React from "react";
 import numeral from 'numeral';
 
-const tmpStyle = {
-  color: '#434b54',
-  margin: '-.2rem 0 .5rem'
-};
-
 const Balance = ({ total, difference, symbol /* , account_name */ }) => (
-  <div className="account-info logged-in p-4">
-    <div className="balance">{numeral(total).format('0.00 a')}</div>
-    <div className="full_balance" style={tmpStyle}>{numeral(total).format('0,0[.]0000')}</div>
-    <div className="change">{symbol}{difference}</div>
+  <div className="-is-logged-in">
+    <div className="financials u-p3">
+      <p className="title is-1 balance">{numeral(total).format('0.00a')}<span>B</span></p>
+      <p className="subtitle is-6 full-balance">{numeral(total).format('0,0[.]0000')}</p>
+      {difference && <div className="tag is-primary change">{symbol}{difference}</div>}
+    </div>
   </div>
 );
 

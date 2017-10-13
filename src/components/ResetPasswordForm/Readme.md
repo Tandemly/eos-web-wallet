@@ -1,9 +1,15 @@
 Reset Password form example:
 
 ```js
-<div className="header-example">
-  <Wrapper>
-    <ResetPasswordForm />
-  </Wrapper>
-</div>
+const noop = () => {};
+
+<Background className="header-example content">
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <ErrorBoundary>
+        <ResetPasswordForm callAPI={noop} />
+      </ErrorBoundary>
+    </DisplayReactRouter>
+  </DisplayRedux>
+</Background>
 ```

@@ -3,7 +3,7 @@ Connected accounts example:
 ```js
 const noop = () => {};
 
-<div className="email-form-example">
+<Background className="email-form-example content">
   <ConnectedAccounts />
-</div>
+</Background>
 ```

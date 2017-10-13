@@ -1,9 +1,13 @@
 A Header example:
 
 ```js
-<div className="header-example">
-  <Wrapper>
-    <PhoneForm />
-  </Wrapper>
-</div>
+const noop = () => {};
+
+<Background className="header-example content">
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <PhoneForm callAPI={noop} />
+    </DisplayReactRouter>
+  </DisplayRedux>
+</Background>
 ```

@@ -3,9 +3,11 @@ Email form example:
 ```js
 const noop = () => {};
 
-<div className="account-name-example">
-  <Wrapper>
-    <AccountNameForm callAPI={noop} />
-  </Wrapper>
-</div>
+<Background className="account-name-example content">
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <AccountNameForm callAPI={noop} />
+    </DisplayReactRouter>
+  </DisplayRedux>
+</Background>
 ```

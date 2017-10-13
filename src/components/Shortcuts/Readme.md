@@ -3,7 +3,9 @@ A list of shortcuts example:
 ```js
 
 
-<div className="shortcuts-example">
-  <Shortcuts renderItem={Shortcut2} />
-</div>
+<Background className="shortcuts-example content">
+  <DisplayReactRouter>
+    <Shortcuts />
+  </DisplayReactRouter>
+</Background>
 ```

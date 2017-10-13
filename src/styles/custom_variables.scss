@@ -5,7 +5,7 @@
 $primary: #4b9af5;
 $secondary: #6a7e95;
 $secondary-inverse: findColorInvert($secondary);
-$accent: #ae3379;
+$accent: #d75f4c;
 $accent-inverse: findColorInvert($accent);
 $grey-text: #bbbbbb;
 $grey-dark: #3a4249;
@@ -15,23 +15,23 @@ $grey-main: #434b54;
 $orange: #d75f4c;
 $green: #bedf5d;
 $red: #ba303e;
-
-
-
-$bg-grey-100: #3a4249;
-$bg-grey-80: #434B54;
-$bg-grey-60: #575F68;
-$bg-grey-40: #69727C;
-//$blue-grey: #6A7E95;
-//$light-grey: #CCCCCC;
-//$dark-grey: #333333;
-
-
-
+$grey-100: #3a4249;
+$grey-100-inverse: findColorInvert($grey-100);
+$grey-80: #434B54;
+$grey-80-inverse: findColorInvert($grey-80);
+$grey-60: #575F68;
+$grey-60-inverse: findColorInvert($grey-60);
+$grey-40: #69727C;
+$grey-40-inverse: findColorInvert($grey-40);
 
 $additional-colors: (
   "secondary": ($secondary, $secondary-inverse),
-  "accent": ($accent, $accent-inverse)
+  "accent": ($accent, $accent-inverse),
+  "accent-inverse": ($accent-inverse, $accent),
+  "grey-100": ($grey-100, $grey-100-inverse),
+  "grey-80": ($grey-80, $grey-80-inverse),
+  "grey-60": ($grey-60, $grey-60-inverse),
+  "grey-40": ($grey-40, $grey-40-inverse),
 );
 
 // navbar related variables
