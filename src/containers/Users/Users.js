@@ -11,8 +11,17 @@ const mapStateToProps = () => ({
   renderItem: User,
 });
 
+const _Users = ({ data, renderItem }) => (
+  <div>
+    <List
+      data={data}
+      renderItem={renderItem}
+    />
+  </div>
+)
+
 const Users = connect(
   mapStateToProps,
-)(List);
+)(_Users);
 
 export default Users;

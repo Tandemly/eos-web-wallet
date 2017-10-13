@@ -2,8 +2,8 @@
 /* global fetch */
 import {
   succeedGetTransactions,
-  failGetTransactions } from '../../containers/TransactionsContainer/reducer';
-import rejectBadResponse from '../../func/rejectBadResponse';
+  failGetTransactions } from 'containers/Transactions/reducer';
+import rejectBadResponse from 'util/rejectBadResponse';
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 

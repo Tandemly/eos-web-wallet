@@ -1,15 +1,17 @@
 /* eslint-disable camelcase, consistent-return */
 /* global fetch */
 import {
-  succeedPostEmail,
-  failPostEmail,
   succeedPostUsername,
-  failPostUsername,
+  failPostUsername, } from 'containers/AccountName/reducer';
+import {
+  succeedPostEmail,
+  failPostEmail, } from 'containers/Email/reducer';
+import {
   succeedPostPhone,
-  failPostPhone,
-  failPostSignup } from '../../containers/CreateAccount/reducer';
-import { succeedPostLogin } from '../../containers/LoginContainer/reducer';
-import rejectBadResponse from '../../func/rejectBadResponse';
+  failPostPhone, } from 'containers/Phone/reducer';
+import { failPostSignup } from 'containers/SignupFinal/actions';
+import { succeedPostLogin } from 'containers/Login/reducer';
+import rejectBadResponse from 'util/rejectBadResponse';
 
 const createAccountFlow = {
   TRY_POST_USERNAME: {

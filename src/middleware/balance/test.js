@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import { _middlewares } from '../';
 import { getBalance } from './';
-import { succeedGetBalance } from '../../containers/BalanceContainer/reducer';
+import { succeedGetBalance } from 'containers/Balance/reducer';
 
 const mockStore = configureMockStore(_middlewares);
 

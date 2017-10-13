@@ -3,8 +3,8 @@
 import {
   succeedGetBalance,
   failGetBalance,
-} from '../../containers/BalanceContainer/reducer';
-import rejectBadResponse from '../../func/rejectBadResponse';
+} from 'containers/Balance/reducer';
+import rejectBadResponse from 'util/rejectBadResponse';
 
 // const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -14,6 +14,7 @@ export const getBalance = (payload, dispatch) => (
     method: 'POST',
     mode: 'cors',
     headers: {
+      'Authorization': '', // TODO
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload),

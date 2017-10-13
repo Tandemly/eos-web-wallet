@@ -1,14 +1,16 @@
 import configureMockStore from 'redux-mock-store';
 import { _middlewares } from '../';
 import {
-  succeedPostEmail,
-  failPostEmail,
   succeedPostUsername,
-  failPostUsername,
+  failPostUsername, } from 'containers/AccountName/reducer';
+import {
+  succeedPostEmail,
+  failPostEmail, } from 'containers/Email/reducer';
+import {
   succeedPostPhone,
-  failPostPhone,
-  failPostSignup } from '../../containers/CreateAccount/reducer';
-import { succeedPostLogin } from '../../containers/LoginContainer/reducer';
+  failPostPhone, } from 'containers/Phone/reducer';
+import { failPostSignup } from 'containers/SignupFinal/actions';
+import { succeedPostLogin } from 'containers/Login/reducer';
 import createAccount from './';
 
 const mockStore = configureMockStore(_middlewares);

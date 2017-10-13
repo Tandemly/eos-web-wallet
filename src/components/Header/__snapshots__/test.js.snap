@@ -1,32 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> renders without crashing 1`] = `
-<header
-  className="header no-gutters p-0 p-md-3"
+<section
+  className="hero header"
 >
   <div
-    className="d-flex justify-content-start items-center"
+    className="level is-mobile"
   >
     <div
-      className="mobile-nav mr-2 hidden-md-up"
-      onClick={undefined}
-      role="button"
-      tabIndex={0}
+      className="level-left"
     >
-      <span
-        className="icon-eos_icons_menu"
-      />
+      <div
+        className="control level-item is-hidden-tablet"
+      >
+        <button
+          className="button is-primary menu-toggle u-mr1"
+        >
+          <span
+            className="icon-menu"
+          />
+        </button>
+      </div>
+      <div
+        className="level-item"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt=""
+            className="logo image"
+            src="/images/logo.svg"
+          />
+        </a>
+      </div>
     </div>
-    <a
-      href="/"
-      onClick={[Function]}
+    <div
+      className="user-info"
     >
-      <img
-        alt=""
-        className="logo"
-        src="/images/logo.svg"
-      />
-    </a>
+      <div
+        className="has-text-right is-hidden-mobile"
+      >
+        <div
+          className="user-meta"
+        >
+          <h4
+            className="title is-4 is-spaced"
+          >
+            Hi, Display Name
+          </h4>
+          <p
+            className="subtitle is-6"
+          >
+            <a
+              href="/preferences"
+              onClick={[Function]}
+            >
+              Customize your profile
+            </a>
+             |
+            <a
+              href="/logout"
+              onClick={[Function]}
+            >
+              <span
+                className="icon-logout"
+              />
+            </a>
+          </p>
+        </div>
+      </div>
+      <a
+        className="settings"
+        href="/preferences"
+        onClick={[Function]}
+      >
+        <span
+          className="icon-settings"
+        />
+      </a>
+      <figure
+        className="image profile-thumbnail"
+      >
+        <img
+          alt="Placeholder image"
+          src="https://avatarfiles.alphacoders.com/696/69632.jpg"
+        />
+      </figure>
+    </div>
   </div>
-</header>
+</section>
 `;

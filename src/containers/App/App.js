@@ -73,9 +73,10 @@ class App extends React.Component {
 
   render() {
     const { history: { location } } = this.props;
-    console.log(location);
     const handleModalClose = this.handleModalClose.bind(this);
-    const isModalOpen = modalRoutes.some(({ path }) => new RegExp(path).test(location.pathname));
+    const isModalOpen = process.env.NODE_ENV === 'test' 
+      ? false
+      : modalRoutes.some(path => new RegExp(path).test(location.pathname));
 
     return (
       <main>

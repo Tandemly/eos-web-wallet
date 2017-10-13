@@ -2,8 +2,8 @@
 /* global fetch */
 import {
   succeedPostTransaction,
-  failPostTransaction } from '../../containers/TransferContainer/reducer';
-import rejectBadResponse from '../../func/rejectBadResponse';
+  failPostTransaction } from 'containers/Transfer/reducer';
+import rejectBadResponse from 'util/rejectBadResponse';
 
 export const postTransfer = (payload, dispatch) => (
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/api/account/transfer`, {
@@ -27,7 +27,7 @@ export const postTransfer = (payload, dispatch) => (
     }))
 );
 
-const transfer = store => next => (action) => {
+const transfer = store => next => async (action) => {
   if (action.type === 'TRY_POST_TRANSACTION') {
     const {
       login: {

@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import { _middlewares } from '../';
 import { getUser } from './';
-import { succeedPostLogin } from '../../containers/LoginContainer/reducer';
+import { succeedPostLogin } from 'containers/Login/reducer';
 
 const mockStore = configureMockStore(_middlewares);
 const mockHistory = {
