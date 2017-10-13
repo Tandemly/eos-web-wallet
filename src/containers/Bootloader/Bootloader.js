@@ -17,8 +17,6 @@ class Bootloader extends Component {
       process.env.NODE_ENV === "development" ? store : {}
     );
 
-    console.log(store.getState());
-
     this.setState({ store });
   }
 

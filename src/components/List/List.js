@@ -13,7 +13,9 @@ const List = ({
   renderItem,
   ...props }: PropTypes) => (
   <ul {...props}>
-    {data.map((item, key) =>  renderItem({ key, ...item }))}
+    {data.map((item, key) => Array.isArray(item) ? 
+      renderItem(item, key) :
+      renderItem({ key, ...item }))}
   </ul>
 );
 

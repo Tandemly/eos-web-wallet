@@ -1,22 +1,33 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
+import Shortcuts from "components/Shortcuts";
 
-const Shortcut = ({
-  className = 'col-link px-4 py-3',
-  iconClass,
-  text,
-  key,
-  ...props }) => (
-  <li key={key}>
-    <NavLink
-      className={className}
-      exact
-      {...props}
-    >
-      <span className={iconClass} />
-      {text}
-    </NavLink>
-  </li>
-);
+const Shortcut = (item, _key) => {
+  if (Number.isInteger(_key)) {
+    return (
+      <li key={_key}>
+        <Shortcuts data={item} className="-is-logged-in" />
+      </li>
+    );
+  } else {
+    const {
+      iconClass,
+      text,
+      key,
+      ...props } = item;
+
+    return (
+      <li key={key}>
+        <NavLink
+          exact
+          {...props}
+        >
+          <span className={iconClass} />
+          {text}
+        </NavLink>
+      </li>
+    );
+  }
+}
 
 export default Shortcut;

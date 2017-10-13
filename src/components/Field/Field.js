@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Field = ({ children, input, label, showErrors, type, meta: { touched, error }, ...props }) => (
+const Field = ({ children, input, label, prefixed, showErrors, type, meta: { touched, error }, ...props }) => (
   <div className={`field${error ? ' validation-error' : ''}`}>
     <label className="label" htmlFor={input.name}>{label}</label>
     {/*
@@ -8,7 +8,7 @@ const Field = ({ children, input, label, showErrors, type, meta: { touched, erro
     {difference && <div className="tag is-primary change">{symbol}{difference}</div>}
     */}
 
-    <div className={`control${input.prefixed ? 'input-prefix' : ''}`}>
+    <div className={`control${prefixed ? 'input-prefix' : ''}`}>
       <input
         {...input}
         {...props}
