@@ -287,12 +287,13 @@ main {
     width: 210px;
   }
 
+  li .menu-list {
+    margin: 0;
+    padding: 0;
+  }
+
   .menu-list {
     box-shadow: inset 0px 10px 10px -5px rgba($grey-80,0.3);
-
-    li & {
-      padding: 0;
-    }
 
     li {
       position: relative;
@@ -374,7 +375,7 @@ main {
       }
     }
   }
-  .menu-list {
+  &.menu-list {
     position: relative;
     box-shadow: none;
     &:before {
