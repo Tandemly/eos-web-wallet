@@ -7,10 +7,11 @@ type PropTypes = {
 };
 
 // TODO add paging
-const Transactions = ({ data = [] }: PropTypes) => (
+// TODO add count as query params
+const Transactions = ({ count, data = [] }: PropTypes) => (
   <div>
     <List
-      data={data}
+      data={count ? data.slice(0, count) : data}
       renderItem={Transaction} />
   </div>
 );
