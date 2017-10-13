@@ -9,9 +9,7 @@ The color palette
     <div className="column is-one-quarter"> <Swatch color="accent-inverse" /></div>
   </div>
   <div className="columns">
-    <div className="column is-one-quarter"> <Swatch color="info" /></div>
     <div className="column is-one-quarter"> <Swatch color="success" /></div>
-    <div className="column is-one-quarter"> <Swatch color="warning" /></div>
     <div className="column is-one-quarter"> <Swatch color="danger" /></div>
   </div>
   <div className="columns">

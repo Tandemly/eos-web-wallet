@@ -59,6 +59,14 @@ body,
 .help {
   display: table-cell;
   text-align: right;
+  color: $orange;
+  a {
+    color: $orange;
+    font-weight: bold;
+    &:hover {
+      color: darken($orange, 2%);
+    }
+  }
 }
 
 .button {
@@ -268,14 +276,6 @@ main {
 
   .field:not(:last-child) {
     margin-bottom: 1.5rem;
-  }
-  
-  a {
-    color: $orange;
-    font-weight: bold;
-    &:hover {
-      color: darken($orange, 2%);
-    }
   }
 }
 
