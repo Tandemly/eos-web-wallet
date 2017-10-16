@@ -10,6 +10,7 @@
     "empty": "^0.10.1",
     "flow-bin": "^0.56.0",
     "jest-enzyme": "^4.0.0",
+    "jwt-decode": "^2.2.0",
     "lodash": "^4.17.4",
     "mathjs": "^3.16.4",
     "moment": "^2.19.1",
