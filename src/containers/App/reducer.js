@@ -13,7 +13,7 @@ export function reducer(state = initialState, action) {
 // TODO toggle and close menu via redux or component?
 export function toggleMenu() {}
 
-export function openMenu() {}
+export function closeMenu() {}
 
 export function onRouteLoad() {}
 

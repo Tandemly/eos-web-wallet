@@ -9,10 +9,10 @@ import Progress from "components/Progress";
 import SignupFinal from 'components/Progress';
 
 const steps = {
-  '/create-account': 1,
-  '/create-account/email': 2,
-  '/create-account/phone': 3,
-  '/create-account/complete': 4
+  '/signup': 1,
+  '/signup/email': 2,
+  '/signup/phone': 3,
+  '/signup/complete': 4
 };
 
 const CreateAccount = ({ handleModalClose, location /* , routes */ }) => {
@@ -22,7 +22,7 @@ const CreateAccount = ({ handleModalClose, location /* , routes */ }) => {
   return (
     <div className="login">
       <div className="login-header modal-header">
-        <h2>Create your EOS account</h2>
+        <h2>Create your Wallet account</h2>
         <button
           className="js-modal-close"
           onClick={handleModalClose}
@@ -35,10 +35,10 @@ const CreateAccount = ({ handleModalClose, location /* , routes */ }) => {
         <Progress step={step} />
         
         <Switch>
-          <Route exact path="/create-account" component={AccountName} title="" />
-          <Route exact path="/create-account/email" component={Email} title="" />
-          <Route exact path="/create-account/phone" component={Phone} title="" />
-          <Route path="/create-account/complete" component={SignupFinal} title="" />
+          <Route exact path="/signup" component={AccountName} title="" />
+          <Route exact path="/signup/email" component={Email} title="" />
+          <Route exact path="/signup/phone" component={Phone} title="" />
+          <Route path="/signup/complete" component={SignupFinal} title="" />
         </Switch>
       </div>
     </div>

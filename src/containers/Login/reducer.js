@@ -68,6 +68,7 @@ export function succeedPostLogin({ user }) {
   };
 }
 
+// TODO "keep me logged in" should request longer expiry date
 export function tryPostLogin({ account_name, owner_key, history }) {
   return {
     type: TRY_POST_LOGIN,
