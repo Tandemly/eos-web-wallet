@@ -7,6 +7,7 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action) {
+  return state;
 }
 
 // TODO toggle and close menu via redux or component?
