@@ -21,7 +21,7 @@
   font-size: 3em;
   animation: rotate .75s infinite linear;
 }
-
+// Adding this comment as this code also effects the icon listed in icon.js
 @keyframes rotate {
   0% {
     transform: rotateZ(0);
