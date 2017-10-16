@@ -29,6 +29,15 @@ import {
 
 import "./App.scss";
 
+const AuthenticatedRoutes = () => ([
+  <Route path="/" exact component={Transfer} />,
+  <Route path="/transactions" component={Transactions} />,
+  <Route path="/users" component={Users} />,
+  <Route path="/user/:id" component={Profile} />,
+  <Route path="/permissions" component={Permissions} />,
+  <Route path="/preferences" component={Preferences} />,
+]);
+
 const renderModalRoutes = () => (
   <Switch>
     <Redirect from="/create-account" to="/signup" />
@@ -105,21 +114,14 @@ class App extends React.Component {
             <Switch location={isModalOpen ? this.previousLocation : location}>
               <Route path="/about" component={About} />
               <Route path="/faq" component={Faq} />
-              <Route path="/" exact component={Transfer} />
-              <Route path="/transactions" component={Transactions} />
-              <Route path="/users" component={Users} />
-              <Route path="/user/:id" component={Profile} />
-              <Route path="/permissions" component={Permissions} />
-              <Route path="/preferences" component={Preferences} />
+              <AuthenticatedRoutes isAuthenticated={isAuthenticated} />
               <Route path="*" component={NoMatch} />
             </Switch>
     
             <Footer />
           </div>
         </section>
-    
-        {/* <Route path="/login" exact component={Login} /> */}
-        {/* <Route path="/signup" exact component={Signup} /> */}
+
         <Modal
           isOpen={isModalOpen}
           onClose={handleModalClose}
@@ -130,10 +132,10 @@ class App extends React.Component {
 }
 
 const mapStateToProps = ({ 
-  app: { isMenuOpen }, 
+  app: { isMenuOpen },
   login: { isAuthenticated },
 }) => ({
-  isAuthenticated,
+  isAuthd,
   isMenuOpen,
 });
 
