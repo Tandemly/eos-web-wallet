@@ -15,3 +15,18 @@
 .Loading-div-img {
   width: 200px;
 }
+
+.icon-loader {
+  color: #bedf5d;
+  font-size: 3em;
+  animation: rotate .75s infinite linear;
+}
+// Adding this comment as this code also effects the icon listed in icon.js
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
