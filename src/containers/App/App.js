@@ -84,7 +84,7 @@ class App extends React.Component {
 
   render() {
     const {
-      history: { location },
+      history: { location } = { location: window.location },
       isAuthenticated,
       isMenuOpen,
     } = this.props;

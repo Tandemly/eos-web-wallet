@@ -11,7 +11,7 @@ const mapStateToProps = () => ({
   renderItem: User,
 });
 
-const _Users = ({ data, renderItem }) => (
+const Users = ({ data, renderItem }) => (
   <div>
     <List
       data={data}
@@ -20,8 +20,8 @@ const _Users = ({ data, renderItem }) => (
   </div>
 )
 
-const Users = connect(
+const Container = connect(
   mapStateToProps,
-)(_Users);
+)(Users);
 
-export default Users;
+export default Container;
