@@ -2,6 +2,7 @@ import * as React from "react";
 import List from "components/List";
 import Shortcut from "./Shortcut";
 import cx from "classnames";
+import css from "./styles.module.scss";
 
 const activeClassName = 'active';
 const links = [
@@ -53,7 +54,7 @@ const Shortcuts = ({
   data,
   renderItem = Shortcut }) => (
   <List
-    className={cx("menu-list", className)}
+    className="menulist"
     data={data || links}
     renderItem={renderItem}
   />
