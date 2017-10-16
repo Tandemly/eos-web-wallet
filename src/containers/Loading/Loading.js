@@ -10,8 +10,8 @@ const styles = {
   minHeight: "100vh"
 };
 const Loading = () => (
-  <div className="Loading">
-    <div className="Loading-div-img u-mb4">
+  <div className="loading">
+    <div className="loading-image u-mb4">
       <img alt="" className="Loading-img" src="/images/logo.svg" />
     </div>
     <span className="icon-loader" />
