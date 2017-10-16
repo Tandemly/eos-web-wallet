@@ -1,9 +1,9 @@
 // @flow
 // global localStorage, window
 import * as React from "react";
-import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Menu from "components/Menu";
@@ -31,15 +31,17 @@ import "./App.scss";
 
 const renderModalRoutes = () => (
   <Switch>
+    <Redirect from="/create-account" to="/signup" />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
   </Switch>
 );
 
 const modalRoutes = [
-  'login',
-  'sigup',
-  'connect-account'
+  '/login',
+  '/signup',
+  '/create-account',
+  '/connect-account',
 ];
 
 class App extends React.Component {
@@ -72,14 +74,18 @@ class App extends React.Component {
   }
 
   render() {
-    const { history: { location } } = this.props;
+    const {
+      history: { location },
+      isAuthenticated,
+      isMenuOpen,
+    } = this.props;
     const handleModalClose = this.handleModalClose.bind(this);
     const isModalOpen = process.env.NODE_ENV === 'test' 
       ? false
       : modalRoutes.some(path => new RegExp(path).test(location.pathname));
 
     return (
-      <main>
+      <main className={`${isMenuOpen ? 'open' : 'closed'}`}>
         <Helmet titleTemplate="%s | EOS Wallet" defaultTitle="EOS Wallet" />
     
         <Header />
@@ -96,7 +102,7 @@ class App extends React.Component {
               role="button"
               tabIndex="0" />
 
-            <Switch>
+            <Switch location={isModalOpen ? this.previousLocation : location}>
               <Route path="/about" component={About} />
               <Route path="/faq" component={Faq} />
               <Route path="/" exact component={Transfer} />
@@ -123,4 +129,16 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({ 
+  app: { isMenuOpen }, 
+  login: { isAuthenticated },
+}) => ({
+  isAuthenticated,
+  isMenuOpen,
+});
+
+const AppContainer = connect(
+  mapStateToProps,
+)(App);
+
+export default AppContainer;

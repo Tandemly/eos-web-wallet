@@ -1,5 +1,5 @@
 /* eslint-disable camelcase, consistent-return, no-case-declarations */
-/* global fetch */
+/* global fetch, localStorage */
 import {
   succeedPostLogin,
   failPostLogin } from 'containers/Login/reducer';
@@ -17,7 +17,13 @@ const getUser = (payload, dispatch, history) => (
   })
     .then(rejectBadResponse)
     .then(response => response.json())
-    .then(data => dispatch(succeedPostLogin(data)))
+    .then(user => {
+      ['id_token', 'access_token'].forEach(key => {
+        localStorage.setItem(key, user[key]);
+      });
+
+      dispatch(succeedPostLogin(user));
+    })
     .then(() => history.push('/'))
     // TODO fixup chain of errors
     .catch(response => response.json())
