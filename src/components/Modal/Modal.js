@@ -4,14 +4,11 @@ import { withRouter } from "react-router-dom";
 
 import "./Modal.scss";
 
-const Modal = ({ renderRoute, isOpen, ...props }) => {
-  console.log(isOpen);
-  return (
-    !isOpen ? null :
-    <_Modal isOpen {...props}>
-      {renderRoute()}
-    </_Modal>
-  );
-}
+const Modal = ({ renderRoute, isOpen, ...props }) => (
+  !isOpen ? null :
+  <_Modal isOpen {...props}>
+    {renderRoute()}
+  </_Modal>
+);
 
 export default withRouter(Modal);
