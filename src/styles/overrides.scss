@@ -279,6 +279,19 @@ main {
         width: 40px;
         height: 40px;
       }
+      &.user {
+        .username {
+          font-size: 1rem;
+          line-height: 0.875rem;
+          font-weight: bold;
+          margin: 5px 0 0;
+        }
+        .memo {
+          font-size: 0.875rem;
+          font-weight: normal;
+          color: white;
+        }
+      }
     }
     .level.is-mobile .level-item:not(:last-child) {
       margin-right: 0.75rem;
