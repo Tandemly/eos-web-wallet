@@ -2,7 +2,7 @@
 // global localStorage, window
 import * as React from "react";
 import { connect } from 'react-redux';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from "components/Header";
 import Footer from "components/Footer";
@@ -31,15 +31,17 @@ import "./App.scss";
 
 const renderModalRoutes = () => (
   <Switch>
+    <Redirect from="/create-account" to="/signup" />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
   </Switch>
 );
 
 const modalRoutes = [
-  'login',
-  'sigup',
-  'connect-account'
+  '/login',
+  '/signup',
+  '/create-account',
+  '/connect-account',
 ];
 
 class App extends React.Component {
