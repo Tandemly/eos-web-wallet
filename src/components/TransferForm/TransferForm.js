@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
 import renderField from 'components/Field';
+import Button from "components/Button";
 
 const numbersOnly = (value, previousValue) => (
   /^\d*\.?\d*?$/.test(value) ? value : previousValue
@@ -57,24 +58,22 @@ const TransferForm = ({
       type="text"
     />
 
-    <div className="field is-grouped u-mt4">
+    <div className="field is-grouped">
       <div className="control">
-        <button
-          disabled={submitting}
-          className="button is-large is-primary"
-          type="submit"
-        >
-          {submitting ? 'Submitting...' : 'Submit'}
-        </button>
+      <Button
+        disabled={submitting}
+        className="button is-large is-primary"
+        type="submit"
+        text={submitting ? 'Submitting...' : 'Submit'}
+      />
       </div>
       <div className="control">
-        <button
-          disabled={submitting}
-          className="button is-large is-secondary"
-          type="submit"
-        >
-          {submitting ? 'Clearing...' : 'Clear'}
-        </button>
+      <Button
+        disabled={submitting}
+        className="button is-large is-secondary"
+        type="submit"
+        text="Cancel"
+      />
       </div>
     </div>
   </form>

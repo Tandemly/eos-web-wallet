@@ -7,7 +7,7 @@ const Shortcut = (item, _key) => {
   if (Number.isInteger(_key)) {
     return (
       <li key={_key}>
-        <Shortcuts data={item} className="-is-logged-in" />
+        <Shortcuts data={item} />
       </li>
     );
   } else {
