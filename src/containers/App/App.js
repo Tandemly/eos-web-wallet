@@ -135,7 +135,7 @@ const mapStateToProps = ({
   app: { isMenuOpen },
   login: { isAuthenticated },
 }) => ({
-  isAuthd,
+  isAuthenticated,
   isMenuOpen,
 });
 
