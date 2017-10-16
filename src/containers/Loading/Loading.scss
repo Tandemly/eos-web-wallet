@@ -1,4 +1,4 @@
-.Loading {
+.loading {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -8,11 +8,7 @@
   min-height: 100vh;
 }
 
-.Loading-header {
-  font-size: 1.5rem;
-}
-
-.Loading-div-img {
+.loading-image {
   width: 200px;
 }
 
