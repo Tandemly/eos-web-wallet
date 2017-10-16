@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { Router, Route } from "react-router-dom";
 import App from "containers/App";
 import Loading from "containers/Loading";
-import { configureStore } from "util/configureStore";
+import { configureStoreAsync } from "util/configureStore";
 
 import store from "fixtures/store";
 
@@ -13,8 +13,9 @@ class Bootloader extends Component {
   };
 
   async componentWillMount() {
-    const store = await configureStore(
-      process.env.NODE_ENV === "development" ? store : {}
+    const { store: _store } = this.props;
+    const store = await configureStoreAsync(
+      process.env.NODE_ENV === "development" ? _store : {}
     );
 
     this.setState({ store });
