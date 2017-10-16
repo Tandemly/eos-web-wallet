@@ -2,26 +2,24 @@
 
 exports[`<Balance /> renders without crashing 1`] = `
 <div
-  className="account-info logged-in p-4"
+  className="-is-logged-in"
 >
   <div
-    className="balance"
+    className="financials u-p3"
   >
-    0.00 
+    <p
+      className="title is-1 balance"
+    >
+      0.00
+      <span>
+        B
+      </span>
+    </p>
+    <p
+      className="subtitle is-6 full-balance"
+    >
+      0
+    </p>
   </div>
-  <div
-    className="full_balance"
-    style={
-      Object {
-        "color": "#434b54",
-        "margin": "-.2rem 0 .5rem",
-      }
-    }
-  >
-    0
-  </div>
-  <div
-    className="change"
-  />
 </div>
 `;

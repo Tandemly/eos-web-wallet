@@ -4,60 +4,47 @@ exports[`<EmailContainer /> renders without crashing 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <h3>
-    Next enter your email
-  </h3>
-  <fieldset
-    className="form-group"
+  <div
+    className="field"
   >
     <label
+      className="label"
       htmlFor="email"
     >
-      Email
+      Next enter your email
     </label>
     <div
-      className="input-container"
+      className="control "
     >
-      <div
-        className=""
+      <input
+        aria-describedby="email"
+        className="input"
+        id="email"
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        required={true}
+        type="email"
+        value=""
       />
-      <div
-        className=""
-      >
-        <input
-          aria-describedby="email"
-          className="form-control form-control-lg"
-          id="email"
-          name="email"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
-          required={true}
-          type="email"
-          value=""
-        />
-      </div>
     </div>
-  </fieldset>
+  </div>
   <div
-    className="modal-cta"
+    className="field u-mt4"
   >
     <div
-      className="row col-12 no-gutters p-0"
+      className="control"
     >
-      <div
-        className="col-sm-auto col-12 pl-0 pr-sm-2 pr-0 mb-sm-0 mb-3"
+      <button
+        className="button is-large is-primary"
+        disabled={false}
+        type="submit"
       >
-        <button
-          className="btn btn-primary btn-lg btn-block"
-          disabled={false}
-          type="submit"
-        >
-          Continue
-        </button>
-      </div>
+        Continue
+      </button>
     </div>
   </div>
 </form>

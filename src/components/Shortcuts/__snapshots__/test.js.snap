@@ -2,62 +2,110 @@
 
 exports[`<Shortcuts /> renders without crashing 1`] = `
 <ul
-  className="-links"
+  className="menu-list"
 >
   <li>
+    <ul
+      className="menu-list -is-logged-in"
+    >
+      <li>
+        <a
+          aria-current="true"
+          className="active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <span
+            className="icon-transfer u-mr1"
+          />
+          Transfer
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={false}
+          className={undefined}
+          href="/transactions"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <span
+            className="icon-history u-mr1"
+          />
+          Transaction History
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={false}
+          className={undefined}
+          href="/permissions"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <span
+            className="icon-permissions u-mr1"
+          />
+          Permissions
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={false}
+          className={undefined}
+          href="/logout"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <span
+            className="icon-logout u-mr1"
+          />
+          Logout
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li>
     <a
-      aria-current="true"
-      className="col-link px-4 py-3 active"
-      href="/"
+      aria-current={false}
+      className={undefined}
+      href="/users"
       onClick={[Function]}
-      style={Object {}}
+      style={undefined}
     >
       <span
-        className="icon-eos_icons_transfer mr-2"
+        className={undefined}
       />
-      Transfer
+      Users
     </a>
   </li>
   <li>
     <a
       aria-current={false}
-      className="col-link px-4 py-3"
-      href="/transactions"
+      className={undefined}
+      href="/about"
       onClick={[Function]}
       style={undefined}
     >
       <span
-        className="icon-eos_icons_history mr-2"
+        className={undefined}
       />
-      Transaction History
+      About
     </a>
   </li>
   <li>
     <a
       aria-current={false}
-      className="col-link px-4 py-3"
-      href="/permissions"
+      className={undefined}
+      href="/faq"
       onClick={[Function]}
       style={undefined}
     >
       <span
-        className="icon-eos_icons_permissions mr-2"
+        className={undefined}
       />
-      Permissions
-    </a>
-  </li>
-  <li>
-    <a
-      aria-current={false}
-      className="col-link px-4 py-3"
-      href="/logout"
-      onClick={[Function]}
-      style={undefined}
-    >
-      <span
-        className="icon-eos_icons_logout mr-2"
-      />
-      Logout
+      FAQ
     </a>
   </li>
 </ul>

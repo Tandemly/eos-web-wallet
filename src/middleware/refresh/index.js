@@ -1,6 +1,6 @@
 /* eslint-disable camelcase, consistent-return */
-import { tryGetTransactions } from '../../containers/TransactionsContainer/reducer';
-import { tryGetBalance } from '../../containers/BalanceContainer/reducer';
+import { tryGetTransactions } from 'containers/Transactions/reducer';
+import { tryGetBalance } from 'containers/Balance/reducer';
 
 // Dispatches action after events
 const refresh = store => next => (action) => {

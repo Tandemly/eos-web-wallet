@@ -2,20 +2,14 @@
 
 exports[`<List /> renders without crashing 1`] = `
 <ul>
-  <li>
-    <p>
-      One
-    </p>
-  </li>
-  <li>
-    <p>
-      Two
-    </p>
-  </li>
-  <li>
-    <p>
-      Three
-    </p>
-  </li>
+  <p>
+    One
+  </p>
+  <p>
+    Two
+  </p>
+  <p>
+    Three
+  </p>
 </ul>
 `;

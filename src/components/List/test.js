@@ -9,8 +9,8 @@ describe('<List />', () => {
       { text: 'Two' },
       { text: 'Three' },
     ];
-    const renderItem = ({ text }) => (
-      <p>{text}</p>
+    const renderItem = ({ key, text }) => (
+      <p key={key}>{text}</p>
     );
 
     const tree = renderer.create(

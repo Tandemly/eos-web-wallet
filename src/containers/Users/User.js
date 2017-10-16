@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-const User = ({ url, name, status, icon }) => (
-  <div className="transaction">
-    <Link to={url}>
+const User = ({ icon, key, name, status, url }) => (
+  <li key={key}>
+    <div>
+      <Link to={url} />
       <div className="user-meta d-flex flex-row items-center">
         {/* <Icon
           className="transaction-thumbnail"
@@ -15,8 +16,8 @@ const User = ({ url, name, status, icon }) => (
           <div className="transaction-memo mb-0">{status}</div>
         </div>
       </div>
-    </Link>
-  </div>
+    </div>
+  </li>
 );
 
 export default User;

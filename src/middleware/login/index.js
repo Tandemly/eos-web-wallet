@@ -2,14 +2,15 @@
 /* global fetch */
 import {
   succeedPostLogin,
-  failPostLogin } from '../../containers/LoginContainer/reducer';
-import rejectBadResponse from '../../func/rejectBadResponse';
+  failPostLogin } from 'containers/Login/reducer';
+import rejectBadResponse from 'util/rejectBadResponse';
 
 const getUser = (payload, dispatch, history) => (
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/api/login/`, {
     method: 'POST',
     mode: 'cors',
     headers: {
+      'Authorization': '', // TODO
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload),

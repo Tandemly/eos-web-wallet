@@ -1,17 +1,13 @@
-import * as React from "react";
-import Transaction from "./Transaction";
-import List from "components/List";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import Transactions from 'components/Transactions';
 
-type PropTypes = {
-  data: Array<any>,
-};
+// TODO parameterize props
+const mapStateToProps = () => ({
+});
 
-const Transactions = ({ data = [] }: PropTypes) => (
-  <div>
-    <List
-      data={data}
-      renderItem={Transaction} />
-  </div>
-);
+const Container = connect(
+  mapStateToProps,
+)(Transactions);
 
-export default Transactions;
+export default withRouter(Container);

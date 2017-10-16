@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import { _middlewares } from '../';
 import { postTransfer } from './';
-import { succeedPostTransaction } from '../../containers/TransferContainer/reducer';
+import { succeedPostTransaction } from 'containers/Transfer/reducer';
 
 const mockStore = configureMockStore(_middlewares);
 const mockHistory = {

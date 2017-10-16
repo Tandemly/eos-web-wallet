@@ -1,10 +1,12 @@
 A short list of transactions:
 
 ```js
-const data = transactions.default.slice(0, 5);
 
 <Background className="transactions-example content">
-  <Transactions data={data} />
+  <Transactions
+    data={transactions.default}
+    count={5}
+  />
 </Background>
 
 ```
@@ -13,6 +15,9 @@ A long list of transactions:
 
 ```js
 <Background className="transactions-example content">
-  <Transactions data={transactions.default} />
+  <Transactions
+    data={transactions.default}
+    count={15}
+  />
 </Background>
 ```

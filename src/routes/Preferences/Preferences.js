@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
-import PreferencesForm from 'components/PreferencesForm';
+import Container from 'containers/Preferences';
 
 const Preferences = () => (
-  <div className="profile">
+  <div className="content">
     <Helmet>
       <title>Preferences</title>
     </Helmet>
@@ -16,7 +16,7 @@ const Preferences = () => (
 
       <div className="row">
         <div className="col-12 col-lg-6">
-          <PreferencesForm />
+          <Container />
         </div>
         <div className="hidden-md-down col-lg-6">
           <h5>Profile Preview</h5>

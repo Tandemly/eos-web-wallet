@@ -1,5 +1,7 @@
 @import "../../styles/custom_variables.scss";
 
+$colors: map-merge($colors, $additional-colors);
+
 .swatch_wrapper {
   position: relative;
   border-radius: 2px;

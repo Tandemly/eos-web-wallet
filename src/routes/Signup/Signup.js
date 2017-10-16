@@ -16,7 +16,8 @@ const steps = {
 };
 
 const CreateAccount = ({ handleModalClose, location /* , routes */ }) => {
-  const step = Object.keys(steps).reduce((acc, path) => (path === location.pathname ? steps[path] : acc), 1);
+  const step = Object.keys(steps)
+    .reduce((acc, path) => (path === location.pathname ? steps[path] : acc), 1);
 
   return (
     <div className="login">
@@ -32,6 +33,7 @@ const CreateAccount = ({ handleModalClose, location /* , routes */ }) => {
         <Notifications />
 
         <Progress step={step} />
+        
         <Switch>
           <Route exact path="/create-account" component={AccountName} title="" />
           <Route exact path="/create-account/email" component={Email} title="" />

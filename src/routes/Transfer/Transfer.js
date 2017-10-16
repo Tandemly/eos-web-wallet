@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import Transactions from "containers/Transactions";
 import transactions from "fixtures/transactions";
 
@@ -40,10 +41,18 @@ const Transfer = () => (
       <section>
         <h3 className="title is-3"><p>Transaction History<span className="help"><a>See All</a></span></p></h3>
 
-        <Transactions data={transactions} />
+        <Transactions
+          count={5}
+          data={transactions}
+        />
         
         <div className="control u-mt4">
-          <button className="button is-large is-primary">View All</button>
+          <Link 
+            className="button is-large is-primary"
+            to="/transactions"
+          >
+            View All
+          </Link>
         </div>
       </section>
     </div>

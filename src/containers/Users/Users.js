@@ -4,13 +4,24 @@ import Link from "react-router-dom";
 import List from "components/List";
 import User from "./User";
 
-const mapStateToProps = ({ users: { all } }) => ({
-  data: all,
+import users from "fixtures/users";
+
+const mapStateToProps = () => ({
+  data: users,
   renderItem: User,
 });
 
+const _Users = ({ data, renderItem }) => (
+  <div>
+    <List
+      data={data}
+      renderItem={renderItem}
+    />
+  </div>
+)
+
 const Users = connect(
   mapStateToProps,
-)(List);
+)(_Users);
 
 export default Users;

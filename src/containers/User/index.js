@@ -51,11 +51,6 @@ const User = ({
         </span>}
       </div>
 
-      {/* <Icon
-        className={styles.icon}
-        size={location ? Icon.small : Icon.large}
-      /> */}
-
       {status && <p className={styles.status}>{status}</p>}
     </div>
   </div>
