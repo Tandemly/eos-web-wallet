@@ -15,6 +15,7 @@ const logoutUser = (dispatch, history) => {
 }
 
 const logout = store => next => (action) => {
+  return;
   if (action.type === 'TRY_LOGOUT') {
     const { history } = action;
 
