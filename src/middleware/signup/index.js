@@ -17,17 +17,17 @@ const createAccountFlow = {
   TRY_POST_USERNAME: {
     success: succeedPostUsername,
     fail: failPostUsername,
-    to: '/create-account/email',
+    to: '/signup/email',
   },
   TRY_POST_EMAIL: {
     success: succeedPostEmail,
     fail: failPostEmail,
-    to: '/create-account/phone',
+    to: '/signup/phone',
   },
   TRY_POST_PHONE: {
     success: succeedPostPhone,
     fail: failPostPhone,
-    to: '/create-account/complete',
+    to: '/signup/complete',
   },
   TRY_POST_SIGNUP: {
     success: succeedPostLogin,

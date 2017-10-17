@@ -73,9 +73,23 @@ body,
   text-transform: uppercase;
   font-weight: bold;
   border-radius: 4px;
-  &.is-large {
+  font-size: 0.875rem;
+  padding: 0 1.25rem;
+  height: 38px;
+  &.is-large, &.is-medium, &.is-small {
     font-size: 0.875rem;
-    padding: 1rem 3rem;
+    border-radius: 4px;
+  }
+  &.is-small {
+    padding: 0 1rem;
+    height: 30px;
+  }
+  &.is-medium {
+    padding: 0 2.25rem;
+    height: 48px;
+  }
+  &.is-large {
+    padding: 0 3rem;
     height: 55px;
   }
 }
@@ -265,6 +279,19 @@ main {
         width: 40px;
         height: 40px;
       }
+      &.user {
+        .username {
+          font-size: 1rem;
+          line-height: 0.875rem;
+          font-weight: bold;
+          margin: 5px 0 0;
+        }
+        .memo {
+          font-size: 0.875rem;
+          font-weight: normal;
+          color: white;
+        }
+      }
     }
     .level.is-mobile .level-item:not(:last-child) {
       margin-right: 0.75rem;
@@ -287,61 +314,62 @@ main {
     width: 210px;
   }
 
-  li .menu-list {
+  li .menulist {
     margin: 0;
     padding: 0;
   }
+}
 
-  .menu-list {
-    box-shadow: inset 0px 10px 10px -5px rgba($grey-80,0.3);
-
-    li {
-      position: relative;
-      a {
-        padding: 1.125rem 1.5rem;
-        color: white;
-        text-transform: uppercase;
-        font-size: 0.875rem;
-        font-weight: bold;
-        transition: background .25s, padding .25s;
-        &:after {
-          position: absolute;
-          bottom: 0;
-          left: 0;
+// Menu 
+.menulist {
+  box-shadow: inset 0px 10px 10px -5px rgba($grey-80,0.3);
+  li {
+    position: relative;
+    a {
+      display: block;
+      padding: 1.125rem 1.5rem;
+      color: white;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      font-weight: bold;
+      transition: background .25s, padding .25s;
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        height: 1px;
+        width: 100%;
+        background: linear-gradient(to right, $grey-60, $grey-80);
+      }
+      span {
+        color: $primary;
+      }
+      &.is-active, &.is-active:hover {
+        background-color: $orange;
+        padding-left: 1.5rem;
+        :before {
+          color: white;
+        }
+        :after {
           content: "";
-          height: 1px;
-          width: 100%;
-          background: linear-gradient(to right, $grey-60, $grey-80);
-        }
-        span {
-          color: $primary;
-        }
-        &.is-active, &.is-active:hover {
-          background-color: $orange;
-          padding-left: 1.5rem;
-          :before {
-            color: white;
-          }
-          :after {
-            content: "";
-            position: absolute;
-            right: -8px;
-            top: 0;
-            width: 0; 
-            height: 0; 
-            border-top: 26px solid transparent;
-            border-bottom: 26px solid transparent;
-            border-left: 8px solid $orange;
-            z-index: 1;
-            @include mobile {
-              display: none;
-            }
+          position: absolute;
+          right: -8px;
+          top: 0;
+          width: 0; 
+          height: 0; 
+          border-top: 26px solid transparent;
+          border-bottom: 26px solid transparent;
+          border-left: 8px solid $orange;
+          z-index: 1;
+          @include mobile {
+            display: none;
           }
         }
-        &:hover {
-          background-color: darken($grey-mid, 2%);
-          padding-left: 2rem;
-        }
+      }
+      &:hover {
+        background-color: darken($grey-mid, 2%);
+        padding-left: 2rem;
       }
     }
   }
@@ -375,7 +403,7 @@ main {
       }
     }
   }
-  &.menu-list {
+  &.menulist {
     position: relative;
     box-shadow: none;
     &:before {

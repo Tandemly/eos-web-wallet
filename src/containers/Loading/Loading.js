@@ -10,12 +10,11 @@ const styles = {
   minHeight: "100vh"
 };
 const Loading = () => (
-  <div className="Loading">
-    <div className="Loading-div-img u-mb4">
+  <div className="loading">
+    <div className="loading-image u-mb4">
       <img alt="" className="Loading-img" src="/images/logo.svg" />
     </div>
-
-    <h3 className="Loading-header">Loading EOS Wallet App</h3>
+    <span className="icon-loader" />
   </div>
 );
 

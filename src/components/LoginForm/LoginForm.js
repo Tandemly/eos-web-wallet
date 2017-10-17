@@ -2,6 +2,7 @@ import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import renderField from 'components/Field';
+import Button from "components/Button";
 
 const LoginForm = ({
   callAPI,
@@ -44,22 +45,20 @@ const LoginForm = ({
 
     <div className="field is-grouped u-mt4">
       <div className="control">
-        <button
+        <Button
           disabled={submitting}
           className="button is-large is-primary"
           type="submit"
-        >
-          {submitting ? 'Submitting...' : 'Login'}
-        </button>
+          text={submitting ? 'Submitting...' : 'Login'}
+        />
       </div>
       <div className="control">
-        <button
+        <Button
           disabled={submitting}
           className="button is-large is-secondary"
           type="submit"
-        >
-          {submitting ? 'Clearing...' : 'Cancel'}
-        </button>
+          text="Cancel"
+        />
       </div>
     </div>
 

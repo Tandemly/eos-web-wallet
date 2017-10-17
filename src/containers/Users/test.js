@@ -14,7 +14,7 @@ describe('<Users />', () => {
     ReactDOM.render(
       <StaticRouter location="/" context={staticContext}>
         <Provider store={store}>
-          <Users/>
+          <Users />
         </Provider>
       </StaticRouter>,
       div,

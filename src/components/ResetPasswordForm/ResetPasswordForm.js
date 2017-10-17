@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
 import renderField from 'components/Field';
+import Button from "components/Button";
 
 const Label = () => (
   <p>
@@ -36,15 +37,14 @@ const ResetPasswordForm = ({
       component={renderField}
       type="text"
     />
-    <div className="field u-mt4">
+    <div className="field">
       <div className="control">
-        <button
+        <Button
           disabled={submitting}
           className="button is-large is-secondary"
           type="submit"
-        >
-          {submitting ? 'Submitting...' : 'Regenerate Password'}
-        </button>
+          text={submitting ? 'Submitting...' : 'Regenerate Password'}
+        />
       </div>
     </div>
     <Field
@@ -57,15 +57,14 @@ const ResetPasswordForm = ({
       component={renderField}
       type="text"
     />
-    <div className="field u-mt4">
+    <div className="field">
       <div className="control">
-        <button
+        <Button
           disabled={submitting}
           className="button is-large is-primary"
           type="submit"
-        >
-          {submitting ? 'Submitting...' : 'Update Password'}
-        </button>
+          text={submitting ? 'Submitting...' : 'Update Password'}
+        />
       </div>
     </div>
   </form>
