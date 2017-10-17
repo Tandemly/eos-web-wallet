@@ -26,6 +26,12 @@ p
   }
 }
 
+a {
+  &:hover {
+    color: $primary;
+  }
+}
+
 .title.is-1 {
   font-size: 3.625rem;
   font-weight: 100;
