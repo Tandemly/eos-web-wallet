@@ -23,7 +23,7 @@ const Header = ({
             <h4 className="title is-4 is-spaced">Hi, Display Name</h4>
             <p className="subtitle is-6">
               <Link to="/preferences">Customize your profile</Link> | 
-              <Link to="/logout"><span className="icon-logout"></span></Link>
+              <Link to="/logout"> <span className="icon-logout"></span></Link>
             </p>
           </div>
         </div>
