@@ -4,6 +4,6 @@ Connected accounts example:
 const noop = () => {};
 
 <Background className="email-form-example content">
-  <ConnectedAccounts />
+  <ConnectedAccountsForm />
 </Background>
 ```
