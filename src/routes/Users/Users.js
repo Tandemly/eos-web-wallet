@@ -9,7 +9,7 @@ const Users = () => (
       <title>Users</title>
     </Helmet>
 
-    <h2>Users</h2>
+    <h2 className="title is-2">Users</h2>
 
     <Container />
   </div>
