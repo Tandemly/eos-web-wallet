@@ -9,6 +9,8 @@ import Footer from "components/Footer";
 import Menu from "components/Menu";
 import Modal from "components/Modal";
 
+import Logout from "containers/Logout";
+
 import Login from "routes/Login";
 import Signup from "routes/Signup";
 import About from "routes/About";
@@ -21,6 +23,7 @@ import Permissions from "routes/Permissions";
 import Preferences from "routes/Preferences";
 import NoMatch from "routes/NoMatch";
 
+
 import {
   toggleMenu,
   closeMenu,
@@ -30,12 +33,13 @@ import {
 import "./App.scss";
 
 const AuthenticatedRoutes = () => ([
-  <Route path="/" exact component={Transfer} />,
-  <Route path="/transactions" component={Transactions} />,
-  <Route path="/users" component={Users} />,
-  <Route path="/user/:id" component={Profile} />,
-  <Route path="/permissions" component={Permissions} />,
-  <Route path="/preferences" component={Preferences} />,
+  <Route path="/" exact component={Transfer} key="transfer" onEnter={() => console.log('entering transfer..')} />,
+  <Route path="/transactions" component={Transactions} key="transactions" />,
+  <Route path="/users" component={Users} key="users" />,
+  <Route path="/user/:id" component={Profile} key="user" />,
+  <Route path="/permissions" component={Permissions} key="permissions" />,
+  <Route path="/preferences" component={Preferences} key="preferences" />,
+  <Logout key="logout" />,
 ]);
 
 const renderModalRoutes = () => (

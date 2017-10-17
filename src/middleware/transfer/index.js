@@ -5,11 +5,12 @@ import {
   failPostTransaction } from 'containers/Transfer/reducer';
 import rejectBadResponse from 'util/rejectBadResponse';
 
-export const postTransfer = (payload, dispatch) => (
+export const postTransfer = (payload, token, dispatch) => (
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/api/account/transfer`, {
     method: 'POST',
     mode: 'cors',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload)
@@ -28,19 +29,20 @@ export const postTransfer = (payload, dispatch) => (
 );
 
 const transfer = store => next => async (action) => {
-  if (action.type === 'TRY_POST_TRANSACTION') {
-    const {
-      login: {
-        user: {
-          account_name: from,
-          auth: {
-            active_key,
-            owner_key,
-          }
-        }
-      }
-    } = store.getState();
+  const {
+    login: { 
+      isAuthenticated,
+      user: {
+        account_name: from,
+        id_token,
+        access_token,
+        active_key,
+        owner_key,
+      },
+    },
+  } = store.getState();
 
+  if (isAuthenticated && action.type === 'TRY_POST_TRANSACTION') {
     const {
       amount,
       memo,
@@ -56,7 +58,7 @@ const transfer = store => next => async (action) => {
         memo,
         owner_key,
         to,
-      }, store.dispatch);
+      }, access_token, store.dispatch);
     } else {
       postTransfer({
         active_key,
@@ -65,7 +67,7 @@ const transfer = store => next => async (action) => {
         memo,
         owner_key,
         to,
-      }, store.dispatch);
+      }, access_token, store.dispatch);
     }
   }
 

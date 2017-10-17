@@ -5,6 +5,7 @@ import logger from 'redux-logger';
 import api from './api';
 import balance from './balance';
 import login from './login';
+import logout from './logout';
 import refresh from './refresh';
 import signup from './signup';
 import transactions from './transactions';
@@ -14,6 +15,7 @@ import transfer from './transfer';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const _middlewares = [
   thunk,
+  logout,
   balance,
   login,
   signup,

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
 import ResetPassword from 'containers/ResetPassword';
-import ConnectedAccounts from 'components/ConnectedAccounts';
+import ConnectedAccounts from 'containers/ConnectedAccounts';
 
 const Permissions = () => (
   <div>

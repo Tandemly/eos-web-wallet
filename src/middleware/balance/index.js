@@ -9,12 +9,12 @@ import rejectBadResponse from 'util/rejectBadResponse';
 // const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 // TODO abstract away network requests
-export const getBalance = (payload, dispatch) => (
+export const getBalance = (payload, token, dispatch) => (
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/api/account/`, {
     method: 'POST',
     mode: 'cors',
     headers: {
-      'Authorization': '', // TODO
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload),
@@ -35,10 +35,20 @@ export const getBalance = (payload, dispatch) => (
 );
 
 const balance = store => next => (action) => {
-  if (action.type === 'TRY_GET_BALANCE') {
+  const {
+    login: { 
+      isAuthenticated,
+      user: {
+        id_token,
+        access_token,
+      },
+    },
+  } = store.getState();
+
+  if (isAuthenticated && action.type === 'TRY_GET_BALANCE') {
     const { account_name } = action;
 
-    getBalance({ account_name }, store.dispatch);
+    getBalance({ account_name }, access_token, store.dispatch);
   }
 
   next(action);
