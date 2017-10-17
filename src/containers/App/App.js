@@ -25,7 +25,7 @@ import {
   toggleMenu,
   closeMenu,
   routeLoad
-} from "./reducer";
+} from "./actions";
 
 import "./App.scss";
 
