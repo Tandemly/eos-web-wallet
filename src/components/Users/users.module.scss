@@ -1,0 +1,17 @@
+@import "../../styles/custom_variables.scss";
+
+.users {
+  li {
+    .username {
+      font-size: 1rem;
+      line-height: 0.875rem;
+      font-weight: bold;
+      margin: 5px 0 0;
+    }
+    .memo {
+      font-size: 0.875rem;
+      font-weight: normal;
+      color: white;
+    }
+  }
+}

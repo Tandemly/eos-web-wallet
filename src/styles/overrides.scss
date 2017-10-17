@@ -118,6 +118,14 @@ body,
   }
 }
 
+.label:not(:last-child) {
+  margin-bottom: 0.125rem;
+}
+
+.field:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
 .input, .textarea {
   border-radius: 3px;
 }
@@ -144,15 +152,43 @@ main {
   margin: 0 0 3rem 0;
 }
 
+// Custom Global
+.icon-transfer_to {
+  color: $red;
+}
+
+.icon-transfer_from {
+  color: $green;
+}
+
+.user-thumb {
+  border-radius: 20px;
+  border: 3px solid $orange;
+  width: 40px;
+  height: 40px;
+}
+
 // Main Content
 .content {
   padding: 3rem;
   @include mobile {
     padding: 2rem;
   }
-  // Transaction History
-  ul {
+  .list {
     margin: 0;
+    &.transaction {
+      .heading {
+        margin-bottom: 0;
+      }
+    }
+    &.users {
+      .username {
+        margin-bottom: 0;
+      }
+    }
+    .level.is-mobile .level-item:not(:last-child) {
+      margin-right: 0.75rem;
+    }
     li {
       background-color: transparent;
       color: white;
@@ -161,55 +197,7 @@ main {
       &:nth-child(odd) {
         background-color: $grey-mid;
       }
-      .heading {
-        font-size: 0.6875rem;
-        line-height: 0.6875rem;
-        margin-bottom: 0;
-      }
-      .title {
-        font-size: 1.25rem;
-        font-weight: normal;
-        color: white;
-      }
-      a {
-        color: $primary;
-      }
-      .icon-transfer_to {
-        color: $red;
-      }
-      .icon-transfer_from {
-        color: $green;
-      }
-      .image {
-        border-radius: 20px;
-        border: 3px solid $orange;
-        width: 40px;
-        height: 40px;
-      }
-      &.user {
-        .username {
-          font-size: 1rem;
-          line-height: 0.875rem;
-          font-weight: bold;
-          margin: 5px 0 0;
-        }
-        .memo {
-          font-size: 0.875rem;
-          font-weight: normal;
-          color: white;
-        }
-      }
     }
-    .level.is-mobile .level-item:not(:last-child) {
-      margin-right: 0.75rem;
-    }
-  }
-  .label:not(:last-child) {
-    margin-bottom: 0.125rem;
-  }
-
-  .field:not(:last-child) {
-    margin-bottom: 1.5rem;
   }
 }
 
