@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import { tryLogout } from './reducer';
 
 const mapDispatchToProps = (dispatch, { history }) => ({
