@@ -1,0 +1,55 @@
+@import "../../styles/custom_variables.scss";
+
+.menulist {
+	box-shadow: inset 0px 10px 10px -5px rgba($grey-80,0.3);
+	li {
+		position: relative;
+		a {
+			display: block;
+			padding: 1.125rem 1.5rem;
+			color: white;
+			text-transform: uppercase;
+			font-size: 0.875rem;
+			font-weight: bold;
+			transition: background .25s, padding .25s;
+			&:after {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				content: "";
+				height: 1px;
+				width: 100%;
+				background: linear-gradient(to right, $grey-60, $grey-80);
+			}
+			span {
+				color: $primary;
+			}
+			&.is-active, &.is-active:hover {
+				background-color: $orange;
+				padding-left: 1.5rem;
+				:before {
+					color: white;
+				}
+				:after {
+					content: "";
+					position: absolute;
+					right: -8px;
+					top: 0;
+					width: 0; 
+					height: 0; 
+					border-top: 26px solid transparent;
+					border-bottom: 26px solid transparent;
+					border-left: 8px solid $orange;
+					z-index: 1;
+					@include mobile {
+						display: none;
+					}
+				}
+			}
+			&:hover {
+				background-color: darken($grey-mid, 2%);
+				padding-left: 2rem;
+			}
+		}
+	}
+}

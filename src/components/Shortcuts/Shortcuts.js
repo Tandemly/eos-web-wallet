@@ -54,7 +54,7 @@ const Shortcuts = ({
   data,
   renderItem = Shortcut }) => (
   <List
-    className="menulist"
+    className={cx("menulist", css.menulist)}
     data={data || links}
     renderItem={renderItem}
   />
