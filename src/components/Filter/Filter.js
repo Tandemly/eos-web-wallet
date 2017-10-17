@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 const recfilter = (value, item) => (
   Object.keys(item).some(k =>
     k !== 'src' &&
+    k === 'name' ? recfilter(value, item[k].split(' ')) :
     (typeof item[k] === 'object' || Array.isArray(item[k])) ? recfilter(value, item[k]) : (
       typeof item[k] === typeof value &&
       new RegExp(`^${value}`, 'i').test(item[k])
@@ -31,6 +32,8 @@ class Filter extends React.Component {
     const { value } = this.state;
     const handleChange = this.handleChange.bind(this);
     const filterValue = !isNaN(value) ? parseInt(value, 10) : value;
+
+    console.log(data);
 
     return (
       <div>

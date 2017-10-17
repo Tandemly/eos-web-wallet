@@ -7,7 +7,7 @@ const noop = () => {};
   <DisplayRedux>
     <DisplayReactRouter>
       <ErrorBoundary>
-        <Users callAPI={noop} />
+        <Users data={users.default} callAPI={noop} />
       </ErrorBoundary>
     </DisplayReactRouter>
   </DisplayRedux>

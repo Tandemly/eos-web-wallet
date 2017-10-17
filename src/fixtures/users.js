@@ -71,6 +71,70 @@ const users = [
       src: "/images/male_2.jpg"
     },
   },
+  {
+    url: "",
+    name: "Patrick Gordon",
+    status: "",
+    image: {
+      src: "/images/male_2.jpg"
+    },
+  },
+  {
+    url: "",
+    name: "Susan Margaret",
+    status: "",
+    image: {
+      src: "/images/male_2.jpg"
+    },
+  },
+  {
+    url: "",
+    name: "Anderson Taylor",
+    status: "",
+    image: {
+      src: "/images/male_2.jpg"
+    },
+  },
+  {
+    url: "",
+    name: "Anthony Lee",
+    status: "",
+    image: {
+      src: "/images/male_2.jpg"
+    },
+  },
+  {
+    url: "",
+    name: "Gary Lewis",
+    status: "",
+    image: {
+      src: "/images/male_2.jpg"
+    },
+  },
+  {
+    url: "",
+    name: "Martha Baker",
+    status: "",
+    image: {
+      src: "/images/male_2.jpg"
+    },
+  },
+  {
+    url: "",
+    name: "Ann Torres",
+    status: "",
+    image: {
+      src: "/images/male_2.jpg"
+    },
+  },
+  {
+    url: "",
+    name: "Jean Murphy",
+    status: "",
+    image: {
+      src: "/images/male_2.jpg"
+    },
+  },
 ];
 
 export default users;

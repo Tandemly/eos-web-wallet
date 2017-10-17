@@ -32,7 +32,7 @@ import {
 import "./App.scss";
 
 const RoutesAuthenticated = () => ([
-  <Route path="/" exact component={Transfer} key="transfer" onEnter={() => console.log('entering transfer..')} />,
+  <Route path="/" exact component={Transfer} key="transfer" />,
   <Route path="/transactions" component={Transactions} key="transactions" />,
   <Route path="/users" component={Users} key="users" />,
   <Route path="/user/:id" component={Profile} key="user" />,

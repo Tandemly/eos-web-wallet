@@ -4,6 +4,10 @@ Connected EOS accounts example:
 const noop = () => {};
 
 <Background className="email-form-example content">
-  <ConnectedEOSAccountsForm />
+  <DisplayRedux>
+    <DisplayReactRouter>
+      <ConnectedEOSAccountsForm callAPI={noop} />
+    </DisplayReactRouter>
+  </DisplayRedux>
 </Background>
 ```

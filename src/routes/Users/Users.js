@@ -1,8 +1,11 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
 import Container from "containers/Users";
+import Filter from "components/Filter";
 
-// TODO add search filter
+// TODO move fixture upstream
+import users from "fixtures/users";
+
 const Users = () => (
   <div className="content">
     <Helmet>
@@ -11,7 +14,11 @@ const Users = () => (
 
     <h2 className="title is-2">Users</h2>
 
-    <Container />
+    <div>
+        <Filter data={users}>
+          <Container />
+        </Filter>
+      </div>
   </div>
 );
 
