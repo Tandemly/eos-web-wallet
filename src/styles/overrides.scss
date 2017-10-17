@@ -168,6 +168,22 @@ main {
   height: 40px;
 }
 
+.financials {
+  .title:not(.is-spaced) + .subtitle,
+  .title:not(:last-child),
+  .subtitle:not(:last-child) {
+    margin: 0;
+  }
+  .tag {
+    &:not(body) {
+      &.is-primary {
+        background-color: $green;
+        color: $grey-light;
+      }
+    }
+  }
+}
+
 // Main Content
 .content {
   padding: 3rem;
@@ -218,31 +234,6 @@ main {
 // Logged in
 .-is-logged-in {
   background-color: $grey-light;
-  .financials {
-    .balance {
-      line-height: 3rem;
-      margin-bottom: 0;
-      span {
-        font-size: 2rem;
-        line-height: 2rem;
-      }
-    }
-    .full-balance {
-      font-size: 1.125rem;
-      margin: 0;
-      color: $grey-text;
-    }
-    .tag {
-      background-color: $green;
-      color: $grey-light;
-      font-weight: bold;
-      font-size: 0.875rem;
-      span {
-        font-size: 0.5625rem;
-        padding-right: 2px;
-      }
-    }
-  }
   &.menulist {
     position: relative;
     box-shadow: none;
