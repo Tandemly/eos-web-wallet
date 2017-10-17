@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import renderField from 'components/Field';
 import Button from "components/Button";
 
-const ConnectedAccountsForm = ({ 
+const ConnectedEOSAccountsForm = ({ 
   callAPI,
   handleSubmit,
   submitting, }) => (
@@ -58,4 +58,4 @@ const ConnectedAccountsForm = ({
 
 export default reduxForm({
   form: 'connected-accounts',
-})(ConnectedAccountsForm);
+})(ConnectedEOSAccountsForm);

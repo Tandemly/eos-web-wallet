@@ -1,9 +1,9 @@
-Connected accounts example:
+Connected EOS accounts example:
 
 ```js
 const noop = () => {};
 
 <Background className="email-form-example content">
-  <ConnectedAccountsForm />
+  <ConnectedEOSAccountsForm />
 </Background>
 ```

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ConnectedAccountsForm from "components/ConnectedAccountsForm";
+import ConnectedEOSAccountsForm from "components/ConnectedEOSAccountsForm";
 
 /* eslint-disable camelcase */
 const mapDispatchToProps = (dispatch, { history }) => ({
@@ -14,10 +14,9 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   },
 });
 
-
-const ConnectedAccounts = connect(
+const ConnectedEOSAccounts = connect(
   null,
   mapDispatchToProps,
-)(ConnectedAccountsForm);
+)(ConnectedEOSAccountsForm);
 
-export default ConnectedAccounts;
+export default ConnectedEOSAccounts;

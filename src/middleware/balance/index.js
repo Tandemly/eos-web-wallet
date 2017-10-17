@@ -6,9 +6,6 @@ import {
 } from 'containers/Balance/reducer';
 import rejectBadResponse from 'util/rejectBadResponse';
 
-// const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-// TODO abstract away network requests
 export const getBalance = (payload, token, dispatch) => (
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/api/account/`, {
     method: 'POST',
@@ -29,7 +26,7 @@ export const getBalance = (payload, token, dispatch) => (
       dispatch({
         type: 'CONNECTION_ERROR',
         form: 'sign-up',
-        error: { message: 'Unable to connect to the Wallet' }
+        error: { message: 'Unable to connect to the Wallet' },
       });
     })
 );

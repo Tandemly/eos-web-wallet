@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
 import Container from 'containers/Transactions';
+import Filter from "components/Filter";
 import transactions from "fixtures/transactions";
 
 // TODO add search
@@ -17,7 +18,11 @@ const Transactions = () => (
         </div>
       </div>
 
-      <Container data={transactions} />
+      <div>
+        <Filter data={transactions}>
+          <Container />
+        </Filter>
+      </div>
     </div>
   </div>
 );

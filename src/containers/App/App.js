@@ -23,7 +23,6 @@ import Permissions from "routes/Permissions";
 import Preferences from "routes/Preferences";
 import NoMatch from "routes/NoMatch";
 
-
 import {
   toggleMenu,
   closeMenu,
@@ -32,14 +31,14 @@ import {
 
 import "./App.scss";
 
-const AuthenticatedRoutes = () => ([
+const RoutesAuthenticated = () => ([
   <Route path="/" exact component={Transfer} key="transfer" onEnter={() => console.log('entering transfer..')} />,
   <Route path="/transactions" component={Transactions} key="transactions" />,
   <Route path="/users" component={Users} key="users" />,
   <Route path="/user/:id" component={Profile} key="user" />,
   <Route path="/permissions" component={Permissions} key="permissions" />,
   <Route path="/preferences" component={Preferences} key="preferences" />,
-  <Logout key="logout" />,
+  <Route path="/logout" component={Logout} key="logout" />,
 ]);
 
 const renderModalRoutes = () => (
@@ -93,9 +92,7 @@ class App extends React.Component {
       isMenuOpen,
     } = this.props;
     const handleModalClose = this.handleModalClose.bind(this);
-    const isModalOpen = process.env.NODE_ENV === 'test' 
-      ? false
-      : modalRoutes.some(path => new RegExp(path).test(location.pathname));
+    const isModalOpen = modalRoutes.some(path => new RegExp(path).test(location.pathname));
 
     return (
       <main className={`${isMenuOpen ? 'open' : 'closed'}`}>
@@ -118,7 +115,7 @@ class App extends React.Component {
             <Switch location={isModalOpen ? this.previousLocation : location}>
               <Route path="/about" component={About} />
               <Route path="/faq" component={Faq} />
-              <AuthenticatedRoutes isAuthenticated={isAuthenticated} />
+              <RoutesAuthenticated isAuthenticated={isAuthenticated} />
               <Route path="*" component={NoMatch} />
             </Switch>
     

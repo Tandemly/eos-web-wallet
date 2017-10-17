@@ -15,7 +15,6 @@ import transfer from './transfer';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const _middlewares = [
   thunk,
-  logout,
   balance,
   login,
   signup,
@@ -23,6 +22,8 @@ const _middlewares = [
   transfer,
   refresh,
   api,
+  // NOTE must be last in middlewares
+  logout,
 ];
 
 if (process.env.NODE_ENV === 'development') {

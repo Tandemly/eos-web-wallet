@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from 'react-redux';
-import { withRouter, Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { tryLogout } from './reducer';
 
 const mapDispatchToProps = (dispatch, { history }) => ({
@@ -19,7 +19,7 @@ class _Logout extends React.Component {
   }
 
   render() {
-    return <Route path="/logout" />;
+    return null;
   }
 }
 
