@@ -2,7 +2,7 @@ Menu example:
 
 ```js
 
-<Background className="menu-example content">
+<Background className="menu-example">
   <DisplayRedux>
     <DisplayReactRouter>
       <Menu />
