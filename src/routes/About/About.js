@@ -7,7 +7,7 @@ const About = () => (
       <title>About</title>
     </Helmet>
 
-    <h2>About</h2>
+    <h2 className="title is-2">About</h2>
 
     <div className="col-12">
       Content

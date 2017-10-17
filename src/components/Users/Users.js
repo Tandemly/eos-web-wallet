@@ -1,6 +1,8 @@
 import * as React from "react";
 import List from "components/List";
 import User from "./User";
+import css from "./users.module.scss";
+import cx from "classnames";
 
 // TODO add search filter
 const Users = ({ data }) => (
@@ -8,6 +10,7 @@ const Users = ({ data }) => (
     <List
       data={data}
       renderItem={User}
+      className={cx("list users", css.users)}
     />
   </div>
 );

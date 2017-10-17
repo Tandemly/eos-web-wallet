@@ -11,7 +11,7 @@ const Permissions = () => (
     <div className="content">
       <div className="row">
         <div className="col-12">
-          <h2>Permissions</h2>
+          <h2 className="title is-2">Permissions</h2>
         </div>
       </div>
 
