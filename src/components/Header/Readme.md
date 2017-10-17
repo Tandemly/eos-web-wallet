@@ -1,7 +1,7 @@
 A Header example:
 
 ```js
-<Background className="footer-example content">
+<Background className="footer-example">
   <DisplayReactRouter>
     <Header />
   </DisplayReactRouter>
