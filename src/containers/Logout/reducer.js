@@ -19,10 +19,9 @@ export function succeedLogout() {
   };
 }
 
-export function tryLogout({ nextState, replaceState }) {
+export function tryLogout({ history }) {
   return {
     type: TRY_LOGOUT,
-    nextState,
-    replaceState,
+    history,
   };
 }
