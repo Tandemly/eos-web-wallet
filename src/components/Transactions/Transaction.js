@@ -1,4 +1,5 @@
 import * as React from "react";
+import css from "./transaction.module.scss";
 
 const Transaction = ({
   key,
@@ -11,7 +12,7 @@ const Transaction = ({
   <li className="level box is-mobile" key={key}>
     <div className="level-left">
       <div className="level-item has-text-centered">
-        <div>
+        <div className={css.date}>
           <p className="heading">{date.month}</p>
           <p className="title">{date.day}</p>
         </div>
