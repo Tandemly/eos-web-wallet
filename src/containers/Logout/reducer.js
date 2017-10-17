@@ -5,7 +5,6 @@ const TRY_LOGOUT = 'TRY_LOGOUT';
 const initialState = {};
 
 // NOTE this doesn't need a reducer
-
 // TODO assess if this is necessary
 export function failLogout({ error }) {
   return {
@@ -20,9 +19,10 @@ export function succeedLogout() {
   };
 }
 
-export function tryLogout({ account_name, owner_key, history }) {
+export function tryLogout({ nextState, replaceState }) {
   return {
     type: TRY_LOGOUT,
-    history,
+    nextState,
+    replaceState,
   };
 }

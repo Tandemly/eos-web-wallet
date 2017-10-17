@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Balance from '../../components/Balance';
+import Balance from 'components/Balance';
 
 /* eslint-disable camelcase */
 const mapStateToProps = ({ account: { total, difference, symbol } }) => ({

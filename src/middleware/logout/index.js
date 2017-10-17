@@ -5,6 +5,12 @@ const logoutUser = (dispatch, history) => {
     localStorage.removeItem(key);
   });
 
+  // TODO purge store of user data
+
+  debugger;
+
+  history.push('/signup');
+
   dispatch(succeedLogout());
 }
 
