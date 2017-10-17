@@ -11,7 +11,6 @@ import { reducer as app } from 'containers/App/reducer';
 import { reducer as login } from 'containers/Login/reducer';
 import { reducer as notification } from 'containers/Notifications/reducer';
 import { reducer as transactions } from 'containers/Transactions/reducer';
-import { reducer as user } from 'containers/User/reducer';
 import { reducer as users } from 'containers/Users/reducer';
 
 const reducers = combineReducers({
@@ -21,7 +20,6 @@ const reducers = combineReducers({
   login,
   notification,
   transactions,
-  user,
   users,
 });
 

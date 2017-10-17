@@ -1,19 +1,32 @@
-const TOGGLE_MENU = "TOGGLE_MENU";
-const CLOSE_MENU = "CLOSE_MENU";
-const ROUTE_LOAD = "ROUTE_LOAD";
+const TOGGLE_MENU = 'TOGGLE_MENU';
+const CLOSE_MENU = 'CLOSE_MENU';
+const ROUTE_LOAD = 'ROUTE_LOAD';
 
 const initialState = {
-  isMenuOpen: false
+  isMenuOpen: false,
 };
 
 export function reducer(state = initialState, action) {
-  return state;
+  switch (action.type) {
+    default:
+      return state;
+  }
 }
 
-// TODO toggle and close menu via redux or component?
-export function toggleMenu() {}
+export function toggleMenu() {
+  return {
+    type: TOGGLE_MENU,
+  };
+}
 
-export function closeMenu() {}
+export function closeMenu() {
+  return {
+    type: CLOSE_MENU,
+  };
+}
 
-export function onRouteLoad() {}
-
+export function routeLoad() {
+  return {
+    type: ROUTE_LOAD,
+  };
+}
