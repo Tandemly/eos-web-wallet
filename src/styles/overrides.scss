@@ -281,8 +281,11 @@ main {
 footer {
   border-top: 1px solid $grey-mid;
   margin: 3rem 3rem 1rem 3rem;
-  color: $grey-mid;
   font-size: 0.875rem;
+  color: $grey-mid;
+  p {
+    color: $grey-mid;
+  }
   a {
     color: $grey-mid;
     &:hover {
