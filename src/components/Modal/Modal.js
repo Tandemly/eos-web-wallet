@@ -2,8 +2,6 @@ import * as React from "react";
 import _Modal from "react-modal";
 import { withRouter } from "react-router-dom";
 
-import "./modal.scss";
-
 const Modal = ({
   handleClose, 
   isOpen,
