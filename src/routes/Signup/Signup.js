@@ -22,11 +22,12 @@ const CreateAccount = ({ handleModalClose, location /* , routes */ }) => {
   return (
     <div className="login">
       <div className="login-header modal-header">
-        <h2>Create your Wallet account</h2>
-        <button
-          className="js-modal-close"
-          onClick={handleModalClose}
-        />
+        <h3 className="title is-3">Create your Wallet account
+          <button
+            className="js-modal-close"
+            onClick={handleModalClose}
+          />
+        </h3>
       </div>
 
       <div className="modal-body">
