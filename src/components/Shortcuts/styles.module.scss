@@ -24,7 +24,7 @@
 			span {
 				color: $primary;
 			}
-			&.is-active, &.is-active:hover {
+			&.active, &.active:hover {
 				background-color: $orange;
 				padding-left: 1.5rem;
 				:before {
@@ -37,8 +37,8 @@
 					top: 0;
 					width: 0; 
 					height: 0; 
-					border-top: 26px solid transparent;
-					border-bottom: 26px solid transparent;
+					border-top: 28px solid transparent;
+					border-bottom: 28px solid transparent;
 					border-left: 8px solid $orange;
 					z-index: 1;
 					@include mobile {

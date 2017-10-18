@@ -4,7 +4,7 @@ import Shortcut from "./Shortcut";
 import cx from "classnames";
 import css from "./styles.module.scss";
 
-const activeClassName = 'active';
+const activeClassName = css.active;
 const links = [
   [
     {
