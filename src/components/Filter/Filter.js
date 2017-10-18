@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
+import css from "./styles.module.scss";
+import cx from "classnames";
 
 const recfilter = (value, item) => (
   Object.keys(item).some(k =>
@@ -38,16 +40,17 @@ class Filter extends React.Component {
     return (
       <div>
         <div className="columns">
-          <div className="column is-4 is-offset-8 u-mb3">
-            <input
-              aria-describedby="filter"
-              className="input"
-              name="filter"
-              required
-              placeholder="Filter"
-              type="text"
-              onChange={handleChange}
-            />
+          <div className="column is-4 is-offset-8">
+            <div className={cx("icon-search", css.filter_wrapper)}>
+              <input
+                aria-describedby="filter"
+                className={cx("input", css.filter)}
+                name="filter"
+                required
+                type="text"
+                onChange={handleChange}
+              />
+            </div>
           </div>
         </div>
     
