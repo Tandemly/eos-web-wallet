@@ -10,6 +10,10 @@ import Menu from "components/Menu";
 import Modal from "components/Modal";
 
 import Logout from "containers/Logout";
+import AccountName from "containers/AccountName";
+import Email from "containers/Email";
+import Phone from "containers/Phone";
+import SignupFinal from "containers/SignupFinal";
 
 import Login from "routes/Login";
 import Signup from "routes/Signup";
@@ -45,7 +49,14 @@ const renderModalRoutes = () => (
   <Switch>
     <Redirect from="/create-account" to="/signup" />
     <Route path="/login" component={Login} />
-    <Route path="/signup" component={Signup} />
+    <Signup>
+      <Switch>
+        <Route exact path="/signup" component={AccountName} />
+        <Route exact path="/signup/email" component={Email} />
+        <Route exact path="/signup/phone" component={Phone} />
+        <Route path="/signup/complete" component={SignupFinal} />
+      </Switch>
+    </Signup>
   </Switch>
 );
 
@@ -128,7 +139,7 @@ class App extends React.Component {
 
         <Modal
           isOpen={isModalOpen}
-          onClose={handleModalClose}
+          handleClose={handleModalClose}
           renderRoute={renderModalRoutes} />
       </main>
     );
