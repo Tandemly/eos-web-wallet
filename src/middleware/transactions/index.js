@@ -41,7 +41,7 @@ const transactions = store => next => (action) => {
       user: {
         id_token,
         access_token,
-      },
+      } = {},
     },
   } = store.getState();
 

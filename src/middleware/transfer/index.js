@@ -38,7 +38,7 @@ const transfer = store => next => async (action) => {
         access_token,
         active_key,
         owner_key,
-      },
+      } = {},
     },
   } = store.getState();
 
