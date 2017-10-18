@@ -1,0 +1,17 @@
+@import "../../styles/custom_variables.scss";
+
+.filter_wrapper {
+	position: relative;
+	&:before {
+	  position: absolute;
+	  left: 8px;
+	  top: 7px;
+	  z-index: 1;
+	  color: $grey-100;
+	}
+	.filter {
+	  height: 30px;
+	  border-radius: 15px;
+	  padding-left: 2rem;
+	}
+}
