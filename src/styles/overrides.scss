@@ -348,8 +348,9 @@ footer {
     .js-modal-close {
       padding: 0;
       visibility: hidden;
-      float: right;
-      margin-top: 4px;
+      position: absolute;
+      top: 1.75rem;
+      right: 2rem;
       &:after {
         font-family: 'icomoon';
         content: "\e90c";
