@@ -70,13 +70,16 @@ class App extends React.Component {
   }
 
   componentWillUpdate(nextProps) {
-    const { auth, location } = this.props;
-    // set previousLocation if props.location is not modal
+    const {
+      history: { location } = { location: window.location },
+      isAuthenticated,
+    } = this.props;
+
     if (
       nextProps.history.action !== 'POP' &&
       (!location.state || !location.state.modal)
     ) {
-      this.previousLocation = auth ? this.props.location : this.unauthLocation;
+      this.previousLocation = isAuthenticated ? this.props.location : this.unauthLocation;
     }
   }
 

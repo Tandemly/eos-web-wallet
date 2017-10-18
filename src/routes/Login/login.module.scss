@@ -1,0 +1,19 @@
+@import "../../styles/custom_variables.scss";
+
+.profile {
+  .thumbnail {
+    border: solid 8px $orange;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+  }
+  .heading {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .title {
+    font-size: 18px;
+    color: $white;
+  }
+}

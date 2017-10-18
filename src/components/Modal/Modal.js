@@ -2,12 +2,12 @@ import * as React from "react";
 import _Modal from "react-modal";
 import { withRouter } from "react-router-dom";
 
-import "./Modal.scss";
+import "./modal.module.scss";
 
-const Modal = ({ renderRoute, isOpen, ...props }) => (
+const Modal = ({ handleClose, isOpen, renderRoute, ...props }) => (
   !isOpen ? null :
   <_Modal isOpen {...props}>
-    {renderRoute()}
+    {renderRoute({ handleClose })}
   </_Modal>
 );
 
