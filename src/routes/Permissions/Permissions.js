@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Helmet } from 'react-helmet';
 import ResetPassword from 'containers/ResetPassword';
-import ConnectedAccounts from 'components/ConnectedAccounts';
+import ConnectedEOSAccounts from 'containers/ConnectedEOSAccounts';
 
 const Permissions = () => (
   <div>
@@ -11,7 +11,7 @@ const Permissions = () => (
     <div className="content">
       <div className="row">
         <div className="col-12">
-          <h2>Permissions</h2>
+          <h2 className="title is-2">Permissions</h2>
         </div>
       </div>
 
@@ -19,7 +19,7 @@ const Permissions = () => (
         <h3></h3>
         <div className="row">
           <div className="col-12 col-lg-6">
-            <ConnectedAccounts />
+            <ConnectedEOSAccounts />
           </div>
         </div>
       </section>

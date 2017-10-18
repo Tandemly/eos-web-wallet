@@ -1,18 +1,8 @@
 import moment from "moment";
 import { shuffle } from "lodash";
+import users from "./users";
 
-const names = [
-  "Brian Dawson",
-  "Xiao Jun",
-  "Juan Pérez",
-  "joesmith",
-  "Terry Washington",
-  "Kim Hyo-jung",
-  "Justin Jay",
-  "Benjamin Constantine",
-  "Aishwarya Balakrishna",
-];
-
+const names = users.map(({ name }) => name);
 const transactionTypes = [
   "withdrawal",
   "deposit"

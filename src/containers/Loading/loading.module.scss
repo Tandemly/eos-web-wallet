@@ -6,18 +6,17 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
+  .loading_image {
+    width: 200px;
+  }
+  
+  .icon_loader {
+    color: #bedf5d;
+    font-size: 3em;
+    animation: rotate .75s infinite linear;
+  }
 }
 
-.loading-image {
-  width: 200px;
-}
-
-.icon-loader {
-  color: #bedf5d;
-  font-size: 3em;
-  animation: rotate .75s infinite linear;
-}
-// Adding this comment as this code also effects the icon listed in icon.js
 @keyframes rotate {
   0% {
     transform: rotateZ(0);

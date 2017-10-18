@@ -7,7 +7,7 @@ const Faq = () => (
       <title>FAQs</title>
     </Helmet>
 
-    <h2>FAQs</h2>
+    <h2 className="title is-2">FAQs</h2>
 
     <div className="col-12">
       Content

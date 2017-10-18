@@ -1,10 +1,5 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, combineReducers } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
-
-// TODO integrate after API integration
-// import middlewares from 'middleware';
-
-import { combineReducers } from 'redux';
 import { reducer as reduxFormReducer } from 'redux-form';
 import { reducer as account } from 'containers/Balance/reducer';
 import { reducer as app } from 'containers/App/reducer';
@@ -12,6 +7,8 @@ import { reducer as login } from 'containers/Login/reducer';
 import { reducer as notification } from 'containers/Notifications/reducer';
 import { reducer as transactions } from 'containers/Transactions/reducer';
 import { reducer as users } from 'containers/Users/reducer';
+import middlewares from "middleware";
+
 
 const reducers = combineReducers({
   app,
@@ -32,6 +29,7 @@ function configureStoreAsync() {
           undefined,
           compose(
             autoRehydrate(),
+            middlewares
           ),
         );
 
@@ -46,10 +44,12 @@ function configureStoreAsync() {
   });
 }
 
+// NOTE sans rehydrate / local storage
 function configureStore(preloadState) {
   return createStore(
     reducers,
-    preloadState
+    preloadState,
+    middlewares,
   );
 }
 

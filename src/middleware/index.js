@@ -5,6 +5,7 @@ import logger from 'redux-logger';
 import api from './api';
 import balance from './balance';
 import login from './login';
+import logout from './logout';
 import refresh from './refresh';
 import signup from './signup';
 import transactions from './transactions';
@@ -21,6 +22,8 @@ const _middlewares = [
   transfer,
   refresh,
   api,
+  // NOTE must be last in middlewares
+  logout,
 ];
 
 if (process.env.NODE_ENV === 'development') {

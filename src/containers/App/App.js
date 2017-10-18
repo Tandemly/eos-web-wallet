@@ -9,6 +9,8 @@ import Footer from "components/Footer";
 import Menu from "components/Menu";
 import Modal from "components/Modal";
 
+import Logout from "containers/Logout";
+
 import Login from "routes/Login";
 import Signup from "routes/Signup";
 import About from "routes/About";
@@ -29,13 +31,14 @@ import {
 
 import "./App.scss";
 
-const AuthenticatedRoutes = () => ([
-  <Route path="/" exact component={Transfer} />,
-  <Route path="/transactions" component={Transactions} />,
-  <Route path="/users" component={Users} />,
-  <Route path="/user/:id" component={Profile} />,
-  <Route path="/permissions" component={Permissions} />,
-  <Route path="/preferences" component={Preferences} />,
+const RoutesAuthenticated = () => ([
+  <Route path="/" exact component={Transfer} key="transfer" />,
+  <Route path="/transactions" component={Transactions} key="transactions" />,
+  <Route path="/users" component={Users} key="users" />,
+  <Route path="/user/:id" component={Profile} key="user" />,
+  <Route path="/permissions" component={Permissions} key="permissions" />,
+  <Route path="/preferences" component={Preferences} key="preferences" />,
+  <Route path="/logout" component={Logout} key="logout" />,
 ]);
 
 const renderModalRoutes = () => (
@@ -89,9 +92,7 @@ class App extends React.Component {
       isMenuOpen,
     } = this.props;
     const handleModalClose = this.handleModalClose.bind(this);
-    const isModalOpen = process.env.NODE_ENV === 'test' 
-      ? false
-      : modalRoutes.some(path => new RegExp(path).test(location.pathname));
+    const isModalOpen = modalRoutes.some(path => new RegExp(path).test(location.pathname));
 
     return (
       <main className={`${isMenuOpen ? 'open' : 'closed'}`}>
@@ -114,7 +115,7 @@ class App extends React.Component {
             <Switch location={isModalOpen ? this.previousLocation : location}>
               <Route path="/about" component={About} />
               <Route path="/faq" component={Faq} />
-              <AuthenticatedRoutes isAuthenticated={isAuthenticated} />
+              <RoutesAuthenticated isAuthenticated={isAuthenticated} />
               <Route path="*" component={NoMatch} />
             </Switch>
     
