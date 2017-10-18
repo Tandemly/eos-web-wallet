@@ -2,22 +2,40 @@
 
 .notification {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
   color: #fff;
-}
-
-.error {
-  padding: 20px;
-  min-height: 60px;
-  background-color: #574750;
-  border: 1px solid #7E4048;
-  margin-bottom: 20px;
-}
-
-.success {
-  padding: 20px;
-  min-height: 60px;
-  background-color: #475753;
-  border: 1px solid #467e40;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
+  padding: 1rem 3rem 1rem 4.5rem;
+  position: relative;
+  &.error {
+    background-color: #574750;
+    border: 1px solid $red;
+    .icon {
+      background-color: $red;
+    }
+  }
+  &.success {
+    background-color: #475753;
+    border: 1px solid $green;
+    .icon {
+      background-color: $green;
+      color: $grey-80;
+    }
+  }
+  .icon {
+    width: 55px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 8px 0 0 8px;
+    text-align: center;
+    line-height: 55px;
+    font-size: 1.5rem
+  }
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
 }
