@@ -378,6 +378,8 @@ footer {
       position: absolute;
       top: 1.75rem;
       right: 2rem;
+      cursor: pointer;
+
       &:after {
         font-family: 'icomoon';
         content: "\e90c";
