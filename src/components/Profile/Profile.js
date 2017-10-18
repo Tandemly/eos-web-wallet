@@ -9,7 +9,7 @@ const Profile = ({
   image: {
     url: src,
   },
-  location,
+  currentLocation,
   name,
   status,
 }) => (
@@ -26,7 +26,7 @@ const Profile = ({
         <div className="level-item">
           <div>
             <p className={cx("heading is-6", css.heading)}>{name}</p>
-            <p className={cx("title", css.title)}>{location}</p>
+            <p className={cx("title", css.title)}>{currentLocation}</p>
           </div>
         </div>
       </div>
