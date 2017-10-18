@@ -3,6 +3,7 @@ import cx from "classnames";
 import css from "./notification.module.scss";
 
 const Notification = ({ text, status }) => (
+  !status ? null :
   <div className={cx(css.notification, css[status])}>
     <div className={cx("icon-success", css.icon)}></div>
     {text}
