@@ -116,7 +116,7 @@ class App extends React.Component {
         
         <div className="wrapper">
           <aside>
-            <Menu />
+            <Menu isAuthenticated={isAuthenticated} />
           </aside>
     
           <section>
@@ -149,7 +149,7 @@ const mapStateToProps = ({
   app: { isMenuOpen },
   login: { isAuthenticated },
 }) => ({
-  isAuthenticated,
+  isAuthenticated: true,
   isMenuOpen,
 });
 

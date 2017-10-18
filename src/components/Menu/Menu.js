@@ -1,12 +1,17 @@
 import * as React from "react";
 import Balance from "containers/Balance";
+import Login from "containers/Login";
 import Shortcuts from "components/Shortcuts";
 
-const Menu = () => (
+const Menu = ({ isAuthenticated }) => (
   <div className="menu p-lg">
-    <Balance />
+    {!isAuthenticated && <Login />}
 
-    <Shortcuts />
+    {isAuthenticated && <Balance />}
+
+    <Shortcuts
+      isAuthenticated={isAuthenticated}
+    />
   </div>
 );
 
