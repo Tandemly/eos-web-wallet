@@ -78,6 +78,8 @@ a {
 
 .title.is-1 {
   font-size: 3.625rem;
+  font-weight: 200;
+  margin-bottom: 0;
 }
 
 .title.is-2 {
@@ -216,22 +218,6 @@ main {
   border: 3px solid $orange;
   width: 40px;
   height: 40px;
-}
-
-.financials {
-  .title:not(.is-spaced) + .subtitle,
-  .title:not(:last-child),
-  .subtitle:not(:last-child) {
-    margin: 0;
-  }
-  .tag {
-    &:not(body) {
-      &.is-primary {
-        background-color: $green;
-        color: $grey-light;
-      }
-    }
-  }
 }
 
 // Main Content
