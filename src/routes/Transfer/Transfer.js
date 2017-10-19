@@ -6,7 +6,7 @@ import transactions from "fixtures/transactions";
 const Transfer = () => (
   <div className="columns is-desktop content is-variable is-6">
     <div className="column is-7-desktop is-12-tablet">
-      <section className="u-mb6">
+      <article className="u-mb6">
         <h2 className="title is-2">Transfer</h2>
         <p>Move funds to another EOS account.</p>
         <form>
@@ -37,8 +37,8 @@ const Transfer = () => (
             </div>
           </div>
         </form>
-      </section>
-      <section>
+      </article>
+      <article>
         <h3 className="title is-3"><p>Transaction History<span className="help"><a>See All</a></span></p></h3>
 
         <Transactions
@@ -54,18 +54,18 @@ const Transfer = () => (
             View All
           </Link>
         </div>
-      </section>
+      </article>
     </div>
     <div className="column is-5-desktop is-12-tablet">
-      <section className="section">
+      <article className="section">
         <h5 className="title is-5">What are EOS tokens?</h5>
         <div className="box">
           EOS tokens are ERC-20 compatible tokens distributed on the
           Ethereum blockchain pursuant to a related ERC-20 smart
           contract (the “EOS Tokens”).
         </div>
-      </section>
-      <section className="section">
+      </article>
+      <article className="section">
         <h5 className="title is-5">How can I use EOS tokens?</h5>
         <div className="box">
           block.one is building the EOS.IO Software but it will not
@@ -77,7 +77,7 @@ const Transfer = () => (
           supplement the EOS.IO Software prior to, during or after
           launching the EOS Platform.
         </div>
-      </section>  
+      </article>  
     </div>
   </div>
 );

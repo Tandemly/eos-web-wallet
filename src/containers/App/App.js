@@ -114,27 +114,28 @@ class App extends React.Component {
     
         <Header />
         
-        <aside>
-          <Menu />
-        </aside>
-  
-        <section>
-          <div  
-            onClick={closeMenu}
-            className="menu-closer"
-            role="button"
-            tabIndex="0" />
+        <div className="wrapper">
+          <aside>
+            <Menu />
+          </aside>
+    
+          <section>
+            <div  
+              onClick={closeMenu}
+              className="menu-closer"
+              role="button"
+              tabIndex="0" />
 
-          <Switch location={isModalOpen ? this.previousLocation : location}>
-            <Route path="/about" component={About} />
-            <Route path="/faq" component={Faq} />
-            <RoutesAuthenticated isAuthenticated={isAuthenticated} />
-            <Route path="*" component={NoMatch} />
-          </Switch>
-  
-          <Footer />
-        </section>
-
+            <Switch location={isModalOpen ? this.previousLocation : location}>
+              <Route path="/about" component={About} />
+              <Route path="/faq" component={Faq} />
+              <RoutesAuthenticated isAuthenticated={isAuthenticated} />
+              <Route path="*" component={NoMatch} />
+            </Switch>
+    
+            <Footer />
+          </section>
+        </div>
         <Modal
           isOpen={isModalOpen}
           handleClose={handleModalClose}
