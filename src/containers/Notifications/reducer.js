@@ -4,8 +4,8 @@ const UNSET_NOTIFICATION = 'UNSET_NOTIFICATION';
 const initialState = {
   notification: {
     text: '',
-    status: null
-  }
+    status: '',
+  },
 };
 
 export function reducer(state = initialState, action) {

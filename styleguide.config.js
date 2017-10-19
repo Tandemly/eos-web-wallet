@@ -25,10 +25,9 @@ module.exports = {
     DisplayRedux: path.join(__dirname, 'src/util/component-utils/DisplayRedux.js'),
     DisplayReactRouter: path.join(__dirname, 'src/util/component-utils/DisplayReactRouter.js'),
     ErrorBoundary: path.join(__dirname, 'src/containers/ErrorBoundary.js'),
-    Modal: path.join(__dirname, 'src/util/component-utils/Modal.js')
   },
   context: {
-    account: path.resolve(__dirname, 'src/fixtures/account.js'),    
+    account: path.resolve(__dirname, 'src/fixtures/account.js'),
     transactions: path.resolve(__dirname, 'src/fixtures/transactions.js'),
     users: path.resolve(__dirname, 'src/fixtures/users.js'),
   },
@@ -62,11 +61,6 @@ module.exports = {
       components: "src/containers/**/[A-Z]*.js",
       isolatedSection: true
     },
-    // {
-    //   name: "Routes",
-    //   components: "src/routes/**/[A-Z]*.js",
-    //   isolatedSection: true
-    // },
     {
       name: "Utility",
       components: "src/util/**/[A-Z]*.js",

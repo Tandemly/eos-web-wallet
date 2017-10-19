@@ -38,7 +38,7 @@ const balance = store => next => (action) => {
       user: {
         id_token,
         access_token,
-      },
+      } = {},
     },
   } = store.getState();
 
