@@ -35,8 +35,6 @@ class Filter extends React.Component {
     const handleChange = this.handleChange.bind(this);
     const filterValue = !isNaN(value) ? parseInt(value, 10) : value;
 
-    console.log(data);
-
     return (
       <div>
         <div className="columns">

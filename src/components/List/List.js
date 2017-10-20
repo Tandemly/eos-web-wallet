@@ -8,6 +8,7 @@ type PropTypes = {
 };
 
 // TODO abstract upper level to avoid unused dispatch
+// TODO reject recusive lists
 const List = ({
   data,
   renderItem,

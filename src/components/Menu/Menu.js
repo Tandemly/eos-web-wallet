@@ -1,12 +1,58 @@
 import * as React from "react";
 import Balance from "containers/Balance";
+import Login from "containers/Login";
 import Shortcuts from "components/Shortcuts";
 
-const Menu = () => (
-  <div className="menu p-lg">
-    <Balance />
+const unauthLinks = [
+  {
+    to: '/users',
+    text: 'Users',
+  },
+  {
+    to: '/about',
+    text: 'About',
+  },
+  {
+    to: '/faq',
+    text: 'FAQ',
+  },
+];
+const authLinks = [
+  [
+    {
+      to: '/',
+      text: 'Transfer',
+      iconClass: 'icon-transfer u-mr1',
+    },
+    {
+      to: '/transactions',
+      text: 'Transaction History',
+      iconClass: 'icon-history u-mr1',
+    },
+    {
+      to: '/permissions',
+      text: 'Permissions',
+      iconClass: 'icon-permissions u-mr1',
+    },
+    {
+      to: '/logout',
+      text: 'Logout',
+      iconClass: 'icon-logout u-mr1',
+    },
+  ],
+  ...unauthLinks,
+];
 
-    <Shortcuts />
+
+const Menu = ({ isAuthenticated }) => (
+  <div className="menu p-lg">
+    {!isAuthenticated && <Login />}
+
+    {isAuthenticated && <Balance />}
+
+    <Shortcuts 
+      data={isAuthenticated ? authLinks : unauthLinks}
+    />
   </div>
 );
 

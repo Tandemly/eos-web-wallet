@@ -2,7 +2,7 @@
 // global localStorage, window
 import * as React from "react";
 import { connect } from 'react-redux';
-import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from "components/Header";
 import Footer from "components/Footer";
@@ -35,7 +35,10 @@ import {
 
 import "./App.scss";
 
-const RoutesAuthenticated = () => ([
+const RoutesAuthenticated = ({ isAuthenticated, location }) => 
+!isAuthenticated ? 
+  <Redirect to="/login" />
+: ([
   <Route path="/" exact component={Transfer} key="transfer" />,
   <Route path="/transactions" component={Transactions} key="transactions" />,
   <Route path="/users" component={Users} key="users" />,
@@ -101,6 +104,8 @@ class App extends React.Component {
 
   render() {
     const {
+      handleClickMenu,
+      handleClickMenuClose,
       history: { location } = { location: window.location },
       isAuthenticated,
       isMenuOpen,
@@ -112,16 +117,19 @@ class App extends React.Component {
       <main className={`${isMenuOpen ? 'open' : 'closed'}`}>
         <Helmet titleTemplate="%s | EOS Wallet" defaultTitle="EOS Wallet" />
     
-        <Header />
+        <Header
+          isAuthenticated={isAuthenticated}
+          onClick={handleClickMenu}
+        />
         
         <div className="wrapper">
-          <aside>
-            <Menu />
+          <aside className={`${isMenuOpen ? 'open' : 'closed'}`}>
+            <Menu isAuthenticated={isAuthenticated} />
           </aside>
     
           <section>
             <div  
-              onClick={closeMenu}
+              onClick={toggleMenu}
               className="menu-closer"
               role="button"
               tabIndex="0" />
@@ -136,10 +144,12 @@ class App extends React.Component {
             <Footer />
           </section>
         </div>
+
         <Modal
           isOpen={isModalOpen}
           handleClose={handleModalClose}
-          renderRoute={renderModalRoutes} />
+          renderRoute={renderModalRoutes}
+        />
       </main>
     );
   }
@@ -149,12 +159,22 @@ const mapStateToProps = ({
   app: { isMenuOpen },
   login: { isAuthenticated },
 }) => ({
-  isAuthenticated,
+  isAuthenticated: false,
   isMenuOpen,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  handleClickMenu() {
+    dispatch(toggleMenu());
+  },
+  handleClickMenuClose() {
+    dispatch(closeMenu());
+  },
 });
 
 const AppContainer = connect(
   mapStateToProps,
+  mapDispatchToProps,
 )(App);
 
 export default AppContainer;

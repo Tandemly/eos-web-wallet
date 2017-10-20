@@ -8,6 +8,10 @@ const initialState = {
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
+    case TOGGLE_MENU:
+      return {
+        isMenuOpen: !state.isMenuOpen,
+      };
     default:
       return state;
   }
