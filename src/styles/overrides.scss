@@ -29,6 +29,10 @@ aside {
   @include mobile {
     display: none;
   }
+
+  &.open {
+    display: block;
+  }
 }
 
 section {
@@ -379,6 +383,7 @@ footer {
       top: 1.75rem;
       right: 2rem;
       cursor: pointer;
+      z-index: 9;
 
       &:after {
         font-family: 'icomoon';

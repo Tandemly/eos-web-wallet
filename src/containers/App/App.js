@@ -104,6 +104,8 @@ class App extends React.Component {
 
   render() {
     const {
+      handleClickMenu,
+      handleClickMenuClose,
       history: { location } = { location: window.location },
       isAuthenticated,
       isMenuOpen,
@@ -115,16 +117,19 @@ class App extends React.Component {
       <main className={`${isMenuOpen ? 'open' : 'closed'}`}>
         <Helmet titleTemplate="%s | EOS Wallet" defaultTitle="EOS Wallet" />
     
-        <Header isAuthenticated={isAuthenticated} />
+        <Header
+          isAuthenticated={isAuthenticated}
+          onClick={handleClickMenu}
+        />
         
         <div className="wrapper">
-          <aside>
+          <aside className={`${isMenuOpen ? 'open' : 'closed'}`}>
             <Menu isAuthenticated={isAuthenticated} />
           </aside>
     
           <section>
             <div  
-              onClick={closeMenu}
+              onClick={toggleMenu}
               className="menu-closer"
               role="button"
               tabIndex="0" />
@@ -139,10 +144,12 @@ class App extends React.Component {
             <Footer />
           </section>
         </div>
+
         <Modal
           isOpen={isModalOpen}
           handleClose={handleModalClose}
-          renderRoute={renderModalRoutes} />
+          renderRoute={renderModalRoutes}
+        />
       </main>
     );
   }
@@ -156,8 +163,18 @@ const mapStateToProps = ({
   isMenuOpen,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  handleClickMenu() {
+    dispatch(toggleMenu());
+  },
+  handleClickMenuClose() {
+    dispatch(closeMenu());
+  },
+});
+
 const AppContainer = connect(
   mapStateToProps,
+  mapDispatchToProps,
 )(App);
 
 export default AppContainer;

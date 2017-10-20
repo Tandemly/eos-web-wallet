@@ -34,18 +34,25 @@ const renderHeaderUser = ({
 const Header = ({
   children,
   isAuthenticated,
-  onMenuClick,
+  onClick,
   user = {
     name: "Display Name",
-    image: { url: "" }
-  }
+    image: { url: "" },
+  },
+  ...props,
 }) => (
   <header className={cx("hero", css.header)}>
     <div className="level is-mobile">
       <div className="level-left">
         <div className="control level-item is-hidden-tablet">
-          <button className={cx("button is-primary u-mr1", css.menu_toggle)}><span className="icon-menu"></span></button>
+          <button
+            className={cx("button is-primary u-mr1", css.menu_toggle)}
+            onClick={onClick}
+          >
+            <span className="icon-menu" />
+          </button>
         </div>
+
         <div className="level-item">
           <Link to="/">
             <img alt="" className={cx("image", css.logo)} src="/images/logo.svg" />

@@ -15,8 +15,6 @@ const logoutUser = (store, history) => {
 }
 
 const logout = store => next => (action) => {
-  console.log(store.getState(), action.type);
-
   if (action.type === 'TRY_LOGOUT') {
     const { history } = action;
 
