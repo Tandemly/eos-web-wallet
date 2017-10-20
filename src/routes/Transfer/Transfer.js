@@ -39,7 +39,7 @@ const Transfer = () => (
         </form>
       </section>
       <section>
-        <h3 className="title is-3"><p>Transaction History<span className="help"><a>See All</a></span></p></h3>
+        <h3 className="title is-3"><p>Transaction History<a className="help">View All</a></p></h3>
 
         <Transactions
           count={5}
