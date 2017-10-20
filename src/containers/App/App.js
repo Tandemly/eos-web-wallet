@@ -2,7 +2,7 @@
 // global localStorage, window
 import * as React from "react";
 import { connect } from 'react-redux';
-import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from "components/Header";
 import Footer from "components/Footer";
@@ -35,7 +35,10 @@ import {
 
 import "./App.scss";
 
-const RoutesAuthenticated = () => ([
+const RoutesAuthenticated = ({ isAuthenticated, location }) => 
+!isAuthenticated ? 
+  <Redirect to="/login" />
+: ([
   <Route path="/" exact component={Transfer} key="transfer" />,
   <Route path="/transactions" component={Transactions} key="transactions" />,
   <Route path="/users" component={Users} key="users" />,
@@ -112,7 +115,7 @@ class App extends React.Component {
       <main className={`${isMenuOpen ? 'open' : 'closed'}`}>
         <Helmet titleTemplate="%s | EOS Wallet" defaultTitle="EOS Wallet" />
     
-        <Header />
+        <Header isAuthenticated={isAuthenticated} />
         
         <div className="wrapper">
           <aside>
@@ -149,7 +152,7 @@ const mapStateToProps = ({
   app: { isMenuOpen },
   login: { isAuthenticated },
 }) => ({
-  isAuthenticated: true,
+  isAuthenticated: false,
   isMenuOpen,
 });
 

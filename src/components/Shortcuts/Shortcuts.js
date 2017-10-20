@@ -7,13 +7,11 @@ import css from "./styles.module.scss";
 const Shortcuts = ({
   data,
 }) => (
-  <div>
-    <List
-      className={cx("menulist", css.menulist)}
-      data={data}
-      renderItem={Shortcut}
-    />
-  </div>
+  <List
+    className={cx("menulist", css.menulist)}
+    data={data}
+    renderItem={Shortcut}
+  />
 );
 
 export default Shortcuts;

@@ -3,9 +3,42 @@ import { Link } from "react-router-dom";
 import css from "./styles.module.scss";
 import cx from "classnames";
 
+const renderHeaderUser = ({
+  name,
+  image: { url },
+}) => (
+  <div className={css.user_info}>
+    <div className="has-text-right is-hidden-mobile">
+      <div className={css.user_meta}>
+        <h4 className={cx("title is-4 is-spaced", css.title)}>Hi, {name}</h4>
+        <p className={cx("subtitle is-6", css.subtitle)}>
+          <Link to="/preferences">Customize your profile</Link> | 
+          <Link to="/logout"> <span className="icon-logout"></span></Link>
+        </p>
+      </div>
+    </div>
+
+    <Link
+      className={css.settings}
+      to="/preferences"
+    >
+      <span className="icon-settings"></span>
+    </Link>
+
+    <figure className={cx("image", css.profile_thumbnail)}>
+      <img src="https://avatarfiles.alphacoders.com/696/69632.jpg" alt="Placeholder image" />
+    </figure>
+  </div>
+);
+
 const Header = ({
   children,
+  isAuthenticated,
   onMenuClick,
+  user = {
+    name: "Display Name",
+    image: { url: "" }
+  }
 }) => (
   <header className={cx("hero", css.header)}>
     <div className="level is-mobile">
@@ -19,28 +52,8 @@ const Header = ({
           </Link>
         </div>
       </div>
-      <div className={css.user_info}>
-        <div className="has-text-right is-hidden-mobile">
-          <div className={css.user_meta}>
-            <h4 className={cx("title is-4 is-spaced", css.title)}>Hi, Display Name</h4>
-            <p className={cx("subtitle is-6", css.subtitle)}>
-              <Link to="/preferences">Customize your profile</Link> | 
-              <Link to="/logout"> <span className="icon-logout"></span></Link>
-            </p>
-          </div>
-        </div>
 
-        <Link
-          className={css.settings}
-          to="/preferences"
-        >
-          <span className="icon-settings"></span>
-        </Link>
-
-        <figure className={cx("image", css.profile_thumbnail)}>
-          <img src="https://avatarfiles.alphacoders.com/696/69632.jpg" alt="Placeholder image" />
-        </figure>
-      </div>
+      {isAuthenticated ? renderHeaderUser(user) : null}
     </div>
   </header>
 );

@@ -3,7 +3,6 @@ import Balance from "containers/Balance";
 import Login from "containers/Login";
 import Shortcuts from "components/Shortcuts";
 
-
 const unauthLinks = [
   {
     to: '/users',
