@@ -68,6 +68,9 @@ p {
 
 .label {
   color: white;
+  p {
+    font-weight: bold;
+  }
 }
 
 a {
@@ -112,12 +115,9 @@ a {
   display: table-cell;
   text-align: right;
   color: $orange;
-  a {
-    color: $orange;
-    font-weight: bold;
-    &:hover {
-      color: darken($orange, 2%);
-    }
+  font-weight: bold;
+  &:hover {
+    color: darken($orange, 2%);
   }
 }
 
