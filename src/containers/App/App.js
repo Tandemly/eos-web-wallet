@@ -114,12 +114,12 @@ class App extends React.Component {
     
         <Header />
         
-        <section className="columns is-variable is-0">
-          <div className="column is-narrow is-hidden-mobile">
+        <div className="wrapper">
+          <aside>
             <Menu />
-          </div>
+          </aside>
     
-          <div className="column">
+          <section>
             <div  
               onClick={closeMenu}
               className="menu-closer"
@@ -134,9 +134,8 @@ class App extends React.Component {
             </Switch>
     
             <Footer />
-          </div>
-        </section>
-
+          </section>
+        </div>
         <Modal
           isOpen={isModalOpen}
           handleClose={handleModalClose}

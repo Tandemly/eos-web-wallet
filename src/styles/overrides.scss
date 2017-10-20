@@ -3,6 +3,46 @@ body, button, input, select, textarea {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+html,
+body,
+#root,
+#root > div,
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+}
+
+aside {
+  width: 225px;
+  display: flex;
+  flex-direction: column;
+  background-color: $grey-60;
+  @include desktop {
+    width: 250px;
+  }
+  @include mobile {
+    display: none;
+  }
+}
+
+section {
+  width: calc(100% - 225px);
+  display: flex;
+  flex-direction: column;
+  @include desktop {
+    width: calc(100% - 250px);
+  }
+  @include mobile {
+    width: 100%;
+  }
+}
+
 body,
 .title.is-1,
 .title.is-2,
@@ -16,8 +56,8 @@ body,
 .content h4,
 .content h5,
 .content h6,
-p
-{
+.label,
+p {
   color: white;
   font-weight: 400;
   p {
@@ -41,6 +81,8 @@ a {
 
 .title.is-1 {
   font-size: 3.625rem;
+  font-weight: 200;
+  margin-bottom: 0;
 }
 
 .title.is-2 {
@@ -178,22 +220,6 @@ main {
   height: 40px;
 }
 
-.financials {
-  .title:not(.is-spaced) + .subtitle,
-  .title:not(:last-child),
-  .subtitle:not(:last-child) {
-    margin: 0;
-  }
-  .tag {
-    &:not(body) {
-      &.is-primary {
-        background-color: $green;
-        color: $grey-light;
-      }
-    }
-  }
-}
-
 // Main Content
 .content {
   padding: 3rem;
@@ -283,7 +309,8 @@ main {
 // Footer
 footer {
   border-top: 1px solid $grey-mid;
-  margin: 3rem 3rem 1rem 3rem;
+  margin: 3rem 3rem 0 3rem;
+  padding-bottom: 1rem;
   font-size: 0.875rem;
   color: $grey-mid;
   p {
