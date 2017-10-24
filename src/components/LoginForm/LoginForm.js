@@ -10,8 +10,9 @@ const LoginForm = ({
   handleClose,
   modal,
   submitting,
-  accountName, }) => (
-  <form onSubmit={handleSubmit(callAPI)}>
+  accountName,
+  className }) => (
+  <form onSubmit={handleSubmit(callAPI)} className={className}>
     
     <Field
       aria-describedby="account_name"
@@ -44,7 +45,7 @@ const LoginForm = ({
     </div>
 
     <div className="field is-grouped u-mt4">
-      <div className="control">
+      <div className="control login-button">
         <Button
           disabled={submitting}
           className="button is-large is-primary"
@@ -52,7 +53,7 @@ const LoginForm = ({
           text={submitting ? 'Submitting...' : 'Login'}
         />
       </div>
-      <div className="control">
+      <div className="control cancel-button">
         <Button
           disabled={submitting}
           className="button is-large is-secondary"
