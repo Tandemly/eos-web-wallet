@@ -1,31 +1,27 @@
 import * as React from "react";
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import { StaticRouter } from 'react-router';
-import { Provider } from 'react-redux';
-import { configureStore } from 'util/configureStore';
-import User from './';
+import Profile from './';
 
-describe('<UserContainer />', () => {
+describe('<Profile />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
     const staticContext = {};
-    const store = configureStore({
-      login: {
-        user: {
-          display_name: 'inita',
-          image_url: '',
-        },
+    const profile = {
+      image: {
+        url: 'src',
       },
-    });
+      currentLocation: 'Friday Harbor, WA',
+      name: 'Rick Sanchez',
+      status: 'active',
+    };
 
-    ReactDOM.render(
-      <StaticRouter location="/" context={staticContext}>
-        <Provider store={store}>
-          <User />
-        </Provider>
-      </StaticRouter>,
-      div,
-    );
+    const tree = renderer.create(
+      <StaticRouter location="/" context={staticContext}> 
+        <Profile {...profile} />
+      </StaticRouter>
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
   });
 })
 

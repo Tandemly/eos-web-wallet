@@ -2,8 +2,14 @@
 
 exports[`<Notification /> renders without crashing 1`] = `
 <div
-  className="notification error"
+  className=""
 >
+  <div
+    className="icon-success"
+  />
   Connection error
+  <span
+    className="icon-x"
+  />
 </div>
 `;

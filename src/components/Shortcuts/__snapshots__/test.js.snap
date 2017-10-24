@@ -2,11 +2,11 @@
 
 exports[`<Shortcuts /> renders without crashing 1`] = `
 <ul
-  className="menu-list"
+  className="menulist"
 >
   <li>
     <ul
-      className="menu-list -is-logged-in"
+      className="menulist"
     >
       <li>
         <a
@@ -20,48 +20,6 @@ exports[`<Shortcuts /> renders without crashing 1`] = `
             className="icon-transfer u-mr1"
           />
           Transfer
-        </a>
-      </li>
-      <li>
-        <a
-          aria-current={false}
-          className={undefined}
-          href="/transactions"
-          onClick={[Function]}
-          style={undefined}
-        >
-          <span
-            className="icon-history u-mr1"
-          />
-          Transaction History
-        </a>
-      </li>
-      <li>
-        <a
-          aria-current={false}
-          className={undefined}
-          href="/permissions"
-          onClick={[Function]}
-          style={undefined}
-        >
-          <span
-            className="icon-permissions u-mr1"
-          />
-          Permissions
-        </a>
-      </li>
-      <li>
-        <a
-          aria-current={false}
-          className={undefined}
-          href="/logout"
-          onClick={[Function]}
-          style={undefined}
-        >
-          <span
-            className="icon-logout u-mr1"
-          />
-          Logout
         </a>
       </li>
     </ul>
@@ -78,34 +36,6 @@ exports[`<Shortcuts /> renders without crashing 1`] = `
         className={undefined}
       />
       Users
-    </a>
-  </li>
-  <li>
-    <a
-      aria-current={false}
-      className={undefined}
-      href="/about"
-      onClick={[Function]}
-      style={undefined}
-    >
-      <span
-        className={undefined}
-      />
-      About
-    </a>
-  </li>
-  <li>
-    <a
-      aria-current={false}
-      className={undefined}
-      href="/faq"
-      onClick={[Function]}
-      style={undefined}
-    >
-      <span
-        className={undefined}
-      />
-      FAQ
     </a>
   </li>
 </ul>

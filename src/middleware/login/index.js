@@ -5,7 +5,7 @@ import {
   failPostLogin } from 'containers/Login/reducer';
 import rejectBadResponse from 'util/rejectBadResponse';
 
-const getUser = (payload, dispatch, history) => (
+export const getUser = (payload, dispatch, history) => (
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/api/login/`, {
     method: 'POST',
     mode: 'cors',

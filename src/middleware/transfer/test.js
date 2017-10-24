@@ -2,6 +2,8 @@ import configureMockStore from 'redux-mock-store';
 import { _middlewares } from '../';
 import { postTransfer } from './';
 import { succeedPostTransaction } from 'containers/Transfer/reducer';
+import { tryGetTransactions } from 'containers/Transactions/reducer';
+import { tryGetBalance } from 'containers/Balance/reducer';
 
 const mockStore = configureMockStore(_middlewares);
 const mockHistory = {
@@ -12,12 +14,11 @@ describe('async transfer middleware', () => {
   it('on successful transaction POST, dispatches succeedPostTransaction action', () => {
     const store = mockStore({
       login: {
+        isAuthenticated: true,
         user: {
           account_name: 'inita',
-          auth: {
-            active_key: 'aefabeaebaebeb',
-            owner_key: 'eabebaberbaee',
-          }
+          id_token: '88769942b62c0a2b3d86506d168daf97928167e9e77b5db3678e176fcd55febc',
+          access_token: '59d2aed2c8c5ac5f75bd3a719b65e75f06b4b88694655cad4cd3b540e6a3af51',
         }
       }
     });
@@ -81,12 +82,14 @@ describe('async transfer middleware', () => {
       }
     };
     const expectedActions = [
+      tryGetBalance({ account_name: "inita" }),
+      tryGetTransactions({ account_name: "inita" }),
       succeedPostTransaction(response),
     ];
 
     fetch.mockResponse(JSON.stringify(response));
 
-    return postTransfer(payload, store.dispatch).then(() => {
+    return postTransfer(payload, '', store.dispatch).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
