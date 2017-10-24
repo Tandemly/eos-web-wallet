@@ -12,6 +12,10 @@ export function reducer(state = initialState, action) {
       return {
         isMenuOpen: !state.isMenuOpen,
       };
+      case CLOSE_MENU:
+      return {
+        isMenuOpen: false,
+      };
     default:
       return state;
   }

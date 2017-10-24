@@ -127,9 +127,9 @@ class App extends React.Component {
             <Menu isAuthenticated={isAuthenticated} />
           </aside>
     
-          <section  className={`${isMenuOpen ? 'open' : 'closed'}`}>
+          <section className={`${isMenuOpen ? 'open' : 'closed'}`}>
             <div  
-              onClick={toggleMenu}
+              onClick={handleClickMenuClose}
               className="menu-closer"
               role="button"
               tabIndex="0" />
