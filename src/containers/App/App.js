@@ -116,12 +116,12 @@ class App extends React.Component {
     return (
       <main className={`${isMenuOpen ? 'open' : 'closed'}`}>
         <Helmet titleTemplate="%s | EOS Wallet" defaultTitle="EOS Wallet" />
-    
+      {/*
         <Header
           isAuthenticated={isAuthenticated}
           onClick={handleClickMenu}
         />
-        
+      */}
         <div className="wrapper">
           <aside>
             <Menu isAuthenticated={isAuthenticated} />
@@ -159,7 +159,7 @@ const mapStateToProps = ({
   app: { isMenuOpen },
   login: { isAuthenticated },
 }) => ({
-  isAuthenticated: false,
+  isAuthenticated: true,
   isMenuOpen,
 });
 

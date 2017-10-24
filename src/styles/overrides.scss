@@ -2,27 +2,24 @@
 body, button, input, select, textarea {
   font-family: Helvetica, Arial, sans-serif;
 }
-
+/*
 html,
 body,
 #root,
 #root > div,
-main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+main,
+.wrapper {
+  height: 100%;
 }
 
 .wrapper {
   display: flex;
-  flex: 1;
   position: relative;
 }
 
 aside {
   width: 225px;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
   background-color: $grey-60;
   @include desktop {
     width: 250px;
@@ -34,14 +31,10 @@ aside {
 }
 
 section {
-  width: calc(100% - 225px);
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  height: 100%;
   background-color: $grey-main;
   transition: left .4s;
-  @include desktop {
-    width: calc(100% - 250px);
-  }
   @include mobile {
     width: 100%;
     position: absolute;
@@ -63,6 +56,31 @@ section {
     opacity: 0;
     visibility: hidden;
   }
+}
+*/
+
+html,
+body,
+#root,
+#root > div,
+main,
+.wrapper,
+aside,
+section {
+  height: 100%;
+}
+
+aside {
+  position: absolute;
+  width: 250px;
+  background-color: red;
+}
+
+section {
+  position: absolute;
+  left: 250px;
+  width: calc(100% - 250px);
+  background-color: blue;
 }
 
 body,
