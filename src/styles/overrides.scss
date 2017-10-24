@@ -225,6 +225,44 @@ main {
   height: 40px;
 }
 
+.aside-login {
+  background-color: $grey-light;
+  .field {
+    margin-bottom: .75rem;
+    &.is-grouped {
+      margin-top: .75rem;
+      .login-button {
+        width: 100%;
+        margin-right: 0;
+        button {
+          width: 100%;
+          height: 45px;
+        }
+      }
+      .cancel-button {
+        display: none;
+      }
+    }
+  }
+  padding: 1.5rem;
+  .input-prefix {
+    &:after {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+    }
+    input {
+      padding-left: 50px;
+    }
+  }
+  input[type=text], input[type=password] {
+    height: 40px;
+  }
+  .text-center {
+    text-align: center;
+  }
+}
+
 // Main Content
 .content {
   padding: 3rem;
