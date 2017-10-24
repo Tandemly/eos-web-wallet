@@ -7,16 +7,11 @@ import css from "./login.module.scss";
 const Login = ({ handleClose, test }) => (
   <div className={`login ${test}`}>
     <div className="login-header modal-header">
-      <h2
-        onClick={handleClose}
-        className={cx("title is-6", css.title)}
-        >Login to EOS</h2>
+      <h3 className="title is-3">Login to EOS</h3>
 
       <button
         className="js-modal-close"
-        onClick={() => {
-          console.log("hello world", handleClose)
-        }}
+        onClick={handleClose}
       />
     </div>
     <div className="modal-body">
