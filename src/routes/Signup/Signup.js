@@ -20,7 +20,7 @@ const CreateAccount = ({
   return (
     <div className="login">
       <div className="login-header modal-header">
-        <h2>Create your Wallet account</h2>
+        <h3 className="title is-3">Create your Wallet account</h3>
 
         <button
           className="js-modal-close"
