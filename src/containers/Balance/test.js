@@ -1,12 +1,11 @@
 import * as React from "react";
-import ReactDOM from 'react-dom';
+import { shallow } from "enzyme";
 import { Provider } from 'react-redux';
 import { configureStore } from 'util/configureStore';
-import BalanceContainer from './';
+import Balance from './';
 
 describe('<BalanceContainer />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
     const store = configureStore({
       login: {
         user: {
@@ -21,13 +20,13 @@ describe('<BalanceContainer />', () => {
         symbol: '',
       },
     });
-
-    ReactDOM.render(
+    const tree = (
       <Provider store={store}>
-        <BalanceContainer />
-      </Provider>,
-      div,
+        <Balance />
+      </Provider>
     );
+
+    shallow(tree);
   });
 })
 

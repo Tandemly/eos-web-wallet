@@ -18,10 +18,10 @@ type Props = {
 /**
  * A basic button component.
  */
-const Button = ({ children, text, className, css }: Props) => (
+const Button = ({ children, text, className, css = styles }: Props) => (
   <button className={cx("button", css.button, className)}>
     { (text || children) && <span>{text || children}</span> }
   </button>
 );
 
-export default styleable(styles)(Button);
+export default Button;

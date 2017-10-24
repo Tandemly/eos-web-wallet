@@ -5,6 +5,9 @@ import { Provider } from 'react-redux';
 import { configureStore } from 'util/configureStore';
 import Users from './';
 
+// TODO move fixture upstream
+import users from "fixtures/users";
+
 describe('<Users />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
@@ -14,7 +17,7 @@ describe('<Users />', () => {
     ReactDOM.render(
       <StaticRouter location="/" context={staticContext}>
         <Provider store={store}>
-          <Users />
+          <Users data={users} />
         </Provider>
       </StaticRouter>,
       div,

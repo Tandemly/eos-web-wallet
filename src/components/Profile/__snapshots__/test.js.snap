@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Profile /> renders without crashing 1`] = `
+<div
+  className="box"
+>
+  <div
+    className="level"
+  >
+    <div
+      className="level-left"
+    >
+      <div
+        className="level-item"
+      >
+        <img
+          alt="Rick Sanchez"
+          className={undefined}
+          src="src"
+        />
+      </div>
+      <div
+        className="level-item"
+      >
+        <div>
+          <p
+            className="heading is-6"
+          >
+            Rick Sanchez
+          </p>
+          <p
+            className="title"
+          >
+            Friday Harbor, WA
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="u-mt2"
+  >
+    <p>
+      active
+    </p>
+  </div>
+</div>
+`;

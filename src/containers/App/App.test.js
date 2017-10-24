@@ -1,12 +1,21 @@
 import * as React from "react";
-import ReactDOM from 'react-dom';
+import { StaticRouter } from 'react-router';
+import { Provider } from 'react-redux';
 import App from './App';
 import { shallow } from "enzyme";
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { configureStore } from 'util/configureStore';
 
-Enzyme.configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
-  shallow(<App history={{}} />);
+  const staticContext = {};
+  const store = configureStore();
+  const tree = (
+    <StaticRouter location="/" context={staticContext}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </StaticRouter>
+  );
+
+  shallow(tree);
 });

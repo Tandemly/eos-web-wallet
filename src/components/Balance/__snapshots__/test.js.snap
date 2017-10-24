@@ -8,7 +8,7 @@ exports[`<Balance /> renders without crashing 1`] = `
     className="financials u-p3"
   >
     <p
-      className="title is-1 balance"
+      className="title is-1"
     >
       0.00
       <span>
@@ -16,7 +16,7 @@ exports[`<Balance /> renders without crashing 1`] = `
       </span>
     </p>
     <p
-      className="subtitle is-6 full-balance"
+      className="full_balance is-6"
     >
       0
     </p>

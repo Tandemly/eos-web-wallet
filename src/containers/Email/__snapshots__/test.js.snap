@@ -33,17 +33,17 @@ exports[`<EmailContainer /> renders without crashing 1`] = `
     </div>
   </div>
   <div
-    className="field u-mt4"
+    className="field"
   >
     <div
       className="control"
     >
       <button
-        className="button is-large is-primary"
-        disabled={false}
-        type="submit"
+        className="button button is-large is-primary"
       >
-        Continue
+        <span>
+          Continue
+        </span>
       </button>
     </div>
   </div>

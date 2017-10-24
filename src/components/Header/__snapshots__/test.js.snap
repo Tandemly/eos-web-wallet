@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> renders without crashing 1`] = `
-<section
-  className="hero header"
+<header
+  className="hero"
 >
   <div
     className="level is-mobile"
@@ -14,7 +14,8 @@ exports[`<Header /> renders without crashing 1`] = `
         className="control level-item is-hidden-tablet"
       >
         <button
-          className="button is-primary menu-toggle u-mr1"
+          className="button is-primary u-mr1"
+          onClick={undefined}
         >
           <span
             className="icon-menu"
@@ -30,65 +31,12 @@ exports[`<Header /> renders without crashing 1`] = `
         >
           <img
             alt=""
-            className="logo image"
+            className="image"
             src="/images/logo.svg"
           />
         </a>
       </div>
     </div>
-    <div
-      className="user-info"
-    >
-      <div
-        className="has-text-right is-hidden-mobile"
-      >
-        <div
-          className="user-meta"
-        >
-          <h4
-            className="title is-4 is-spaced"
-          >
-            Hi, Display Name
-          </h4>
-          <p
-            className="subtitle is-6"
-          >
-            <a
-              href="/preferences"
-              onClick={[Function]}
-            >
-              Customize your profile
-            </a>
-             |
-            <a
-              href="/logout"
-              onClick={[Function]}
-            >
-              <span
-                className="icon-logout"
-              />
-            </a>
-          </p>
-        </div>
-      </div>
-      <a
-        className="settings"
-        href="/preferences"
-        onClick={[Function]}
-      >
-        <span
-          className="icon-settings"
-        />
-      </a>
-      <figure
-        className="image profile-thumbnail"
-      >
-        <img
-          alt="Placeholder image"
-          src="https://avatarfiles.alphacoders.com/696/69632.jpg"
-        />
-      </figure>
-    </div>
   </div>
-</section>
+</header>
 `;
