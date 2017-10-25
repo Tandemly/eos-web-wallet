@@ -2,49 +2,56 @@
 body, button, input, select, textarea {
   font-family: Helvetica, Arial, sans-serif;
 }
-/*
-html,
-body,
-#root,
-#root > div,
-main,
-.wrapper {
-  height: 100%;
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  flex-direction: column;
 }
 
 .wrapper {
   display: flex;
-  position: relative;
+  flex: 1 0 auto;
 }
 
 aside {
-  width: 225px;
-  height: 100%;
+  width: 250px;
+  position: relative;
+  flex-shrink: 0;
   background-color: $grey-60;
+  @include tablet {
+    width: 225px;
+  }
   @include desktop {
     width: 250px;
-  }
-  @include mobile {
-    position: absolute;
-    left: 0;
   }
 }
 
 section {
-  flex: 1;
-  height: 100%;
+  width: calc(100% - 250px);
+  flex: 1 0 auto;
+  background-color: blue;
+  position: relative;
   background-color: $grey-main;
   transition: left .4s;
   @include mobile {
     width: 100%;
-    position: absolute;
-    left: 0;
+    left: -250px;
+  }
+  @include tablet {
+    width: calc(100% - 225px);
+  }
+  @include desktop {
+    width: calc(100% - 250px);
   }
   &.open {
-    left: 225px;
+    left: 0;
     .menu-closer {
       opacity: .8;
       visibility: visible;
+      z-index: 1;
     }
   }
   .menu-closer {
@@ -56,31 +63,6 @@ section {
     opacity: 0;
     visibility: hidden;
   }
-}
-*/
-
-html,
-body,
-#root,
-#root > div,
-main,
-.wrapper,
-aside,
-section {
-  height: 100%;
-}
-
-aside {
-  position: absolute;
-  width: 250px;
-  background-color: red;
-}
-
-section {
-  position: absolute;
-  left: 250px;
-  width: calc(100% - 250px);
-  background-color: blue;
 }
 
 body,
