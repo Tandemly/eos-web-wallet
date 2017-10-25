@@ -123,11 +123,11 @@ class App extends React.Component {
         />
         
         <div className="wrapper">
-          <aside>
+          <aside className="sidebar">
             <Menu isAuthenticated={isAuthenticated} />
           </aside>
     
-          <section className={`${isMenuOpen ? 'open' : 'closed'}`}>
+          <section className={`body ${isMenuOpen ? 'open' : 'closed'}`}>
             <div  
               onClick={handleClickMenuClose}
               className="menu-closer"
