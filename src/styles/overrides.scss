@@ -225,14 +225,6 @@ a {
 }
 
 // Custom Global
-.icon-transfer_to {
-  color: $red;
-}
-
-.icon-transfer_from {
-  color: $green;
-}
-
 .user-thumb {
   border-radius: 20px;
   border: 3px solid $orange;
@@ -311,20 +303,6 @@ a {
   }
 }
 
-// Narrow Column
-.is-narrow {
-  background-color: $grey-mid;
-  width: 250px;
-  @include tablet-only {
-    width: 210px;
-  }
-
-  li .menulist {
-    margin: 0;
-    padding: 0;
-  }
-}
-
 // Logged in
 .-is-logged-in {
   background-color: $grey-light;
@@ -351,27 +329,6 @@ a {
         }
       }
     }
-  }
-}
-
-// Footer
-footer {
-  border-top: 1px solid $grey-mid;
-  margin: 3rem 3rem 0 3rem;
-  padding-bottom: 1rem;
-  font-size: 0.875rem;
-  color: $grey-mid;
-  p {
-    color: $grey-mid;
-  }
-  a {
-    color: $grey-mid;
-    &:hover {
-      color: $grey-mid;
-    }
-  }
-  @include mobile {
-    margin: 2rem 2rem 1rem 2rem;
   }
 }
 

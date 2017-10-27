@@ -29,7 +29,7 @@ const Transaction = ({
       <div className="level-item">
         <p className="subtitle is-6">
           {amount}
-          <span className={`icon-transfer${kind === "deposit" ? "_to" : "_from"} u-ml1`}></span>
+          <span className={cx(kind === "deposit" ?  `icon-transfer_to ${css.iconTransferTo}` : `icon-transfer_from ${css.iconTransferFrom}` , "u-ml1")}></span>
         </p>
       </div>
     </div>
