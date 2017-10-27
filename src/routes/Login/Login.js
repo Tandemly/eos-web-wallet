@@ -1,8 +1,6 @@
 import * as React from "react";
 import Container from "containers/Login";
 import Notifications from "containers/Notifications";
-import cx from "classnames";
-import css from "./login.module.scss";
 
 const Login = ({ handleClose, test }) => (
   <div className={`login ${test}`}>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Transaction from "./Transaction";
 import List from "components/List";
-import css from "./transaction.module.scss";
+import css from "./styles.module.scss";
 import cx from "classnames";
 
 type PropTypes = {
