@@ -51,6 +51,7 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
 const renderModalRoutes = () => (
   <Switch>
     <Redirect from="/create-account" to="/signup" />
+    <Redirect from="/connect-account" to="/permissions" />
     <Route path="/login" component={Login} />
     <Signup>
       <Switch>
@@ -67,7 +68,6 @@ const modalRoutes = [
   '/login',
   '/signup',
   '/create-account',
-  '/connect-account',
 ];
 
 class App extends React.Component {
