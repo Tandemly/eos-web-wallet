@@ -6,9 +6,7 @@ import Button from "components/Button";
 const Label = () => (
   <p>
     Current Password
-    <span className="help">
-      <a>Regenerate Password</a>
-    </span>
+    <a className="help">Regenerate Password</a>
   </p>
 );
 

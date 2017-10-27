@@ -1,9 +1,6 @@
 // @flow
 import React from "react";
 import cx from "classnames";
-// import Stylable from "react-styleable";
-
-// import css from "./styles.module.scss";
 
 const sizes = {
   small: "is-small",
