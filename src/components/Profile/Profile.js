@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cx from "classnames";
-import css from "./loading.module.scss";
+import css from "./styles.module.scss";
 
 // TODO styles
 const Profile = ({

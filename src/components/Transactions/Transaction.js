@@ -1,5 +1,5 @@
 import * as React from "react";
-import css from "./transaction.module.scss";
+import css from "./styles.module.scss";
 import cx from "classnames";
 
 const Transaction = ({

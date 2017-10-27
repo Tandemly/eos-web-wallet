@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import css from "./users.module.scss";
+import css from "./styles.module.scss";
 import cx from "classnames";
 
 const User = ({ icon, key, name = "", status, url }) => (
