@@ -1,4 +1,6 @@
 import * as React from "react";
+import css from "./styles.module.scss";
+import cx from "classnames";
 
 const Footer = () => (
   <footer>
