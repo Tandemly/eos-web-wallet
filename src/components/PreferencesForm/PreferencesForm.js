@@ -58,7 +58,7 @@ const PreferencesForm = ({
       component={renderField}
       type="text"
     />
-    <div className="field">
+    <div className="field u-mt4">
       <div className="control">
         <Button
           disabled={submitting}
