@@ -7,15 +7,15 @@ footer {
 	font-size: 0.875rem;
 	color: $grey-mid;
 	p {
-	  color: $grey-mid;
+		color: $grey-mid;
 	}
 	a {
-	  color: $grey-mid;
-	  &:hover {
 		color: $grey-mid;
-	  }
+		&:hover {
+			color: $grey-mid;
+		}	
 	}
 	@include mobile {
-	  margin: 2rem 2rem 1rem 2rem;
+		margin: 2rem 2rem 1rem 2rem;
 	}
 }
