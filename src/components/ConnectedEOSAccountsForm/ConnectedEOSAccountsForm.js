@@ -2,8 +2,6 @@ import * as React from "react";
 import { Field, reduxForm } from 'redux-form';
 import renderField from 'components/Field';
 import Button from "components/Button";
-import css from "./styles.module.scss";
-import cx from "classnames";
 
 const ConnectedEOSAccountsForm = ({ 
   callAPI,
@@ -11,7 +9,7 @@ const ConnectedEOSAccountsForm = ({
   submitting, }) => (
   <form onSubmit={handleSubmit(callAPI)}>
   <h3>Connect your EOS Account</h3>
-    <div className="box connected_accounts">
+    <div className="box">
       <div className="columns is-desktop">
         <div className="column is-half-desktop">
           <Field
