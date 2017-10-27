@@ -8,11 +8,8 @@ const numbersOnly = (value, previousValue) => (
 );
 
 const Label = () => (
-  <p>
-    Amount
-    <span className="help">
-      <a>Use Full Balance</a>
-    </span>
+  <p>Amount
+    <a className="help">Use Full Balance</a>
   </p>
 );
 
