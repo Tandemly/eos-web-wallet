@@ -4,7 +4,7 @@ import { succeedPostLogin } from 'containers/Login/reducer';
 import rejectBadResponse from 'util/rejectBadResponse';
 
 export const postSignup = (payload, dispatch, history,) => (
-  fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/api/signup/`, {
+  fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/v1/auth/register/`, {
     method: 'POST',
     mode: 'cors',
     headers: {
