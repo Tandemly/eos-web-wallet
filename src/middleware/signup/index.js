@@ -3,7 +3,7 @@ import { failPostSignup } from 'containers/Signup/actions';
 import { succeedPostLogin } from 'containers/Login/reducer';
 import rejectBadResponse from 'util/rejectBadResponse';
 
-export const postSignup = (payload, dispatch, history,) => (
+export const postSignup = (payload, dispatch, history) => (
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/v1/auth/register/`, {
     method: 'POST',
     mode: 'cors',
@@ -14,11 +14,20 @@ export const postSignup = (payload, dispatch, history,) => (
   })
     .then(rejectBadResponse)
     .then(response => response.json())
-    .then(res => dispatch(succeedPostLogin(res)))
+    .then(response => {
+      // Clear everything before writing incoming data to localStorage
+      localStorage.clear();
+
+      const { token, user } = response;
+      Object.keys(token).forEach(key => {
+        localStorage.setItem(`token.${key}`, token[key]);
+      });
+
+      dispatch(succeedPostLogin({ user }));
+    })
     .then(() => history.push('/permissions'))
     // TODO fixup chain of errors
-    .catch(response => response.json())
-    .then(error => error && dispatch(failPostSignup({ error })))
+    .catch(error => error && dispatch(failPostSignup({ error })))
     .catch(() => dispatch({
       type: 'CONNECTION_ERROR',
       form: 'sign-up',

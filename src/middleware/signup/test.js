@@ -24,16 +24,20 @@ describe('async signup middleware', () => {
       type: 'TRY_POST_SIGNUP',
     };
     const response = {
-      tokenType: '',
-      accessToken: '',
-      refreshToken: '',
-      expiresIn: '',
-      timezone: '',
-      id: '',
-      name: '',
-      email: '',
-      role: 'user',
-      createdAt: '',
+      user: {
+        timezone: '',
+        id: '',
+        name: '',
+        email: '',
+        role: 'user',
+        createdAt: '',        
+      },
+      token: {
+        tokenType: '',
+        accessToken: '',
+        refreshToken: '',
+        expiresIn: '',        
+      }
     };
     const expectedActions = [
       // Unset notification fires before succeedPostLogin action

@@ -20,7 +20,7 @@ export const getBalance = (payload, accessToken, dispatch) => (
     .then(response => response.json())
     .then(data => dispatch(succeedGetBalance(data)))
     // TODO fixup chain of errors
-    .catch(response => response.ok && response.json())
+    .catch(response => console.log(response) || response.ok && response.json())
     .then(error => error && dispatch(failGetBalance({ error })))
     .catch(() => {
       dispatch({
