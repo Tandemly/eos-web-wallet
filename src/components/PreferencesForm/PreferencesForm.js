@@ -32,6 +32,7 @@ const PreferencesForm = ({
       id="about"
       label="About (150 Character Max)"
       name="about"
+      maxLength={150}
       component={renderField}
       type="text"
     />
