@@ -16,8 +16,7 @@ const initialState = {
     role: '',
   },
   isFetching: false,
-  isAuthenticated: localStorage.getItem('token.expiresIn') && 
-    localStorage.getItem('token.expiresIn') < (Date.now() / 1000) ? true : false,
+  isAuthenticated: false,
 };
 
 export function reducer(state = initialState, action = {}) {
