@@ -1,20 +1,20 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import EmailForm from 'components/EmailForm';
-import { tryPostEmail } from './reducer';
+import SignupForm from 'components/SignupForm';
+import { tryPostSignup } from './actions';
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   callAPI(values) {
-    dispatch(tryPostEmail({
+    dispatch(tryPostSignup({
       history,
       ...values
     }));
   },
 });
 
-const Email = connect(
+const Signup = connect(
   null,
   mapDispatchToProps,
-)(EmailForm);
+)(SignupForm);
 
-export default withRouter(Email);
+export default withRouter(Signup);

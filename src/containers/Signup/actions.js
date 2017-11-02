@@ -9,11 +9,11 @@ export function failPostSignup({ error }) {
   };
 }
 
-export function tryPostSignup({ account_name, email, phone }) {
+export function tryPostSignup({ email, password, history }) {
   return {
     type: TRY_POST_SIGNUP,
-    account_name,
     email,
-    phone,
+    password,
+    history,
   };
 }

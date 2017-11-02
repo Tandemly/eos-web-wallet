@@ -10,10 +10,6 @@ import Menu from "components/Menu";
 import Modal from "components/Modal";
 
 import Logout from "containers/Logout";
-import AccountName from "containers/AccountName";
-import Email from "containers/Email";
-import Phone from "containers/Phone";
-import SignupFinal from "containers/SignupFinal";
 
 import Login from "routes/Login";
 import Signup from "routes/Signup";
@@ -52,14 +48,7 @@ const renderModalRoutes = (props) => (
   <Switch>
     <Redirect from="/create-account" to="/signup" />
     <Route path="/login" render={() => <Login {...props} />} />
-    <Signup {...props}>
-      <Switch>
-        <Route exact path="/signup" component={() => <AccountName {...props} />} />
-        <Route exact path="/signup/email" component={() => <Email {...props} />} />
-        <Route exact path="/signup/phone" component={() => <Phone {...props} />} />
-        <Route path="/signup/complete" component={() => <SignupFinal {...props} />} />
-      </Switch>
-    </Signup>
+    <Route path="/signup" component={() => <Signup {...props} />} />
   </Switch>
 );
 
@@ -160,7 +149,7 @@ const mapStateToProps = ({
   app: { isMenuOpen },
   login: { isAuthenticated },
 }) => ({
-  isAuthenticated: false,
+  isAuthenticated,
   isMenuOpen,
 });
 
