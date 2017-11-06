@@ -47,6 +47,7 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
 const renderModalRoutes = (props) => (
   <Switch>
     <Redirect from="/create-account" to="/signup" />
+    <Redirect from="/connect-account" to="/permissions" />
     <Route path="/login" render={() => <Login {...props} />} />
     <Route path="/signup" component={() => <Signup {...props} />} />
   </Switch>
@@ -56,7 +57,6 @@ const modalRoutes = [
   '/login',
   '/signup',
   '/create-account',
-  '/connect-account',
 ];
 
 class App extends React.Component {
