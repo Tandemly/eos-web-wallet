@@ -18,18 +18,23 @@ const EditProfile = ({
   profileImageUrl,
   status
 }: Props) => (
-  <div className="content">
-    <Helmet>
-      <title>Edit Profile</title>
-    </Helmet>
-    <h2 className="title is-2">Profile</h2>
-    <div className="columns is-desktop is-variable">
+  <div>
+    <div className="columns is-desktop content is-variable is-6">
+      <Helmet>
+        <title>Edit Profile</title>
+      </Helmet>
       <div className="column is-half-desktop">
-        <Container />
+        <article class="u-mb6">
+          <h2 className="title is-2">Profile</h2>
+          <Container />
+        </article>
+        <article>
+          <ResetPassword />
+        </article>
       </div>
       <div className="column is-half-desktop is-hidden-touch">
         <div className="col-lg-6">
-          <h5>Profile Preview</h5>
+          <h5 className="title is-5">Profile Preview</h5>
 
           <Profile
             name={displayName}
@@ -40,7 +45,6 @@ const EditProfile = ({
         </div>
       </div>
     </div>
-    <ResetPassword />
   </div>
 );
 

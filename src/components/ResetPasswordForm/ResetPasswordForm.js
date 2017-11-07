@@ -13,49 +13,45 @@ const Label = () => (
 const ResetPasswordForm = ({ callAPI, handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(callAPI)}>
     <div className="reset_password">
-      <div className="columns is-desktop">
-        <div className="column is-half-desktop">
-          <h3 className="title is-3">Reset Wallet Password</h3>
-          <Field
-            aria-describedby="currentPassword"
-            className="input"
-            id="currentPassword"
-            label={<Label />}
-            name="currentPassword"
-            required
-            component={renderField}
-            type="text"
+      <h3 className="title is-3">Reset Wallet Password</h3>
+      <Field
+        aria-describedby="currentPassword"
+        className="input"
+        id="currentPassword"
+        label={<Label />}
+        name="currentPassword"
+        required
+        component={renderField}
+        type="text"
+      />
+      <div className="field">
+        <div className="control">
+          <Button
+            disabled={submitting}
+            className="button is-large is-secondary"
+            type="submit"
+            text={submitting ? "Submitting..." : "generate Password"}
           />
-          <div className="field">
-            <div className="control">
-              <Button
-                disabled={submitting}
-                className="button is-large is-secondary"
-                type="submit"
-                text={submitting ? "Submitting..." : "generate Password"}
-              />
-            </div>
-          </div>
-          <Field
-            aria-describedby="regeneratedPassword"
-            className="input"
-            id="regeneratedPassword"
-            label="Re-Generated Password"
-            name="regeneratedPassword"
-            required
-            component={renderField}
-            type="text"
+        </div>
+      </div>
+      <Field
+        aria-describedby="regeneratedPassword"
+        className="input"
+        id="regeneratedPassword"
+        label="Re-Generated Password"
+        name="regeneratedPassword"
+        required
+        component={renderField}
+        type="text"
+      />
+      <div className="field">
+        <div className="control">
+          <Button
+            disabled={submitting}
+            className="button is-large is-primary"
+            type="submit"
+            text={submitting ? "Submitting..." : "Update Password"}
           />
-          <div className="field">
-            <div className="control">
-              <Button
-                disabled={submitting}
-                className="button is-large is-primary"
-                type="submit"
-                text={submitting ? "Submitting..." : "Update Password"}
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>
