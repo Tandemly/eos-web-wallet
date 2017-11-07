@@ -22,14 +22,13 @@ const EditProfile = ({
     <Helmet>
       <title>Edit Profile</title>
     </Helmet>
-
+    <h2 className="title is-2">Profile</h2>
     <div className="columns is-desktop is-variable">
       <div className="column is-half-desktop">
-        <h2>{displayName || "Display Name"}</h2>
         <Container />
       </div>
-      <div className="column is-half-desktop">
-        <div className="hidden-md-down col-lg-6">
+      <div className="column is-half-desktop is-hidden-touch">
+        <div className="col-lg-6">
           <h5>Profile Preview</h5>
 
           <Profile
@@ -39,10 +38,6 @@ const EditProfile = ({
             status={status}
           />
         </div>
-      </div>
-    </div>
-    <div className="columns is-desktop is-variable">
-      <div className="column is-half-desktop">
       </div>
     </div>
     <ResetPassword />

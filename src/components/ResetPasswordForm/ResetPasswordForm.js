@@ -15,7 +15,7 @@ const ResetPasswordForm = ({ callAPI, handleSubmit, submitting }) => (
     <div className="reset_password">
       <div className="columns is-desktop">
         <div className="column is-half-desktop">
-          <h2>Reset Wallet Password</h2>
+          <h3 className="title is-3">Reset Wallet Password</h3>
           <Field
             aria-describedby="currentPassword"
             className="input"
