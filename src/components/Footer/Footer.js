@@ -1,4 +1,5 @@
 import * as React from "react";
+import css from "./styles.module.scss"; //disable-eslint-line
 
 const Footer = () => (
   <footer>

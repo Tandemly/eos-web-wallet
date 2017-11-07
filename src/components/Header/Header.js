@@ -9,7 +9,7 @@ const renderHeaderUser = ({ name, image: { url } }) => (
       <div className={css.user_meta}>
         <h4 className={cx("title is-4 is-spaced", css.title)}>Hi, {name}</h4>
         <p className={cx("subtitle is-6", css.subtitle)}>
-          <Link to="/preferences">Customize your profile</Link> |
+          <Link to="/profile">Customize your profile</Link> |
           <Link to="/logout">
             {" "}
             <span className="icon-logout" />
@@ -18,7 +18,7 @@ const renderHeaderUser = ({ name, image: { url } }) => (
       </div>
     </div>
 
-    <Link className={css.settings} to="/preferences">
+    <Link className={css.settings} to="/profile">
       <span className="icon-settings" />
     </Link>
 

@@ -1,12 +1,9 @@
 import * as React from "react";
-import { Field, reduxForm } from 'redux-form';
-import renderField from 'components/Field';
+import { Field, reduxForm } from "redux-form";
+import renderField from "components/Field";
 import Button from "components/Button";
 
-const PreferencesForm = ({ 
-  callAPI,
-  handleSubmit,
-  submitting, }) => (
+const PreferencesForm = ({ callAPI, handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(callAPI)}>
     <Field
       aria-describedby="email"
@@ -30,7 +27,7 @@ const PreferencesForm = ({
       aria-describedby="about"
       className="input"
       id="about"
-      label="About (150 Character Max)"
+      label="About"
       name="about"
       maxLength={150}
       component={renderField}
@@ -60,7 +57,7 @@ const PreferencesForm = ({
           disabled={submitting}
           className="button is-large is-primary"
           type="submit"
-          text={submitting ? 'Submitting...' : 'Continue'}
+          text={submitting ? "Submitting..." : "Update Information"}
         />
       </div>
     </div>
@@ -68,7 +65,7 @@ const PreferencesForm = ({
 );
 
 export default reduxForm({
-  form: 'sign-up',
+  form: "sign-up",
   destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true,
+  forceUnregisterOnUnmount: true
 })(PreferencesForm);

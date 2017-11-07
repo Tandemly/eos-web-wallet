@@ -4,8 +4,8 @@ import Profile from "components/Profile";
 
 // TODO genericize this to network call to specific user
 const mapStateToProps = ({ login: { user: { name, picture }}}) => ({
-  name,
-  image: { url: picture },
+  displayName: name,
+  imageUrl: picture,
 });
 
 const Container = connect(

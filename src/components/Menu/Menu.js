@@ -30,9 +30,9 @@ const authLinks = [
       iconClass: 'icon-history u-mr1',
     },
     {
-      to: '/permissions',
-      text: 'Permissions',
-      iconClass: 'icon-permissions u-mr1',
+      to: '/accounts',
+      text: 'Accounts',
+      iconClass: 'icon-account u-mr1',
     },
     {
       to: '/logout',
@@ -50,7 +50,7 @@ const Menu = ({ isAuthenticated }) => (
 
     {isAuthenticated && <Balance />}
 
-    <Shortcuts 
+    <Shortcuts
       data={isAuthenticated ? authLinks : unauthLinks}
     />
   </div>
