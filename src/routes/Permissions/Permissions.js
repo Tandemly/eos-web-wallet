@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import Notifications from "containers/Notifications";
-import ResetPassword from "containers/ResetPassword";
 import ConnectedEOSAccounts from "containers/ConnectedEOSAccounts";
 
 const Permissions = () => (

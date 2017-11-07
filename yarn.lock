@@ -7658,6 +7658,10 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
+redux-form-validators@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/redux-form-validators/-/redux-form-validators-2.1.0.tgz#abcfa10ecfaec38b26a1df14f7f10d1363e4f627"
+
 redux-form@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-7.1.1.tgz#4d9ab1d9c03beb3a8b5f8e5d0f398cff4209081f"
