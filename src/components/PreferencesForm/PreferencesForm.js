@@ -2,16 +2,19 @@ import * as React from "react";
 import { Field, reduxForm } from "redux-form";
 import renderField from "components/Field";
 import Button from "components/Button";
+import { url } from "redux-form-validators";
 
 const PreferencesForm = ({ callAPI, handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(callAPI)}>
     <Field
-      aria-describedby="email"
+      aria-describedby="imageUrl"
       className="input"
-      id="pictureURL"
+      id="imageUrl"
       label="Picture URL"
-      name="pictureURL"
+      name="imageUrl"
       component={renderField}
+      showErrors
+      validate={[url({ allowBlank: true, msg: "Not a valid web address" })]}
       type="text"
     />
     <Field
@@ -49,6 +52,8 @@ const PreferencesForm = ({ callAPI, handleSubmit, submitting }) => (
       label="Website"
       name="website"
       component={renderField}
+      showErrors
+      validate={[url({ allowBlank: true, msg: "Not a valid web address" })]}
       type="text"
     />
     <div className="field u-mt4">
