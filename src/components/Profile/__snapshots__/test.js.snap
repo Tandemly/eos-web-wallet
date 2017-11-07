@@ -23,16 +23,21 @@ exports[`<Profile /> renders without crashing 1`] = `
         className="level-item"
       >
         <div>
-          <p
+          <div
             className="heading is-6"
           >
             Rick Sanchez
-          </p>
-          <p
+          </div>
+          <div
             className="title"
           >
             Friday Harbor, WA
-          </p>
+          </div>
+          <a
+            href="http://twitter.com/"
+          >
+            http://twitter.com/
+          </a>
         </div>
       </div>
     </div>
