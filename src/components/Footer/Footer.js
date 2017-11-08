@@ -1,5 +1,5 @@
 import * as React from "react";
-import css from "./styles.module.scss"; // eslint-disable-line no-unused-vars
+import "./styles.module.scss";
 
 const Footer = () => (
   <footer>
