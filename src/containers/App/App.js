@@ -20,7 +20,7 @@ import Transactions from "routes/Transactions";
 import Users from "routes/Users";
 import Profile from "routes/Profile";
 import Permissions from "routes/Permissions";
-import Preferences from "routes/Preferences";
+import EditProfile from "routes/EditProfile";
 import NoMatch from "routes/NoMatch";
 
 import { toggleMenu, closeMenu } from "./reducer";
@@ -40,8 +40,8 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
       />,
       <Route path="/users" component={Users} key="users" />,
       <Route path="/user/:id" component={Profile} key="user" />,
-      <Route path="/permissions" component={Permissions} key="permissions" />,
-      <Route path="/preferences" component={Preferences} key="preferences" />,
+      <Route path="/accounts" component={Permissions} key="accounts" />,
+      <Route path="/profile" component={EditProfile} key="profile" />,
       <Route path="/logout" component={Logout} key="logout" />
     ]
   );
@@ -49,17 +49,13 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
 const renderModalRoutes = props => (
   <Switch>
     <Redirect from="/create-account" to="/signup" />
-    <Redirect from="/connect-account" to="/permissions" />
+    <Redirect from="/connect-account" to="/accounts" />
     <Route path="/login" render={() => <Login {...props} />} />
     <Route path="/signup" component={() => <Signup {...props} />} />
   </Switch>
 );
 
-const modalRoutes = [
-  "/login",
-  "/signup",
-  "/create-account"
-];
+const modalRoutes = ["/login", "/signup", "/create-account"];
 
 type Props = {
   history: any,

@@ -1,20 +1,20 @@
 import * as React from "react";
-import { Field, reduxForm } from 'redux-form';
-import renderField from 'components/Field';
+import { Field, reduxForm } from "redux-form";
+import renderField from "components/Field";
 import Button from "components/Button";
+import { url } from "redux-form-validators";
 
-const PreferencesForm = ({ 
-  callAPI,
-  handleSubmit,
-  submitting, }) => (
+const PreferencesForm = ({ callAPI, handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(callAPI)}>
     <Field
-      aria-describedby="email"
+      aria-describedby="imageUrl"
       className="input"
-      id="pictureURL"
+      id="imageUrl"
       label="Picture URL"
-      name="pictureURL"
+      name="imageUrl"
       component={renderField}
+      showErrors
+      validate={[url({ allowBlank: true, msg: "Not a valid web address" })]}
       type="text"
     />
     <Field
@@ -30,7 +30,7 @@ const PreferencesForm = ({
       aria-describedby="about"
       className="input"
       id="about"
-      label="About (150 Character Max)"
+      label="About"
       name="about"
       maxLength={150}
       component={renderField}
@@ -52,6 +52,8 @@ const PreferencesForm = ({
       label="Website"
       name="website"
       component={renderField}
+      showErrors
+      validate={[url({ allowBlank: true, msg: "Not a valid web address" })]}
       type="text"
     />
     <div className="field u-mt4">
@@ -60,7 +62,7 @@ const PreferencesForm = ({
           disabled={submitting}
           className="button is-large is-primary"
           type="submit"
-          text={submitting ? 'Submitting...' : 'Continue'}
+          text={submitting ? "Submitting..." : "Update Information"}
         />
       </div>
     </div>
@@ -68,7 +70,7 @@ const PreferencesForm = ({
 );
 
 export default reduxForm({
-  form: 'sign-up',
+  form: "sign-up",
   destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true,
+  forceUnregisterOnUnmount: true
 })(PreferencesForm);
