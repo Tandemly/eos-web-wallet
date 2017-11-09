@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { change } from 'redux-form';
 import TransferForm from 'components/TransferForm';
-import { tryPostTransaction } from './reducer';
+import { tryPostTransaction } from '../../redux-modules/transfer/reducer';
 
 function setAmountToBalance() {
   return (dispatch, getState) => {
     const balance = getState().account.account.total;
-  
+
     return dispatch(change('transfer', 'amount', balance));
   }
 }

@@ -2,7 +2,7 @@ import { stopSubmit } from "redux-form";
 import {
   setNotification,
   unsetNotification
-} from "containers/Notifications/reducer";
+} from "redux-modules/notifications/reducer";
 
 const api = store => next => action => {
   const errorActions = [

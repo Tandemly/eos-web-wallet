@@ -6,9 +6,9 @@ import { routerReducer } from "react-router-redux";
 import { reducer as account } from "redux-modules/balance/reducer";
 import { reducer as app } from "containers/App/reducer";
 import { reducer as login } from "redux-modules/login/reducer";
-import { reducer as notification } from "containers/Notifications/reducer";
-import { reducer as transactions } from "containers/Transactions/reducer";
-import { reducer as users } from "containers/Users/reducer";
+import { reducer as notification } from "redux-modules/notifications/reducer";
+import { reducer as transactions } from "redux-modules/transactions/reducer";
+import { reducer as users } from "redux-modules/users/reducer";
 import { createMemoryHistory } from "history";
 import middlewares from "middleware";
 

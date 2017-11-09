@@ -1,5 +1,5 @@
 /* eslint-disable camelcase, consistent-return */
-import { tryGetTransactions } from 'containers/Transactions/reducer';
+import { tryGetTransactions } from 'redux-modules/transactions/reducer';
 import { tryGetBalance } from 'redux-modules/balance/reducer';
 
 // Dispatches action after events

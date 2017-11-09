@@ -3,7 +3,7 @@
 import {
   succeedPostTransaction,
   failPostTransaction
-} from "containers/Transfer/reducer";
+} from "redux-modules/transfer/reducer";
 import rejectBadResponse from "util/rejectBadResponse";
 
 export const postTransfer = (payload, accessToken, dispatch) =>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Notification from 'components/Notification';
-import { unsetNotification } from './reducer';
+import { unsetNotification } from '../../redux-modules/notifications/reducer';
 
 const mapStateToProps = ({ notification: { status, text } }) => ({
   status,

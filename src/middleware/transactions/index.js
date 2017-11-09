@@ -3,7 +3,7 @@
 import {
   succeedGetTransactions,
   failGetTransactions
-} from "containers/Transactions/reducer";
+} from "redux-modules/transactions/reducer";
 import rejectBadResponse from "util/rejectBadResponse";
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));

@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import { _middlewares } from '../';
-import { tryGetTransactions } from 'containers/Transactions/reducer';
+import { tryGetTransactions } from 'redux-modules/transactions/reducer';
 import { tryGetBalance } from 'redux-modules/balance/reducer';
 
 const mockStore = configureMockStore(_middlewares);
