@@ -3,7 +3,7 @@ import { _middlewares } from '../';
 import { postTransfer } from './';
 import { succeedPostTransaction } from 'containers/Transfer/reducer';
 import { tryGetTransactions } from 'containers/Transactions/reducer';
-import { tryGetBalance } from 'containers/Balance/reducer';
+import { tryGetBalance } from 'redux-modules/balance/reducer';
 
 const mockStore = configureMockStore(_middlewares);
 const mockHistory = {

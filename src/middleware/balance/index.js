@@ -2,19 +2,19 @@
 /* global fetch */
 import {
   succeedGetBalance,
-  failGetBalance,
-} from 'containers/Balance/reducer';
-import rejectBadResponse from 'util/rejectBadResponse';
+  failGetBalance
+} from "redux-modules/balance/reducer";
+import rejectBadResponse from "util/rejectBadResponse";
 
-export const getBalance = (payload, accessToken, dispatch) => (
+export const getBalance = (payload, dispatch) =>
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/api/account/`, {
-    method: 'POST',
-    mode: 'cors',
+    method: "POST",
+    mode: "cors",
     headers: {
-      'Authorization': `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
+      Authorization: `Bearer `, //TODO: tore out the access token...needs to use the new utility
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(payload)
   })
     .then(rejectBadResponse)
     .then(response => response.json())
@@ -24,27 +24,19 @@ export const getBalance = (payload, accessToken, dispatch) => (
     .then(error => error && dispatch(failGetBalance({ error })))
     .catch(() => {
       dispatch({
-        type: 'CONNECTION_ERROR',
-        form: 'sign-up',
-        error: { message: 'Unable to connect to the Wallet' },
+        type: "CONNECTION_ERROR",
+        form: "sign-up",
+        error: { message: "Unable to connect to the Wallet" }
       });
-    })
-);
+    });
 
-const balance = store => next => (action) => {
-  const {
-    login: { 
-      isAuthenticated,
-      user: {
-        accessToken,
-      } = {},
-    },
-  } = store.getState();
+const balance = store => next => action => {
+  const { login: { isAuthenticated } } = store.getState();
 
-  if (isAuthenticated && action.type === 'TRY_GET_BALANCE') {
+  if (isAuthenticated && action.type === "TRY_GET_BALANCE") {
     const { account_name } = action;
 
-    getBalance({ account_name }, accessToken, store.dispatch);
+    getBalance({ account_name }, store.dispatch);
   }
 
   next(action);

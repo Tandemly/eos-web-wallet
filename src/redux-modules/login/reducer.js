@@ -1,7 +1,7 @@
 // NOTE token goes into local storage, not stored in redux
 import {
   FAIL_POST_LOGIN,
-  SUCCEED_LOGOUT,
+  TRY_LOGOUT,
   SUCCEED_POST_LOGIN,
   TRY_POST_LOGIN
 } from "./actions";
@@ -39,10 +39,12 @@ export function reducer(state = initialState, action = {}) {
         isFetching: false,
         isAuthenticated: true
       };
-    case SUCCEED_LOGOUT:
+    case TRY_LOGOUT:
       return {
         ...state,
-        user: action.user,
+        user: {
+          email: ""
+        },
         isFetching: false,
         isAuthenticated: false
       };

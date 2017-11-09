@@ -4,10 +4,9 @@ import type { Dispatch } from "redux";
 import type UserProfile from "types/UserProfile";
 import camelcaseKeys from "camelcase-keys";
 import { push } from "react-router-redux";
-import { tryPostLogin } from "redux-modules/login/actions";
+import { tryPostLogin, tryLogout } from "redux-modules/login/actions";
 import { fetchMe } from "util/fetchUtil";
 
-//TODO: This is a mess...needs fixin'
 export const doLogin = ({ email, password }) => async (dispatch: Dispatch) => {
   dispatch(tryPostLogin({ email, password }));
   try {
@@ -23,4 +22,9 @@ export const doLogin = ({ email, password }) => async (dispatch: Dispatch) => {
   } catch (error) {
     dispatch(failPostLogin({ error }));
   }
+};
+
+export const doLogout = () => (dispatch: Dispatch) => {
+  dispatch(tryLogout());
+  dispatch(push("/"));
 };

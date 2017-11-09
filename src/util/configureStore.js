@@ -3,7 +3,7 @@ import { persistStore, autoRehydrate } from "redux-persist";
 import { reducer as reduxFormReducer } from "redux-form";
 import { routerMiddleware } from "react-router-redux";
 import { routerReducer } from "react-router-redux";
-import { reducer as account } from "containers/Balance/reducer";
+import { reducer as account } from "redux-modules/balance/reducer";
 import { reducer as app } from "containers/App/reducer";
 import { reducer as login } from "redux-modules/login/reducer";
 import { reducer as notification } from "containers/Notifications/reducer";

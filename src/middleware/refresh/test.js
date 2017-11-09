@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import { _middlewares } from '../';
 import { tryGetTransactions } from 'containers/Transactions/reducer';
-import { tryGetBalance } from 'containers/Balance/reducer';
+import { tryGetBalance } from 'redux-modules/balance/reducer';
 
 const mockStore = configureMockStore(_middlewares);
 
@@ -17,7 +17,7 @@ describe('async refresh middleware', () => {
     const account_name = {
       account_name: 'testeos',
     };
-    const store = mockStore({ 
+    const store = mockStore({
       login: {
         user: account_name
       }

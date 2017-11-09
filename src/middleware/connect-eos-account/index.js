@@ -6,12 +6,12 @@ import {
 } from "containers/ConnectedEOSAccounts/actions";
 import rejectBadResponse from "util/rejectBadResponse";
 
-export const postEOSAccount = (payload, accessToken, dispatch) =>
+export const postEOSAccount = (payload, dispatch) =>
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/v1/account/`, {
     method: "POST",
     mode: "cors",
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer `, //TODO: tore out the access token...needs to use the new utility
       "Content-Type": "application/json"
     },
     body: JSON.stringify(payload)
@@ -30,9 +30,7 @@ export const postEOSAccount = (payload, accessToken, dispatch) =>
     });
 
 const connectEOSAccount = store => next => action => {
-  const {
-    login: { isAuthenticated, user: { accessToken = null } = {} }
-  } = store.getState();
+  const { login: { isAuthenticated } } = store.getState();
 
   if (isAuthenticated && action.type === "TRY_POST_EOS_ACCOUNT") {
     const { account_name, owner_key, active_key } = action;
@@ -43,7 +41,6 @@ const connectEOSAccount = store => next => action => {
         owner_key,
         active_key
       },
-      accessToken,
       store.dispatch
     );
   }

@@ -3,17 +3,14 @@ import { Link } from "react-router-dom";
 import css from "./styles.module.scss";
 import cx from "classnames";
 
-const renderHeaderUser = ({ name, image: { url } }) => (
+const renderHeaderUser = ({ name, image: { url } }, onLogout) => (
   <div className={css.user_info}>
     <div className="has-text-right is-hidden-mobile">
       <div className={css.user_meta}>
         <h4 className={cx("title is-4 is-spaced", css.title)}>Hi, {name}</h4>
         <p className={cx("subtitle is-6", css.subtitle)}>
-          <Link to="/profile">Customize your profile</Link> |
-          <Link to="/logout">
-            {" "}
-            <span className="icon-logout" />
-          </Link>
+          <Link to="/profile">Customize your profile</Link> | <span> </span>
+          <span onClick={onLogout} className="icon-logout" />
         </p>
       </div>
     </div>
@@ -35,6 +32,7 @@ const Header = ({
   children,
   isAuthenticated,
   onClick,
+  onLogout,
   user = {
     name: "Display Name",
     image: { url: "" }
@@ -64,7 +62,7 @@ const Header = ({
         </div>
       </div>
 
-      {isAuthenticated ? renderHeaderUser(user) : null}
+      {isAuthenticated ? renderHeaderUser(user, onLogout) : null}
     </div>
   </header>
 );
