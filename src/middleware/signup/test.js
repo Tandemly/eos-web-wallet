@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import { _middlewares } from '../';
 import { failPostSignup } from 'containers/Signup/actions';
-import { succeedPostLogin } from 'containers/Login/reducer';
+import { succeedPostLogin } from 'redux-modules/login/reducer';
 import createAccount from './';
 
 const mockStore = configureMockStore(_middlewares);
@@ -30,13 +30,13 @@ describe('async signup middleware', () => {
         name: '',
         email: '',
         role: 'user',
-        createdAt: '',        
+        createdAt: '',
       },
       token: {
         tokenType: '',
         accessToken: '',
         refreshToken: '',
-        expiresIn: '',        
+        expiresIn: '',
       }
     };
     const expectedActions = [
@@ -44,7 +44,7 @@ describe('async signup middleware', () => {
       { type: 'UNSET_NOTIFICATION' },
       succeedPostLogin(response),
     ];
-    
+
     fetch.mockResponse(JSON.stringify(response), { status: 200 });
     await createAccount(store)(next)(triggerAction)
 

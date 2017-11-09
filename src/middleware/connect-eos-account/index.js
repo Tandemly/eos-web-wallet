@@ -2,19 +2,19 @@
 /* global fetch */
 import {
   succeedPostEOSAccount,
-  failPostEOSAccount,
-} from 'containers/ConnectedEOSAccounts/actions';
-import rejectBadResponse from 'util/rejectBadResponse';
+  failPostEOSAccount
+} from "containers/ConnectedEOSAccounts/actions";
+import rejectBadResponse from "util/rejectBadResponse";
 
-export const postEOSAccount = (payload, accessToken, dispatch) => (
+export const postEOSAccount = (payload, accessToken, dispatch) =>
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/v1/account/`, {
-    method: 'POST',
-    mode: 'cors',
+    method: "POST",
+    mode: "cors",
     headers: {
-      'Authorization': `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(payload)
   })
     .then(rejectBadResponse)
     .then(() => dispatch(succeedPostEOSAccount()))
@@ -23,30 +23,26 @@ export const postEOSAccount = (payload, accessToken, dispatch) => (
     .then(error => error && dispatch(failPostEOSAccount({ error })))
     .catch(() => {
       dispatch({
-        type: 'CONNECTION_ERROR',
-        form: 'sign-up',
-        error: { message: 'Unable to connect to the Wallet' },
+        type: "CONNECTION_ERROR",
+        form: "sign-up",
+        error: { message: "Unable to connect to the Wallet" }
       });
-    })
-);
+    });
 
-const connectEOSAccount = store => next => (action) => {
+const connectEOSAccount = store => next => action => {
   const {
-    login: { 
-      isAuthenticated,
-      user: {
-        accessToken,
-      } = {},
-    },
+    login: { isAuthenticated, user: { accessToken = null } = {} }
   } = store.getState();
 
-  if (isAuthenticated && action.type === 'TRY_POST_EOS_ACCOUNT') {
+  if (isAuthenticated && action.type === "TRY_POST_EOS_ACCOUNT") {
     const { account_name, owner_key, active_key } = action;
 
-    postEOSAccount({
-      account_name,
-      owner_key,
-      active_key },
+    postEOSAccount(
+      {
+        account_name,
+        owner_key,
+        active_key
+      },
       accessToken,
       store.dispatch
     );

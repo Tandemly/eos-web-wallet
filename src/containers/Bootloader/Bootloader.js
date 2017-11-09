@@ -12,9 +12,9 @@ class Bootloader extends Component {
   };
 
   async componentWillMount() {
-    const { store: _store } = this.props;
+    const { history } = this.props;
     const store = await configureStoreAsync(
-      process.env.NODE_ENV === "development" ? _store : {}
+      history
     );
 
     this.setState({ store });

@@ -1,4 +1,19 @@
+//@flow
 /* global fetch */
+import rejectBadResponse from "util/rejectBadResponse";
+
+export const fetchMe = (url: string, options = {}) =>
+  fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    ...options
+  })
+    .then(rejectBadResponse)
+    .then(response => response.json())
+    .catch(error => error.json())
+    .then(error => Promise.reject(error));
 
 const apiHost = process.env.REACT_APP_API_URI;
 const apiKey = process.env.REACT_APP_API_KEY;

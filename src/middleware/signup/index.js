@@ -1,6 +1,6 @@
 /* global fetch */
 import { failPostSignup } from "containers/Signup/actions";
-import { succeedPostLogin } from "containers/Login/reducer";
+import { succeedPostLogin } from "redux-modules/login/actions";
 import rejectBadResponse from "util/rejectBadResponse";
 
 export const postSignup = (payload, dispatch, history) =>
