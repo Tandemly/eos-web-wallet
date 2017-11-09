@@ -34,13 +34,16 @@ const api = store => next => action => {
     errorActions.some(t => action.type === t) &&
     process.env.NODE_ENV !== "test"
   ) {
-    const { message } = action.error;
+    const { message, errors } = action.error;
     const errAction = stopSubmit(action.form, message);
     store.dispatch(errAction);
 
     // Subsequently after error action, notify user
-    const text =
-      typeof message === "string" ? message : message[Object.keys(message)[0]];
+    const text = errors
+      ? errors[0].messages[0] // First validation error...for now.
+      : typeof message === "string"
+        ? message
+        : message[Object.keys(message)[0]];
 
     if (text) {
       store.dispatch(
