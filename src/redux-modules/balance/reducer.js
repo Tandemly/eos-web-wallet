@@ -1,17 +1,18 @@
-import math from 'mathjs';
-
-const TRY_GET_BALANCE = 'TRY_GET_BALANCE';
-const SUCCESS_GET_BALANCE = 'SUCCESS_GET_BALANCE';
-const FAIL_GET_BALANCE = 'FAIL_GET_BALANCE';
+import math from "mathjs";
+import {
+  FAIL_GET_BALANCE,
+  SUCCESS_GET_BALANCE,
+  TRY_GET_BALANCE
+} from "./actions";
 
 const initialState = {
   account: {
     total: 0,
-    staked: '',
-    unstaked: '',
+    staked: "",
+    unstaked: "",
     difference: 0,
-    symbol: '',
-  },
+    symbol: ""
+  }
 };
 
 export function reducer(state = initialState, action) {
@@ -19,7 +20,7 @@ export function reducer(state = initialState, action) {
     case TRY_GET_BALANCE:
       return {
         ...state,
-        account: 'loading',
+        account: "loading"
       };
     /* eslint-disable no-nested-ternary, no-case-declarations */
     case SUCCESS_GET_BALANCE:
@@ -29,38 +30,18 @@ export function reducer(state = initialState, action) {
 
       return {
         difference: isNaN(difference) || difference === 0 ? 0 : difference,
-        symbol: Number.isFinite(difference) && (
-          difference === 0 ? '' : difference >= 0 ? '+' : '-'),
-        ...action.account,
+        symbol:
+          Number.isFinite(difference) &&
+          (difference === 0 ? "" : difference >= 0 ? "+" : "-"),
+        ...action.account
       };
     /* eslint-enable no-nested-ternary, no-case-declarations */
     case FAIL_GET_BALANCE:
       return {
         ...state,
-        account: 'error',
+        account: "error"
       };
     default:
       return state;
   }
-}
-
-export function succeedGetBalance({ account }) {
-  return {
-    type: SUCCESS_GET_BALANCE,
-    account,
-  };
-}
-
-export function failGetBalance({ errors }) {
-  return {
-    type: FAIL_GET_BALANCE,
-    errors,
-  };
-}
-
-export function tryGetBalance({ account_name }) {
-  return {
-    type: TRY_GET_BALANCE,
-    account_name
-  };
 }

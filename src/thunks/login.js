@@ -5,12 +5,12 @@ import type UserProfile from "types/UserProfile";
 import camelcaseKeys from "camelcase-keys";
 import { push } from "react-router-redux";
 import { tryPostLogin, tryLogout } from "redux-modules/login/actions";
-import { fetchMe } from "util/fetchUtil";
+import { appRequest } from "util/fetchUtil";
 
 export const doLogin = ({ email, password }) => async (dispatch: Dispatch) => {
   dispatch(tryPostLogin({ email, password }));
   try {
-    const response = await fetchMe(`/app/login`, {
+    const response = await appRequest(`/app/login`, {
       method: "POST",
       body: JSON.stringify({ email, password })
     });

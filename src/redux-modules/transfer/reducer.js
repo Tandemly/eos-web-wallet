@@ -1,13 +1,16 @@
-const TRY_POST_TRANSACTION = 'TRY_POST_TRANSACTION';
-const SUCCESS_POST_TRANSACTION = 'SUCCESS_POST_TRANSACTION';
-const FAIL_POST_TRANSACTION = 'FAIL_POST_TRANSACTION';
+import {
+  FAIL_POST_TRANSACTION,
+  SUCCESS_POST_TRANSACTION,
+  TRY_POST_TRANSACTION
+} from "./actions";
 
+// TODO move memo = ' ' upstream
 const initialState = {
   transaction: {
     amount: 0,
-    to: '',
-    memo: '',
-  },
+    to: "",
+    memo: ""
+  }
 };
 
 export function reducer(state = initialState, action) {
@@ -18,49 +21,23 @@ export function reducer(state = initialState, action) {
         transaction: {
           amount: action.amount,
           to: action.to,
-          memo: action.memo,
+          memo: action.memo
         }
       };
-    case FAIL_POST_TRANSACTION :
+    case FAIL_POST_TRANSACTION:
       return {
-        ...state,
+        ...state
       };
     case SUCCESS_POST_TRANSACTION:
       return {
         ...state,
         transaction: {
-          amount: '',
-          to: '',
-          memo: '',
-        },
+          amount: "",
+          to: "",
+          memo: ""
+        }
       };
     default:
       return state;
   }
-}
-
-export function failPostTransaction({ error }) {
-  return {
-    type: FAIL_POST_TRANSACTION,
-    form: 'transfer',
-    error,
-  };
-}
-
-export function succeedPostTransaction(transaction) {
-  return {
-    type: SUCCESS_POST_TRANSACTION,
-    transaction,
-  };
-}
-
-// TODO move memo = ' ' upstream
-export function tryPostTransaction({ amount, history, memo = ' ', to }) {
-  return {
-    type: TRY_POST_TRANSACTION,
-    amount,
-    history,
-    memo,
-    to,
-  };
 }

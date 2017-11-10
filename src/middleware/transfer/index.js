@@ -1,10 +1,9 @@
 /* eslint-disable camelcase, consistent-return */
 /* global fetch */
 import {
-  succeedPostTransaction,
-  failPostTransaction
-} from "redux-modules/transfer/reducer";
-import rejectBadResponse from "util/rejectBadResponse";
+  succeedPostTransaction} from "redux-modules/transfer/actions";
+import { rejectBadResponse } from "util/fetchUtil";
+import { failPostTransaction } from '../../redux-modules/transfer/actions';
 
 export const postTransfer = (payload, accessToken, dispatch) =>
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/v1/transfer`, {
@@ -21,14 +20,7 @@ export const postTransfer = (payload, accessToken, dispatch) =>
     .then(data => dispatch(succeedPostTransaction(data)))
     // TODO fixup chain of errors
     .catch(response => response.json())
-    .then(error => error && dispatch(failPostTransaction({ error })))
-    .catch(() =>
-      dispatch({
-        type: "CONNECTION_ERROR",
-        form: "sign-up",
-        error: { message: "Unable to connect to the Wallet" }
-      })
-    );
+    .then(error => error && dispatch(failPostTransaction({ error })));
 
 const transfer = store => next => async action => {
   const { login: { isAuthenticated, user } } = store.getState();

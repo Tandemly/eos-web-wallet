@@ -1,11 +1,10 @@
-const SET_NOTIFICATION = 'SET_NOTIFICATION';
-const UNSET_NOTIFICATION = 'UNSET_NOTIFICATION';
+import { SET_NOTIFICATION, UNSET_NOTIFICATION } from "./actions";
 
 const initialState = {
   notification: {
-    text: '',
-    status: '',
-  },
+    text: "",
+    status: ""
+  }
 };
 
 export function reducer(state = initialState, action) {
@@ -20,18 +19,4 @@ export function reducer(state = initialState, action) {
     default:
       return state;
   }
-}
-
-export function setNotification({ text, status }) {
-  return {
-    type: SET_NOTIFICATION,
-    text,
-    status,
-  };
-}
-
-export function unsetNotification() {
-  return {
-    type: UNSET_NOTIFICATION,
-  };
 }

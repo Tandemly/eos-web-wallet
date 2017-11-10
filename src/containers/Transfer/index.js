@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { change } from 'redux-form';
 import TransferForm from 'components/TransferForm';
-import { tryPostTransaction } from '../../redux-modules/transfer/reducer';
+import { tryPostTransaction } from '../../redux-modules/transfer/actions';
 
 function setAmountToBalance() {
   return (dispatch, getState) => {

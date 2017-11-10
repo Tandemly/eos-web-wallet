@@ -1,29 +1,28 @@
 /* eslint-disable camelcase, consistent-return */
-import { tryGetTransactions } from 'redux-modules/transactions/reducer';
-import { tryGetBalance } from 'redux-modules/balance/reducer';
+import { tryGetTransactions } from "redux-modules/transactions/actions";
+import { getBalance } from "thunks/balance";
 
 // Dispatches action after events
-const refresh = store => next => (action) => {
+const refresh = store => next => action => {
   const triggerActions = [
-    'SUCCESS_POST_TRANSACTION',
-    'SUCCEED_LOGIN',
-    'SUCCESS_POST_EOS_ACCOUNT',
-    'ROUTE_LOAD'
+    "SUCCESS_POST_TRANSACTION",
+    "SUCCEED_LOGIN",
+    "SUCCESS_POST_EOS_ACCOUNT",
+    "ROUTE_LOAD"
   ];
 
-  if (triggerActions.some(t => action.type === t) && store.getState().login.user) {
+  if (
+    triggerActions.some(t => action.type === t) &&
+    store.getState().login.user
+  ) {
     const {
-      login: {
-        user: {
-          account_name,
-        }
-      }
+      login: { isAuthenticated, user: { account_name } }
     } = store.getState();
 
-    if (account_name) {
+    if (isAuthenticated && account_name) {
       const newAction = { account_name };
 
-      store.dispatch(tryGetBalance(newAction));
+      store.dispatch(getBalance(account_name));
       store.dispatch(tryGetTransactions(newAction));
     }
   }

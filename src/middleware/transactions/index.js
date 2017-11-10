@@ -1,10 +1,8 @@
 /* eslint-disable camelcase, consistent-return */
 /* global fetch */
-import {
-  succeedGetTransactions,
-  failGetTransactions
-} from "redux-modules/transactions/reducer";
-import rejectBadResponse from "util/rejectBadResponse";
+import { succeedGetTransactions } from "redux-modules/transactions/actions";
+import { rejectBadResponse } from "util/fetchUtil";
+import { failGetTransactions } from "../../redux-modules/transactions/actions";
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -30,14 +28,7 @@ export const getTransactions = (payload, dispatch) =>
     .then(data => dispatch(succeedGetTransactions(data)))
     // TODO fixup chain of errors
     .catch(response => response.json())
-    .then(error => error && dispatch(failGetTransactions({ error })))
-    .catch(() =>
-      dispatch({
-        type: "CONNECTION_ERROR",
-        form: "sign-up",
-        error: { message: "Unable to connect to the Wallet" }
-      })
-    );
+    .then(error => error && dispatch(failGetTransactions({ error })));
 
 const transactions = store => next => action => {
   const { login: { isAuthenticated } } = store.getState();

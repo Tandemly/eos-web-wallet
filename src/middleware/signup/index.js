@@ -1,7 +1,7 @@
 /* global fetch */
 import { failPostSignup } from "containers/Signup/actions";
 import { succeedPostLogin } from "redux-modules/login/actions";
-import rejectBadResponse from "util/rejectBadResponse";
+import { rejectBadResponse } from "util/fetchUtil";
 
 export const postSignup = (payload, dispatch, history) =>
   fetch(`${process.env.REACT_APP_PROXY_ENDPOINT}/v1/auth/register/`, {
@@ -27,14 +27,7 @@ export const postSignup = (payload, dispatch, history) =>
     })
     .then(() => history.push("/accounts"))
     // TODO fixup chain of errors
-    .catch(error => error && dispatch(failPostSignup({ error })))
-    .catch(() =>
-      dispatch({
-        type: "CONNECTION_ERROR",
-        form: "sign-up",
-        error: { message: "Unable to connect to the Wallet" }
-      })
-    );
+    .catch(error => error && dispatch(failPostSignup({ error })));
 
 const createAccount = store => next => async action => {
   if (action.type === "TRY_POST_SIGNUP") {

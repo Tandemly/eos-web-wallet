@@ -1,32 +1,32 @@
-import configureMockStore from 'redux-mock-store';
-import { _middlewares } from '../';
-import { tryGetTransactions } from 'redux-modules/transactions/reducer';
-import { tryGetBalance } from 'redux-modules/balance/reducer';
+import configureMockStore from "redux-mock-store";
+import { _middlewares } from "../";
+import { tryGetTransactions } from "redux-modules/transactions/actions";
+import { tryGetBalance } from "redux-modules/balance/actions";
 
 const mockStore = configureMockStore(_middlewares);
 
 function asyncDispatchAction(action) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(action);
     return Promise.resolve();
-  }
+  };
 }
 
-describe('async refresh middleware', () => {
-  it('on refreshAction, dispatches tryGetBalance and tryGetTransactions action', () => {
+describe("async refresh middleware", () => {
+  it("on refreshAction, dispatches tryGetBalance and tryGetTransactions action", () => {
     const account_name = {
-      account_name: 'testeos',
+      account_name: "testeos"
     };
     const store = mockStore({
       login: {
         user: account_name
       }
     });
-    const refreshAction = { type: 'SUCCEED_LOGIN' };
+    const refreshAction = { type: "SUCCEED_LOGIN" };
     const expectedActions = [
       tryGetBalance(account_name),
       tryGetTransactions(account_name),
-      refreshAction,
+      refreshAction
     ];
 
     return store.dispatch(asyncDispatchAction(refreshAction)).then(() => {
@@ -34,4 +34,3 @@ describe('async refresh middleware', () => {
     });
   });
 });
-

@@ -1,4 +1,4 @@
-const fetch = require('jest-fetch-mock')
+const fetch = require('jest-fetch-mock');
 const requestAnimationFrame = require('raf/polyfill');
 require("jest-localstorage-mock");
 

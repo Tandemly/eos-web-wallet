@@ -1,8 +1,6 @@
 import { stopSubmit } from "redux-form";
-import {
-  setNotification,
-  unsetNotification
-} from "redux-modules/notifications/reducer";
+import { unsetNotification } from "redux-modules/notifications/actions";
+import { setNotification } from "../../redux-modules/notifications/actions";
 
 const api = store => next => action => {
   const errorActions = [
@@ -13,8 +11,7 @@ const api = store => next => action => {
     "FAIL_POST_USERNAME",
     "FAIL_POST_SIGNUP",
     "FAIL_GET_BALANCE",
-    "FAIL_GET_TRANSACTIONS",
-    "CONNECTION_ERROR"
+    "FAIL_GET_TRANSACTIONS"
   ];
 
   const clearNotificationActions = [
