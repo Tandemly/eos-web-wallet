@@ -17,7 +17,7 @@ export const connectEosAccount = (
   };
   dispatch(tryPostEOSAccount(payload));
   try {
-    const response = await apiRequest("/v1/account/", {
+    await apiRequest("/v1/account/", {
       method: "POST",
       body: JSON.stringify(payload)
     });

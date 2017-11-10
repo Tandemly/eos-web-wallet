@@ -1,5 +1,5 @@
 /* eslint-disable camelcase, consistent-return */
-import { tryGetTransactions } from "redux-modules/transactions/actions";
+import { getTransactions } from "thunks/transactions";
 import { getBalance } from "thunks/balance";
 
 // Dispatches action after events
@@ -20,10 +20,8 @@ const refresh = store => next => action => {
     } = store.getState();
 
     if (isAuthenticated && account_name) {
-      const newAction = { account_name };
-
       store.dispatch(getBalance(account_name));
-      store.dispatch(tryGetTransactions(newAction));
+      store.dispatch(getTransactions(account_name));
     }
   }
 

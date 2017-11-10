@@ -1,35 +1,29 @@
 import configureMockStore from "redux-mock-store";
 import middlewares from "middleware";
-import { tryGetTransactions } from "redux-modules/transactions/actions";
-import { tryGetBalance } from "redux-modules/balance/actions";
-import { succeedGetBalance } from "../../redux-modules/balance/actions";
-import { succeedGetTransactions } from "../../redux-modules/transactions/actions";
+import { getTransactions } from "thunks/transactions";
+import {
+  tryGetTransactions,
+  succeedGetTransactions
+} from "redux-modules/transactions/actions";
 
 const mockStore = configureMockStore(middlewares);
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-describe("async refresh middleware", () => {
-  it("on refreshAction, dispatches tryGetBalance and tryGetTransactions action", async () => {
-    const account_name = {
-      account_name: "testeos"
-    };
+describe("getTransactions", () => {
+  it("on successful network call, dispatches succeedGetTransactions action", async () => {
     const store = mockStore({
       login: {
         isAuthenticated: true,
-        user: account_name
+        user: {
+          id_token:
+            "88769942b62c0a2b3d86506d168daf97928167e9e77b5db3678e176fcd55febc",
+          access_token:
+            "59d2aed2c8c5ac5f75bd3a719b65e75f06b4b88694655cad4cd3b540e6a3af51"
+        }
       }
     });
-    const refreshAction = { type: "SUCCEED_LOGIN" };
+    const accountName = "inita";
 
-    const balanceResponse = {
-      account: {
-        total: "999995.5819 EOS",
-        staked: "0.0000 EOS"
-      }
-    };
-
-    const transactionsResponse = {
+    const response = {
       transactions: [
         {
           sender: {
@@ -67,23 +61,14 @@ describe("async refresh middleware", () => {
       ]
     };
 
-    fetch.resetMocks();
-    fetch.mockResponseOnce(JSON.stringify(balanceResponse), { status: 200 });
-    fetch.mockResponseOnce(JSON.stringify(transactionsResponse), {
-      status: 200
-    });
-
     const expectedActions = [
-      tryGetBalance(account_name),
-      refreshAction,
-      succeedGetBalance(balanceResponse),
-      tryGetTransactions(account_name),
-      succeedGetTransactions(transactionsResponse)
+      tryGetTransactions({ account_name: accountName }),
+      succeedGetTransactions(response)
     ];
 
-    await store.dispatch(refreshAction);
+    fetch.mockResponse(JSON.stringify(response));
 
-    await delay(2000);
+    await store.dispatch(getTransactions(accountName));
 
     expect(store.getActions()).toEqual(expectedActions);
   });

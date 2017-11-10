@@ -7,12 +7,13 @@ import { push } from "react-router-redux";
 import { tryPostLogin, tryLogout } from "redux-modules/login/actions";
 import { appRequest } from "util/fetchUtil";
 
-export const doLogin = ({ email, password }) => async (dispatch: Dispatch) => {
-  dispatch(tryPostLogin({ email, password }));
+export const doLogin = (email, password) => async (dispatch: Dispatch) => {
+  const payload = { email, password };
+  dispatch(tryPostLogin(payload));
   try {
-    const response = await appRequest(`/app/login`, {
+    const response = await appRequest("/app/login", {
       method: "POST",
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify(payload)
     });
     const profile: UserProfile = (camelcaseKeys(response, {
       deep: true
@@ -26,5 +27,5 @@ export const doLogin = ({ email, password }) => async (dispatch: Dispatch) => {
 
 export const doLogout = () => (dispatch: Dispatch) => {
   dispatch(tryLogout());
-  dispatch(push("/"));
+  dispatch(push("/login"));
 };

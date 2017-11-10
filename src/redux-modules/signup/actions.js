@@ -1,5 +1,5 @@
-const TRY_POST_SIGNUP = 'TRY_POST_SIGNUP';
-const FAIL_POST_SIGNUP = 'FAIL_POST_SIGNUP';
+export const TRY_POST_SIGNUP = 'TRY_POST_SIGNUP';
+export const FAIL_POST_SIGNUP = 'FAIL_POST_SIGNUP';
 
 export function failPostSignup({ error }) {
   return {

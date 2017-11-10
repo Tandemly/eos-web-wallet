@@ -1,17 +1,14 @@
 import configureMockStore from "redux-mock-store";
-import { _middlewares } from "../";
-import { postTransfer } from "./";
+import middlewares from "middleware";
+import { doTransfer } from "thunks/transfer";
 import { succeedPostTransaction } from "redux-modules/transfer/actions";
 import { tryGetTransactions } from "redux-modules/transactions/actions";
 import { tryGetBalance } from "redux-modules/balance/actions";
 
-const mockStore = configureMockStore(_middlewares);
-const mockHistory = {
-  push: jest.fn()
-};
+const mockStore = configureMockStore(middlewares);
 
-describe("async transfer middleware", () => {
-  it("on successful transaction POST, dispatches succeedPostTransaction action", () => {
+describe("doTransfer", () => {
+  it("on successful transaction POST, dispatches succeedPostTransaction action", async () => {
     const store = mockStore({
       login: {
         isAuthenticated: true,
@@ -24,12 +21,25 @@ describe("async transfer middleware", () => {
         }
       }
     });
+
+    const activeKey =
+      "59d2aed2c8c5ac5f75bd3a719b65e75f06b4b88694655cad4cd3b540e6a3af51";
+    const amount = 12;
+    const from = "inita";
+    const to = "initb";
+    const memo = "test transfer";
+    const ownerKey =
+      "bf7eecb10bb7b588c413d2861548d85e45e52a2a966ffed5e0f64f0d71dadbac";
+
     const payload = {
-      amount: "1",
-      history: mockHistory,
-      memo: " ",
-      to: "initb"
+      active_key: activeKey,
+      amount,
+      from,
+      memo,
+      owner_key: ownerKey,
+      to
     };
+
     const response = {
       transaction_id:
         "bf7eecb10bb7b588c413d2861548d85e45e52a2a966ffed5e0f64f0d71dadbac",
@@ -81,16 +91,16 @@ describe("async transfer middleware", () => {
         ]
       }
     };
+
     const expectedActions = [
       tryGetBalance({ account_name: "inita" }),
-      tryGetTransactions({ account_name: "inita" }),
       succeedPostTransaction(response)
     ];
 
     fetch.mockResponse(JSON.stringify(response));
 
-    return postTransfer(payload, "", store.dispatch).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-    });
+    await store.dispatch(doTransfer(payload));
+
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });

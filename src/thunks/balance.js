@@ -14,7 +14,6 @@ export const getBalance = accountName => async dispatch => {
       method: "POST",
       body: JSON.stringify(payload)
     });
-    console.error(response);
     dispatch(succeedGetBalance(response));
   } catch (error) {
     dispatch(failGetBalance({ error }));

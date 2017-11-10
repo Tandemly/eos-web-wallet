@@ -35,7 +35,7 @@ export function reducer(state = initialState, action = {}) {
     case SUCCEED_POST_LOGIN:
       return {
         ...state,
-        user: action.user,
+        user: action.profile,
         isFetching: false,
         isAuthenticated: true
       };
