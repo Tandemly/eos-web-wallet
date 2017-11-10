@@ -1,7 +1,7 @@
 //@flow
 import { succeedPostLogin, failPostLogin } from "redux-modules/login/actions";
 import type { Dispatch } from "redux";
-import type UserProfile from "types/UserProfile";
+import type { UserProfile } from "types/UserProfile";
 import camelcaseKeys from "camelcase-keys";
 import { push } from "react-router-redux";
 import { tryPostLogin, tryLogout } from "redux-modules/login/actions";

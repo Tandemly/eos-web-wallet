@@ -1,6 +1,6 @@
 //@flow
 
-type UserProfile = {
+export type UserProfile = {
   email: string,
   imageUrl?: ?string,
   displayName?: ?string,
@@ -9,5 +9,3 @@ type UserProfile = {
   about?: ?string,
   phone?: ?string
 };
-
-export default UserProfile;

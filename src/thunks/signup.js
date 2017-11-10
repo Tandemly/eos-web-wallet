@@ -3,7 +3,7 @@ import { tryPostSignup, failPostSignup } from "redux-modules/signup/actions";
 import { succeedPostLogin } from "redux-modules/login/actions";
 import { appRequest } from "util/fetchUtil";
 import type { Dispatch } from "redux";
-import type UserProfile from "types/UserProfile";
+import type { UserProfile } from "types/UserProfile";
 import camelcaseKeys from "camelcase-keys";
 import { push } from "react-router-redux";
 

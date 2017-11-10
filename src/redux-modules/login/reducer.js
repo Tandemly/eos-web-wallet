@@ -5,7 +5,7 @@ import {
   SUCCEED_POST_LOGIN,
   TRY_POST_LOGIN
 } from "./actions";
-import type UserProfile from "../../types/UserProfile";
+import type { UserProfile } from "../../types/UserProfile";
 
 type StateShape = {
   user: UserProfile,
