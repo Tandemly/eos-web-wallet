@@ -4,7 +4,7 @@ import { succeedPostLogin } from "redux-modules/login/actions";
 import { appRequest } from "util/fetchUtil";
 import type { Dispatch } from "redux";
 import type { UserProfile } from "types/UserProfile";
-import camelcaseKeys from "camelcase-keys";
+import camelcaseObject from "camelcase-object";
 import { push } from "react-router-redux";
 
 export const doSignUp = (email, password) => async (dispatch: Dispatch) => {
@@ -15,9 +15,7 @@ export const doSignUp = (email, password) => async (dispatch: Dispatch) => {
       method: "POST",
       body: JSON.stringify(payload)
     });
-    const profile: UserProfile = (camelcaseKeys(response, {
-      deep: true
-    }): UserProfile);
+    const profile: UserProfile = (camelcaseObject(response): UserProfile);
     dispatch(succeedPostLogin({ profile }));
     dispatch(push("/"));
   } catch (error) {

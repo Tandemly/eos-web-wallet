@@ -11,7 +11,7 @@
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "bulma": "^0.5.3",
-    "camelcase-keys": "^4.1.0",
+    "camelcase-object": "^1.0.0",
     "classnames": "^2.2.5",
     "color": "^2.0.0",
     "compression": "^1.7.1",
