@@ -1,6 +1,6 @@
 //@flow
 /* global fetch */
-export const rejectBadResponse = response =>
+export const rejectBadResponse = (response: Response): mixed =>
   response.ok || Promise.reject(response);
 
 const defaultAppOptions = {
@@ -10,7 +10,7 @@ const defaultAppOptions = {
   }
 };
 
-export const appRequest = async (path: string, options = {}) => {
+export const appRequest = async (path: string, options: mixed = {}) => {
   try {
     const resp = await fetch(path, {
       ...defaultAppOptions,
@@ -23,8 +23,8 @@ export const appRequest = async (path: string, options = {}) => {
   }
 };
 
-const apiHost = process.env.REACT_APP_API_URI;
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiHost: string = process.env.REACT_APP_API_URI || "";
+const apiKey: string = process.env.REACT_APP_API_KEY || "";
 const defaultApiOptions = {
   method: "GET",
   headers: {
@@ -33,7 +33,7 @@ const defaultApiOptions = {
   }
 };
 
-export const apiRequest = async (path: string, options = {}) => {
+export const apiRequest = async (path: string, options: mixed = {}) => {
   let resp;
   try {
     resp = await fetch(`${apiHost}${path}`, {

@@ -36,7 +36,7 @@
     "mongoose": "^4.13.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1",
-    "npm-run-all": "^4.1.1",
+    "npm-run-all": "^4.1.2",
     "numeral": "^2.0.6",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -57,7 +57,7 @@
   },
   "scripts": {
     "precommit": "npm run test:once",
-    "prepush": "npm run test:once",
+    "prepush": "npm-run-all flow test:once",
     "post-receive": "yarn",
     "start": "node server",
     "start:dev": "concurrently \"nodemon server\" \"cross-env NODE_PATH=src react-scripts start\"",

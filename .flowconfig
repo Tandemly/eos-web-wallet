@@ -1,5 +1,6 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/.*/test/.*
+<PROJECT_ROOT>/node_modules/bcryptjs/src/bower.json
 
 [include]
 
@@ -9,5 +10,5 @@
 
 [options]
 module.name_mapper='.*\(\.s?css\)' -> 'empty/object'
-module.name_mapper='^\(\(components\|containers\|fixtures\|middleware\|routes\|styleguide\|styles\|util\)/.*\)$' -> '<PROJECT_ROOT>/src/\1'
+module.name_mapper='^\(\(components\|containers\|fixtures\|middleware\|redux-modules\|routes\|styleguide\|styles\|thunks\|types\|util\)/.*\)$' -> '<PROJECT_ROOT>/src/\1'
 module.system=haste
