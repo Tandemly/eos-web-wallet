@@ -5,6 +5,7 @@ import App from "containers/App";
 import Loading from "containers/Loading";
 import { configureStoreAsync } from "util/configureStore";
 import { apiRequest } from "util/fetchUtil";
+import { unsetNotification } from "../../redux-modules/notifications/actions";
 
 class Bootloader extends Component {
   state = {
@@ -12,10 +13,8 @@ class Bootloader extends Component {
   };
 
   async componentWillMount() {
-    const { store: _store } = this.props;
-    const store = await configureStoreAsync(
-      process.env.NODE_ENV === "development" ? _store : {}
-    );
+    const { history } = this.props;
+    const store = await configureStoreAsync(history);
 
     this.setState({ store });
 
@@ -31,6 +30,9 @@ class Bootloader extends Component {
 
     if (!store) {
       return <Loading />;
+    } else {
+      // Clear notifications...not completely sure about this
+      store.dispatch(unsetNotification());
     }
 
     return (

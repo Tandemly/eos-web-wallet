@@ -1,20 +1,14 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import LoginForm from 'components/LoginForm';
-import { tryPostLogin } from './reducer';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import LoginForm from "components/LoginForm";
+import { doLogin } from "thunks/login";
 
 const mapDispatchToProps = (dispatch, { history }) => ({
-  callAPI(values) {
-    return dispatch(tryPostLogin({
-      history,
-      ...values,
-    }));
-  },
+  callAPI({ email, password }) {
+    return dispatch(doLogin(email, password));
+  }
 });
 
-const LoginContainer = connect(
-  null,
-  mapDispatchToProps,
-)(LoginForm);
+const LoginContainer = connect(null, mapDispatchToProps)(LoginForm);
 
 export default withRouter(LoginContainer);

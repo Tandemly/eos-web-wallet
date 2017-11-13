@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import Container from "containers/Users";
 import Filter from "components/Filter";
 
@@ -15,10 +15,10 @@ const Users = () => (
     <h2 className="title is-2">Users</h2>
 
     <div>
-        <Filter data={users}>
-          <Container />
-        </Filter>
-      </div>
+      <Filter data={users}>
+        <Container />
+      </Filter>
+    </div>
   </div>
 );
 

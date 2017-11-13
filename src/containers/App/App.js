@@ -8,9 +8,6 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 import Menu from "components/Menu";
 import Modal from "components/Modal";
-
-import Logout from "containers/Logout";
-
 import Login from "routes/Login";
 import Signup from "routes/Signup";
 import About from "routes/About";
@@ -26,6 +23,7 @@ import NoMatch from "routes/NoMatch";
 import { toggleMenu, closeMenu } from "./reducer";
 
 import "./App.scss";
+import { doLogout } from "../../thunks/login";
 
 const RoutesAuthenticated = ({ isAuthenticated, location }) =>
   !isAuthenticated ? (
@@ -41,8 +39,7 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
       <Route path="/users" component={Users} key="users" />,
       <Route path="/user/:id" component={Profile} key="user" />,
       <Route path="/accounts" component={Permissions} key="accounts" />,
-      <Route path="/profile" component={EditProfile} key="profile" />,
-      <Route path="/logout" component={Logout} key="logout" />
+      <Route path="/profile" component={EditProfile} key="profile" />
     ]
   );
 
@@ -63,7 +60,8 @@ type Props = {
   isMenuOpen: boolean,
   isAuthenticated: boolean,
   handleClickMenu: () => mixed,
-  handleClickMenuClose: () => mixed
+  handleClickMenuClose: () => mixed,
+  onLogout: () => mixed
 };
 
 type LocationType = {
@@ -116,7 +114,8 @@ class App extends React.Component<Props> {
       handleClickMenuClose,
       history: { location } = { location: window.location },
       isAuthenticated,
-      isMenuOpen
+      isMenuOpen,
+      onLogout
     } = this.props;
     const handleModalClose = this.handleModalClose.bind(this);
     const isModalOpen = modalRoutes.some(path =>
@@ -127,7 +126,11 @@ class App extends React.Component<Props> {
       <main className={`${isMenuOpen ? "open" : "closed"}`}>
         <Helmet titleTemplate="%s | EOS Wallet" defaultTitle="EOS Wallet" />
 
-        <Header isAuthenticated={isAuthenticated} onClick={handleClickMenu} />
+        <Header
+          isAuthenticated={isAuthenticated}
+          onClick={handleClickMenu}
+          onLogout={onLogout}
+        />
 
         <div className="wrapper">
           <aside className="sidebar">
@@ -177,7 +180,8 @@ const mapDispatchToProps = dispatch => ({
   },
   handleClickMenuClose() {
     dispatch(closeMenu());
-  }
+  },
+  onLogout: () => dispatch(doLogout())
 });
 
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

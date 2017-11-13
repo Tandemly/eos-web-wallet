@@ -1,21 +1,20 @@
-import { connect } from 'react-redux';
-import Notification from 'components/Notification';
-import { unsetNotification } from './reducer';
+import { connect } from "react-redux";
+import Notification from "components/Notification";
+import { unsetNotification } from "../../redux-modules/notifications/actions";
 
 const mapStateToProps = ({ notification: { status, text } }) => ({
   status,
-  text,
+  text
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   unsetNotification() {
     dispatch(unsetNotification());
   }
 });
 
-const Notifications = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Notification);
+const Notifications = connect(mapStateToProps, mapDispatchToProps)(
+  Notification
+);
 
 export default Notifications;
