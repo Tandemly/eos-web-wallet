@@ -5,10 +5,14 @@ import {
   tryPostTransaction,
   succeedPostTransaction
 } from "redux-modules/transfer/actions";
-import { tryGetTransactions } from "redux-modules/transactions/actions";
-import { tryGetBalance } from "redux-modules/balance/actions";
-import { succeedGetBalance } from "../redux-modules/balance/actions";
-import { succeedGetTransactions } from "../redux-modules/transactions/actions";
+import {
+  tryGetTransactions,
+  succeedGetTransactions
+} from "redux-modules/transactions/actions";
+import {
+  tryGetBalance,
+  succeedGetBalance
+} from "redux-modules/balance/actions";
 
 const mockStore = configureMockStore(middlewares);
 
