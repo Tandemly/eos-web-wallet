@@ -2,6 +2,8 @@
 import { getTransactions } from "thunks/transactions";
 import { getBalance } from "thunks/balance";
 
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 // Dispatches action after events
 const refresh = store => next => action => {
   const triggerActions = [
@@ -20,8 +22,11 @@ const refresh = store => next => action => {
     } = store.getState();
 
     if (isAuthenticated && account_name) {
-      store.dispatch(getBalance(account_name));
-      store.dispatch(getTransactions(account_name));
+      // NOTE it may take up to 3 seconds for a new transaction to process on the blockchain
+      delay(1000).then(() => {
+        store.dispatch(getBalance(account_name));
+        store.dispatch(getTransactions(account_name));
+      });
     }
   }
 

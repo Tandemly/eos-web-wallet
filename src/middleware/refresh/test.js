@@ -11,13 +11,13 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 describe("async refresh middleware", () => {
   it("on refreshAction, dispatches tryGetBalance and tryGetTransactions action", async () => {
-    const account_name = {
-      account_name: "testeos"
-    };
+    const account_name = "testeos";
     const store = mockStore({
       login: {
         isAuthenticated: true,
-        user: account_name
+        user: {
+          account_name
+        }
       }
     });
     const refreshAction = { type: "SUCCEED_LOGIN" };
@@ -74,10 +74,10 @@ describe("async refresh middleware", () => {
     });
 
     const expectedActions = [
-      tryGetBalance(account_name),
       refreshAction,
-      succeedGetBalance(balanceResponse),
+      tryGetBalance(account_name),
       tryGetTransactions(account_name),
+      succeedGetBalance(balanceResponse.account),
       succeedGetTransactions(transactionsResponse)
     ];
 

@@ -1,5 +1,6 @@
 //@flow
 /* global fetch */
+
 export const rejectBadResponse = (response: Response): mixed =>
   response.ok || Promise.reject(response);
 
@@ -33,7 +34,7 @@ const defaultApiOptions = {
   }
 };
 
-export const apiRequest = async (path: string, options: mixed = {}) => {
+export const apiRequest = async (path: string, options: mixed = {}): any => {
   let resp;
   try {
     resp = await fetch(`${apiHost}${path}`, {

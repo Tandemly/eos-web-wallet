@@ -6,10 +6,12 @@ import type { Dispatch } from "redux";
 import type { UserProfile } from "types/UserProfile";
 import camelcaseObject from "camelcase-object";
 import { push } from "react-router-redux";
+import type { Action } from "../redux-modules/action-types";
 
-export const doSignUp = (email: string, password: string) => async (
-  dispatch: Dispatch<*>
-) => {
+export const doSignUp = (
+  email: string,
+  password: string
+) => /* prettier-ignore */ async (dispatch: Dispatch<Action>) => {
   dispatch(tryPostSignup(email, password));
   try {
     const response = await appRequest("/app/register", {

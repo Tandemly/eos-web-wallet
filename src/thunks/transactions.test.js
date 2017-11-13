@@ -62,7 +62,7 @@ describe("getTransactions", () => {
     };
 
     const expectedActions = [
-      tryGetTransactions({ account_name: accountName }),
+      tryGetTransactions(accountName),
       succeedGetTransactions(response)
     ];
 

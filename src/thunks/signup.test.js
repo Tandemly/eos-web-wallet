@@ -19,13 +19,11 @@ describe("doSignUp", () => {
       }
     });
 
-    const payload = {
-      email: "test@eafe.com",
-      password: "xyz20171424"
-    };
+    const email = "test@eafe.com";
+    const password = "xyz20171424";
 
     const profile = {
-      email: payload.email
+      email
     };
 
     fetch.mockResponse(JSON.stringify(profile), {
@@ -36,13 +34,13 @@ describe("doSignUp", () => {
     });
 
     const expectedActions = [
-      tryPostSignup(payload),
+      tryPostSignup(email, password),
       unsetNotification(),
-      succeedPostLogin({ profile }),
+      succeedPostLogin(profile),
       push("/")
     ];
 
-    await store.dispatch(doSignUp(payload.email, payload.password));
+    await store.dispatch(doSignUp(email, password));
 
     expect(store.getActions()).toEqual(expectedActions);
   });

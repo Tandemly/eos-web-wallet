@@ -1,15 +1,21 @@
 //@flow
-import { succeedPostLogin, failPostLogin } from "redux-modules/login/actions";
+import {
+  tryPostLogin,
+  succeedPostLogin,
+  failPostLogin,
+  logout
+} from "redux-modules/login/actions";
 import type { Dispatch } from "redux";
 import type { UserProfile } from "types/UserProfile";
 import camelcaseObject from "camelcase-object";
 import { push } from "react-router-redux";
-import { tryPostLogin, logout } from "redux-modules/login/actions";
 import { appRequest } from "util/fetchUtil";
+import type { Action } from "../redux-modules/action-types";
 
-export const doLogin = (email: string, password: string) => async (
-  dispatch: Dispatch<*>
-) => {
+export const doLogin = (
+  email: string,
+  password: string
+) => /* prettier-ignore */ async (dispatch: Dispatch<Action>) => {
   dispatch(tryPostLogin(email, password));
   try {
     const response = await appRequest("/app/login", {
