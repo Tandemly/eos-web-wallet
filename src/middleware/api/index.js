@@ -43,12 +43,7 @@ const api = store => next => action => {
         : message[Object.keys(message)[0]];
 
     if (text) {
-      store.dispatch(
-        setNotification({
-          status: "error",
-          text
-        })
-      );
+      store.dispatch(setNotification(text, "error"));
     }
   }
 
