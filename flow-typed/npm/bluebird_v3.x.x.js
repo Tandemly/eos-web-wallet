@@ -133,7 +133,7 @@ declare class Bluebird$Promise<+R> extends Promise<R>{
   static method<T, R: $Promisable<T>>(fn: (...args: any) => R): (...args: any) => Bluebird$Promise<T>;
 
   static cast<T>(value: $Promisable<T>): Bluebird$Promise<T>;
-  static bind(ctx: any): Bluebird$Promise<void>;
+  //static bind(ctx: any): Bluebird$Promise<void>;
   static is(value: any): boolean;
   static longStackTraces(): void;
 

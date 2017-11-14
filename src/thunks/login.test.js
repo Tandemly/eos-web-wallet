@@ -1,9 +1,10 @@
+/* global describe, it, expect */
 import configureMockStore from "redux-mock-store";
 import { push } from "react-router-redux";
-import middlewares from "middleware";
-import { tryPostLogin, succeedPostLogin } from "redux-modules/login/actions";
-import { unsetNotification } from "redux-modules/notifications/actions";
-import { doLogin } from "thunks/login";
+import middlewares from "../middleware";
+import { tryPostLogin, succeedPostLogin } from "../redux-modules/login/actions";
+import { unsetNotification } from "../redux-modules/notifications/actions";
+import { doLogin } from "./login";
 
 const mockStore = configureMockStore(middlewares);
 
@@ -18,13 +19,11 @@ describe("doLogin", () => {
       }
     });
 
-    const payload = {
-      email: "test@eafe.com",
-      password: "xyz20171424"
-    };
+    const email = "test@eafe.com";
+    const password = "xyz20171424";
 
     const profile = {
-      email: payload.email
+      email
     };
 
     fetch.mockResponse(JSON.stringify(profile), {
@@ -35,13 +34,13 @@ describe("doLogin", () => {
     });
 
     const expectedActions = [
-      tryPostLogin(payload),
+      tryPostLogin(email, password),
       unsetNotification(),
-      succeedPostLogin({ profile }),
+      succeedPostLogin(profile),
       push("/")
     ];
 
-    await store.dispatch(doLogin(payload.email, payload.password));
+    await store.dispatch(doLogin(email, password));
 
     expect(store.getActions()).toEqual(expectedActions);
   });

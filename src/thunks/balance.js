@@ -1,3 +1,4 @@
+//@flow
 /* global fetch */
 import {
   tryGetBalance,
@@ -5,17 +6,25 @@ import {
   succeedGetBalance
 } from "../redux-modules/balance/actions";
 import { apiRequest } from "../util/fetchUtil";
+import type { Dispatch } from "redux";
+import type { Action } from "../redux-modules/action-types";
+import type { AccountBalance } from "../types/AccountBalance";
 
-export const getBalance = accountName => async dispatch => {
-  const payload = { account_name: accountName }; // eslint-disable-line camelcase
-  dispatch(tryGetBalance(payload));
+type AccountBalanceResponse = {
+  account: AccountBalance
+};
+
+export const getBalance = (
+  accountName: string
+) => /* prettier-ignore */ async (dispatch: Dispatch<Action>) => {
+  dispatch(tryGetBalance(accountName));
   try {
-    const response = await apiRequest("/api/account/", {
+    const response: AccountBalanceResponse = await apiRequest("/api/account/", {
       method: "POST",
-      body: JSON.stringify(payload)
+      body: JSON.stringify({ account_name: accountName })
     });
-    dispatch(succeedGetBalance(response));
+    dispatch(succeedGetBalance(response.account));
   } catch (error) {
-    dispatch(failGetBalance({ error }));
+    dispatch(failGetBalance(error));
   }
 };

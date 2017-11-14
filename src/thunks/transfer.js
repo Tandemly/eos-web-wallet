@@ -22,7 +22,7 @@ export const doTransfer = (
     owner_key: ownerKey,
     to
   };
-  tryPostTransaction(payload);
+  dispatch(tryPostTransaction(payload));
   try {
     const response = await apiRequest("/v1/transfer", {
       method: "POST",
@@ -30,6 +30,6 @@ export const doTransfer = (
     });
     dispatch(succeedPostTransaction(response));
   } catch (error) {
-    dispatch(failPostTransaction({ error }));
+    dispatch(failPostTransaction(error));
   }
 };

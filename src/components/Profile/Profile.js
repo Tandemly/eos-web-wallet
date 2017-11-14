@@ -7,7 +7,8 @@ type Props = {
   imageUrl?: string,
   currentLocation?: string,
   displayName?: string,
-  status?: string
+  status?: string,
+  websiteUrl?: string
 };
 
 const Profile = ({

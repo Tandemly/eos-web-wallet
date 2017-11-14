@@ -33,8 +33,8 @@ describe("getBalance", () => {
     fetch.mockResponse(JSON.stringify(response));
 
     const expectedActions = [
-      tryGetBalance({ account_name: accountName }),
-      succeedGetBalance(response)
+      tryGetBalance(accountName),
+      succeedGetBalance(response.account)
     ];
 
     await store.dispatch(getBalance(accountName));
