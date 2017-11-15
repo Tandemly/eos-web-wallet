@@ -6,6 +6,7 @@ import reducer, {
 } from "./account-reducer";
 import type { AccountState, KeyPair } from "./types";
 import {
+  disconnectEOSAccount,
   setEOSAccountName,
   setEOSActiveKeys,
   setEOSOwnerKeys
@@ -14,6 +15,23 @@ import {
 describe("EOS Account Reducer", () => {
   it("should return the initial state if no state is provided", () => {
     const actualState = reducer(undefined, { type: "JUNK_ACTION" }); //$FlowFixMe
+
+    expect(actualState).toEqual(reducerInitialState);
+  });
+
+  it("should return the initial state the disconnect action is received", () => {
+    const initialState: AccountState = {
+      accountName: randomize("*", 10),
+      activeKeys: {
+        publicKey: randomize("*", 32),
+        privateKey: randomize("*", 32)
+      },
+      ownerKeys: {
+        publicKey: randomize("*", 32),
+        privateKey: randomize("*", 32)
+      }
+    };
+    const actualState = reducer(initialState, disconnectEOSAccount());
 
     expect(actualState).toEqual(reducerInitialState);
   });

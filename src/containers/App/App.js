@@ -24,6 +24,7 @@ import { toggleMenu, closeMenu } from "./reducer";
 
 import "./App.scss";
 import { doLogout } from "../../thunks/login";
+import EOSAccount from "../../containers/EOSAccount";
 
 const RoutesAuthenticated = ({ isAuthenticated, location }) =>
   !isAuthenticated ? (
@@ -31,6 +32,7 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
   ) : (
     [
       <Route path="/" exact component={Transfer} key="transfer" />,
+      <Route path="/eos-account" component={EOSAccount} key="eos-account" />,
       <Route
         path="/transactions"
         component={Transactions}

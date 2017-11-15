@@ -1,5 +1,4 @@
 import { createSelector } from "reselect";
-import numeral from "numeral";
 
 const selectAccountState = state => state["eos-account"].account;
 const selectBalanceState = state => state["eos-account"].balance;

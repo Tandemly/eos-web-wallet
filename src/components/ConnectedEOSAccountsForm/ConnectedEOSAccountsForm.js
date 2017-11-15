@@ -1,14 +1,11 @@
 import * as React from "react";
-import { Field, reduxForm } from 'redux-form';
-import renderField from 'components/Field';
+import { Field, reduxForm } from "redux-form";
+import renderField from "components/Field";
 import Button from "components/Button";
 
-const ConnectedEOSAccountsForm = ({
-  callAPI,
-  handleSubmit,
-  submitting, }) => (
+const ConnectedEOSAccountsForm = ({ callAPI, handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(callAPI)}>
-  <h3>Connect your EOS Account</h3>
+    <h3>Connect your EOS Account</h3>
     <div className="box">
       <div className="columns is-desktop">
         <div className="column is-half-desktop">
@@ -61,13 +58,15 @@ const ConnectedEOSAccountsForm = ({
                       disabled={submitting}
                       className="button is-large is-primary"
                       type="submit"
-                      text={submitting ? 'Submitting...' : 'Add Account'}
+                      text={submitting ? "Submitting..." : "Add Account"}
                     />
                   </div>
                 </div>
               </div>
               <div className="level-item">
-                <p>Don’t have an account? <a>Sign Up</a></p>
+                <p>
+                  Don’t have an account? <a>Sign Up</a>
+                </p>
               </div>
             </div>
           </div>
@@ -78,5 +77,5 @@ const ConnectedEOSAccountsForm = ({
 );
 
 export default reduxForm({
-  form: 'connect-eos-account',
+  form: "connect-eos-account"
 })(ConnectedEOSAccountsForm);
