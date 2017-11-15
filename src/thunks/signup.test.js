@@ -18,6 +18,11 @@ describe("doSignUp", () => {
         account: {
           accountName: "testeos"
         }
+      },
+      "eos-account": {
+        account: {
+          accountName: "testeos"
+        }
       }
     });
 

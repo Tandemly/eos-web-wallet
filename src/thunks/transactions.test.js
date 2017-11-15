@@ -18,6 +18,11 @@ describe("getTransactions", () => {
         account: {
           accountName: "testeos"
         }
+      },
+      "eos-account": {
+        account: {
+          accountName: "testeos"
+        }
       }
     });
     const accountName = "inita";

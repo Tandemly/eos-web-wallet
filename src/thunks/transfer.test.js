@@ -28,6 +28,11 @@ describe("doTransfer", () => {
         account: {
           accountName: "inita"
         }
+      },
+      "eos-account": {
+        account: {
+          accountName: "inita"
+        }
       }
     });
 

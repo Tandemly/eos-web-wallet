@@ -20,6 +20,11 @@ describe("getBalance", () => {
         account: {
           accountName: "testeos"
         }
+      },
+      "eos-account": {
+        account: {
+          accountName: "testeos"
+        }
       }
     });
 
