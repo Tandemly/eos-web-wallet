@@ -45,3 +45,22 @@
     color: $grey-80;
   }
 }
+
+.warn {
+  background-color: #616253;
+  border: 1px solid #d8be50;
+
+  .icon {
+    background-color: #d8be50;
+  }
+}
+
+.info {
+  background-color: #455b74;
+  border: 1px solid $blue;
+
+  .icon {
+    background-color: $blue;
+    color: white;
+  }
+}
