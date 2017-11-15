@@ -1,5 +1,6 @@
 //@flow
 import {
+  DISCONNECT_EOS_ACCOUNT,
   SET_EOS_ACCOUNT_NAME,
   SET_EOS_ACTIVE_KEYS,
   SET_EOS_OWNER_KEYS
@@ -33,6 +34,8 @@ export default (
         ...state,
         ownerKeys: { ...action.keys }
       };
+    case DISCONNECT_EOS_ACCOUNT:
+      return initialState;
     default:
       return state;
   }
