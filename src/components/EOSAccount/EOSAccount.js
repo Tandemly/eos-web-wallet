@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet";
 import Button from "components/Button";
 import Notification from "components/Notification";
 import type { KeyPair } from "../../redux-modules/eos-account/types";
+import cx from "classnames";
+import css from "./styles.module.scss";
 
 type Props = {
   accountName: string,
@@ -42,24 +44,24 @@ const EOSAccount = ({
             <div className="column">
               <div className="field">
                 <label className="label">Username:</label>
-                <p>{accountName}</p>
+                <p className="tertitle">{accountName}</p>
               </div>
             </div>
           </div>
           <div className="columns is-desktop">
             <div className="column">
-              <div className="level">
-                <div className="level-left">
-                  <div className="level-item">
+              <div className={cx("level", css.level)}>
+                <div className={cx("level-left", css.level_left)}>
+                  <div className={cx("level-item", css.level_item)}>
                     <div className="field">
                       <label className="label">Active Key (Public):</label>
-                      <p>{activeKeys && activeKeys.publicKey}</p>
+                      <p className="tertitle">{activeKeys && activeKeys.publicKey}</p>
                     </div>
                   </div>
                 </div>
-                <div className="level-right">
-                  <div className="level-item">
-                    <Button className="button is-primary" text="Copy Key" />
+                <div className={cx("level-right", css.level_right)}>
+                  <div className={cx("level-item", css.level_item)}>
+                    <Button className="button is-small is-primary" text="Copy Key" />
                   </div>
                 </div>
               </div>
@@ -67,18 +69,18 @@ const EOSAccount = ({
           </div>
           <div className="columns is-desktop">
             <div className="column">
-              <div className="level">
-                <div className="level-left">
-                  <div className="level-item">
+              <div className={cx("level", css.level)}>
+                <div className={cx("level-left", css.level_left)}>
+                  <div className={cx("level-item", css.level_item)}>
                     <div className="field">
                       <label className="label">Active Key (Private):</label>
-                      <p>{activeKeys && activeKeys.privateKey}</p>
+                      <p className="tertitle">{activeKeys && activeKeys.privateKey}</p>
                     </div>
                   </div>
                 </div>
-                <div className="level-right">
-                  <div className="level-item">
-                    <Button className="button is-primary" text="Copy Key" />
+                <div className={cx("level-right", css.level_right)}>
+                  <div className={cx("level-item", css.level_item)}>
+                    <Button className="button is-small is-primary" text="Copy Key" />
                   </div>
                 </div>
               </div>
@@ -86,18 +88,18 @@ const EOSAccount = ({
           </div>
           <div className="columns is-desktop">
             <div className="column">
-              <div className="level">
-                <div className="level-left">
-                  <div className="level-item">
+              <div className={cx("level", css.level)}>
+                <div className={cx("level-left", css.level_left)}>
+                  <div className={cx("level-item", css.level_item)}>
                     <div className="field">
                       <label className="label">Owner Key (Public):</label>
-                      <p>{ownerKeys && ownerKeys.publicKey}</p>
+                      <p className="tertitle">{ownerKeys && ownerKeys.publicKey}</p>
                     </div>
                   </div>
                 </div>
-                <div className="level-right">
-                  <div className="level-item">
-                    <Button className="button is-primary" text="Copy Key" />
+                <div className={cx("level-right", css.level_right)}>
+                  <div className={cx("level-item", css.level_item)}>
+                    <Button className="button is-small is-primary" text="Copy Key" />
                   </div>
                 </div>
               </div>
@@ -105,18 +107,18 @@ const EOSAccount = ({
           </div>
           <div className="columns is-desktop">
             <div className="column">
-              <div className="level">
-                <div className="level-left">
-                  <div className="level-item">
+              <div className={cx("level", css.level)}>
+                <div className={cx("level-left", css.level_left)}>
+                  <div className={cx("level-item", css.level_item)}>
                     <div className="field">
                       <label className="label">Owner Key (Private):</label>
-                      <p>{ownerKeys && ownerKeys.privateKey}</p>
+                      <p className="tertitle">{ownerKeys && ownerKeys.privateKey}</p>
                     </div>
                   </div>
                 </div>
-                <div className="level-right">
-                  <div className="level-item">
-                    <Button className="button is-primary" text="Copy Key" />
+                <div className={cx("level-right", css.level_right)}>
+                  <div className={cx("level-item", css.level_item)}>
+                    <Button className="button is-small is-primary" text="Copy Key" />
                   </div>
                 </div>
               </div>
@@ -127,7 +129,7 @@ const EOSAccount = ({
               <div className="field">
                 <div className="control">
                   <Button
-                    className="button is-large is-primary"
+                    className="button is-large is-primary is-outlined"
                     onClick={onDisconnect}
                     text="Disconnect"
                   />
