@@ -16,6 +16,11 @@ describe("doSignUp", () => {
         user: {
           email: ""
         }
+      },
+      "eos-account": {
+        account: {
+          accountName: "testeos"
+        }
       }
     });
 

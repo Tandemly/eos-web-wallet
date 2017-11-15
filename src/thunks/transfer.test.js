@@ -30,6 +30,11 @@ describe("doTransfer", () => {
           access_token:
             "59d2aed2c8c5ac5f75bd3a719b65e75f06b4b88694655cad4cd3b540e6a3af51"
         }
+      },
+      "eos-account": {
+        account: {
+          accountName: "inita"
+        }
       }
     });
 
