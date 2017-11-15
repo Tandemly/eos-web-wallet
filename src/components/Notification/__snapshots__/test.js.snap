@@ -5,7 +5,7 @@ exports[`<Notification /> renders without crashing 1`] = `
   className=""
 >
   <div
-    className="icon-success"
+    className="icon-fail_warn"
   />
   Connection error
   <span
