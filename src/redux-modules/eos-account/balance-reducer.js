@@ -6,6 +6,7 @@ import {
 } from "./balance-actions";
 import type { BalanceState } from "./types";
 import type { Action } from "../action-types";
+import { DISCONNECT_EOS_ACCOUNT } from "./account-actions";
 
 export const initialState: BalanceState = {
   loading: false,
@@ -30,7 +31,7 @@ export default (state: BalanceState = initialState, action: Action) => {
         ...action.balance,
         loading: false,
         difference,
-        symbol: difference === 0 ? "" : (difference >= 0 ? "+" : "-")
+        symbol: difference === 0 ? "" : difference >= 0 ? "+" : "-"
       };
     /* eslint-enable no-nested-ternary, no-case-declarations */
     case FAIL_GET_BALANCE:
@@ -38,6 +39,8 @@ export default (state: BalanceState = initialState, action: Action) => {
         ...state,
         loading: false
       };
+    case DISCONNECT_EOS_ACCOUNT:
+      return initialState;
     default:
       return state;
   }

@@ -10,6 +10,8 @@ type Props = {
   text?: string,
   /** classnames to add to the rendered component */
   className?: string,
+  /** onClick handler method **/
+  onClick?: () => mixed,
   /** style object from react-styleable */
   css?: { [key: string]: any }
 };
@@ -17,8 +19,8 @@ type Props = {
 /**
  * A basic button component.
  */
-const Button = ({ children, text, className, css = styles }: Props) => (
-  <button className={cx("button", css.button, className)}>
+const Button = ({ children, text, className, onClick, css = styles }: Props) => (
+  <button className={cx("button", css.button, className)} onClick={onClick}>
     {(text || children) && <span>{text || children}</span>}
   </button>
 );

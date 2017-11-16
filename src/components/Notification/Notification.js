@@ -19,7 +19,7 @@ const icons = {
 };
 
 const Notification = ({ text, status = "info", unsetNotification }: Props) =>
-  !status ? null : (
+  !text ? null : (
     <div className={cx(css.notification, css[status])}>
       <div className={cx(icons[status], css.icon)} />
       {text}

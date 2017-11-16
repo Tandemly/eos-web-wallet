@@ -16,15 +16,13 @@ import Transfer from "routes/Transfer";
 import Transactions from "routes/Transactions";
 import Users from "routes/Users";
 import Profile from "routes/Profile";
-import Permissions from "routes/Permissions";
+import Accounts from "routes/Accounts";
 import EditProfile from "routes/EditProfile";
 import NoMatch from "routes/NoMatch";
-
 import { toggleMenu, closeMenu } from "./reducer";
+import { doLogout } from "../../thunks/login";
 
 import "./App.scss";
-import { doLogout } from "../../thunks/login";
-import EOSAccount from "../../containers/EOSAccount";
 
 const RoutesAuthenticated = ({ isAuthenticated, location }) =>
   !isAuthenticated ? (
@@ -32,7 +30,6 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
   ) : (
     [
       <Route path="/" exact component={Transfer} key="transfer" />,
-      <Route path="/eos-account" component={EOSAccount} key="eos-account" />,
       <Route
         path="/transactions"
         component={Transactions}
@@ -40,7 +37,7 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
       />,
       <Route path="/users" component={Users} key="users" />,
       <Route path="/user/:id" component={Profile} key="user" />,
-      <Route path="/accounts" component={Permissions} key="accounts" />,
+      <Route path="/accounts" component={Accounts} key="accounts" />,
       <Route path="/profile" component={EditProfile} key="profile" />
     ]
   );

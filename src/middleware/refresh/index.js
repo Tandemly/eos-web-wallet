@@ -3,9 +3,9 @@ import { getTransactions } from "thunks/transactions";
 import { getBalance } from "thunks/balance";
 import { SUCCEED_POST_LOGIN } from "../../redux-modules/login/actions";
 import { SUCCESS_POST_TRANSACTION } from "../../redux-modules/transfer/actions";
-import { SUCCESS_POST_EOS_ACCOUNT } from "../../redux-modules/eos-signup/actions";
 import { selectEOSAccountName } from "../../redux-modules/eos-account/selectors";
 import { selectWalletUserAuthenticated } from "../../redux-modules/login/selectors";
+import { SET_EOS_ACCOUNT_NAME } from "../../redux-modules/eos-account/account-actions";
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -14,11 +14,14 @@ const refresh = store => next => action => {
   const triggerActions = [
     SUCCESS_POST_TRANSACTION,
     SUCCEED_POST_LOGIN,
-    SUCCESS_POST_EOS_ACCOUNT,
+    SET_EOS_ACCOUNT_NAME,
     "ROUTE_LOAD"
   ];
 
-  const eosAccountName = selectEOSAccountName(store.getState());
+  const eosAccountName =
+    action.type === SET_EOS_ACCOUNT_NAME
+      ? action.accountName
+      : selectEOSAccountName(store.getState());
   const isAuthenticated =
     selectWalletUserAuthenticated(store.getState()) ||
     action.type === SUCCEED_POST_LOGIN;

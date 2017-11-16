@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "components/Button";
 
+//TODO: this is to be the "connect or sign up" page...not implemented yet.
 const ConnectEOSAccount = ({}) => (
   <div className="columns is-desktop content is-variable is-6">
     <Helmet>
@@ -21,13 +22,15 @@ const ConnectEOSAccount = ({}) => (
                     disabled={submitting}
                     className="button is-large is-primary"
                     type="submit"
-                    text={submitting ? 'Submitting...' : 'Add Account'}
+                    text={submitting ? "Submitting..." : "Add Account"}
                   />
                 </div>
               </div>
             </div>
             <div className="level-item">
-              <p>Don’t have an account? <a>Sign Up</a></p>
+              <p>
+                Don’t have an account? <a>Sign Up</a>
+              </p>
             </div>
           </div>
         </div>
@@ -36,6 +39,4 @@ const ConnectEOSAccount = ({}) => (
   </div>
 );
 
-export default reduxForm({
-  form: 'connect-eos-account',
-})(ConnectedEOSAccountsForm);
+export default ConnectEOSAccount;

@@ -4,6 +4,7 @@ import renderField from "components/Field";
 import Button from "components/Button";
 
 const ConnectedEOSAccountsForm = ({ callAPI, handleSubmit, submitting }) => (
+  <article>
   <form onSubmit={handleSubmit(callAPI)}>
     <h3>Connect your EOS Account</h3>
     <div className="box">
@@ -74,6 +75,7 @@ const ConnectedEOSAccountsForm = ({ callAPI, handleSubmit, submitting }) => (
       </div>
     </div>
   </form>
+  </article>
 );
 
 export default reduxForm({
