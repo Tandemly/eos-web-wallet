@@ -232,6 +232,9 @@ a {
   color: white;
   font-size: 0.875rem;
   line-height: 1.5rem;
+  &.double {
+    padding: 2rem;
+  }
 }
 
 .section {

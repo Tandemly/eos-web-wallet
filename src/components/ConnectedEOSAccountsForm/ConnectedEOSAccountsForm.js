@@ -6,7 +6,7 @@ import Button from "components/Button";
 const ConnectedEOSAccountsForm = ({ callAPI, handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(callAPI)}>
     <h3>Connect your EOS Account</h3>
-    <div className="box">
+    <div className="box double">
       <div className="columns is-desktop">
         <div className="column is-half-desktop">
           <Field
