@@ -33,7 +33,7 @@ const EOSAccount = ({
             <div className="column">
               <Notification
                 text="Your keys should be copied and stored offline for security"
-                status="success"
+                status="warn"
                 unsetNotification={fakeIt}
               />
             </div>
