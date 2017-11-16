@@ -19,6 +19,7 @@
     "cors": "^2.8.4",
     "dotenv-safe": "^4.0.4",
     "empty": "^0.10.1",
+    "eosjs-ecc": "^1.6.1",
     "express": "^4.16.2",
     "express-validation": "^1.0.2",
     "flow-bin": "^0.57.3",

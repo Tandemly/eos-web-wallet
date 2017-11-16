@@ -22,13 +22,16 @@ describe("doTransfer", () => {
   it("on successful transaction POST, dispatches succeedPostTransaction action", async () => {
     const store = mockStore({
       login: {
-        isAuthenticated: true,
-        user: {
-          account_name: "inita",
-          id_token:
-            "88769942b62c0a2b3d86506d168daf97928167e9e77b5db3678e176fcd55febc",
-          access_token:
-            "59d2aed2c8c5ac5f75bd3a719b65e75f06b4b88694655cad4cd3b540e6a3af51"
+        isAuthenticated: true
+      },
+      "eos-account": {
+        account: {
+          accountName: "inita"
+        }
+      },
+      "eos-account": {
+        account: {
+          accountName: "inita"
         }
       }
     });

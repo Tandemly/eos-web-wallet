@@ -12,9 +12,16 @@ describe("doSignUp", () => {
   it("on whole signup POST success, dispatch succeedPostLogin", async () => {
     const store = mockStore({
       login: {
-        isAuthenticated: false,
-        user: {
-          email: ""
+        isAuthenticated: false
+      },
+      "eos-account": {
+        account: {
+          accountName: "testeos"
+        }
+      },
+      "eos-account": {
+        account: {
+          accountName: "testeos"
         }
       }
     });
