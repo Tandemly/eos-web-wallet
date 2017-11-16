@@ -7,7 +7,7 @@ const ConnectedEOSAccountsForm = ({ callAPI, handleSubmit, submitting }) => (
   <article>
   <form onSubmit={handleSubmit(callAPI)}>
     <h3>Connect your EOS Account</h3>
-    <div className="box">
+    <div className="box double">
       <div className="columns is-desktop">
         <div className="column is-half-desktop">
           <Field
