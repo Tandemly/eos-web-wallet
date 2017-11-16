@@ -1,0 +1,32 @@
+@import "../../styles/custom_variables.scss";
+
+.level {
+	display: block;
+	@include widescreen {
+		display: flex;
+	}
+	.level_left {
+		.level_item {
+			flex-shrink: 1;
+			@include widescreen {
+				flex-shrink: 0;
+			}
+		}
+	}
+	.level_right {
+		align-items: left;
+		justify-content: flex-start;
+		margin-top: 5px;
+		@include widescreen {
+			align-items: center;
+			justify-content: flex-end;
+			margin-top: 0;
+		}
+		.level_item {
+			display: block;
+			@include widescreen {
+				display: flex;
+			}
+		}
+	}
+}
