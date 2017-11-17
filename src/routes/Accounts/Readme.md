@@ -2,6 +2,6 @@ A Transfer route example:
 
 ```js
 <div className="transfer-example">
-  <Permissions />
+  <Accounts />
 </div>
 ```

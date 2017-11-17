@@ -12,7 +12,7 @@ import {
 import {
   tryGetBalance,
   succeedGetBalance
-} from "redux-modules/balance/actions";
+} from "redux-modules/eos-account/balance-actions";
 
 const mockStore = configureMockStore(middlewares);
 
@@ -22,13 +22,16 @@ describe("doTransfer", () => {
   it("on successful transaction POST, dispatches succeedPostTransaction action", async () => {
     const store = mockStore({
       login: {
-        isAuthenticated: true,
-        user: {
-          account_name: "inita",
-          id_token:
-            "88769942b62c0a2b3d86506d168daf97928167e9e77b5db3678e176fcd55febc",
-          access_token:
-            "59d2aed2c8c5ac5f75bd3a719b65e75f06b4b88694655cad4cd3b540e6a3af51"
+        isAuthenticated: true
+      },
+      "eos-account": {
+        account: {
+          accountName: "inita"
+        }
+      },
+      "eos-account": {
+        account: {
+          accountName: "inita"
         }
       }
     });
@@ -106,10 +109,9 @@ describe("doTransfer", () => {
     };
 
     const balanceResponse = {
-      account: {
-        total: "999995.5819 EOS",
-        staked: "0.0000 EOS"
-      }
+      eos_balance: "999995.5819 EOS",
+      staked_balance: "999995.0000 EOS",
+      unstaking_balance: "0.5819 EOS"
     };
 
     const transactionsResponse = {
@@ -160,7 +162,11 @@ describe("doTransfer", () => {
       succeedPostTransaction(response),
       tryGetBalance("inita"),
       tryGetTransactions("inita"),
-      succeedGetBalance(balanceResponse.account),
+      succeedGetBalance({
+        total: balanceResponse.eos_balance,
+        staked: balanceResponse.staked_balance,
+        unstaked: balanceResponse.unstaking_balance
+      }),
       succeedGetTransactions(transactionsResponse)
     ];
 

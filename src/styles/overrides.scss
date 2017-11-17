@@ -133,6 +133,13 @@ a {
   font-weight: bold;
 }
 
+.tertitle {
+  color: #999;
+  font-size: 1rem;
+  line-height: 1rem;
+  word-break: break-all;
+}
+
 .help {
   display: table-cell;
   text-align: right;
@@ -165,6 +172,14 @@ a {
   &.is-large {
     padding: 0 3rem;
     height: 55px;
+  }
+  &.is-outlined {
+    color: white;
+  }
+  &[class*="is-"] {
+    &.is-outlined {
+      color: white;
+    }
   }
 }
 
@@ -217,6 +232,9 @@ a {
   color: white;
   font-size: 0.875rem;
   line-height: 1.5rem;
+  &.double {
+    padding: 2rem;
+  }
 }
 
 .section {

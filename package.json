@@ -19,6 +19,7 @@
     "cors": "^2.8.4",
     "dotenv-safe": "^4.0.4",
     "empty": "^0.10.1",
+    "eosjs-ecc": "^1.6.1",
     "express": "^4.16.2",
     "express-validation": "^1.0.2",
     "flow-bin": "^0.57.3",
@@ -39,6 +40,7 @@
     "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.2",
     "numeral": "^2.0.6",
+    "randomatic": "^2.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-helmet": "^5.2.0",
@@ -54,7 +56,8 @@
     "redux-form-validators": "^2.1.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^4.10.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "precommit": "npm run test:once",

@@ -1,17 +1,32 @@
+//@flow
 import * as React from "react";
 import cx from "classnames";
 import css from "./styles.module.scss";
 
-const Notification = ({ text, status, unsetNotification }) => (
-  !status ? null :
-  <div className={cx(css.notification, css[status])}>
-    <div className={cx("icon-success", css.icon)}></div>
-    {text}
-    <span
-      className={cx("icon-x", css.close)} 
-      onClick={unsetNotification}
-    />
-  </div>
-);
+type Status = "success" | "info" | "error" | "warn";
+
+type Props = {
+  text: string,
+  status?: Status,
+  unsetNotification?: () => mixed
+};
+
+const icons = {
+  success: "icon-success",
+  info: "icon-info",
+  error: "icon-fail_warn",
+  warn: "icon-fail_warn"
+};
+
+const Notification = ({ text, status = "info", unsetNotification }: Props) =>
+  !text ? null : (
+    <div className={cx(css.notification, css[status])}>
+      <div className={cx(icons[status], css.icon)} />
+      {text}
+      {unsetNotification && (
+        <span className={cx("icon-x", css.close)} onClick={unsetNotification} />
+      )}
+    </div>
+  );
 
 export default Notification;
