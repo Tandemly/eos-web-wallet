@@ -24,11 +24,6 @@ const Transfer = () => (
 
         <Transactions count={5} />
 
-        <div className="control u-mt4">
-          <Link className="button is-large is-primary" to="/transactions">
-            View All
-          </Link>
-        </div>
       </article>
     </div>
     <div className="column is-5-desktop is-12-tablet">

@@ -59,7 +59,7 @@ const TransferForm = ({
       type="text"
     />
 
-    <div className="field is-grouped">
+    <div className="field is-grouped u-mt6">
       <div className="control">
       <Button
         disabled={submitting}
