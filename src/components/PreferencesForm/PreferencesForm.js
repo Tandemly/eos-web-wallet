@@ -56,7 +56,7 @@ const PreferencesForm = ({ callAPI, handleSubmit, submitting }) => (
       validate={[url({ allowBlank: true, msg: "Not a valid web address" })]}
       type="text"
     />
-    <div className="field u-mt4">
+    <div className="field u-mt6">
       <div className="control">
         <Button
           disabled={submitting}

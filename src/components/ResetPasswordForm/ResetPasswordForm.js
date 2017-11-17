@@ -44,7 +44,7 @@ const ResetPasswordForm = ({ callAPI, handleSubmit, submitting }) => (
         component={renderField}
         type="text"
       />
-      <div className="field">
+      <div className="field u-mt6">
         <div className="control">
           <Button
             disabled={submitting}

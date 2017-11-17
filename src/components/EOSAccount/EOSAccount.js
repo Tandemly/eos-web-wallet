@@ -133,7 +133,7 @@ const EOSAccount = ({
       </div>
       <div className="columns is-desktop">
         <div className="column">
-          <div className="field">
+          <div className="field u-mt3">
             <div className="control">
               <Button
                 className="button is-large is-primary is-outlined"

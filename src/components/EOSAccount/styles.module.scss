@@ -18,7 +18,7 @@
 	.level_right {
 		align-items: left;
 		justify-content: flex-start;
-		margin-top: 5px;
+		margin-top: 10px;
 		@include widescreen {
 			align-items: center;
 			justify-content: flex-end;
