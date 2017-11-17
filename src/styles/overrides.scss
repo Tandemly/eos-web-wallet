@@ -248,6 +248,7 @@ a {
   border: 3px solid $orange;
   width: 40px;
   height: 40px;
+  vertical-align: middle;
 }
 
 // Menu
@@ -312,6 +313,9 @@ a {
       line-height: 0.875rem;
       font-weight: bold;
       margin: 3px 0 0;
+    }
+    .subtitle {
+      line-height: 2.5rem;
     }
     .level.is-mobile .level-item:not(:last-child) {
       margin-right: 0.75rem;
