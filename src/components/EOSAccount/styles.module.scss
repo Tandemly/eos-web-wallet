@@ -8,8 +8,10 @@
 	.level_left {
 		.level_item {
 			flex-shrink: 1;
+			display: block;
 			@include widescreen {
 				flex-shrink: 0;
+				display: flex;
 			}
 		}
 	}
