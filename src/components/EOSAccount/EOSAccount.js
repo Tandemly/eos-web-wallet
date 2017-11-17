@@ -24,15 +24,11 @@ const EOSAccount = ({
   <article>
     <h3>EOS</h3>
     <div className="box double">
-      <div className="columns is-desktop">
-        <div className="column">
-          <Notification
-            text="Your keys should be copied and stored offline for security"
-            status="warn"
-            unsetNotification={fakeIt}
-          />
-        </div>
-      </div>
+      <Notification
+        text="Your keys should be copied and stored offline for security"
+        status="warn"
+        unsetNotification={fakeIt}
+      />
       <div className="columns is-desktop">
         <div className="column">
           <div className="field">
