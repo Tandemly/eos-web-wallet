@@ -306,6 +306,12 @@ a {
   @include mobile {
     padding: 2rem;
   }
+  &> .column:not(:first-child) {
+    margin-top: 3rem;
+    @include desktop {
+      margin-top: .75rem;
+    }
+  }
   .list {
     margin: 0;
     .username {
