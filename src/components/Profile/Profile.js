@@ -19,21 +19,19 @@ const Profile = ({
   websiteUrl = "http://twitter.com/"
 }: Props) => (
   <div className={cx("box", css.profile)}>
-    <div className="level">
-      <div className="level-left">
-        <div className="level-item">
-          <img src={imageUrl} className={css.thumbnail} alt={displayName} />
-        </div>
-        <div className="level-item">
-          <div>
-            <div className={cx("heading is-6", css.heading)}>{displayName}</div>
-            <div className={cx("title", css.title)}>{currentLocation}</div>
-            <a href={websiteUrl}>{websiteUrl}</a>
-          </div>
+    <div className="columns is-variable is-2 is-vcentered">
+      <div className="column is-narrow">
+        <img src={imageUrl} className={css.thumbnail} alt={displayName} />
+      </div>
+      <div className="column">
+        <div>
+          <div className={cx("heading is-6", css.heading)}>{displayName}</div>
+          <div className={cx("title", css.title)}>{currentLocation}</div>
+          <a href={websiteUrl}>{websiteUrl}</a>
         </div>
       </div>
     </div>
-    <div className="u-mt2">
+    <div>
       <p>{status}</p>
     </div>
   </div>
