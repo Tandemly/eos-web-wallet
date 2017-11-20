@@ -22,14 +22,9 @@
 			}
 			span {
 				color: $primary;
-			}
-			&.active, &.active:hover {
-				background-color: $orange;
-				padding-left: 1.5rem;
-				:before {
-					color: white;
-				}
-				:after {
+				&:after {
+					transition: border-left .25s;
+					color: red;
 					content: "";
 					position: absolute;
 					right: -8px;
@@ -38,8 +33,18 @@
 					height: 0; 
 					border-top: 28px solid transparent;
 					border-bottom: 28px solid transparent;
-					border-left: 8px solid $orange;
+					border-left: 8px solid transparent;
 					z-index: 1;
+				}
+			}
+			&.active, &.active:hover {
+				background-color: $orange;
+				padding-left: 1.5rem;
+				:before {
+					color: white;
+				}
+				:after {
+					border-left: 8px solid $orange;
 					@include mobile {
 						display: none;
 					}
