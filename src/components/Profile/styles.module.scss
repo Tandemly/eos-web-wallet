@@ -3,8 +3,8 @@
 .profile {
   .thumbnail {
     border: solid 8px $orange;
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     border-radius: 75px;
   }
   .heading {
@@ -15,5 +15,6 @@
   .title {
     font-size: 18px;
     color: $white;
+    margin-bottom: .5rem;
   }
 }
