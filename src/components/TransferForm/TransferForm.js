@@ -59,22 +59,22 @@ const TransferForm = ({
       type="text"
     />
 
-    <div className="field is-grouped u-mt6">
-      <div className="control">
-      <Button
-        disabled={submitting}
-        className="button is-large is-primary"
-        type="submit"
-        text={submitting ? 'Submitting...' : 'Submit'}
-      />
+    <div class="field is-grouped u-mt6">
+      <div class="control">
+        <Button
+          disabled={submitting}
+          className="is-large is-primary"
+          type="submit"
+          text={submitting ? 'Submitting...' : 'Submit'}
+        />
       </div>
-      <div className="control">
-      <Button
-        disabled={submitting}
-        className="button is-large is-secondary"
-        type="submit"
-        text="Cancel"
-      />
+      <div class="control">
+        <Button
+          disabled={submitting}
+          className="is-large is-secondary"
+          type="submit"
+          text="Cancel"
+        />
       </div>
     </div>
   </form>

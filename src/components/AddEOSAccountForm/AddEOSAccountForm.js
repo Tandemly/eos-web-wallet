@@ -48,29 +48,19 @@ const ConnectedEOSAccountsForm = ({ callAPI, handleSubmit, submitting }) => (
           />
         </div>
       </div>
-      <div className="columns">
-        <div className="column">
-          <div className="level is-clearfix">
-            <div className="level-left is-pulled-left">
-              <div className="level-item">
-                <div className="field">
-                  <div className="control">
-                    <Button
-                      disabled={submitting}
-                      className="button is-large is-primary"
-                      type="submit"
-                      text={submitting ? "Submitting..." : "Add Account"}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="level-item">
-                <p>
-                  Don’t have an account? <a>Sign Up</a>
-                </p>
-              </div>
-            </div>
-          </div>
+      <div class="field is-grouped u-mt4">
+        <div class="control">
+          <Button
+            disabled={submitting}
+            className="button is-large is-primary"
+            type="submit"
+            text={submitting ? "Submitting..." : "Add Account"}
+          />
+        </div>
+        <div class="control">
+          <p>
+            Don’t have an account? <a>Sign Up</a>
+          </p>
         </div>
       </div>
     </div>

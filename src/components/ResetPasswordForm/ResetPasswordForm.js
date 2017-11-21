@@ -28,7 +28,7 @@ const ResetPasswordForm = ({ callAPI, handleSubmit, submitting }) => (
         <div className="control">
           <Button
             disabled={submitting}
-            className="button is-large is-secondary"
+            className="is-large is-secondary"
             type="submit"
             text={submitting ? "Submitting..." : "generate Password"}
           />
@@ -48,7 +48,7 @@ const ResetPasswordForm = ({ callAPI, handleSubmit, submitting }) => (
         <div className="control">
           <Button
             disabled={submitting}
-            className="button is-large is-primary"
+            className="is-large is-primary"
             type="submit"
             text={submitting ? "Submitting..." : "Update Password"}
           />

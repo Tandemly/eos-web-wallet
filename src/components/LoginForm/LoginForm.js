@@ -52,7 +52,7 @@ const LoginForm = ({
       <div className="control login-button">
         <Button
           disabled={submitting}
-          className="button is-large is-primary"
+          className="is-large is-primary"
           type="submit"
           text={submitting ? "Submitting..." : "Login"}
         />

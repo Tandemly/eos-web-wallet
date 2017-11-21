@@ -1,7 +1,6 @@
 // @flow
 import * as React from "react";
 import cx from "classnames";
-import styles from "./styles.module.scss";
 
 type Props = {
   /** the text label on the button */
@@ -19,8 +18,8 @@ type Props = {
 /**
  * A basic button component.
  */
-const Button = ({ children, text, className, onClick, css = styles }: Props) => (
-  <button className={cx("button", css.button, className)} onClick={onClick}>
+const Button = ({ children, text, className, onClick }: Props) => (
+  <button className={cx("button", className)} onClick={onClick}>
     {(text || children) && <span>{text || children}</span>}
   </button>
 );
