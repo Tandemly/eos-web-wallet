@@ -46,7 +46,7 @@ const EOSAccount = ({
         </div>
         <div className="column is-narrow">
           <Button
-            className="button is-small is-primary"
+            className="is-small is-primary"
             text="Copy Key"
           />
         </div>
@@ -62,7 +62,7 @@ const EOSAccount = ({
         </div>
         <div className="column is-narrow">
           <Button
-            className="button is-small is-primary"
+            className="is-small is-primary"
             text="Copy Key"
           />
         </div>
@@ -76,7 +76,7 @@ const EOSAccount = ({
         </div>
         <div className="column is-narrow">
           <Button
-            className="button is-small is-primary"
+            className="is-small is-primary"
             text="Copy Key"
           />
         </div>
@@ -92,7 +92,7 @@ const EOSAccount = ({
         </div>
         <div className="column is-narrow">
           <Button
-            className="button is-small is-primary"
+            className="is-small is-primary"
             text="Copy Key"
           />
         </div>
@@ -103,7 +103,7 @@ const EOSAccount = ({
           <div className="field u-mt3">
             <div className="control">
               <Button
-                className="button is-large is-primary is-outlined"
+                className="is-large is-primary is-outlined"
                 onClick={onDisconnect}
                 text="Disconnect"
               />

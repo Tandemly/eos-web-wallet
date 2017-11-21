@@ -60,7 +60,7 @@ const PreferencesForm = ({ callAPI, handleSubmit, submitting }) => (
       <div className="control">
         <Button
           disabled={submitting}
-          className="button is-large is-primary"
+          className="is-large is-primary"
           type="submit"
           text={submitting ? "Submitting..." : "Update Information"}
         />
