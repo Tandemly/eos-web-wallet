@@ -5,46 +5,40 @@ exports[`<Profile /> renders without crashing 1`] = `
   className="box"
 >
   <div
-    className="level"
+    className="columns is-variable is-2 is-vcentered"
   >
     <div
-      className="level-left"
+      className="column is-narrow"
     >
-      <div
-        className="level-item"
-      >
-        <img
-          alt="Rick Sanchez"
-          className={undefined}
-          src="src"
-        />
-      </div>
-      <div
-        className="level-item"
-      >
-        <div>
-          <div
-            className="heading is-6"
-          >
-            Rick Sanchez
-          </div>
-          <div
-            className="title"
-          >
-            Friday Harbor, WA
-          </div>
-          <a
-            href="http://twitter.com/"
-          >
-            http://twitter.com/
-          </a>
+      <img
+        alt="Rick Sanchez"
+        className={undefined}
+        src="src"
+      />
+    </div>
+    <div
+      className="column"
+    >
+      <div>
+        <div
+          className="heading is-6"
+        >
+          Rick Sanchez
         </div>
+        <div
+          className="title"
+        >
+          Friday Harbor, WA
+        </div>
+        <a
+          href="http://twitter.com/"
+        >
+          http://twitter.com/
+        </a>
       </div>
     </div>
   </div>
-  <div
-    className="u-mt2"
-  >
+  <div>
     <p>
       active
     </p>
