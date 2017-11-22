@@ -23,14 +23,16 @@ const persist = store => next => action => {
         selectWalletUserHash(store.getState())
       )
     );
-    delay(1000).then(() => {
+    delay(500).then(() => {
       store.dispatch(setEOSAccountName(selectEOSAccountName(store.getState())));
     });
     return;
   }
 
   if (action.type === DEHYDRATE_ACCOUNTS) {
-    removeReducer("eosAccount");
+    delay(500).then(() => {
+      removeReducer("eosAccount");
+    });
     return;
   }
 

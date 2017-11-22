@@ -11,10 +11,7 @@ import {
   FAIL_POST_TRANSACTION,
   SUCCESS_POST_TRANSACTION
 } from "../../redux-modules/transfer/transfer-actions";
-import {
-  FAIL_GET_BALANCE,
-  SUCCESS_GET_BALANCE
-} from "../../redux-modules/eos-account/balance-actions";
+import { FAIL_GET_BALANCE } from "../../redux-modules/eos-account/balance-actions";
 import {
   FAIL_POST_EOS_ACCOUNT,
   SUCCESS_POST_EOS_ACCOUNT

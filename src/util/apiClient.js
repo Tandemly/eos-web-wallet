@@ -3,7 +3,7 @@ import { merge, uniq, map, flatMap } from "lodash";
 import { Buffer } from "buffer";
 import eos from "eosjs";
 
-const { json, ecc, api, Fcbuffer } = eos.modules;
+const { ecc, Fcbuffer } = eos.modules;
 
 // Required at front of all transactions.
 // NOTE: This is a default of 64 '0's, even though it's not implemented in eosd yet
