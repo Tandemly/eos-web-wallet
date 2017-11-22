@@ -1,14 +1,13 @@
 import * as React from "react";
-import { StaticRouter } from 'react-router';
-import { Provider } from 'react-redux';
-import App from './App';
+import { StaticRouter } from "react-router";
+import { Provider } from "react-redux";
+import App from "./App";
 import { shallow } from "enzyme";
-import { configureStore } from 'util/configureStore';
+import { configureStore } from "util/configureStore";
 
-
-it('renders without crashing', () => {
+it("renders without crashing", () => {
   const staticContext = {};
-  const store = configureStore();
+  const { store } = configureStore();
   const tree = (
     <StaticRouter location="/" context={staticContext}>
       <Provider store={store}>

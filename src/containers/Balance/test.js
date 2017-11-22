@@ -6,19 +6,10 @@ import Balance from "./";
 
 describe("<BalanceContainer />", () => {
   it("renders without crashing", () => {
-    const store = configureStore({
-      login: {
-        user: {
+    const { store } = configureStore({
+      user: {
+        profile: {
           account_name: "inita"
-        }
-      },
-      'eos-account': {
-        balance: {
-          total: 0,
-          staked: "",
-          unstaked: "",
-          difference: 0,
-          symbol: ""
         }
       }
     });
