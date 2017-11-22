@@ -165,7 +165,10 @@ a {
 
 input[type="checkbox"],
 input[type="radio"] {
-  display: inline-flex;
+  width: 15px;
+  height: 15px;
+  margin-right: 2px;
+  vertical-align: text-top;
 }
 
 .button {
