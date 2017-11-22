@@ -405,6 +405,9 @@ a {
       background-color: $grey-100;
       margin: 0 -2rem -2rem -2rem;
       padding: 2rem;
+      .field:not(:last-child) {
+        margin-bottom: 1rem;
+      }
     }
     .js-modal-close {
       padding: 0;
