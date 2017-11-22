@@ -42,7 +42,7 @@ const LoginForm = ({
 
     <div className="field">
       <div className="control">
-        <label className="label">
+        <label className="label checkbox">
           <input type="checkbox" /> Keep me logged in
         </label>
       </div>
