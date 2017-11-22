@@ -90,6 +90,9 @@ p {
 .label {
   color: white;
   font-weight: bold;
+  &:hover {
+    color: white;
+  }
   p {
     font-weight: bold;
   }
@@ -158,6 +161,11 @@ a {
   p {
     line-height: 55px;
   }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline-flex;
 }
 
 .button {
