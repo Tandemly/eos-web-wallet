@@ -42,34 +42,35 @@ const LoginForm = ({
 
     <div className="field">
       <div className="control">
-        <label className="label">
+        <label className="label checkbox">
           <input type="checkbox" /> Keep me logged in
         </label>
       </div>
     </div>
 
-    <div className="field is-grouped u-mt4">
-      <div className="control login-button">
-        <Button
-          disabled={submitting}
-          className="is-large is-primary"
-          type="submit"
-          text={submitting ? "Submitting..." : "Login"}
-        />
+    <div className="modal-cta">
+      <div className="field is-grouped">
+        <div className="control login-button">
+          <Button
+            disabled={submitting}
+            className="is-large is-primary"
+            type="submit"
+            text={submitting ? "Submitting..." : "Login"}
+          />
+        </div>
+        {/*<div className="control cancel-button">*/}
+        {/*<Button*/}
+        {/*className="button is-large is-secondary"*/}
+        {/*onClick={handleClose}*/}
+        {/*text="Cancel"*/}
+        {/*/>*/}
+        {/*</div>*/}
       </div>
-      {/*<div className="control cancel-button">*/}
-      {/*<Button*/}
-      {/*className="button is-large is-secondary"*/}
-      {/*onClick={handleClose}*/}
-      {/*text="Cancel"*/}
-      {/*/>*/}
-      {/*</div>*/}
-    </div>
-
-    <div className={`col-12 ${modal ? "text-left" : "text-center"}`}>
-      <Link to="/create-account" className="text-link">
-        Don&#39;t have an account?
-      </Link>
+      <div className={`col-12 ${modal ? "text-left" : "text-center"}`}>
+        <Link to="/create-account" className="text-link">
+          Don&#39;t have an account?
+        </Link>
+      </div>
     </div>
   </form>
 );

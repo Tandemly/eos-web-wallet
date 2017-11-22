@@ -90,6 +90,9 @@ p {
 .label {
   color: white;
   font-weight: bold;
+  &:hover {
+    color: white;
+  }
   p {
     font-weight: bold;
   }
@@ -158,6 +161,14 @@ a {
   p {
     line-height: 55px;
   }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 15px;
+  height: 15px;
+  margin-right: 2px;
+  vertical-align: text-top;
 }
 
 .button {
@@ -405,6 +416,9 @@ a {
       background-color: $grey-100;
       margin: 0 -2rem -2rem -2rem;
       padding: 2rem;
+      .field:not(:last-child) {
+        margin-bottom: 1rem;
+      }
     }
     .js-modal-close {
       padding: 0;
