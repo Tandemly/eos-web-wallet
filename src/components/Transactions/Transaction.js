@@ -1,6 +1,7 @@
 import * as React from "react";
 import css from "./styles.module.scss";
 import cx from "classnames";
+import numeral from "numeral";
 
 const Transaction = ({ key, date, image, name, memo, amount, kind }) => (
   <li className="box" key={key}>
@@ -27,16 +28,14 @@ const Transaction = ({ key, date, image, name, memo, amount, kind }) => (
               <p className="username">
                 <a>{name}</a>
               </p>
-              <p className="memo">
-                {memo}
-              </p>
+              <p className="memo">{memo}</p>
             </div>
           </div>
         </div>
       </div>
       <div className="column is-narrow">
         <p className="subtitle is-6">
-          {amount}
+          {numeral(amount / 10000).format("0.0000")}
           <span
             className={cx(
               kind === "withdrawal"
