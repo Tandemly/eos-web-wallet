@@ -27,7 +27,7 @@ const Profile = ({
         <div>
           <div className={cx("heading is-6", css.heading)}>{displayName}</div>
           <div className={cx("title", css.title)}>{currentLocation}</div>
-          <a href={websiteUrl}>{websiteUrl}</a>
+          <a href={websiteUrl} target="_blank">{websiteUrl}</a>
         </div>
       </div>
     </div>
