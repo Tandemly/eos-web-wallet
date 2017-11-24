@@ -4,7 +4,7 @@ import renderField from "components/Field";
 import Button from "components/Button";
 
 const numbersOnly = (value, previousValue) =>
-  /^\d*\.?\d*?$/.test(value) ? value : previousValue;
+  /^\d*\.?\d{0,4}$/.test(value) ? value : previousValue;
 
 const Label = ({ updateAmount }) => (
   <p>
@@ -42,7 +42,7 @@ const TransferForm = ({
       label={<Label updateAmount={updateAmount} />}
       name="amount"
       normalize={numbersOnly}
-      pattern="^[0-9.]*$"
+      pattern="^\d*\.?\d{0,4}$"
       required
       component={renderField}
       type="text"

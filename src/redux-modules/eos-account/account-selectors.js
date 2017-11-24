@@ -29,7 +29,7 @@ export const selectEOSBalanceDifference = createSelector(
   selectBalanceState,
   balance =>
     balance.difference !== undefined && !!balance.symbol
-      ? `${balance.symbol}${Math.abs(balance.difference).toFixed(6)}`
+      ? `${balance.symbol}${Math.abs(balance.difference).toFixed(4)}`
       : ""
 );
 
