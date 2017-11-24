@@ -26,8 +26,11 @@
 	.user_info {
 		position: absolute;
 		top: 1rem;
-		right: .5rem;
+		right: 1rem;
 		width: 80%;
+		@include mobile {
+			right: .5rem;
+		}
 		.user_meta {
 			position: absolute;
 			right: 110px;
