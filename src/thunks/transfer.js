@@ -16,6 +16,8 @@ export const doTransfer = (to, amount, memo) => async (dispatch, getState) => {
 
   const from = selectEOSAccountName(getState());
 
+  const deciMilliEOS = amount * 10000;
+
   const txn = {
     code: "eos",
     type: "transfer",
@@ -23,7 +25,7 @@ export const doTransfer = (to, amount, memo) => async (dispatch, getState) => {
     data: {
       from,
       to,
-      amount,
+      amount: deciMilliEOS,
       memo
     }
   };

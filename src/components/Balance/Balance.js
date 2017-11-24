@@ -10,7 +10,7 @@ const Balance = ({ total, difference }) => (
         {numeral(total).format("0.00a")}
       </p>
       <p className={cx("full_balance is-6", css.full_balance)}>
-        {numeral(total).format("0,0[.]0000")}
+        {numeral(total).format("0,0.0000")}
       </p>
       {!!difference && (
         <div className={cx("tag change", css.tag)}>{difference}</div>

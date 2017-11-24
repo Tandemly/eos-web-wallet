@@ -23,7 +23,7 @@ describe("EOS Account Selectors", () => {
   const total = Math.random() * 100;
   const difference = Math.random() * 100;
   const symbol = "+";
-  const formattedDifference = `${symbol}${difference.toFixed(6)}`;
+  const formattedDifference = `${symbol}${difference.toFixed(4)}`;
   const eosState: EOSAccountState = {
     account: {
       accountName,
