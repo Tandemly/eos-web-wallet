@@ -18,13 +18,16 @@ import {
   unsetNotification
 } from "../redux-modules/notifications/notifications-actions";
 import { reset } from "redux-form";
+import { apiClient } from '../util/apiClient';
+
+jest.mock("../util/apiClient");
 
 const mockStore = configureMockStore(middlewares);
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 describe("doTransfer", () => {
-  it.skip("on successful transaction POST, dispatches succeedPostTransaction action", async () => {
+  it("on successful transaction POST, dispatches succeedPostTransaction action", async () => {
     const store = mockStore({
       user: {
         isAuthenticated: true
@@ -142,39 +145,10 @@ describe("doTransfer", () => {
       }
     ];
 
+    apiClient.post.mockReset();
+    apiClient.post.mockReturnValue(response);
+
     fetch.resetMocks();
-    fetch.mockResponseOnce(
-      JSON.stringify({
-        head_block_num: 795,
-        last_irreversible_block_num: 781,
-        head_block_id:
-          "0000031bd611fcebbec5afd215cd0f48913f17c1a1358550fcd2277d1e7d6522",
-        head_block_time: "2017-11-21T23:29:09",
-        head_block_producer: "initu",
-        recent_slots:
-          "1111111111111111111111111111111111111111111111111111111111111111",
-        participation_rate: "1.00000000000000000"
-      })
-    );
-    // fetch.mockResponseOnce(
-    //   JSON.stringify({
-    //     head_block_num: 795,
-    //     last_irreversible_block_num: 781,
-    //     head_block_id:
-    //       "0000031bd611fcebbec5afd215cd0f48913f17c1a1358550fcd2277d1e7d6522",
-    //     head_block_time: "2017-11-21T23:29:09",
-    //     head_block_producer: "initu",
-    //     recent_slots:
-    //       "1111111111111111111111111111111111111111111111111111111111111111",
-    //     participation_rate: "1.00000000000000000"
-    //   })
-    // );
-    fetch.mockResponseOnce(
-      JSON.stringify({
-        required_keys: ["EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"]
-      })
-    );
-    fetch.mockResponseOnce(JSON.stringify(response));
     fetch.mockResponseOnce(JSON.stringify(balanceResponse));
     fetch.mockResponseOnce(JSON.stringify(transactionsResponse));
 

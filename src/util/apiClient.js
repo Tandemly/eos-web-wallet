@@ -37,7 +37,7 @@ const defaultAPIOptions = {
     ...authHeader
   }
 };
-// Grab the correct, sorted sceope from the list of messages
+// Grab the correct, sorted scope from the list of messages
 // intended for a transaction
 const getScope = messages =>
   uniq(
