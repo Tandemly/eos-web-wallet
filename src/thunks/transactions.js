@@ -3,15 +3,13 @@ import {
   succeedGetTransactions,
   failGetTransactions
 } from "redux-modules/transactions/transactions-actions";
-import { selectEOSAccountName } from "redux-modules/eos-account/account-selectors";
 import { apiRequest } from "../util/fetchUtil";
 import { tryGetTransactions } from "../redux-modules/transactions/transactions-actions";
 
-export const getTransactions = accountName => async (dispatch, getState) => {
-  const account = selectEOSAccountName(getState());
+export const getTransactions = accountName => async dispatch => {
   dispatch(tryGetTransactions(accountName));
   try {
-    const response = await apiRequest(`/v1/transactions?sort=-createdAt&limit=50&skip=0&filter={"scope": { "$in": ["${account}"] }}`);
+    const response = await apiRequest("/v1/transactions?sort=-sequence_num&limit=100&filter={\"scope.1\": { \"$exists\": true }}");
     const transactions = response
       ? response.map(transaction => camelcaseObject(transaction))
       : [];
