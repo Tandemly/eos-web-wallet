@@ -1,18 +1,11 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { reduxForm, formValueSelector, Field } from "redux-form";
+import { reduxForm, Field } from "redux-form";
 import renderField from "components/Field";
 import Button from "components/Button";
 
 // TODO show errors from server when unable to connect
 // { message: 'EOS is down currently, please try again later' }
-const SignupForm = ({
-  callAPI,
-  formValues,
-  error,
-  handleSubmit,
-  submitting
-}) => (
+const SignupForm = ({ callAPI, error, handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(callAPI)}>
     <Field
       aria-describedby="email"
@@ -51,10 +44,6 @@ const SignupForm = ({
   </form>
 );
 
-const ConnectedSignup = connect(state => ({
-  formValues: formValueSelector("sign-up")(state, "email", "password")
-}))(SignupForm);
-
 export default reduxForm({
   form: "sign-up"
-})(ConnectedSignup);
+})(SignupForm);

@@ -71,6 +71,4 @@ const PreferencesForm = ({ callAPI, handleSubmit, submitting }) => (
 
 export default reduxForm({
   form: "profile",
-  destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true
 })(PreferencesForm);

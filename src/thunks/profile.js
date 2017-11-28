@@ -7,7 +7,6 @@ import {
 } from "redux-modules/profile/profile-actions";
 // import { appRequest } from "util/fetchUtil";
 import type { Dispatch } from "redux";
-import { reset } from "redux-form";
 import type { UserProfile } from "types/UserProfile";
 // import camelcaseObject from "camelcase-object";
 // import snakecaseKeys from "snakecase-keys";
@@ -26,7 +25,6 @@ export const updateProfile = (
     const updated: UserProfile = profile;
     dispatch(succeedUpdateProfile());
     dispatch(setProfile(updated));
-    dispatch(reset("profile"));
   } catch (error) {
     dispatch(failUpdateProfile(error));
   }

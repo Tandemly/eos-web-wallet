@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   callAPI(values) {
-    dispatch(
+    return dispatch(
       updateProfile({
         ...values
       })

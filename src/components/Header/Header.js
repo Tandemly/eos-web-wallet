@@ -4,7 +4,7 @@ import css from "./styles.module.scss";
 import cx from "classnames";
 import withProfile from "../../containers/Profile/index";
 
-const renderHeaderUser = (imageUrl, displayName, onLogout) => (
+const renderHeaderUser = (imageUrl, displayName, location, onLogout) => (
   <div className={css.user_info}>
     <div className="has-text-right is-hidden-mobile">
       <div className={css.user_meta}>
@@ -12,7 +12,8 @@ const renderHeaderUser = (imageUrl, displayName, onLogout) => (
           Hi, {displayName}
         </h4>
         <p className={cx("subtitle is-6", css.subtitle)}>
-          <Link to="/profile">Customize your profile</Link> | <span> </span>
+          <Link to="/profile">{location || "Customize your profile"}</Link> |{" "}
+          <span> </span>
           <span onClick={onLogout} className="icon-logout" />
         </p>
       </div>
@@ -23,7 +24,10 @@ const renderHeaderUser = (imageUrl, displayName, onLogout) => (
     </Link>
 
     <figure className={cx("image", css.profile_thumbnail)}>
-      <img src={imageUrl === "" ? "/images/user.png" : imageUrl} alt="Profile thumbnail" />
+      <img
+        src={imageUrl === "" ? "/images/user.png" : imageUrl}
+        alt="Profile thumbnail"
+      />
     </figure>
   </div>
 );
@@ -33,7 +37,11 @@ const Header = ({
   isAuthenticated,
   onClick,
   onLogout,
-  userProfile: { imageUrl = "/images/user.png", displayName = "Display Name" },
+  userProfile: {
+    imageUrl = "/images/user.png",
+    displayName = "Display Name",
+    location
+  },
   ...props
 }) => (
   <header className={cx("hero", css.header)}>
@@ -60,7 +68,7 @@ const Header = ({
       </div>
 
       {isAuthenticated
-        ? renderHeaderUser(imageUrl, displayName, onLogout)
+        ? renderHeaderUser(imageUrl, displayName, location, onLogout)
         : null}
     </div>
   </header>

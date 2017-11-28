@@ -5,7 +5,7 @@ import { doSignUp } from "thunks/signup";
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   callAPI(values) {
-    dispatch(doSignUp(values.email, values.password));
+    return dispatch(doSignUp(values.email, values.password));
   }
 });
 

@@ -15,7 +15,7 @@ function setAmountToBalance() {
 
 const mapDispatchToProps = dispatch => ({
   callAPI(values) {
-    dispatch(doTransfer(values.to, values.amount, values.memo));
+    return dispatch(doTransfer(values.to, values.amount, values.memo));
   },
   updateAmount() {
     dispatch(setAmountToBalance());
