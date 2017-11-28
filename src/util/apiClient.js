@@ -1,4 +1,4 @@
-import moment from "moment";
+// import moment from "moment";
 import { merge, uniq, map, flatMap } from "lodash";
 import { Buffer } from "buffer";
 import eos from "eosjs";
@@ -141,10 +141,13 @@ class APIClient {
       // Get info on head on chain
       console.log(eosEndpoint);
       const info = await request(`${eosEndpoint}/v1/chain/get_info`);
-      const expr = moment(new Date(`${info.head_block_time}Z`))
-        .add(60, "seconds")
-        .toISOString()
-        .split(".")[0];
+      const head = new Date(`${info.head_block_time}Z`);
+      head.setSeconds(head.getSeconds() + 60);
+      const expr = head.toISOString().split(".")[0];
+      // const expr = moment(new Date(`${info.head_block_time}Z`))
+      //   .add(60, "seconds")
+      //   .toISOString()
+      //   .split(".")[0];
 
       // Build transaction from data
       const transaction = {

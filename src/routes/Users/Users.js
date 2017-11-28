@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import Container from "containers/Users";
+// import Container from "containers/Users";
 //import Filter from "components/Filter";
 
 // TODO move fixture upstream
-import users from "fixtures/users";
+// import users from "fixtures/users";
 
 const Users = () => (
   <div className="content">
