@@ -12,7 +12,7 @@ const EditProfile = () => (
         <title>Edit Profile</title>
       </Helmet>
       <div className="column is-half-desktop">
-        <article class="u-mb6">
+        <article className="u-mb6">
           <h2 className="title is-2">Profile</h2>
           <Container />
         </article>
