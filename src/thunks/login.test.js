@@ -4,8 +4,7 @@ import { push } from "react-router-redux";
 import middlewares from "../middleware";
 import {
   tryPostLogin,
-  succeedPostLogin,
-  setProfile
+  succeedPostLogin
 } from "../redux-modules/user/user-actions";
 import { unsetNotification } from "../redux-modules/notifications/notifications-actions";
 import { doLogin } from "./login";
@@ -44,7 +43,6 @@ describe("doLogin", () => {
       tryPostLogin(email, password),
       unsetNotification(),
       succeedPostLogin(email, password),
-      setProfile(profile),
       push("/"),
       rehydrateAccounts()
     ];

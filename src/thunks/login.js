@@ -3,13 +3,11 @@ import {
   tryPostLogin,
   succeedPostLogin,
   failPostLogin,
-  setProfile,
   logout
 } from "redux-modules/user/user-actions";
 import type { Dispatch } from "redux";
-import type { UserProfile } from "types/UserProfile";
-import camelcaseObject from "camelcase-object";
 import { push } from "react-router-redux";
+import { reset } from "redux-form";
 import { appRequest } from "util/fetchUtil";
 import type { Action } from "../redux-modules/action-types";
 import {
@@ -23,14 +21,12 @@ export const doLogin = (
 ) => /* prettier-ignore */ async (dispatch: Dispatch<Action>) => {
   dispatch(tryPostLogin(email, password));
   try {
-    const response = await appRequest("/app/login", {
+    await appRequest("/app/login", {
       method: "POST",
       body: JSON.stringify({ email, password })
     });
-    const profile: UserProfile = (camelcaseObject(response): UserProfile);
 
     dispatch(succeedPostLogin(email, password));
-    dispatch(setProfile(profile));
     dispatch(push("/"));
     dispatch(rehydrateAccounts());
   } catch (error) {
@@ -41,5 +37,8 @@ export const doLogin = (
 export const doLogout = () => (dispatch: Dispatch<*>) => {
   dispatch(logout());
   dispatch(push("/users"));
+  dispatch(reset("transfer"));
+  dispatch(reset("profile"));
+  dispatch(reset("connect-eos-account"));
   dispatch(dehydrateAccounts());
 };

@@ -50,7 +50,10 @@ const refresh = store => next => action => {
     action.type === "persist/REHYDRATE" &&
     selectEOSAccountRehydrated(store.getState())
   ) {
-    refreshAccount(store, selectEOSAccountName(store.getState()));
+    const account = selectEOSAccountName(store.getState());
+    if (account) {
+      refreshAccount(store, account);
+    }
   }
 };
 

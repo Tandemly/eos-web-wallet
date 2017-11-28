@@ -1,20 +1,25 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import PreferencesForm from 'components/PreferencesForm';
-// import { tryPostPhone } from './reducer';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import PreferencesForm from "components/PreferencesForm";
+import { updateProfile } from "../../thunks/profile";
+import withProfile from "../Profile/index";
 
-const mapDispatchToProps = (dispatch, { history }) => ({
-  callAPI(values) {
-    // dispatch(tryPostPhone({
-    //   history,
-    //   ...values
-    // }));
-  },
+const mapStateToProps = (state, ownProps) => ({
+  initialValues: ownProps.userProfile
 });
 
-const Preferences = connect(
-  null,
-  mapDispatchToProps,
-)(PreferencesForm);
+const mapDispatchToProps = dispatch => ({
+  callAPI(values) {
+    dispatch(
+      updateProfile({
+        ...values
+      })
+    );
+  }
+});
 
-export default withRouter(Preferences);
+const Preferences = connect(mapStateToProps, mapDispatchToProps)(
+  PreferencesForm
+);
+
+export default withRouter(withProfile(Preferences));
