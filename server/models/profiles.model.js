@@ -88,7 +88,6 @@ ProfileSchema.method({
 
   async passwordMatches(password) {
     const matches = await bcrypt.compare(password, this.password);
-    console.log(`-> comparing ${password} <=> ${this.password}: `, matches);
     return matches;
   }
 });
