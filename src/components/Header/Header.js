@@ -3,13 +3,20 @@ import { Link } from "react-router-dom";
 import css from "./styles.module.scss";
 import cx from "classnames";
 import withProfile from "../../containers/Profile/index";
+import withUserId from "../../containers/UserInfo/index";
 
-const renderHeaderUser = (imageUrl, displayName, location, onLogout) => (
+const renderHeaderUser = (
+  userId,
+  imageUrl,
+  displayName,
+  location,
+  onLogout
+) => (
   <div className={css.user_info}>
     <div className="has-text-right is-hidden-mobile">
       <div className={css.user_meta}>
         <h4 className={cx("title is-4 is-spaced", css.title)}>
-          Hi, {displayName}
+          Hi, {displayName || userId}
         </h4>
         <p className={cx("subtitle is-6", css.subtitle)}>
           <Link to="/profile">{location || "Customize your profile"}</Link> |{" "}
@@ -26,7 +33,7 @@ const renderHeaderUser = (imageUrl, displayName, location, onLogout) => (
     <figure className={cx("image", css.profile_thumbnail)}>
       <img
         src={imageUrl === "" ? "/images/user.png" : imageUrl}
-        alt="Profile thumbnail"
+        alt={displayName || userId}
       />
     </figure>
   </div>
@@ -37,11 +44,8 @@ const Header = ({
   isAuthenticated,
   onClick,
   onLogout,
-  userProfile: {
-    imageUrl = "/images/user.png",
-    displayName = "Display Name",
-    location
-  },
+  userId,
+  userProfile: { imageUrl = "/images/user.png", displayName, location },
   ...props
 }) => (
   <header className={cx("hero", css.header)}>
@@ -68,10 +72,10 @@ const Header = ({
       </div>
 
       {isAuthenticated
-        ? renderHeaderUser(imageUrl, displayName, location, onLogout)
+        ? renderHeaderUser(userId, imageUrl, displayName, location, onLogout)
         : null}
     </div>
   </header>
 );
 
-export default withProfile(Header);
+export default withUserId(withProfile(Header));
