@@ -10,11 +10,11 @@
   .heading {
     font-size: 22px;
     font-weight: bold;
-    text-transform: capitalize;
+    text-transform: none;
   }
   .title {
     font-size: 18px;
     color: $white;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 }
