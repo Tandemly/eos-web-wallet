@@ -80,7 +80,7 @@ ProfileSchema.method({
     ];
 
     fields.forEach(field => {
-      transformed[field] = this[field];
+      transformed[field] = this[field] || '';
     });
 
     return transformed;

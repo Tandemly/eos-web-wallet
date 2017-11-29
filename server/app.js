@@ -10,7 +10,8 @@ const cors = require("cors");
 const helmet = require("helmet");
 const appRoutes = require("./routes/app.routes");
 const error = require("./middleware/error");
-const { logs, env, port, sessionKey } = require("./vars");
+const MongoStore = require("connect-mongo")(session)
+const { logs, env, port, mongo, sessionKey } = require("./vars");
 
 // Create express application
 const app = express();
@@ -36,7 +37,7 @@ app.use(methodOverride());
 app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
-app.use(cors());
+app.use(cors({ credentials: true }));
 
 // Get status of server
 app.use("/status", (req, res) => res.send("OK"));
@@ -50,7 +51,8 @@ app.use(session({
     httpOnly: true      // server-side only, client encrypted
   },
   resave: false,
-  saveUninitialized: true  
+  saveUninitialized: true,
+  store: new MongoStore({ url: mongo.uri })
 }));
 
 // mount app routes
