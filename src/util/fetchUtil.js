@@ -6,6 +6,7 @@ export const rejectBadResponse = (response: Response): mixed =>
 
 const defaultAppOptions = {
   method: "GET",
+  credentials: "include",
   headers: {
     "Content-Type": "application/json"
   }

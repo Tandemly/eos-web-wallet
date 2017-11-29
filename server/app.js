@@ -2,6 +2,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
+const session = require('express-session');
 const bodyParser = require("body-parser");
 const compress = require("compression");
 const methodOverride = require("method-override");
@@ -9,10 +10,13 @@ const cors = require("cors");
 const helmet = require("helmet");
 const appRoutes = require("./routes/app.routes");
 const error = require("./middleware/error");
-const { logs, env, port } = require("./vars");
+const { logs, env, port, sessionKey } = require("./vars");
 
 // Create express application
 const app = express();
+
+console.log('Using session key:', sessionKey);
+
 
 // request logging. dev: console | production: file
 app.use(morgan(logs));
@@ -36,6 +40,18 @@ app.use(cors());
 
 // Get status of server
 app.use("/status", (req, res) => res.send("OK"));
+
+// Session handling (session cookies)
+app.use(session({
+  name: 'eos-wallet',
+  secret: sessionKey,
+  cookie: { 
+    maxAge: 3600000,    // 1 hour
+    httpOnly: true      // server-side only, client encrypted
+  },
+  resave: false,
+  saveUninitialized: true  
+}));
 
 // mount app routes
 app.use("/app", appRoutes);

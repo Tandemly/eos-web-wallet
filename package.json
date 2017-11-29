@@ -25,6 +25,7 @@
     "eosjs": "4.0.2",
     "eosjs-ecc": "^1.6.1",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "express-validation": "^1.0.2",
     "flow-bin": "^0.57.3",
     "helmet": "^3.9.0",

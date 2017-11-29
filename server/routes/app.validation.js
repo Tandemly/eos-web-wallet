@@ -20,6 +20,21 @@ module.exports = {
     }
   },
 
+    // POST /app/register
+  update: {
+    body: {
+      email: Joi.string()
+        .email()
+        .required(),
+      display_name: Joi.string(),
+      about: Joi.string(),
+      location: Joi.string(),
+      website: Joi.string(),
+      image_url: Joi.string(),
+      phone: Joi.string()
+    }
+  },
+
   // POST /app/login
   login: {
     body: {

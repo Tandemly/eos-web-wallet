@@ -1,7 +1,8 @@
 const express = require("express");
 const validate = require("express-validation");
 const controller = require("./app.controller");
-const { login, register } = require("./app.validation");
+const { login, logout, register, update } = require("./app.validation");
+const { checkAuth } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -65,5 +66,24 @@ router
    * @apiError (Unauthorized 401)  Unauthorized     Incorrect email or password
    */
   .post(validate(login), controller.login);
+
+router
+  .route("/logout")
+  /**
+   * @api {post} app/logout Logout
+   * @apiDescription Logout and unset session authentication
+   * @apiVersion 1.0.0
+   * @apiName Logout
+   * @apiGroup App
+   * @apiPermission public
+   *
+   * @apiSuccess  (Ok 200)
+   *
+   */
+  .post(controller.logout);
+
+router
+  .route("/profile")
+  .put(checkAuth, validate(update), controller.updateProfile);
 
 module.exports = router;
