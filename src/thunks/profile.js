@@ -15,7 +15,7 @@ import { selectWalletUserId } from "../redux-modules/user/user-selectors";
 
 export const updateProfile = (
   profile: UserProfile
-) => /* prettier-ignore */ async (dispatch: Dispatch<Action>, getState) => {
+) => /* prettier-ignore */ async (dispatch: Dispatch<Action>, getState: () => mixed) => {
   dispatch(tryUpdateProfile());
   try {
     profile.email = selectWalletUserId(getState());
