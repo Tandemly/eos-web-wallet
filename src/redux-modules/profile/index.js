@@ -7,7 +7,6 @@ export const createReducer = key =>
   persistReducer(
     {
       key: `${key}-profile`,
-      stateReconciler: hardSet,
       storage: localforage
     },
     profileReducer

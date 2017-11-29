@@ -3,6 +3,7 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import Container from "containers/Preferences";
 import Profile from "components/Profile/CurrentUserProfile";
+import Notifications from "../../containers/Notifications/index";
 //import ResetPassword from "containers/ResetPassword";
 
 const EditProfile = () => (
@@ -12,6 +13,7 @@ const EditProfile = () => (
         <title>Edit Profile</title>
       </Helmet>
       <div className="column is-half-desktop">
+        <Notifications />
         <article className="u-mb6">
           <h2 className="title is-2">Profile</h2>
           <Container />

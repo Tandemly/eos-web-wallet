@@ -18,6 +18,10 @@ import {
   SUCCESS_POST_EOS_ACCOUNT
 } from "../../redux-modules/eos-signup/actions";
 import { FAIL_POST_SIGNUP } from "../../redux-modules/user/signup-actions";
+import {
+  FAIL_UPDATE_PROFILE,
+  SUCCEED_UPDATE_PROFILE
+} from "../../redux-modules/profile/profile-actions";
 
 const api = store => next => action => {
   const errorActions = [
@@ -26,13 +30,15 @@ const api = store => next => action => {
     FAIL_GET_TRANSACTIONS,
     FAIL_POST_SIGNUP,
     FAIL_POST_EOS_ACCOUNT,
-    FAIL_POST_TRANSACTION
+    FAIL_POST_TRANSACTION,
+    FAIL_UPDATE_PROFILE
   ];
 
   const clearNotificationActions = [
     SUCCEED_LOGIN,
     SUCCESS_POST_TRANSACTION,
     SUCCESS_POST_EOS_ACCOUNT,
+    SUCCEED_UPDATE_PROFILE,
     DISCONNECT_EOS_ACCOUNT,
     LOGOUT
   ];
