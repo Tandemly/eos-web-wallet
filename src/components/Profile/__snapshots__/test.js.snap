@@ -31,10 +31,10 @@ exports[`<Profile /> renders without crashing 1`] = `
           Friday Harbor, WA
         </div>
         <a
-          href="http://twitter.com/"
+          href="http://mywebsite.com/me"
           target="_blank"
         >
-          http://twitter.com/
+          http://mywebsite.com/me
         </a>
       </div>
     </div>

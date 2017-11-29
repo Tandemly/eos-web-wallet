@@ -1,17 +1,11 @@
 import * as React from "react";
-import { connect } from 'react-redux';
-import { reduxForm, formValueSelector, Field } from 'redux-form';
-import renderField from 'components/Field';
-import Button from 'components/Button';
+import { reduxForm, Field } from "redux-form";
+import renderField from "components/Field";
+import Button from "components/Button";
 
 // TODO show errors from server when unable to connect
 // { message: 'EOS is down currently, please try again later' }
-const SignupForm = ({
-  callAPI,
-  formValues,
-  error,
-  handleSubmit,
-  submitting }) => (
+const SignupForm = ({ callAPI, error, handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit(callAPI)}>
     <Field
       aria-describedby="email"
@@ -34,7 +28,7 @@ const SignupForm = ({
       component={renderField}
       type="password"
     />
-  
+
     <div className="modal-cta">
       <div className="field">
         <div className="control">
@@ -42,7 +36,7 @@ const SignupForm = ({
             disabled={submitting}
             className="button is-large is-primary"
             type="submit"
-            text={submitting ? 'Submitting...' : 'Continue'}
+            text={submitting ? "Submitting..." : "Continue"}
           />
         </div>
       </div>
@@ -50,13 +44,6 @@ const SignupForm = ({
   </form>
 );
 
-const ConnectedSignup = connect(state => ({
-  formValues: formValueSelector('sign-up')(state, 'email', 'password')
-}))(SignupForm);
-
 export default reduxForm({
-  form: 'sign-up',
-  destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true,
-})(ConnectedSignup);
-
+  form: "sign-up"
+})(SignupForm);

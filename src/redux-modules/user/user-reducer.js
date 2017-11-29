@@ -1,23 +1,15 @@
-import {
-  FAIL_LOGIN,
-  LOGOUT,
-  SUCCEED_LOGIN,
-  TRY_LOGIN, SET_USER_PROFILE
-} from "./user-actions";
-import type { UserProfile } from "../../types/UserProfile";
+import { FAIL_LOGIN, LOGOUT, SUCCEED_LOGIN, TRY_LOGIN } from "./user-actions";
 import md5 from "nano-md5";
 
 type StateShape = {
-  profile: UserProfile,
+  email: ?string,
   hash: ?string,
   isFetching: boolean,
   isAuthenticated: boolean
 };
 
 const initialState: StateShape = {
-  profile: {
-    email: ""
-  },
+  email: null,
   hash: null,
   isFetching: false,
   isAuthenticated: false
@@ -28,9 +20,7 @@ export default (state = initialState, action = {}) => {
     case FAIL_LOGIN:
       return {
         ...state,
-        profile: {
-          email: ""
-        },
+        email: null,
         hash: null,
         isFetching: false,
         error: action.error
@@ -38,9 +28,7 @@ export default (state = initialState, action = {}) => {
     case SUCCEED_LOGIN:
       return {
         ...state,
-        profile: {
-          email: action.email
-        },
+        email: action.email,
         hash: md5(action.password),
         isFetching: false,
         isAuthenticated: true
@@ -48,17 +36,10 @@ export default (state = initialState, action = {}) => {
     case LOGOUT:
       return {
         ...state,
-        profile: {
-          email: ""
-        },
+        email: null,
         hash: null,
         isFetching: false,
         isAuthenticated: false
-      };
-    case SET_USER_PROFILE:
-      return {
-        ...state,
-        profile: action.profile
       };
     case TRY_LOGIN:
       return {

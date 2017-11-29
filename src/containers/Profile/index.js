@@ -1,17 +1,10 @@
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import Profile from "components/Profile";
-import {
-  selectWalletUserImage,
-  selectWalletUserName
-} from "../../redux-modules/user/user-selectors";
+import { selectWalletUserProfile } from "../../redux-modules/profile/profile-selectors";
 
-// TODO genericize this to network call to specific user
 const mapStateToProps = state => ({
-  displayName: selectWalletUserName(state),
-  imageUrl: selectWalletUserImage(state)
+  userProfile: selectWalletUserProfile(state)
 });
 
-const Container = connect(mapStateToProps)(Profile);
+const withProfile = connect(mapStateToProps);
 
-export default withRouter(Container);
+export default withProfile;

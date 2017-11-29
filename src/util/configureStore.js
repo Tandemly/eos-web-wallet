@@ -60,24 +60,36 @@ export const configureStore = (
   return { store, persistor };
 };
 
-export const addReducer = (name, reducer) => {
-  if (!store.reducers[name]) {
-    store.reducers = {
-      ...store.reducers,
-      [name]: reducer
-    };
+export const addReducers = reducers => {
+  let added = false;
+  reducers.forEach(({ name, reducer }) => {
+    if (!store.reducers[name]) {
+      store.reducers = {
+        ...store.reducers,
+        [name]: reducer
+      };
+      added = true;
+    }
+  });
 
+  if (added) {
     console.log(JSON.stringify(store.reducers));
-
     store.replaceReducer(combineReducers(store.reducers));
     persistor.persist();
   }
 };
 
-export const removeReducer = reducerName => {
-  Reflect.deleteProperty(store.reducers, reducerName);
+export const removeReducers = reducerNames => {
+  let removed = false;
+  reducerNames.forEach(reducerName => {
+    if (store.reducers[reducerName]) {
+      Reflect.deleteProperty(store.reducers, reducerName);
+      removed = true;
+    }
+  });
 
-  console.log(JSON.stringify(store.reducers));
-
-  store.replaceReducer(combineReducers(store.reducers));
+  if (removed) {
+    console.log(JSON.stringify(store.reducers));
+    store.replaceReducer(combineReducers(store.reducers));
+  }
 };

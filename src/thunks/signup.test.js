@@ -2,9 +2,10 @@ import configureMockStore from "redux-mock-store";
 import { push } from "react-router-redux";
 import middlewares from "middleware";
 import { tryPostSignup } from "redux-modules/user/signup-actions";
-import { succeedPostLogin, setProfile } from "redux-modules/user/user-actions";
+import { succeedPostLogin } from "redux-modules/user/user-actions";
 import { unsetNotification } from "redux-modules/notifications/notifications-actions";
 import { doSignUp } from "thunks/signup";
+import { rehydrateAccounts } from "../middleware/account-persist/account-persist-actions";
 
 const mockStore = configureMockStore(middlewares);
 
@@ -44,8 +45,8 @@ describe("doSignUp", () => {
       tryPostSignup(email, password),
       unsetNotification(),
       succeedPostLogin(email, password),
-      setProfile(profile),
-      push("/")
+      push("/"),
+      rehydrateAccounts()
     ];
 
     await store.dispatch(doSignUp(email, password));

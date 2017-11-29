@@ -48,8 +48,8 @@ const ConnectedEOSAccountsForm = ({ callAPI, handleSubmit, submitting }) => (
           />
         </div>
       </div>
-      <div class="field is-grouped u-mt4">
-        <div class="control">
+      <div className="field is-grouped u-mt4">
+        <div className="control">
           <Button
             disabled={submitting}
             className="button is-large is-primary"
@@ -57,7 +57,7 @@ const ConnectedEOSAccountsForm = ({ callAPI, handleSubmit, submitting }) => (
             text={submitting ? "Submitting..." : "Add Account"}
           />
         </div>
-        <div class="control">
+        <div className="control">
           <p>
             Don’t have an account? <a>Sign Up</a>
           </p>

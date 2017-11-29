@@ -2,37 +2,48 @@
 import * as React from "react";
 import cx from "classnames";
 import css from "./styles.module.scss";
+import type { UserProfile } from "../../types/UserProfile";
 
 type Props = {
-  imageUrl?: string,
-  currentLocation?: string,
-  displayName?: string,
-  status?: string,
-  websiteUrl?: string
+  userId: string,
+  userProfile: UserProfile
 };
 
 const Profile = ({
-  imageUrl = "/images/user.png",
-  currentLocation = "Unknown",
-  displayName = "Display Name",
-  status = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  websiteUrl = "http://twitter.com/"
+  userId,
+  userProfile: {
+    imageUrl = "/images/user.png",
+    location = "Unknown",
+    displayName,
+    about = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    website
+  }
 }: Props) => (
   <div className={cx("box", css.profile)}>
     <div className="columns is-variable is-2 is-vcentered">
       <div className="column is-narrow">
-        <img src={imageUrl} className={css.thumbnail} alt={displayName} />
+        <img
+          src={imageUrl === "" ? "/images/user.png" : imageUrl}
+          className={css.thumbnail}
+          alt={displayName || userId}
+        />
       </div>
       <div className="column">
         <div>
-          <div className={cx("heading is-6", css.heading)}>{displayName}</div>
-          <div className={cx("title", css.title)}>{currentLocation}</div>
-          <a href={websiteUrl} target="_blank">{websiteUrl}</a>
+          <div className={cx("heading is-6", css.heading)}>
+            {displayName || userId}
+          </div>
+          <div className={cx("title", css.title)}>{location}</div>
+          {website && (
+            <a href={website} target="_blank">
+              {website}
+            </a>
+          )}
         </div>
       </div>
     </div>
     <div>
-      <p>{status}</p>
+      <p>{about}</p>
     </div>
   </div>
 );

@@ -5,7 +5,7 @@ import ResetPasswordForm from 'components/ResetPasswordForm';
 
 const mapDispatchToProps = (dispatch, { history }) => ({
   callAPI(values) {
-    // dispatch(tryPostEmail({
+    // return dispatch(tryPostEmail({
     //   history,
     //   ...values
     // }));

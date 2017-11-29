@@ -1,5 +1,4 @@
 import { createSelector } from "reselect";
-// import { createReducer } from "./index";
 
 const selectAccountState = state =>
   state && state.eosAccount ? state.eosAccount.account : {};

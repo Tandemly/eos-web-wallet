@@ -5,7 +5,7 @@ import { addEOSAccount } from "../../thunks/add-eos-account";
 /* eslint-disable camelcase */
 const mapDispatchToProps = dispatch => ({
   callAPI(values) {
-    dispatch(
+    return dispatch(
       addEOSAccount(
         values.account_name,
         values.owner_key,

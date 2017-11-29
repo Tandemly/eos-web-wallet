@@ -8,15 +8,16 @@ describe("<Profile />", () => {
     const staticContext = {};
     const profile = {
       imageUrl: "src",
-      currentLocation: "Friday Harbor, WA",
+      location: "Friday Harbor, WA",
       displayName: "Rick Sanchez",
-      status: "active"
+      about: "active",
+      website: "http://mywebsite.com/me"
     };
 
     const tree = renderer
       .create(
         <StaticRouter location="/" context={staticContext}>
-          <Profile {...profile} />
+          <Profile userProfile={profile} />
         </StaticRouter>
       )
       .toJSON();

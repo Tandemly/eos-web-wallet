@@ -23,6 +23,7 @@ export const createReducer = (key, secret) => {
       {
         key: `${key}-balance`,
         storage: localforage,
+        stateReconciler: hardSet,
         transforms: [encryptor]
       },
       balanceReducer
