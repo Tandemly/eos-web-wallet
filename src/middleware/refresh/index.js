@@ -7,8 +7,12 @@ import {
   selectEOSAccountName,
   selectEOSAccountRehydrated
 } from "../../redux-modules/eos-account/account-selectors";
-import { selectWalletUserAuthenticated } from "../../redux-modules/user/user-selectors";
+import {
+  selectWalletUserAuthenticated,
+  selectWalletUserId
+} from "../../redux-modules/user/user-selectors";
 import { SET_EOS_ACCOUNT_NAME } from "../../redux-modules/eos-account/account-actions";
+import { getProfile } from "../../thunks/profile";
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -51,6 +55,7 @@ const refresh = store => next => action => {
     selectEOSAccountRehydrated(store.getState())
   ) {
     const account = selectEOSAccountName(store.getState());
+    store.dispatch(getProfile(selectWalletUserId(store.getState())));
     if (account) {
       refreshAccount(store, account);
     }

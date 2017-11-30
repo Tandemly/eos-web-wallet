@@ -3,6 +3,9 @@ import {
   tryUpdateProfile,
   failUpdateProfile,
   succeedUpdateProfile,
+  tryGetProfile,
+  failGetProfile,
+  succeedGetProfile,
   setProfile
 } from "redux-modules/profile/profile-actions";
 import { appRequest } from "util/fetchUtil";
@@ -24,10 +27,22 @@ export const updateProfile = (
       body: JSON.stringify(snakecaseKeys(profile))
     });
     const updated: UserProfile = (camelcaseObject(response): UserProfile);
-    // const updated: UserProfile = profile;
     dispatch(succeedUpdateProfile());
     dispatch(setProfile(updated));
   } catch (error) {
     dispatch(failUpdateProfile(error));
+  }
+};
+
+export const getProfile = () => /* prettier-ignore */ async (dispatch: Dispatch<Action>, getState: () => mixed) => {
+  dispatch(tryGetProfile());
+  try {
+    const userId = selectWalletUserId(getState());
+    const response = await appRequest(`/app/profile/${userId}`);
+    const updated: UserProfile = (camelcaseObject(response): UserProfile);
+    dispatch(succeedGetProfile());
+    dispatch(setProfile(updated));
+  } catch (error) {
+    dispatch(failGetProfile(error));
   }
 };

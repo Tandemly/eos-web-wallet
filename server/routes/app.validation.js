@@ -20,7 +20,7 @@ module.exports = {
     }
   },
 
-    // POST /app/register
+  // PUT /app/profile
   update: {
     body: {
       email: Joi.string()
@@ -32,6 +32,15 @@ module.exports = {
       website: Joi.string(),
       image_url: Joi.string(),
       phone: Joi.string()
+    }
+  },
+
+  // GET /app/profile/:email
+  getProfile: {
+    params: {
+      email: Joi.string()
+        .email()
+        .required()
     }
   },
 
