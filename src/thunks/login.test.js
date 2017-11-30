@@ -9,6 +9,7 @@ import {
 import { unsetNotification } from "../redux-modules/notifications/notifications-actions";
 import { doLogin } from "./login";
 import { rehydrateAccounts } from "../middleware/account-persist/account-persist-actions";
+import { setProfile } from "../redux-modules/profile/profile-actions";
 
 const mockStore = configureMockStore(middlewares);
 
@@ -44,7 +45,8 @@ describe("doLogin", () => {
       unsetNotification(),
       succeedPostLogin(email, password),
       push("/"),
-      rehydrateAccounts()
+      rehydrateAccounts(),
+      setProfile(profile)
     ];
 
     await store.dispatch(doLogin(email, password));

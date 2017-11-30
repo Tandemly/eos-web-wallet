@@ -18,21 +18,32 @@ import {
   SUCCESS_POST_EOS_ACCOUNT
 } from "../../redux-modules/eos-signup/actions";
 import { FAIL_POST_SIGNUP } from "../../redux-modules/user/signup-actions";
+import {
+  FAIL_GET_PROFILE,
+  FAIL_UPDATE_PROFILE,
+  SUCCEED_GET_PROFILE,
+  SUCCEED_UPDATE_PROFILE
+} from "../../redux-modules/profile/profile-actions";
+import { doLogout } from "../../thunks/login";
 
 const api = store => next => action => {
   const errorActions = [
     FAIL_LOGIN,
+    FAIL_GET_PROFILE,
     FAIL_GET_BALANCE,
     FAIL_GET_TRANSACTIONS,
     FAIL_POST_SIGNUP,
     FAIL_POST_EOS_ACCOUNT,
-    FAIL_POST_TRANSACTION
+    FAIL_POST_TRANSACTION,
+    FAIL_UPDATE_PROFILE
   ];
 
   const clearNotificationActions = [
     SUCCEED_LOGIN,
+    SUCCEED_GET_PROFILE,
     SUCCESS_POST_TRANSACTION,
     SUCCESS_POST_EOS_ACCOUNT,
+    SUCCEED_UPDATE_PROFILE,
     DISCONNECT_EOS_ACCOUNT,
     LOGOUT
   ];
@@ -41,8 +52,18 @@ const api = store => next => action => {
     errorActions.some(t => action.type === t) &&
     process.env.NODE_ENV !== "test"
   ) {
-    const { message, errors } = action.error;
+    const { message, errors, error } = action.error;
     const errAction = stopSubmit(action.form, message);
+
+    // Kick them out...nothing else matters.
+    if (error === 401) {
+      store.dispatch(doLogout());
+      store.dispatch(
+        setNotification("You have been automatically logged out.", "error")
+      );
+      return;
+    }
+
     store.dispatch(errAction);
 
     // Subsequently after error action, notify user

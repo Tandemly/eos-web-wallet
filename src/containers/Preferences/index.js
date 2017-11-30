@@ -5,7 +5,8 @@ import { updateProfile } from "../../thunks/profile";
 import withProfile from "../Profile/index";
 
 const mapStateToProps = (state, ownProps) => ({
-  initialValues: ownProps.userProfile
+  initialValues: ownProps.userProfile,
+  enableReinitialize: true
 });
 
 const mapDispatchToProps = dispatch => ({
