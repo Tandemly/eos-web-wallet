@@ -7,7 +7,7 @@ import {
 } from "redux-modules/user/user-actions";
 import type { Dispatch } from "redux";
 import type { UserProfile } from "types/UserProfile";
-import camelcaseObject from "camelcase-object";
+import changeCaseKeys from "change-case-keys";
 import { push } from "react-router-redux";
 import { reset } from "redux-form";
 import { appRequest } from "util/fetchUtil";
@@ -28,7 +28,7 @@ export const doLogin = (
       method: "POST",
       body: JSON.stringify({ email, password })
     });
-    const profile: UserProfile = (camelcaseObject(response): UserProfile);
+    const profile: UserProfile = (changeCaseKeys(response, "camelize"): UserProfile);
 
     dispatch(succeedPostLogin(email, password));
     dispatch(push("/"));
