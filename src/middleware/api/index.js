@@ -58,6 +58,9 @@ const api = store => next => action => {
     // Kick them out...nothing else matters.
     if (error === 401) {
       store.dispatch(doLogout());
+      store.dispatch(
+        setNotification("You have been automatically logged out.", "error")
+      );
       return;
     }
 
