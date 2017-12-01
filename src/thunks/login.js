@@ -6,8 +6,6 @@ import {
   logout
 } from "redux-modules/user/user-actions";
 import type { Dispatch } from "redux";
-import type { UserProfile } from "types/UserProfile";
-import changeCaseKeys from "change-case-keys";
 import { push } from "react-router-redux";
 import { reset } from "redux-form";
 import { appRequest } from "util/fetchUtil";
@@ -16,7 +14,6 @@ import {
   rehydrateAccounts,
   dehydrateAccounts
 } from "../middleware/account-persist/account-persist-actions";
-import { setProfile } from "../redux-modules/profile/profile-actions";
 
 export const doLogin = (
   email: string,
@@ -24,16 +21,14 @@ export const doLogin = (
 ) => /* prettier-ignore */ async (dispatch: Dispatch<Action>) => {
   dispatch(tryPostLogin(email, password));
   try {
-    const response = await appRequest("/app/login", {
+    await appRequest("/app/login", {
       method: "POST",
       body: JSON.stringify({ email, password })
     });
-    const profile: UserProfile = (changeCaseKeys(response, "camelize"): UserProfile);
 
     dispatch(succeedPostLogin(email, password));
     dispatch(push("/"));
-    dispatch(rehydrateAccounts());
-    dispatch(setProfile(profile));
+    setTimeout(()=>dispatch(rehydrateAccounts()), 2000);
   } catch (error) {
     dispatch(failPostLogin(error));
   }
