@@ -1,20 +1,27 @@
-/* eslint-disable camelcase, consistent-return */
 import { getTransactions } from "thunks/transactions";
 import { getBalance } from "thunks/balance";
-import { SUCCEED_LOGIN } from "../../redux-modules/user/user-actions";
-import { SUCCESS_POST_TRANSACTION } from "../../redux-modules/transfer/transfer-actions";
+import { LOGOUT } from "../../redux-modules/user/user-actions";
 import {
   selectEOSAccountName,
   selectEOSAccountRehydrated
 } from "../../redux-modules/eos-account/account-selectors";
+import { selectWalletUserId } from "../../redux-modules/user/user-selectors";
 import {
-  selectWalletUserAuthenticated,
-  selectWalletUserId
-} from "../../redux-modules/user/user-selectors";
-import { SET_EOS_ACCOUNT_NAME } from "../../redux-modules/eos-account/account-actions";
+  SET_EOS_ACCOUNT_NAME,
+  DISCONNECT_EOS_ACCOUNT
+} from "../../redux-modules/eos-account/account-actions";
 import { getProfile } from "../../thunks/profile";
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+const interval = 5000;
+let timer = undefined;
+
+const poll = fn => {
+  console.log("[polling] Starting polling");
+  fn();
+  timer = setInterval(fn, interval);
+};
 
 function refreshAccount(store, eosAccountName) {
   delay(1000).then(() => {
@@ -25,39 +32,36 @@ function refreshAccount(store, eosAccountName) {
 
 // Dispatches action after events
 const refresh = store => next => action => {
-  const triggerActions = [
-    SUCCESS_POST_TRANSACTION,
-    SUCCEED_LOGIN,
-    SET_EOS_ACCOUNT_NAME
-  ];
-
-  const eosAccountName =
-    action.type === SET_EOS_ACCOUNT_NAME
-      ? action.accountName
-      : selectEOSAccountName(store.getState());
-  const isAuthenticated =
-    selectWalletUserAuthenticated(store.getState()) ||
-    action.type === SUCCEED_LOGIN;
-
-  if (
-    triggerActions.some(t => action.type === t) &&
-    eosAccountName &&
-    isAuthenticated
-  ) {
-    // NOTE it may take up to 3 seconds for a new transaction to process on the blockchain
-    refreshAccount(store, eosAccountName);
+  // Clean up when user logs out
+  if ([LOGOUT, DISCONNECT_EOS_ACCOUNT].some(type => action.type === type)) {
+    if (timer) {
+      console.log("[polling] Stopping polling");
+      clearTimeout(timer);
+    }
   }
 
   next(action);
 
+  if (action.type === SET_EOS_ACCOUNT_NAME) {
+    const account = selectEOSAccountName(store.getState());
+    if (account) {
+      poll(() => refreshAccount(store, account));
+    }
+  }
+
   if (
     action.type === "persist/REHYDRATE" &&
+    action.key.endsWith("-account") &&
     selectEOSAccountRehydrated(store.getState())
   ) {
     const account = selectEOSAccountName(store.getState());
-    store.dispatch(getProfile(selectWalletUserId(store.getState())));
+    const userId = selectWalletUserId(store.getState());
+    if (userId) {
+      store.dispatch(getProfile(userId));
+    }
+
     if (account) {
-      refreshAccount(store, account);
+      poll(() => refreshAccount(store, account));
     }
   }
 };

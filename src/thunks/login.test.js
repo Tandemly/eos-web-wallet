@@ -44,9 +44,7 @@ describe("doLogin", () => {
       tryPostLogin(email, password),
       unsetNotification(),
       succeedPostLogin(email, password),
-      push("/"),
-      rehydrateAccounts(),
-      setProfile(profile)
+      push("/")
     ];
 
     await store.dispatch(doLogin(email, password));
