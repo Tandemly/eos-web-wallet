@@ -3,13 +3,14 @@ import React from "react";
 import Button from "components/Button";
 import Notification from "components/Notification";
 import type { KeyPair } from "../../redux-modules/eos-account/types";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 type Props = {
   accountName: string,
   ownerKeys: KeyPair,
   activeKeys: KeyPair,
   onDisconnect: () => mixed,
-  fakeIt: () => mixed
+  onCopy: string => mixed
 };
 
 const EOSAccount = ({
@@ -17,7 +18,7 @@ const EOSAccount = ({
   ownerKeys,
   activeKeys,
   onDisconnect,
-  fakeIt
+  onCopy
 }: Props) => (
   <article>
     <h3>EOS</h3>
@@ -25,7 +26,6 @@ const EOSAccount = ({
       <Notification
         text="Your keys should be copied and stored offline for security"
         status="warn"
-        unsetNotification={fakeIt}
       />
       <div className="columns is-vcentered">
         <div className="column">
@@ -39,32 +39,32 @@ const EOSAccount = ({
         <div className="column">
           <div className="field">
             <label className="label">Active Key (Public):</label>
-            <p className="tertitle">
-              {activeKeys && activeKeys.publicKey}
-            </p>
+            <p className="tertitle">{activeKeys && activeKeys.publicKey}</p>
           </div>
         </div>
         <div className="column is-narrow">
-          <Button
-            className="is-small is-primary"
-            text="Copy Key"
-          />
+          <CopyToClipboard
+            text={activeKeys.publicKey}
+            onCopy={() => onCopy("Active Key (Public)")}
+          >
+            <Button className="is-small is-primary" text="Copy Key" />
+          </CopyToClipboard>
         </div>
       </div>
       <div className="columns is-vcentered">
         <div className="column">
           <div className="field">
             <label className="label">Active Key (Private):</label>
-            <p className="tertitle">
-              {activeKeys && activeKeys.privateKey}
-            </p>
+            <p className="tertitle">{activeKeys && activeKeys.privateKey}</p>
           </div>
         </div>
         <div className="column is-narrow">
-          <Button
-            className="is-small is-primary"
-            text="Copy Key"
-          />
+          <CopyToClipboard
+            text={activeKeys.privateKey}
+            onCopy={() => onCopy("Active Key (Private)")}
+          >
+            <Button className="is-small is-primary" text="Copy Key" />
+          </CopyToClipboard>
         </div>
       </div>
       <div className="columns is-vcentered">
@@ -75,28 +75,29 @@ const EOSAccount = ({
           </div>
         </div>
         <div className="column is-narrow">
-          <Button
-            className="is-small is-primary"
-            text="Copy Key"
-          />
+          <CopyToClipboard
+            text={ownerKeys.publicKey}
+            onCopy={() => onCopy("Owner Key (Public)")}
+          >
+            <Button className="is-small is-primary" text="Copy Key" />
+          </CopyToClipboard>
         </div>
       </div>
       <div className="columns is-vcentered">
         <div className="column">
           <div className="field">
             <label className="label">Owner Key (Private):</label>
-            <p className="tertitle">
-              {ownerKeys && ownerKeys.privateKey}
-            </p>
+            <p className="tertitle">{ownerKeys && ownerKeys.privateKey}</p>
           </div>
         </div>
         <div className="column is-narrow">
-          <Button
-            className="is-small is-primary"
-            text="Copy Key"
-          />
+          <CopyToClipboard
+            text={ownerKeys.privateKey}
+            onCopy={() => onCopy("Owner Key (Private)")}
+          >
+            <Button className="is-small is-primary" text="Copy Key" />
+          </CopyToClipboard>
         </div>
-  
       </div>
       <div className="columns">
         <div className="column">
