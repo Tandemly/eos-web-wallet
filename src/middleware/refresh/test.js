@@ -76,15 +76,7 @@ describe("async refresh middleware", () => {
 
     const expectedActions = [
       unsetNotification(),
-      refreshAction,
-      tryGetBalance(account_name),
-      tryGetTransactions(account_name),
-      succeedGetBalance({
-        total: balanceResponse.eos_balance,
-        staked: balanceResponse.staked_balance,
-        unstaked: balanceResponse.unstaking_balance
-      }),
-      succeedGetTransactions(transactionsResponse)
+      refreshAction
     ];
 
     await store.dispatch(refreshAction);

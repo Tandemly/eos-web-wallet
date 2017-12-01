@@ -18,7 +18,7 @@ import {
   unsetNotification
 } from "../redux-modules/notifications/notifications-actions";
 import { reset } from "redux-form";
-import { apiClient } from '../util/apiClient';
+import { apiClient } from "../util/apiClient";
 
 jest.mock("../util/apiClient");
 
@@ -160,15 +160,7 @@ describe("doTransfer", () => {
         `${amount} EOS successfully transferred to ${to}`,
         "success"
       ),
-      reset("transfer"),
-      tryGetBalance("inita"),
-      tryGetTransactions("inita"),
-      succeedGetBalance({
-        total: balanceResponse.eos_balance,
-        staked: balanceResponse.staked_balance,
-        unstaked: balanceResponse.unstaking_balance
-      }),
-      succeedGetTransactions(transactionsResponse)
+      reset("transfer")
     ];
 
     await store.dispatch(doTransfer(to, amount, memo));
