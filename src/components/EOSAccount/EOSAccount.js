@@ -10,7 +10,7 @@ type Props = {
   ownerKeys: KeyPair,
   activeKeys: KeyPair,
   onDisconnect: () => mixed,
-  onCopy: () => mixed
+  onCopy: string => mixed
 };
 
 const EOSAccount = ({
