@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { StaticRouter } from "react-router";
 import { Provider } from "react-redux";
 import { configureStore } from "util/configureStore";
-import TransferContainer from "../../index";
+import TransferContainer from "./index";
 
 describe("<TransferContainer />", () => {
   it("renders without crashing", () => {
