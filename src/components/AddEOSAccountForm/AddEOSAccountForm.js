@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Field } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import renderField from "components/Field";
 import Button from "components/Button";
 
@@ -68,4 +68,6 @@ const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting }) => (
   </article>
 );
 
-export default AddEOSAccountForm;
+export default reduxForm({
+  form: "connect-eos-account"
+})(AddEOSAccountForm);
