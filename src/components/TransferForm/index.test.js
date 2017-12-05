@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import { StaticRouter } from "react-router";
 import { Provider } from "react-redux";
 import { configureStore } from "util/configureStore";
-import CreateAccountContainer from "./";
+import TransferContainer from "../../index";
 
-describe("<CreateAccountContainer />", () => {
+describe("<TransferContainer />", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     const staticContext = {};
@@ -14,7 +14,7 @@ describe("<CreateAccountContainer />", () => {
     ReactDOM.render(
       <StaticRouter location="/" context={staticContext}>
         <Provider store={store}>
-          <CreateAccountContainer />
+          <TransferContainer />
         </Provider>
       </StaticRouter>,
       div

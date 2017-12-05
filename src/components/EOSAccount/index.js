@@ -1,6 +1,6 @@
 import EOSAccount from "./EOSAccount";
 import { connect } from "react-redux";
-import withEOSAccount from "../../containers/EOSAccount";
+import withEOSAccount from "../../containers/eos-account";
 import { disconnectEOSAccount } from "../../redux-modules/eos-account/account-actions";
 import { setNotification } from "../../redux-modules/notifications/notifications-actions";
 

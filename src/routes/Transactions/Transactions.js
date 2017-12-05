@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
-import Container from "containers/Transactions";
+import TransactionsList from "../../components/Transactions";
 //import Filter from "components/Filter";
 import { selectRecentTransactions } from "../../redux-modules/transactions/transactions-selectors";
 
@@ -20,7 +20,7 @@ const Transactions = ({ transactions }) => (
 
       <div>
         {/*<Filter data={transactions}>*/}
-        <Container />
+        <TransactionsList />
         {/*</Filter>*/}
       </div>
     </div>

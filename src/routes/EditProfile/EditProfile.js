@@ -1,10 +1,10 @@
 //@flow
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import Container from "containers/Preferences";
+import Container from "components/PreferencesForm/index";
 import Profile from "components/Profile/CurrentUserProfile";
-import Notifications from "../../containers/Notifications/index";
-//import ResetPassword from "containers/ResetPassword";
+import { AppNotifications as Notifications } from "../../components/Notification";
+//import ResetPassword from "../../components/ResetPasswordForm";
 
 const EditProfile = () => (
   <div>

@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import { Link } from "react-router-dom";
 import renderField from "components/Field";
 import Button from "components/Button";
-import Notifications from "containers/Notifications";
+import { AppNotifications as Notifications } from "../Notification";
 
 const LoginForm = ({
   callAPI,

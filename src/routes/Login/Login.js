@@ -1,5 +1,5 @@
 import * as React from "react";
-import Container from "containers/Login";
+import Container from "components/LoginForm/index";
 
 const Login = ({ handleClose, test }) => (
   <div className={`login ${test}`}>

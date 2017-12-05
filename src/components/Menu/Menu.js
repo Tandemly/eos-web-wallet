@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { CurrentEOSBalance } from "../Balance";
-import Login from "containers/Login";
+import Login from "components/LoginForm/index";
 import Shortcuts from "components/Shortcuts";
 import { doLogout } from "../../thunks/login";
 

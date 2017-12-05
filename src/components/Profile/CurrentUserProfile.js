@@ -1,6 +1,6 @@
 //@flow
 import Profile from "./Profile";
-import withProfile from "../../containers/Profile/index";
-import withUserId from "../../containers/UserInfo/index";
+import withProfile from "../../containers/profile/index";
+import withUserId from "../../containers/current-user/index";
 
 export default withUserId(withProfile(Profile));

@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import css from "./styles.module.scss";
 import cx from "classnames";
-import withProfile from "../../containers/Profile/index";
-import withUserId from "../../containers/UserInfo/index";
+import withProfile from "../../containers/profile/index";
+import withUserId from "../../containers/current-user/index";
 
 const renderHeaderUser = (
   userId,
