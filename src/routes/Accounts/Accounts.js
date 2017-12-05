@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import ConnectedEOSAccounts from "components/AddEOSAccountForm";
-import EOSAccount from "containers/EOSAccount";
+import EOSAccount from "../../components/EOSAccount";
 import Notifications from "../../containers/Notifications/index";
 import { selectEOSAccountName } from "../../redux-modules/eos-account/account-selectors";
 import { connect } from "react-redux";
