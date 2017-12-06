@@ -1,16 +1,6 @@
-//@flow
 import * as React from "react";
 import cx from "classnames";
 import css from "./styles.module.scss";
-
-type Status = "success" | "info" | "error" | "warn";
-
-type Props = {
-  text: string,
-  status?: Status,
-  minimized?: boolean,
-  unsetNotification?: () => mixed
-};
 
 const icons = {
   success: "icon-success",
@@ -24,9 +14,11 @@ const Notification = ({
   status = "info",
   minimized = false,
   unsetNotification
-}: Props) =>
+}) =>
   !text ? null : (
-    <div className={cx(css.notification, css[status], { [css.min]: minimized })}>
+    <div
+      className={cx(css.notification, css[status], { [css.min]: minimized })}
+    >
       <div className={cx(icons[status], css.icon)} />
       {text}
       {unsetNotification && (

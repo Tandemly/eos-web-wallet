@@ -1,4 +1,3 @@
-// @flow
 import React from "react";
 import cx from "classnames";
 
@@ -18,7 +17,7 @@ const Icon = ({
   size?: string
 }) => {
   return (
-    <span className={cx("icon", { size: size ? sizes[size]: undefined }, className)}>
+    <span className={cx("icon", { [sizes[size]]: sizes[size] }, className)}>
       <i className={icon} />
     </span>
   );

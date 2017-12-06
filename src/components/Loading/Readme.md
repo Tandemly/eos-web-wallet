@@ -1,7 +1,5 @@
 Loading example: 
 
 ```js
-  <Background>
-    <Loading />
-  </Background>
+<Loading />
 ```

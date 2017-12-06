@@ -12,7 +12,7 @@ module.exports = {
     "**/__snapshots__/*",
     "src/components/**/index.js",
     "src/components/styleguide/*",
-    "src/containers/**/*",
+    "src/containers/**/*"
   ],
   require: [
     // The Application's specific styles
@@ -22,17 +22,23 @@ module.exports = {
   ],
   styleguideComponents: {
     Logo: path.join(__dirname, "src/styleguide/components/Logo.js"),
-    DisplayRedux: path.join(__dirname, 'src/util/component-utils/DisplayRedux.js'),
-    DisplayReactRouter: path.join(__dirname, 'src/util/component-utils/DisplayReactRouter.js'),
-    ErrorBoundary: path.join(__dirname, 'src/containers/ErrorBoundary.js'),
+    DisplayRedux: path.join(
+      __dirname,
+      "src/util/component-utils/DisplayRedux.js"
+    ),
+    DisplayReactRouter: path.join(
+      __dirname,
+      "src/util/component-utils/DisplayReactRouter.js"
+    ),
+    ErrorBoundary: path.join(__dirname, "src/containers/ErrorBoundary.js")
   },
   context: {
-    account: path.resolve(__dirname, 'src/fixtures/account.js'),
-    transactions: path.resolve(__dirname, 'src/fixtures/transactions.js'),
-    users: path.resolve(__dirname, 'src/fixtures/users.js'),
+    account: path.resolve(__dirname, "src/fixtures/account.js"),
+    transactions: path.resolve(__dirname, "src/fixtures/transactions.js"),
+    users: path.resolve(__dirname, "src/fixtures/users.js")
   },
   template: path.join(__dirname, "src/styleguide/template.html"),
-  assetsDir: "",
+  assetsDir: "public/",
   showCode: true,
   showUsage: true,
   sections: [
@@ -54,16 +60,6 @@ module.exports = {
     {
       name: "Components",
       components: "src/components/**/[A-Z]*.js",
-      isolatedSection: true
-    },
-    {
-      name: "Containers",
-      components: "src/containers/**/[A-Z]*.js",
-      isolatedSection: true
-    },
-    {
-      name: "Utility",
-      components: "src/util/**/[A-Z]*.js",
       isolatedSection: true
     }
   ],

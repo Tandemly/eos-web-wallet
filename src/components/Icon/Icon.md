@@ -2,9 +2,10 @@ Icon example using Icomoon. Custom font files can be made at <a target="_blank" 
 
 ```js
 <div>
-  <Icon icon="icon-edit"/>
-  <Icon icon="icon-export"/>
-  <Icon icon="icon-history"/>
+  <Icon icon="icon-edit" size="small"/>
+  <Icon icon="icon-export" size="medium"/>
+  <Icon icon="icon-history" size="large"/>
+  <Icon icon="icon-fail_warn" size="bogus"/>
   <Icon icon="icon-permissions"/>
   <Icon icon="icon-loader" className="text-primary"/>
   <Icon icon="icon-logout" className="text-secondary"/>
