@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddEOSAccountForm /> container renders without crashing 1`] = `
+<article>
+  <form
+    onSubmit={[Function]}
+  >
+    <h3>
+      Connect your EOS Account
+    </h3>
+    <div
+      className="box double"
+    >
+      <div
+        className="columns is-desktop"
+      >
+        <div
+          className="column is-half-desktop"
+        >
+          <div
+            className="field"
+          >
+            <label
+              className="label"
+              htmlFor="account_name"
+            >
+              EOS Account Name
+            </label>
+            <div
+              className="control "
+            >
+              <input
+                aria-describedby="account_name"
+                autoComplete="off"
+                className="input"
+                id="account_name"
+                name="account_name"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="columns is-desktop"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="field"
+          >
+            <label
+              className="label"
+              htmlFor="active_key"
+            >
+              EOS Active Key
+            </label>
+            <div
+              className="control "
+            >
+              <input
+                aria-describedby="active_key"
+                autoComplete="off"
+                className="input"
+                id="active_key"
+                name="active_key"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="field"
+          >
+            <label
+              className="label"
+              htmlFor="owner_key"
+            >
+              EOS Owner Key
+            </label>
+            <div
+              className="control "
+            >
+              <input
+                aria-describedby="owner_key"
+                autoComplete="off"
+                className="input"
+                id="owner_key"
+                name="owner_key"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="field is-grouped u-mt4"
+      >
+        <div
+          className="control"
+        >
+          <button
+            className="button button is-large is-primary"
+            onClick={undefined}
+          >
+            <span>
+              Add Account
+            </span>
+          </button>
+        </div>
+        <div
+          className="control"
+        >
+          <p>
+            Don’t have an account? 
+            <a>
+              Sign Up
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</article>
+`;

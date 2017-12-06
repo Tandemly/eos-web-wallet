@@ -19,6 +19,7 @@ const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting }) => (
               required
               component={renderField}
               type="text"
+              autoComplete="off"
             />
           </div>
         </div>
@@ -33,6 +34,7 @@ const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting }) => (
               required
               component={renderField}
               type="text"
+              autoComplete="off"
             />
           </div>
           <div className="column">
@@ -45,6 +47,7 @@ const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting }) => (
               required
               component={renderField}
               type="text"
+              autoComplete="off"
             />
           </div>
         </div>
