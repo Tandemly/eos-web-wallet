@@ -3,6 +3,7 @@
 exports[`<AddEOSAccountForm /> container renders without crashing 1`] = `
 <article>
   <form
+    autoComplete="off"
     onSubmit={[Function]}
   >
     <h3>

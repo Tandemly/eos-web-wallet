@@ -5,7 +5,7 @@ import Button from "components/Button";
 
 const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting }) => (
   <article>
-    <form onSubmit={handleSubmit(callAPI)}>
+    <form onSubmit={handleSubmit(callAPI)} autoComplete="off">
       <h3>Connect your EOS Account</h3>
       <div className="box double">
         <div className="columns is-desktop">
