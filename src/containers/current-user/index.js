@@ -5,6 +5,6 @@ const mapStateToProps = state => ({
   userId: selectWalletUserId(state)
 });
 
-const withUserId = connect(mapStateToProps);
+export const withUserId = connect(mapStateToProps);
 
 export default withUserId;

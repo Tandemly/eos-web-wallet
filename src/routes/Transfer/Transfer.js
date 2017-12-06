@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import Container from "containers/Transfer";
-import Transactions from "containers/Transactions";
-import Notifications from "containers/Notifications";
+import Container from "components/TransferForm/index";
+import Transactions from "../../components/Transactions";
+import { AppNotifications as Notifications } from "../../components/Notification";
 
 const Transfer = () => (
   <div className="columns is-desktop content is-variable is-6">

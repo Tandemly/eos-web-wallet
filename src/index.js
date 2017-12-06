@@ -4,9 +4,9 @@ import ReactDOM from "react-dom";
 import { createBrowserHistory as createHistory } from "history";
 import { Provider } from "react-redux";
 import { Router, Route } from "react-router-dom";
-import { PersistGate } from 'redux-persist/es/integration/react'
-import App from "containers/App";
-import Loading from "containers/Loading";
+import { PersistGate } from "redux-persist/es/integration/react";
+import App from "./App";
+import Loading from "./components/Loading";
 import { configureStore } from "util/configureStore";
 import { apiRequest } from "util/fetchUtil";
 import registerServiceWorker from "./registerServiceWorker";

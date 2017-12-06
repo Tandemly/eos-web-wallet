@@ -1,9 +1,9 @@
-import * as React from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { StaticRouter } from "react-router";
 import { Provider } from "react-redux";
 import { configureStore } from "util/configureStore";
-import LoginContainer from "./";
+import LoginContainer from "./index";
 
 describe("<LoginContainer />", () => {
   it("renders without crashing", () => {
