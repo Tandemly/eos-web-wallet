@@ -1,12 +1,32 @@
 Profile example:
 
 ```js
-<Background className="prefrences-form-example u-p6">
-  <Profile
-    name="Beth"
-    currentLocation="Creve Coeur, MO"
-    image={{ url: "https://avatarfiles.alphacoders.com/696/69632.jpg" }}
-    status="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a elit pulvinar, varius mauris non, condimentum tellus. Maecenas vitae ultrices diam. Lorem ipsum dolor sit amet, consectetur elit."
+<div style={{ backgroundColor: "#3a4249", padding: "2rem"}}>
+  <Profile userId="here@there.com"
+    userProfile={
+      {
+        imageUrl: "/images/user.png",
+        location: "Unknown",
+        displayName: "Here N. There",
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      }
+    }
   />
-</Background>
+</div>
+```
+
+Profile example (no display name):
+
+```js
+<div style={{ backgroundColor: "#3a4249", padding: "2rem"}}>
+  <Profile userId="here@there.com"
+    userProfile={
+      {
+        imageUrl: "/images/user.png",
+        location: "Unknown",
+        about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      }
+    }
+  />
+</div>
 ```

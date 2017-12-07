@@ -1,5 +1,9 @@
 // Global
-body, button, input, select, textarea {
+body,
+button,
+input,
+select,
+textarea {
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -34,7 +38,7 @@ main {
   flex: 1 0 auto;
   position: relative;
   background-color: $grey-main;
-  transition: left .4s;
+  transition: left 0.4s;
   @include mobile {
     width: 100%;
     left: -250px;
@@ -48,7 +52,7 @@ main {
   &.open {
     left: 0;
     .menu-closer {
-      opacity: .8;
+      opacity: 0.8;
       visibility: visible;
       z-index: 1;
     }
@@ -58,7 +62,7 @@ main {
     background-color: $grey-60;
     width: 100%;
     height: 100%;
-    transition: opacity .4s, visibility .4s;
+    transition: opacity 0.4s, visibility 0.4s;
     opacity: 0;
     visibility: hidden;
   }
@@ -171,6 +175,17 @@ input[type="radio"] {
   vertical-align: text-top;
 }
 
+.icon {
+  &.is-medium {
+    padding: 1.25rem 1.25rem;
+    font-size: 2rem;
+  }
+  &.is-large {
+    padding: 1.75rem 1.75rem;
+    font-size: 3rem;
+  }
+}
+
 .button {
   text-transform: uppercase;
   font-weight: bold;
@@ -193,7 +208,9 @@ input[type="radio"] {
     padding: 0 3rem;
     height: 55px;
   }
-  &.is-large, &.is-medium, &.is-small {
+  &.is-large,
+  &.is-medium,
+  &.is-small {
     font-size: 0.875rem;
     border-radius: 4px;
     @include mobile {
@@ -244,7 +261,8 @@ input[type="radio"] {
   margin-bottom: 1.5rem;
 }
 
-.input, .textarea {
+.input,
+.textarea {
   border-radius: 3px;
 }
 
@@ -265,7 +283,7 @@ input[type="radio"] {
   .field.is-grouped {
     @include mobile {
       display: block;
-      &> .control {
+      & > .control {
         width: 100%;
         flex-shrink: 0;
       }
@@ -292,9 +310,9 @@ input[type="radio"] {
   background-color: $grey-light;
   padding: 1.5rem;
   .field {
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
     &.is-grouped {
-      margin-top: .75rem;
+      margin-top: 0.75rem;
       .login-button {
         width: 100%;
         margin-right: 0;
@@ -313,7 +331,7 @@ input[type="radio"] {
     width: 100%;
     height: 10px;
     content: "";
-    box-shadow: inset 0px 10px 10px -5px rgba($grey-80,0.3);
+    box-shadow: inset 0px 10px 10px -5px rgba($grey-80, 0.3);
     left: 0;
     bottom: -10px;
   }
@@ -327,9 +345,10 @@ input[type="radio"] {
       padding-left: 50px;
     }
   }
-  input[type=text], input[type=password] {
+  input[type="text"],
+  input[type="password"] {
     height: 40px;
-    font-size: .875rem
+    font-size: 0.875rem;
   }
   .text-center {
     text-align: center;
@@ -342,10 +361,10 @@ input[type="radio"] {
   @include mobile {
     padding: 2rem;
   }
-  &> .column:not(:first-child) {
+  & > .column:not(:first-child) {
     margin-top: 3rem;
     @include desktop {
-      margin-top: .75rem;
+      margin-top: 0.75rem;
     }
   }
   .list {
@@ -365,7 +384,7 @@ input[type="radio"] {
     li {
       background-color: transparent;
       color: white;
-      padding: .75rem 1.25rem;
+      padding: 0.75rem 1.25rem;
       margin: 0;
       &:nth-child(odd) {
         background-color: $grey-mid;
@@ -382,7 +401,7 @@ input[type="radio"] {
 // Modals
 .ReactModal__Body--open {
   .ReactModal__Overlay {
-    background-color: rgba($grey-60,0.9) !important;
+    background-color: rgba($grey-60, 0.9) !important;
     z-index: 3;
   }
 
@@ -430,7 +449,7 @@ input[type="radio"] {
       z-index: 9;
 
       &:after {
-        font-family: 'icomoon';
+        font-family: "icomoon";
         content: "\e90c";
         font-size: 200%;
         color: white;

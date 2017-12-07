@@ -5,12 +5,11 @@ const renderExample = () => {
   <div>
     <h2>Modal</h2>
   </div>
-}
+};
 
-<Background className="modal-example">
+<div style={{ backgroundColor: "#3a4249", padding: "2rem"}}>
   <Modal
-    isOpen={true}
     renderRoute={renderExample}
   />
-</Background>
+</div>
 ```

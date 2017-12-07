@@ -1,17 +1,7 @@
-//@flow
 import React from "react";
 import Button from "components/Button";
 import Notification from "components/Notification";
-import type { KeyPair } from "../../redux-modules/eos-account/types";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
-type Props = {
-  accountName: string,
-  ownerKeys: KeyPair,
-  activeKeys: KeyPair,
-  onDisconnect: () => mixed,
-  onCopy: string => mixed
-};
 
 const EOSAccount = ({
   accountName,
@@ -19,7 +9,7 @@ const EOSAccount = ({
   activeKeys,
   onDisconnect,
   onCopy
-}: Props) => (
+}) => (
   <article>
     <h3>EOS</h3>
     <div className="box double">
