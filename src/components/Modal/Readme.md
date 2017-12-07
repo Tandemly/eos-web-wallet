@@ -7,7 +7,7 @@ const renderExample = () => {
   </div>
 };
 
-<div style={{ backgroundColor: "#3a4249", padding: "2rem"}}>
+<div style={{ backgroundColor: "#575f68", padding: "2rem"}}>
   <Modal
     renderRoute={renderExample}
   />
