@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Tandemly/eos-wallet-wip.svg?branch=develop)](https://travis-ci.org/Tandemly/eos-wallet-wip)
+
 This styleguide is intended for designers and developers to be a living document of
 the specific branding, styles, components and patterns used through out the project.
 This styleguide is generated from source files and from static documentation files
