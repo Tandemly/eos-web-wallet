@@ -309,6 +309,7 @@ input[type="radio"] {
 .aside-login {
   background-color: $grey-light;
   padding: 1.5rem;
+  position: relative;
   .field {
     margin-bottom: 0.75rem;
     &.is-grouped {
