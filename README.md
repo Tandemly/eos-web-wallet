@@ -1,5 +1,4 @@
-# EOS Web Wallet
-[![Build Status](https://travis-ci.org/Tandemly/eos-wallet-wip.svg?branch=develop)](https://travis-ci.org/Tandemly/eos-wallet-wip)
+# EOS Web Wallet &nbsp; [![Build Status](https://travis-ci.org/Tandemly/eos-wallet-wip.svg?branch=develop)](https://travis-ci.org/Tandemly/eos-wallet-wip)
 
 This is the web based wallet for EOS. The goal of the web wallet is to eventually be a multi-token wallet; but for now
 is aiming to support the most recent version of EOS with some basic wallet features.

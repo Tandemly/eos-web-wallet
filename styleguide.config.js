@@ -53,13 +53,10 @@ module.exports = {
         {
           name: "Project Organization",
           content: "src/styleguide/organization.md"
-        },
-        {
-          name: "Project Organization",
-          content: "src/styleguide/organization.md"
         }
       ]
-    },{
+    },
+    {
       name: "Styling",
       content: "src/styleguide/style.md",
       sections: [

@@ -13,7 +13,7 @@ const noop = () => {};
 
 <Provider store={store}>
   <Router history={createBrowserHistory()}>
-    <div style={{ backgroundColor: "#3a4249", padding: "2rem"}}>
+    <div style={{ backgroundColor: "#575f68", padding: "2rem"}}>
       <SignupForm callAPI={noop} />
     </div>
   </Router>
