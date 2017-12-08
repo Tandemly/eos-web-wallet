@@ -4,7 +4,7 @@ import configureMockStore from "redux-mock-store";
 import ecc from "eosjs-ecc";
 import randomize from "randomatic";
 import middlewares from "../middleware";
-import { addEOSAccount } from "thunks/add-eos-account";
+import { addEOSAccount } from "thunks/eos-account";
 import {
   setNotification,
   unsetNotification
