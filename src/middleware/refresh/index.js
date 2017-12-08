@@ -10,7 +10,7 @@ import {
   SET_EOS_ACCOUNT_NAME,
   DISCONNECT_EOS_ACCOUNT
 } from "../../redux-modules/eos-account/account-actions";
-import { getProfile } from "../../thunks/profile";
+import { updateProfileWithEOSAccountIfNeeded } from "../../thunks/profile";
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -57,7 +57,7 @@ const refresh = store => next => action => {
     const account = selectEOSAccountName(store.getState());
     const userId = selectWalletUserId(store.getState());
     if (userId) {
-      store.dispatch(getProfile(userId));
+      store.dispatch(updateProfileWithEOSAccountIfNeeded());
     }
 
     if (account) {

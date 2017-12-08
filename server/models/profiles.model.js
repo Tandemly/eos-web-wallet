@@ -41,6 +41,10 @@ const ProfileSchema = mongoose.Schema(
     },
     phone: {
       type: String
+    },
+    eos_account: {
+      type: String,
+      trim: true
     }
   },
   {
@@ -76,6 +80,7 @@ ProfileSchema.method({
       "about",
       "location",
       "website",
+      "eos_account",
       "createdAt"
     ];
 
