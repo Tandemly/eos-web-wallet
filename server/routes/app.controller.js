@@ -8,7 +8,8 @@ const allowedFields = [
   "phone",
   "about",
   "location",
-  "website"
+  "website",
+  "eos_account"
 ];
 
 /**
