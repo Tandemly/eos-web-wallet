@@ -2,6 +2,7 @@ const path = require("path");
 const webpackConfig = require("@tandem.ly/react-scripts/config/webpack.config.dev.js");
 
 module.exports = {
+  title: "EOS Wallet Style Guide",
   components: "src/components/**/[A-Z]*.js",
   ignore: [
     "**/__tests__/*",
@@ -37,7 +38,6 @@ module.exports = {
     transactions: path.resolve(__dirname, "src/fixtures/transactions.js"),
     users: path.resolve(__dirname, "src/fixtures/users.js")
   },
-  template: path.join(__dirname, "src/styleguide/template.html"),
   assetsDir: "public/",
   showCode: true,
   showUsage: true,
@@ -45,17 +45,35 @@ module.exports = {
     {
       name: "Introduction",
       content: "src/styleguide/intro.md",
-      isolated: true
-    },
-    {
-      name: "Typography",
-      content: "src/styleguide/typography.md",
-      isolatedSection: true
-    },
-    {
-      name: "Colors",
-      content: "src/styleguide/colors.md",
-      isolatedSection: true
+      sections: [
+        {
+          name: "Build & Installation",
+          content: "src/styleguide/build.md"
+        },
+        {
+          name: "Project Organization",
+          content: "src/styleguide/organization.md"
+        },
+        {
+          name: "Project Organization",
+          content: "src/styleguide/organization.md"
+        }
+      ]
+    },{
+      name: "Styling",
+      content: "src/styleguide/style.md",
+      sections: [
+        {
+          name: "Typography",
+          content: "src/styleguide/typography.md",
+          isolatedSection: true
+        },
+        {
+          name: "Colors",
+          content: "src/styleguide/colors.md",
+          isolatedSection: true
+        }
+      ]
     },
     {
       name: "Components",

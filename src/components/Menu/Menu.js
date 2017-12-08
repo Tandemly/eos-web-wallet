@@ -21,27 +21,29 @@ const unauthLinks = [
   }
 ];
 const authLinks = ({ onLogout }) => [
-  {
-    to: "/",
-    text: "Transfer",
-    iconClass: "icon-transfer u-mr1"
-  },
-  {
-    to: "/transactions",
-    text: "Transaction History",
-    iconClass: "icon-history u-mr1"
-  },
-  {
-    to: "/accounts",
-    text: "Accounts",
-    iconClass: "icon-account u-mr1"
-  },
-  {
-    to: "/logout",
-    onClick: onLogout,
-    text: "Logout",
-    iconClass: "icon-logout u-mr1"
-  },
+  [
+    {
+      to: "/",
+      text: "Transfer",
+      iconClass: "icon-transfer u-mr1"
+    },
+    {
+      to: "/transactions",
+      text: "Transaction History",
+      iconClass: "icon-history u-mr1"
+    },
+    {
+      to: "/accounts",
+      text: "Accounts",
+      iconClass: "icon-account u-mr1"
+    },
+    {
+      to: "/logout",
+      onClick: onLogout,
+      text: "Logout",
+      iconClass: "icon-logout u-mr1"
+    }
+  ],
   ...unauthLinks
 ];
 

@@ -12,6 +12,9 @@ src/styles/**/*.css
 # production
 /build
 
+# built style guide
+/styleguide
+
 # IDEs
 /.idea
 /.vscode
