@@ -1,6 +1,6 @@
 import AddEOSAccountForm from "./AddEOSAccountForm";
 import { connect } from "react-redux";
-import { addEOSAccount } from "../../thunks/add-eos-account";
+import { addEOSAccount } from "../../thunks/eos-account";
 
 /* eslint-disable camelcase */
 const mapDispatchToProps = dispatch => ({

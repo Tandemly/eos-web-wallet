@@ -1,12 +1,12 @@
 import EOSAccount from "./EOSAccount";
 import { connect } from "react-redux";
 import withEOSAccount from "../../containers/eos-account";
-import { disconnectEOSAccount } from "../../redux-modules/eos-account/account-actions";
+import { removeEOSAccount } from "../../thunks/eos-account";
 import { setNotification } from "../../redux-modules/notifications/notifications-actions";
 
 const mapDispatchToProps = dispatch => ({
   onDisconnect: () => {
-    dispatch(disconnectEOSAccount());
+    dispatch(removeEOSAccount());
   },
   onCopy: keyname =>
     dispatch(setNotification(`${keyname} has been copied to your clipboard`))

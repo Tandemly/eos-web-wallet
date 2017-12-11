@@ -1,11 +1,13 @@
 import {
   setEOSAccountName,
   setEOSOwnerKeys,
-  setEOSActiveKeys
-} from "redux-modules/eos-account/account-actions";
+  setEOSActiveKeys,
+  disconnectEOSAccount
+} from "../redux-modules/eos-account/account-actions";
 import ecc from "eosjs-ecc";
 import type { KeyPair } from "../redux-modules/eos-account/types";
 import { setNotification } from "../redux-modules/notifications/notifications-actions";
+import { updateProfileWithEOSAccountIfNeeded } from "./profile";
 
 export const addEOSAccount = (
   accountName,
@@ -38,4 +40,10 @@ export const addEOSAccount = (
   dispatch(setEOSAccountName(accountName));
   dispatch(setEOSActiveKeys(activeKeys));
   dispatch(setEOSOwnerKeys(ownerKeys));
+  await dispatch(updateProfileWithEOSAccountIfNeeded());
+};
+
+export const removeEOSAccount = () => async dispatch => {
+  dispatch(disconnectEOSAccount());
+  await dispatch(updateProfileWithEOSAccountIfNeeded());
 };

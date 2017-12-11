@@ -4,28 +4,41 @@ import configureMockStore from "redux-mock-store";
 import ecc from "eosjs-ecc";
 import randomize from "randomatic";
 import middlewares from "../middleware";
-import { addEOSAccount } from "thunks/add-eos-account";
-import { setNotification } from "../redux-modules/notifications/notifications-actions";
+import { addEOSAccount } from "thunks/eos-account";
+import {
+  setNotification,
+  unsetNotification
+} from "../redux-modules/notifications/notifications-actions";
 import {
   setEOSAccountName,
   setEOSActiveKeys,
   setEOSOwnerKeys
 } from "../redux-modules/eos-account/account-actions";
+import {
+  setProfile,
+  succeedGetProfile,
+  tryGetProfile
+} from "../redux-modules/profile/profile-actions";
 
 const mockStore = configureMockStore(middlewares);
 
 describe("addEOSAccount", () => {
   it("should dispatch appropriate error action if the provided active key is invalid", async () => {
+    const accountName = randomize("aA0", 10);
     const store = mockStore({
-      login: {
+      user: {
         isAuthenticated: true
       },
-      "eos-account": {
-        account: {}
+      eosAccount: {
+        account: {
+          accountName: undefined
+        }
+      },
+      profile: {
+        profile: {}
       }
     });
 
-    const accountName = randomize("aA0", 10);
     const ownerKey = ecc.randomKey();
     const activeKey = randomize("aA0", 64);
 
@@ -38,16 +51,21 @@ describe("addEOSAccount", () => {
   });
 
   it("should dispatch appropriate error action if the provided owner key is invalid", async () => {
+    const accountName = randomize("aA0", 10);
     const store = mockStore({
-      login: {
+      user: {
         isAuthenticated: true
       },
-      "eos-account": {
-        account: {}
+      eosAccount: {
+        account: {
+          accountName: undefined
+        }
+      },
+      profile: {
+        profile: {}
       }
     });
 
-    const accountName = randomize("aA0", 10);
     const ownerKey = randomize("aA0", 64);
     const activeKey = ecc.randomKey();
 
@@ -60,18 +78,38 @@ describe("addEOSAccount", () => {
   });
 
   it("should dispatch appropriate actions if both keys are valid", async () => {
+    const accountName = randomize("aA0", 10);
     const store = mockStore({
-      login: {
+      user: {
         isAuthenticated: true
       },
-      "eos-account": {
-        account: {}
+      eosAccount: {
+        account: {
+          accountName
+        }
+      },
+      profile: {
+        profile: {
+          eosAccount: accountName
+        }
       }
     });
 
-    const accountName = randomize("aA0", 10);
     const ownerKey = ecc.randomKey();
     const activeKey = ecc.randomKey();
+
+    const profile = {
+      email: "some@email.com",
+      eosAccount: accountName
+    };
+
+    fetch.resetMocks();
+    fetch.mockResponseOnce(JSON.stringify(profile), {
+      status: 200,
+      headers: {
+        "content-type": "application/json"
+      }
+    });
 
     const expectedActions = [
       setEOSAccountName(accountName),
@@ -82,7 +120,11 @@ describe("addEOSAccount", () => {
       setEOSOwnerKeys({
         publicKey: ecc.privateToPublic(ownerKey),
         privateKey: ownerKey
-      })
+      }),
+      tryGetProfile(),
+      unsetNotification(),
+      succeedGetProfile(),
+      setProfile(profile)
     ];
 
     await store.dispatch(addEOSAccount(accountName, ownerKey, activeKey));
