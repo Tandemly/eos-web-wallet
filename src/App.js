@@ -8,6 +8,7 @@ import Header from "./components/Header/index";
 import Footer from "./components/Footer/index";
 import Menu from "./components/Menu/index";
 import Modal from "./components/Modal/index";
+import CreateEOSAccount from "./routes/CreateEOSAccount";
 import Login from "./routes/Login/index";
 import Signup from "./routes/Signup/index";
 import About from "./routes/About/index";
@@ -46,11 +47,15 @@ const renderModalRoutes = props => (
     <Redirect from="/create-account" to="/signup" />
     <Redirect from="/connect-account" to="/accounts" />
     <Route path="/login" render={() => <Login {...props} />} />
-    <Route path="/signup" component={() => <Signup {...props} />} />
+    <Route path="/signup" render={() => <Signup {...props} />} />
+    <Route
+      path="/create-eos-account"
+      render={() => <CreateEOSAccount {...props} />}
+    />
   </Switch>
 );
 
-const modalRoutes = ["/login", "/signup", "/create-account"];
+const modalRoutes = ["/login", "/signup", "/create-eos-account"];
 
 type Props = {
   history: any,

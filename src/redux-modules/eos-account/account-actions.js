@@ -5,6 +5,22 @@ export const SET_EOS_ACCOUNT_NAME = "SET_EOS_ACCOUNT_NAME";
 export const SET_EOS_OWNER_KEYS = "SET_EOS_OWNER_KEYS";
 export const SET_EOS_ACTIVE_KEYS = "SET_EOS_ACTIVE_KEYS";
 export const DISCONNECT_EOS_ACCOUNT = "DISCONNECT_EOS_ACCOUNT";
+export const TRY_CREATE_EOS_ACCOUNT = "TRY_CREATE_EOS_ACCOUNT";
+export const SUCCESS_CREATE_EOS_ACCOUNT = "SUCCESS_CREATE_EOS_ACCOUNT";
+export const FAIL_CREATE_EOS_ACCOUNT = "FAIL_CREATE_EOS_ACCOUNT";
+
+type CreateEOSAccountTryAction = {
+  type: "TRY_CREATE_EOS_ACCOUNT"
+};
+
+type CreateEOSAccountSuccessAction = {
+  type: "SUCCESS_CREATE_EOS_ACCOUNT"
+};
+
+type CreateEOSAccountFailureAction = {
+  type: "FAIL_CREATE_EOS_ACCOUNT",
+  error: any
+};
 
 type SetEOSAccountName = {
   type: "SET_EOS_ACCOUNT_NAME",
@@ -26,10 +42,28 @@ type DisconnectEOSAccount = {
 };
 
 export type AccountActions =
+  | CreateEOSAccountTryAction
+  | CreateEOSAccountSuccessAction
+  | CreateEOSAccountFailureAction
   | SetEOSAccountName
   | SetEOSOwnerKeys
   | SetEOSActiveKeys
   | DisconnectEOSAccount;
+
+export const tryCreateEOSAccount = (): CreateEOSAccountTryAction => ({
+  type: TRY_CREATE_EOS_ACCOUNT
+});
+
+export const succeedCreateEOSAccount = (): CreateEOSAccountSuccessAction => ({
+  type: SUCCESS_CREATE_EOS_ACCOUNT
+});
+
+export const failCreateEOSAccount = (
+  error: any
+): CreateEOSAccountFailureAction => ({
+  type: FAIL_CREATE_EOS_ACCOUNT,
+  error
+});
 
 export const setEOSAccountName = (accountName: string): SetEOSAccountName => ({
   type: SET_EOS_ACCOUNT_NAME,

@@ -33,7 +33,7 @@ function refreshAccount(store, eosAccountName) {
 // Dispatches action after events
 const refresh = store => next => action => {
   // Clean up when user logs out
-  if ([LOGOUT, DISCONNECT_EOS_ACCOUNT].some(type => action.type === type)) {
+  if ([LOGOUT, SET_EOS_ACCOUNT_NAME, DISCONNECT_EOS_ACCOUNT].some(type => action.type === type)) {
     if (timer) {
       console.log("[polling] Stopping polling");
       clearTimeout(timer);

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import renderField from "components/Field";
 import Button from "components/Button";
@@ -62,7 +63,8 @@ const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting }) => (
           </div>
           <div className="control">
             <p>
-              Don’t have an account? <a>Sign Up</a>
+              Don’t have an account?{" "}
+              <Link to="/create-eos-account">Sign Up</Link>
             </p>
           </div>
         </div>

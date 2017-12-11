@@ -47,6 +47,10 @@ export const doTransfer = (to, amount, memo) => async (dispatch, getState) => {
     );
     dispatch(reset("transfer"));
   } catch (error) {
-    dispatch(failPostTransaction(error));
+    if (typeof error === "string") {
+      dispatch(failPostTransaction({ message: error }));
+    } else {
+      dispatch(failPostTransaction(error));
+    }
   }
 };
