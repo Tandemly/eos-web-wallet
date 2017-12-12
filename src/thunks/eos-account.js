@@ -12,6 +12,7 @@ import { push } from "react-router-redux";
 import type { KeyPair } from "../redux-modules/eos-account/types";
 import { setNotification } from "../redux-modules/notifications/notifications-actions";
 import { updateProfileWithEOSAccountIfNeeded } from "./profile";
+import { failPostTransaction } from "../redux-modules/transfer/transfer-actions";
 
 const delay = (ms, callback) =>
   new Promise(resolve => setTimeout(() => callback(resolve), ms));
@@ -66,7 +67,7 @@ export const createEOSAccount = (
       throw new Error("Account could not be pretend created.");
     }
 
-    return delay(100, resolve => {
+    return delay(1, resolve => {
       const ownerKey = ecc.randomKey();
       const activeKey = ecc.randomKey();
       dispatch(succeedCreateEOSAccount());
@@ -94,6 +95,10 @@ export const createEOSAccount = (
       resolve(dispatch(push("/accounts")));
     });
   } catch (error) {
-    return dispatch(failCreateEOSAccount(error));
+    if (typeof error === "string") {
+      dispatch(failCreateEOSAccount({ message: error }));
+    } else {
+      dispatch(failCreateEOSAccount(error));
+    }
   }
 };

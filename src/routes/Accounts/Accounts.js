@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import ConnectedEOSAccounts from "components/AddEOSAccountForm";
 import EOSAccount from "../../components/EOSAccount";
 import { AppNotifications as Notifications } from "../../components/Notification";
-import { selectEOSAccountName } from "../../redux-modules/eos-account/account-selectors";
-import { connect } from "react-redux";
+import ConnectOrCreateEOSAccount from "./ConnectOrCreateEOSAccount";
 
 type Props = {
-  eosAccountName: ?string
+  eosAccountName: ?string,
+  onConnect: () => mixed,
+  onCreate: () => mixed
 };
 
-const Accounts = ({ eosAccountName }: Props) => (
+const Accounts = ({ eosAccountName, onConnect, onCreate }: Props) => (
   <div>
     <Helmet>
       <title>EOS Account</title>
@@ -18,13 +18,13 @@ const Accounts = ({ eosAccountName }: Props) => (
     <div className="content">
       <Notifications />
       <h2 className="title is-2">Connect Accounts</h2>
-      {eosAccountName ? <EOSAccount /> : <ConnectedEOSAccounts />}
+      {eosAccountName ? (
+        <EOSAccount />
+      ) : (
+        <ConnectOrCreateEOSAccount onConnect={onConnect} onCreate={onCreate} />
+      )}
     </div>
   </div>
 );
 
-const mapStateToProps = state => ({
-  eosAccountName: selectEOSAccountName(state)
-});
-
-export default connect(mapStateToProps)(Accounts);
+export default Accounts;
