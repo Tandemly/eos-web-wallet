@@ -145,8 +145,8 @@ describe("doTransfer", () => {
       }
     ];
 
-    apiClient.post.mockReset();
-    apiClient.post.mockReturnValue(response);
+    apiClient.postTransaction.mockReset();
+    apiClient.postTransaction.mockReturnValue(response);
 
     fetch.resetMocks();
     fetch.mockResponseOnce(JSON.stringify(balanceResponse));

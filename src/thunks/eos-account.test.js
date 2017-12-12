@@ -1,6 +1,7 @@
 //@flow
 /* global describe, it, expect */
 import configureMockStore from "redux-mock-store";
+import { push } from "react-router-redux";
 import ecc from "eosjs-ecc";
 import randomize from "randomatic";
 import middlewares from "../middleware";
@@ -130,7 +131,8 @@ describe("eos-account thunks", () => {
         tryGetProfile(),
         unsetNotification(),
         succeedGetProfile(),
-        setProfile(profile)
+        setProfile(profile),
+        push("/accounts")
       ];
 
       await store.dispatch(addEOSAccount(accountName, ownerKey, activeKey));

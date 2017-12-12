@@ -114,6 +114,15 @@ class APIClient {
   }
 
   async post(path, data, opts = {}) {
+    const options = Object.assign({}, defaultAPIOptions, opts, {
+      method: "POST",
+      headers: authHeader,
+      body: JSON.stringify(data)
+    });
+    return await request(`${apiEndpoint}${path}`, options);
+  }
+
+  async postTransaction(path, data, opts = {}) {
     let { scope, messages } = data;
 
     if (!messages) {
@@ -183,11 +192,7 @@ class APIClient {
 
       transaction.signatures = signatures;
 
-      return await request(`${apiEndpoint}${path}`, {
-        method: "POST",
-        headers: authHeader,
-        body: JSON.stringify(transaction)
-      });
+      return await this.post(path, transaction, opts);
     } catch (err) {
       console.error("fetch error:", err);
       return Promise.reject(err.statusText || err);

@@ -12,7 +12,8 @@ import { push } from "react-router-redux";
 import type { KeyPair } from "../redux-modules/eos-account/types";
 import { setNotification } from "../redux-modules/notifications/notifications-actions";
 import { updateProfileWithEOSAccountIfNeeded } from "./profile";
-import { failPostTransaction } from "../redux-modules/transfer/transfer-actions";
+import { apiClient } from "../util/apiClient";
+import { selectWalletUserId } from "../redux-modules/user/user-selectors";
 
 const delay = (ms, callback) =>
   new Promise(resolve => setTimeout(() => callback(resolve), ms));
@@ -49,6 +50,7 @@ export const addEOSAccount = (
   dispatch(setEOSActiveKeys(activeKeys));
   dispatch(setEOSOwnerKeys(ownerKeys));
   await dispatch(updateProfileWithEOSAccountIfNeeded());
+  dispatch(push("/accounts"));
 };
 
 export const removeEOSAccount = () => async dispatch => {
@@ -56,34 +58,37 @@ export const removeEOSAccount = () => async dispatch => {
   await dispatch(updateProfileWithEOSAccountIfNeeded());
 };
 
-export const createEOSAccount = (
-  eosAccountName,
-  isDeveloper
-) => async dispatch => {
+export const createEOSAccount = (eosAccountName, isDeveloper) => async (
+  dispatch,
+  getState
+) => {
   dispatch(tryCreateEOSAccount());
-  try {
-    //TODO: This needs to actually call the create service after generating the necessary keys
-    if (!eosAccountName.startsWith("init")) {
-      throw new Error("Account could not be pretend created.");
-    }
+  return delay(1, async resolve => {
+    try {
+      const ownerKeys = {
+        privateKey: ecc.randomKey()
+      };
+      ownerKeys.publicKey = ecc.privateToPublic(ownerKeys.privateKey);
+      const activeKeys = {
+        privateKey: ecc.randomKey()
+      };
+      activeKeys.publicKey = ecc.privateToPublic(activeKeys.privateKey);
 
-    return delay(1, resolve => {
-      const ownerKey = ecc.randomKey();
-      const activeKey = ecc.randomKey();
+      const payload = {
+        name: eosAccountName,
+        email: selectWalletUserId(getState()),
+        wants_tokens: isDeveloper,
+        keys: {
+          active: activeKeys.publicKey,
+          owner: ownerKeys.publicKey
+        }
+      };
+      await apiClient.post("/v1/accounts/faucet", payload);
+
       dispatch(succeedCreateEOSAccount());
       dispatch(setEOSAccountName(eosAccountName));
-      dispatch(
-        setEOSOwnerKeys({
-          publicKey: ecc.privateToPublic(ownerKey),
-          privateKey: ownerKey
-        })
-      );
-      dispatch(
-        setEOSActiveKeys({
-          publicKey: ecc.privateToPublic(activeKey),
-          privateKey: activeKey
-        })
-      );
+      dispatch(setEOSOwnerKeys(ownerKeys));
+      dispatch(setEOSActiveKeys(activeKeys));
       dispatch(
         setNotification(
           `EOS Account "${
@@ -93,12 +98,12 @@ export const createEOSAccount = (
         )
       );
       resolve(dispatch(push("/accounts")));
-    });
-  } catch (error) {
-    if (typeof error === "string") {
-      dispatch(failCreateEOSAccount({ message: error }));
-    } else {
-      dispatch(failCreateEOSAccount(error));
+    } catch (error) {
+      if (typeof error === "string") {
+        dispatch(failCreateEOSAccount({ message: error }));
+      } else {
+        dispatch(failCreateEOSAccount(error));
+      }
     }
-  }
+  });
 };
