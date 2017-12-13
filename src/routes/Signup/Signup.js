@@ -15,7 +15,7 @@ const Signup = ({ children, handleClose }) => (
     <div className="modal-body">
       <Notifications />
 
-      <Container />
+      <Container handleClose={handleClose} />
     </div>
   </div>
 );

@@ -58,13 +58,13 @@ const LoginForm = ({
             text={submitting ? "Submitting..." : "Login"}
           />
         </div>
-        {/*<div className="control cancel-button">*/}
-        {/*<Button*/}
-        {/*className="button is-large is-secondary"*/}
-        {/*onClick={handleClose}*/}
-        {/*text="Cancel"*/}
-        {/*/>*/}
-        {/*</div>*/}
+        <div className="control cancel-button">
+          <Button
+            className="button is-large is-secondary"
+            onClick={handleClose}
+            text="Cancel"
+          />
+        </div>
       </div>
       <div className={`col-12 ${modal ? "text-left" : "text-center"}`}>
         <Link to="/create-account" className="text-link">

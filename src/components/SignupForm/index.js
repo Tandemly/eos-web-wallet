@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import SignupForm from "./SignupForm";
 import { doSignUp } from "../../thunks/signup";
 
-const mapDispatchToProps = (dispatch, { history }) => ({
+const mapDispatchToProps = (dispatch) => ({
   callAPI(values) {
     return dispatch(doSignUp(values.email, values.password));
   }

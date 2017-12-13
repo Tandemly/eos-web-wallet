@@ -12,7 +12,7 @@ const CreateEOSAccount = ({ onSubmit, handleClose }) => (
     <div className="modal-body">
       <Notifications />
 
-      <CreateEOSAccountForm onSubmit={onSubmit} />
+      <CreateEOSAccountForm onSubmit={onSubmit} handleClose={handleClose} />
     </div>
   </div>
 );
