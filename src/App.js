@@ -8,6 +8,8 @@ import Header from "./components/Header/index";
 import Footer from "./components/Footer/index";
 import Menu from "./components/Menu/index";
 import Modal from "./components/Modal/index";
+import CreateEOSAccount from "./routes/CreateEOSAccount";
+import AddEOSAccount from "./routes/AddEOSAccount/AddEOSAccount";
 import Login from "./routes/Login/index";
 import Signup from "./routes/Signup/index";
 import About from "./routes/About/index";
@@ -37,20 +39,27 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
         key="transactions"
       />,
       <Route path="/accounts" component={Accounts} key="accounts" />,
+      <Route
+        path="/connect-eos-account"
+        component={AddEOSAccount}
+        key="connect-eos-account"
+      />,
       <Route path="/profile" component={EditProfile} key="profile" />
     ]
   );
 
 const renderModalRoutes = props => (
   <Switch>
-    <Redirect from="/create-account" to="/signup" />
-    <Redirect from="/connect-account" to="/accounts" />
     <Route path="/login" render={() => <Login {...props} />} />
-    <Route path="/signup" component={() => <Signup {...props} />} />
+    <Route path="/signup" render={() => <Signup {...props} />} />
+    <Route
+      path="/create-eos-account"
+      render={() => <CreateEOSAccount {...props} />}
+    />
   </Switch>
 );
 
-const modalRoutes = ["/login", "/signup", "/create-account"];
+const modalRoutes = ["/login", "/signup", "/create-eos-account"];
 
 type Props = {
   history: any,
@@ -144,6 +153,8 @@ class App extends React.Component<Props> {
             />
 
             <Switch location={isModalOpen ? this.previousLocation : location}>
+              <Redirect from="/create-account" to="/signup" />
+              <Redirect from="/connect-account" to="/accounts" />
               <Route path="/users" component={Users} key="users" />,
               <Route path="/about" component={About} />
               <Route path="/faq" component={Faq} />

@@ -138,8 +138,12 @@ exports[`<AddEOSAccountForm /> container renders without crashing 1`] = `
           className="control"
         >
           <p>
-            Don’t have an account? 
-            <a>
+            Don’t have an account?
+             
+            <a
+              href="/create-eos-account"
+              onClick={[Function]}
+            >
               Sign Up
             </a>
           </p>

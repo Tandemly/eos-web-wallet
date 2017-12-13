@@ -1,7 +1,11 @@
 import { stopSubmit } from "redux-form";
 import { unsetNotification } from "redux-modules/notifications/notifications-actions";
 import { setNotification } from "../../redux-modules/notifications/notifications-actions";
-import { DISCONNECT_EOS_ACCOUNT } from "../../redux-modules/eos-account/account-actions";
+import {
+  DISCONNECT_EOS_ACCOUNT,
+  FAIL_CREATE_EOS_ACCOUNT,
+  SUCCESS_CREATE_EOS_ACCOUNT
+} from "../../redux-modules/eos-account/account-actions";
 import { FAIL_GET_TRANSACTIONS } from "../../redux-modules/transactions/transactions-actions";
 import {
   FAIL_LOGIN,
@@ -35,7 +39,8 @@ const api = store => next => action => {
     FAIL_POST_SIGNUP,
     FAIL_POST_EOS_ACCOUNT,
     FAIL_POST_TRANSACTION,
-    FAIL_UPDATE_PROFILE
+    FAIL_UPDATE_PROFILE,
+    FAIL_CREATE_EOS_ACCOUNT
   ];
 
   const clearNotificationActions = [
@@ -44,6 +49,7 @@ const api = store => next => action => {
     SUCCESS_POST_TRANSACTION,
     SUCCESS_POST_EOS_ACCOUNT,
     SUCCEED_UPDATE_PROFILE,
+    SUCCESS_CREATE_EOS_ACCOUNT,
     DISCONNECT_EOS_ACCOUNT,
     LOGOUT
   ];
