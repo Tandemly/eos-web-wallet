@@ -9,7 +9,7 @@ const Login = ({ handleClose, test }) => (
       <button className="js-modal-close" onClick={handleClose} />
     </div>
     <div className="modal-body">
-      <Container modal />
+      <Container modal handleClose={handleClose} />
     </div>
   </div>
 );
