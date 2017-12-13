@@ -209,6 +209,7 @@ describe("eos-account thunks", () => {
         setEOSAccountName(accountName),
         expect.objectContaining(
           setEOSOwnerKeys(
+            //$FlowFixMe
             expect.objectContaining({
               privateKey: expect.anything(),
               publicKey: expect.anything()
@@ -217,6 +218,7 @@ describe("eos-account thunks", () => {
         ),
         expect.objectContaining(
           setEOSActiveKeys(
+            //$FlowFixMe
             expect.objectContaining({
               privateKey: expect.anything(),
               publicKey: expect.anything()
