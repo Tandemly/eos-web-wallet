@@ -1,6 +1,7 @@
 //@flow
 /* global describe, it, expect */
 import configureMockStore from "redux-mock-store";
+import { push } from "react-router-redux";
 import ecc from "eosjs-ecc";
 import randomize from "randomatic";
 import middlewares from "../middleware";
@@ -17,13 +18,18 @@ import {
   disconnectEOSAccount,
   setEOSAccountName,
   setEOSActiveKeys,
-  setEOSOwnerKeys
+  setEOSOwnerKeys,
+  succeedCreateEOSAccount,
+  tryCreateEOSAccount
 } from "../redux-modules/eos-account/account-actions";
 import {
   setProfile,
   succeedGetProfile,
   tryGetProfile
 } from "../redux-modules/profile/profile-actions";
+import { apiClient } from "../util/apiClient";
+
+jest.mock("../util/apiClient");
 
 const mockStore = configureMockStore(middlewares);
 
@@ -130,7 +136,8 @@ describe("eos-account thunks", () => {
         tryGetProfile(),
         unsetNotification(),
         succeedGetProfile(),
-        setProfile(profile)
+        setProfile(profile),
+        push("/accounts")
       ];
 
       await store.dispatch(addEOSAccount(accountName, ownerKey, activeKey));
@@ -192,14 +199,42 @@ describe("eos-account thunks", () => {
         }
       });
 
-      const ownerKey = ecc.randomKey();
-      const activeKey = randomize("aA0", 64);
+      apiClient.post.mockReset();
+      apiClient.post.mockReturnValue({ eosAccount: accountName });
 
       const expectedActions = [
-        setNotification("Invalid Active Key (Private)", "error")
+        tryCreateEOSAccount(),
+        unsetNotification(),
+        succeedCreateEOSAccount(),
+        setEOSAccountName(accountName),
+        expect.objectContaining(
+          setEOSOwnerKeys(
+            //$FlowFixMe
+            expect.objectContaining({
+              privateKey: expect.anything(),
+              publicKey: expect.anything()
+            })
+          )
+        ),
+        expect.objectContaining(
+          setEOSActiveKeys(
+            //$FlowFixMe
+            expect.objectContaining({
+              privateKey: expect.anything(),
+              publicKey: expect.anything()
+            })
+          )
+        ),
+        setNotification(
+          `EOS Account "${
+            accountName
+          }" created. Your keys should be copied and stored offline for security.`,
+          "success"
+        ),
+        push("/accounts")
       ];
 
-      await store.dispatch(addEOSAccount(accountName, ownerKey, activeKey));
+      await store.dispatch(createEOSAccount(accountName, true));
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

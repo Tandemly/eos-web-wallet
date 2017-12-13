@@ -37,7 +37,7 @@ export const doTransfer = (to, amount, memo) => async (dispatch, getState) => {
 
   dispatch(tryPostTransaction(to, amount, memo));
   try {
-    const response = await apiClient.post("/v1/transactions", payload);
+    const response = await apiClient.postTransaction("/v1/transactions", payload);
     dispatch(succeedPostTransaction(response));
     dispatch(
       setNotification(

@@ -3,8 +3,7 @@ import {
   DISCONNECT_EOS_ACCOUNT,
   SET_EOS_ACCOUNT_NAME,
   SET_EOS_ACTIVE_KEYS,
-  SET_EOS_OWNER_KEYS,
-  SUCCESS_CREATE_EOS_ACCOUNT
+  SET_EOS_OWNER_KEYS
 } from "./account-actions";
 import type { AccountState } from "./types";
 import type { Action } from "../action-types";

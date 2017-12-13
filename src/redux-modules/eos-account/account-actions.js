@@ -19,6 +19,7 @@ type CreateEOSAccountSuccessAction = {
 
 type CreateEOSAccountFailureAction = {
   type: "FAIL_CREATE_EOS_ACCOUNT",
+  form: "create-eos-account",
   error: any
 };
 
@@ -62,6 +63,7 @@ export const failCreateEOSAccount = (
   error: any
 ): CreateEOSAccountFailureAction => ({
   type: FAIL_CREATE_EOS_ACCOUNT,
+  form: "create-eos-account",
   error
 });
 
