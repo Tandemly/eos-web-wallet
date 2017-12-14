@@ -1,4 +1,5 @@
 const httpStatus = require("http-status");
+const aqp = require("api-query-params");
 const { pick } = require("lodash");
 const Profile = require("../models/profiles.model");
 
@@ -45,6 +46,16 @@ exports.login = async (req, res, next) => {
     return res.json(profile.transform());
   } catch (error) {
     return next(Profile.checkDuplicateEmail(error));
+  }
+};
+
+exports.getProfiles = async (req, res, next) => {
+  try {
+    const query = aqp(req.query);
+    const profiles = await Profile.list(query);
+    res.json(profiles);
+  } catch (error) {
+    return next(error);
   }
 };
 

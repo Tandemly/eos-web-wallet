@@ -3,10 +3,9 @@ const validate = require("express-validation");
 const controller = require("./app.controller");
 const {
   login,
-  logout,
   register,
   update,
-  getProfile
+  getProfile,
 } = require("./app.validation");
 const { checkAuth } = require("../middleware/auth");
 
@@ -91,6 +90,10 @@ router
 router
   .route("/profile")
   .put(checkAuth, validate(update), controller.updateProfile);
+
+router
+  .route("/profile")
+  .get(checkAuth, controller.getProfiles);
 
 router
   .route("/profile/:email")
