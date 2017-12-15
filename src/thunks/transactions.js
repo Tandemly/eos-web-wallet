@@ -3,6 +3,7 @@ import {
   succeedGetTransactions,
   failGetTransactions
 } from "redux-modules/transactions/transactions-actions";
+import { updateProfilesForRecentTransactions } from "thunks/profile";
 import { selectEOSAccountName } from "redux-modules/eos-account/account-selectors";
 import { apiRequest } from "../util/fetchUtil";
 import { tryGetTransactions } from "../redux-modules/transactions/transactions-actions";
@@ -18,6 +19,7 @@ export const getTransactions = accountName => async (dispatch, getState) => {
     );
     const transactions = response ? changeCaseKeys(response, "camelize") : [];
     dispatch(succeedGetTransactions(transactions));
+    dispatch(updateProfilesForRecentTransactions());
   } catch (error) {
     dispatch(failGetTransactions(error));
   }

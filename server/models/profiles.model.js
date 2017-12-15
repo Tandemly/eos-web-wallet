@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const httpStatus = require("http-status");
-const async = require("async");
 const bcrypt = require("bcryptjs");
+const { compact, isEmpty, pick } = require("lodash");
 const APIError = require("../APIError");
 const { env } = require("../vars");
 
@@ -68,21 +68,22 @@ ProfileSchema.pre("save", async function save(next) {
   }
 });
 
+const fields = [
+  "id",
+  "display_name",
+  "email",
+  "image_url",
+  "phone",
+  "about",
+  "location",
+  "website",
+  "eos_account",
+  "createdAt"
+];
+
 ProfileSchema.method({
   transform() {
     const transformed = {};
-    const fields = [
-      "id",
-      "display_name",
-      "email",
-      "image_url",
-      "phone",
-      "about",
-      "location",
-      "website",
-      "eos_account",
-      "createdAt"
-    ];
 
     fields.forEach(field => {
       transformed[field] = this[field];
@@ -175,6 +176,30 @@ ProfileSchema.statics = {
       });
     }
     return error;
+  },
+
+  /**
+   * List profiles
+   *
+   * @param {number} skip - Number of entities to be skipped.
+   * @param {number} limit - Limit number of entities to be returned.
+   * @param {Object} [sort] - Object w/ keys matching fieldnames to be sorted, values as -1 (desc), 1 (asc)
+   * @param {Object} [filter] - Object matching a MongoDB query object
+   * @param {Object|String} [projection] - MongoDB $projection object denoting fields to include/exclude
+   * @returns {Promise<Profile[]>}
+   */
+  list({ skip = 0, limit = 30, sort, filter, projection }) {
+    const $match = isEmpty(filter) ? null : { $match: filter };
+    const $project = projection ? { $project: projection } : null;
+    const $skip = { $skip: skip };
+    const $limit = { $limit: limit };
+    const $sort = sort ? { $sort: sort } : null;
+
+    const agg = compact([$match, $project, $sort, $skip, $limit]);
+
+    return this.aggregate(agg)
+      .exec()
+      .then(profiles => profiles.map(profile => pick(profile, fields)));
   }
 };
 

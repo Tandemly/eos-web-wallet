@@ -3,7 +3,15 @@ import css from "./styles.module.scss";
 import cx from "classnames";
 import numeral from "numeral";
 
-const Transaction = ({ key, date, image, name, memo, amount, kind }) => (
+const Transaction = ({
+  key,
+  date,
+  image = "/images/user.png",
+  name,
+  memo,
+  amount,
+  kind
+}) => (
   <li className="box" key={key}>
     <div className="columns is-variable is-2">
       <div className="column">
@@ -18,7 +26,7 @@ const Transaction = ({ key, date, image, name, memo, amount, kind }) => (
             <div className="thumb-wrapper">
               <img
                 className="user-thumb"
-                src="/images/male_2.jpg"
+                src={image}
                 alt="Placeholder avatar thumbnail"
               />
             </div>

@@ -6,6 +6,7 @@
   "dependencies": {
     "@tandem.ly/react-scripts": "^1.0.19",
     "@tandem.ly/redux-persist-transform-encrypt": "^2.0.1",
+    "api-query-params": "^4.5.1",
     "async": "^2.6.0",
     "bcrypt": "^1.0.3",
     "bcryptjs": "^2.4.3",

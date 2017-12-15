@@ -16,6 +16,8 @@ import type { Action } from "../redux-modules/action-types";
 import { selectWalletUserId } from "../redux-modules/user/user-selectors";
 import { selectEOSAccountName } from "../redux-modules/eos-account/account-selectors";
 import { selectWalletUserProfile } from "../redux-modules/profile/profile-selectors";
+import { selectRecentTransactionAccounts } from "../redux-modules/transactions/transactions-selectors";
+import { updateProfiles } from "../redux-modules/profile/profile-actions";
 
 export const updateProfile = (
   profile: UserProfile
@@ -54,5 +56,23 @@ export const updateProfileWithEOSAccountIfNeeded = () => /* prettier-ignore */ a
   const profile = selectWalletUserProfile(getState());
   if(profile.eosAccount !== eosAccount) {
     await dispatch(updateProfile({...profile, eosAccount}));
+  }
+};
+
+export const updateProfilesForRecentTransactions = () => /* prettier-ignore */ async (dispatch: Dispatch<Action>, getState: () => mixed) => {
+  const eosAccounts = selectRecentTransactionAccounts(getState());
+  if(eosAccounts && eosAccounts.length > 0) {
+    try {
+      const filter = encodeURIComponent(JSON.stringify({
+        "eos_account": {
+          "$in": eosAccounts
+        }
+      }));
+      const response = await appRequest(`/app/profile?filter=${filter}`);
+      const profiles: Array<UserProfile> = (changeCaseKeys(response, "camelize"): Array<UserProfile>);
+      dispatch(updateProfiles(profiles));
+    } catch (error) {
+      dispatch(failGetProfile(error));
+    }
   }
 };
