@@ -7,9 +7,9 @@ const mapStateToProps = state => ({
   eosAccountName: selectEOSAccountName(state)
 });
 
-const mapDispatchToProps = dispatch => ({
-  onConnect: () => dispatch(push("/connect-eos-account")),
-  onCreate: () => dispatch(push("/create-eos-account"))
+const mapDispatchToProps = (dispatch, stateProps) => ({
+  onConnect: () => dispatch(push(`${stateProps.match.url}/connect-eos`)),
+  onCreate: () => dispatch(push(`${stateProps.match.url}/create-eos`))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Accounts);

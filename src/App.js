@@ -32,7 +32,8 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
     <Redirect to="/login" />
   ) : (
     [
-      <Route path="/" exact component={Transfer} key="transfer" />,
+      <Redirect exact from="/" to="/transfer" />,
+      <Route path="/transfer" component={Transfer} key="transfer" />,
       <Route
         path="/transactions"
         component={Transactions}
@@ -53,13 +54,13 @@ const renderModalRoutes = props => (
     <Route path="/login" render={() => <Login {...props} />} />
     <Route path="/signup" render={() => <Signup {...props} />} />
     <Route
-      path="/create-eos-account"
+      path="/accounts/create-eos"
       render={() => <CreateEOSAccount {...props} />}
     />
   </Switch>
 );
 
-const modalRoutes = ["/login", "/signup", "/create-eos-account"];
+const modalRoutes = ["/login", "/signup", "/accounts/create-eos"];
 
 type Props = {
   history: any,
