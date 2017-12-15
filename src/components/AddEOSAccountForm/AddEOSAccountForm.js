@@ -4,7 +4,7 @@ import { Field, reduxForm } from "redux-form";
 import renderField from "components/Field";
 import Button from "components/Button";
 
-const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting }) => (
+const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting, match }) => (
   <article>
     <form onSubmit={handleSubmit(callAPI)} autoComplete="off">
       <h3>Connect your EOS Account</h3>
@@ -64,7 +64,7 @@ const AddEOSAccountForm = ({ callAPI, handleSubmit, submitting }) => (
           <div className="control">
             <p>
               Don’t have an account?{" "}
-              <Link to="/create-eos-account">Sign Up</Link>
+              <Link to="/accounts/create-eos">Sign Up</Link>
             </p>
           </div>
         </div>

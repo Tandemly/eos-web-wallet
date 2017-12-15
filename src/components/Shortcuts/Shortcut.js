@@ -13,25 +13,17 @@ const Shortcut = (item, _key) => {
       </li>
     );
   } else {
-    const {
-      iconClass,
-      text,
-      key,
-      ...props } = item;
+    const { iconClass, text, key, ...props } = item;
 
     return (
       <li key={key}>
-        <NavLink
-          exact
-          activeClassName={activeClassName}
-          {...props}
-        >
+        <NavLink activeClassName={activeClassName} {...props}>
           <span className={iconClass} />
           {text}
         </NavLink>
       </li>
     );
   }
-}
+};
 
 export default Shortcut;

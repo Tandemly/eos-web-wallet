@@ -23,7 +23,7 @@ const unauthLinks = [
 const authLinks = ({ onLogout }) => [
   [
     {
-      to: "/",
+      to: "/transfer",
       text: "Transfer",
       iconClass: "icon-transfer u-mr1"
     },
