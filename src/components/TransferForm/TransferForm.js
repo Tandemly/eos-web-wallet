@@ -67,11 +67,10 @@ const TransferForm = ({
           text={submitting ? "Submitting..." : "Submit"}
         />
       </div>
-      <div className="control">
+      <div className="control cancel-button">
         <Button
-          disabled={submitting}
-          className="is-large is-secondary"
-          type="submit"
+          className="button is-large is-secondary"
+          onClick={reset}
           text="Cancel"
         />
       </div>
