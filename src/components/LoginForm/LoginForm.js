@@ -40,14 +40,6 @@ const LoginForm = ({
       type="password"
     />
 
-    <div className="field">
-      <div className="control">
-        <label className="label checkbox">
-          <input type="checkbox" /> Keep me logged in
-        </label>
-      </div>
-    </div>
-
     <div className="modal-cta">
       <div className="field is-grouped">
         <div className="control login-button">
