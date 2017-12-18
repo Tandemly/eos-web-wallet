@@ -3,11 +3,8 @@
 .financials {
   background-color: $grey-light;
   .balance {
-    line-height: 3rem;
-    span {
-      font-size: 2rem;
-      line-height: 2rem;
-    }
+    line-height: 5rem;
+    font-weight: 200;
   }
   .full_balance {
     font-size: 1.125rem;
