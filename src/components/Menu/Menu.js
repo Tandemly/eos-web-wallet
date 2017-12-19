@@ -2,11 +2,13 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
 import { withRouter } from "react-router-dom";
+import cx from "classnames";
 import { CurrentEOSBalance } from "../Balance";
 import Login from "components/LoginForm/index";
 import Shortcuts from "components/Shortcuts";
 import { doLogout } from "../../thunks/login";
 import { closeMenu } from "../../redux-modules/app/app-actions";
+import styles from "./styles.module.scss";
 
 const unauthLinks = ({ goTo }) => [
   {
@@ -58,10 +60,13 @@ const authLinks = ({ onLogout, goTo }) => [
 const Menu = props => {
   const { isAuthenticated } = props;
   return (
-    <div className="menu p-lg">
+    <div className={cx("menu p-lg", styles.menu)}>
       {!isAuthenticated && <Login className="aside-login" modal={false} />}
-
-      {isAuthenticated && <CurrentEOSBalance />}
+      {isAuthenticated && (
+        <div className={cx("u-p3", styles.financials)}>
+          <CurrentEOSBalance />
+        </div>
+      )}
 
       <Shortcuts
         data={isAuthenticated ? authLinks(props) : unauthLinks(props)}

@@ -36,12 +36,13 @@ export const selectRecentTransactions = createSelector(
         let from = transaction.messages[0].data.from;
         const kind = to === eosAccountName ? "deposit" : "withdrawal";
         let image;
+        let profile;
         if (kind === "deposit") {
-          const profile = profileMap[from];
+          profile = profileMap[from];
           from = (profile && profile.displayName) || from;
           image = profile && profile.imageUrl;
         } else {
-          const profile = profileMap[to];
+          profile = profileMap[to];
           to = (profile && profile.displayName) || to;
           image = profile && profile.imageUrl;
         }
@@ -49,6 +50,7 @@ export const selectRecentTransactions = createSelector(
         const amount = transaction.messages[0].data.amount;
         const memo = transaction.messages[0].data.memo;
         return {
+          profile: profile && `/user/${profile.email}`,
           key: transaction.id,
           date,
           name,

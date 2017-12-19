@@ -1,6 +1,5 @@
 /* global describe, it, expect */
 import configureMockStore from "redux-mock-store";
-import { push } from "react-router-redux";
 import middlewares from "../middleware";
 import { unsetNotification } from "../redux-modules/notifications/notifications-actions";
 import {

@@ -2,6 +2,7 @@
 
 export type UserProfile = {
   email: string,
+  eosAccount?: string,
   imageUrl?: string,
   displayName?: string,
   website?: string,
