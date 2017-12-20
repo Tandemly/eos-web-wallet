@@ -8320,9 +8320,9 @@ react-router@^4.2.0:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
-react-scale-text@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/react-scale-text/-/react-scale-text-1.1.4.tgz#5734492e0a3786cfaa5d2881beb81179fdf704a3"
+react-scale-text@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-scale-text/-/react-scale-text-1.2.1.tgz#9f55eb342cc830e30df3633aef9aeb34042e7f2a"
   dependencies:
     lodash "^4.17.4"
     prop-types "^15.6.0"
