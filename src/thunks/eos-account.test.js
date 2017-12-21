@@ -96,9 +96,7 @@ describe("eos-account thunks", () => {
           isAuthenticated: true
         },
         eosAccount: {
-          account: {
-            accountName
-          }
+          accountName
         },
         profile: {
           profiles: [

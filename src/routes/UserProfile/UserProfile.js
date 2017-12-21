@@ -1,7 +1,7 @@
 //@flow
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
-import { CurrentEOSBalance } from "../../components/Balance";
+import { UserEOSBalance } from "../../components/Balance";
 import TransactionsList from "../../components/Transactions";
 import Profile from "../../components/Profile";
 import type { UserProfile as UserProfileType } from "../../types/UserProfile";
@@ -44,7 +44,7 @@ class UserProfile extends Component<Props> {
           </div>
           <div className="column is-narrow">
             <div className="box">
-              <CurrentEOSBalance />
+              <UserEOSBalance account={userProfile.eosAccount} />
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { getBalance } from "thunks/balance";
 import {
   tryGetBalance,
   succeedGetBalance
-} from "redux-modules/eos-account/balance-actions";
+} from "redux-modules/eos-balances/balance-actions";
 import type { AccountBalanceResponse } from "./balance";
 import { unsetNotification } from "../redux-modules/notifications/notifications-actions";
 
@@ -35,6 +35,7 @@ describe("getBalance", () => {
     const expectedActions = [
       tryGetBalance(accountName),
       succeedGetBalance({
+        account: accountName,
         total: response.eos_balance,
         staked: response.staked_balance,
         unstaked: response.unstaking_balance

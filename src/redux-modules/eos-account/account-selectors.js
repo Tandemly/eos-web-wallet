@@ -1,9 +1,8 @@
 import { createSelector } from "reselect";
 
 const selectAccountState = state =>
-  state && state.eosAccount ? state.eosAccount.account : {};
-const selectBalanceState = state =>
-  state && state.eosAccount ? state.eosAccount.balance : {};
+  state && state.eosAccount ? state.eosAccount : {};
+
 
 export const selectEOSAccountName = createSelector(
   selectAccountState,
@@ -18,16 +17,6 @@ export const selectEOSOwnerKeys = createSelector(
 export const selectEOSActiveKeys = createSelector(
   selectAccountState,
   account => account.activeKeys
-);
-
-export const selectEOSTotalBalance = createSelector(
-  selectBalanceState,
-  balance => balance.total
-);
-
-export const selectEOSBalanceDifference = createSelector(
-  selectBalanceState,
-  balance => balance.difference
 );
 
 export const selectEOSPrivateKeys = createSelector(

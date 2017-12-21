@@ -5,6 +5,7 @@ import { getTransactionsByUserId } from "../../thunks/transactions";
 // import { getBalanceByUserId } from "../../thunks/balance";
 import { withTransactionsForUserId } from "../../containers/transactions";
 import { getProfileByUserId } from "../../thunks/profile";
+import { refreshUser } from "../../thunks/users";
 
 const mapStateToProps = (state, ownProps) => ({
   userId: ownProps.match.params.userId,
@@ -12,14 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  loadUser: async () => {
-    await dispatch(getProfileByUserId(ownProps.match.params.userId)).then(
-      () => {
-        // dispatch(getBalanceByUserId(stateProps.userId));
-        dispatch(getTransactionsByUserId(ownProps.match.params.userId));
-      }
-    );
-  }
+  loadUser: () => dispatch(refreshUser(ownProps.match.params.userId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(

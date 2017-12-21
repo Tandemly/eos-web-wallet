@@ -12,7 +12,7 @@ import {
 import {
   tryGetBalance,
   succeedGetBalance
-} from "redux-modules/eos-account/balance-actions";
+} from "redux-modules/eos-balances/balance-actions";
 import {
   setNotification,
   unsetNotification
@@ -33,14 +33,12 @@ describe("doTransfer", () => {
         isAuthenticated: true
       },
       eosAccount: {
-        account: {
-          accountName: "inita",
-          ownerKeys: {
-            privateKey: "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
-          },
-          activeKeys: {
-            privateKey: "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
-          }
+        accountName: "inita",
+        ownerKeys: {
+          privateKey: "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
+        },
+        activeKeys: {
+          privateKey: "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3"
         }
       }
     });

@@ -164,9 +164,7 @@ describe("profile thunks", () => {
           isAuthenticated: true
         },
         eosAccount: {
-          account: {
-            accountName
-          }
+          accountName
         },
         profile: {
           profiles: []
@@ -226,9 +224,7 @@ describe("profile thunks", () => {
           isAuthenticated: true
         },
         eosAccount: {
-          account: {
-            accountName
-          }
+          accountName
         },
         profile: {
           profiles: [
