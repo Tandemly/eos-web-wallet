@@ -20,15 +20,11 @@ const Transactions = ({ transactions }) => (
 
       <div>
         {/*<Filter data={transactions}>*/}
-        <TransactionsList />
+        <TransactionsList data={transactions} />
         {/*</Filter>*/}
       </div>
     </div>
   </div>
 );
 
-const mapStateToProps = state => ({
-  transactions: selectRecentTransactions(state)
-});
-
-export default connect(mapStateToProps)(Transactions);
+export default Transactions;

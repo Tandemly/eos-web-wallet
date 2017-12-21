@@ -15,7 +15,7 @@ const Balance = ({ total, difference }) => {
   return (
     <div className="-is-logged-in">
       <div className={cx("financials", css.financials)}>
-        <ScaleText widthOnly={true}>
+        <ScaleText widthOnly>
           <p className={cx(css.balance)}>
             {totalBalance}
             {balanceSuffix && (

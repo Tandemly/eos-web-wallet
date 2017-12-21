@@ -5,7 +5,7 @@ import { unsetNotification } from "../redux-modules/notifications/notifications-
 import {
   failGetProfile,
   failUpdateProfile,
-  setProfile,
+  updateProfiles,
   succeedGetProfile,
   succeedUpdateProfile,
   tryGetProfile,
@@ -28,7 +28,7 @@ describe("profile thunks", () => {
           isAuthenticated: true
         },
         profile: {
-          profile: {}
+          profiles: []
         }
       });
 
@@ -49,7 +49,7 @@ describe("profile thunks", () => {
         tryGetProfile(),
         unsetNotification(),
         succeedGetProfile(),
-        setProfile(profile)
+        updateProfiles([profile])
       ];
 
       await store.dispatch(getProfile());
@@ -63,7 +63,7 @@ describe("profile thunks", () => {
           isAuthenticated: true
         },
         profile: {
-          profile: {}
+          profiles: []
         }
       });
 
@@ -94,7 +94,7 @@ describe("profile thunks", () => {
           isAuthenticated: true
         },
         profile: {
-          profile: {}
+          profiles: []
         }
       });
 
@@ -117,7 +117,7 @@ describe("profile thunks", () => {
         tryUpdateProfile(),
         unsetNotification(),
         succeedUpdateProfile(),
-        setProfile(profile)
+        updateProfiles([profile])
       ];
 
       await store.dispatch(updateProfile({ ...profile }));
@@ -131,7 +131,7 @@ describe("profile thunks", () => {
           isAuthenticated: true
         },
         profile: {
-          profile: {}
+          profiles: []
         }
       });
 
@@ -157,8 +157,10 @@ describe("profile thunks", () => {
   describe("updateProfileWithEOSAccountIfNeeded", () => {
     it("if profile does not have eos account that matches local eos account, the profile should be updated", async () => {
       const accountName = randomizer("aA0", 10);
+      const email = randomizer("aA0", 10);
       const store = mockStore({
         user: {
+          email,
           isAuthenticated: true
         },
         eosAccount: {
@@ -167,11 +169,9 @@ describe("profile thunks", () => {
           }
         },
         profile: {
-          profile: {}
+          profiles: []
         }
       });
-
-      const email = "test@eafe.com";
 
       const profile = {
         email
@@ -199,14 +199,16 @@ describe("profile thunks", () => {
         tryGetProfile(),
         unsetNotification(),
         succeedGetProfile(),
-        setProfile(profile),
+        updateProfiles([profile]),
         tryUpdateProfile(),
         unsetNotification(),
         succeedUpdateProfile(),
-        setProfile({
-          ...profile,
-          eosAccount: accountName
-        })
+        updateProfiles([
+          {
+            ...profile,
+            eosAccount: accountName
+          }
+        ])
       ];
 
       await store.dispatch(updateProfileWithEOSAccountIfNeeded());
@@ -216,8 +218,11 @@ describe("profile thunks", () => {
 
     it("if profile has eos account that matches local eos account, no additional actions should happen", async () => {
       const accountName = randomizer("aA0", 10);
+      const email = randomizer("aA0", 10);
+
       const store = mockStore({
         user: {
+          email,
           isAuthenticated: true
         },
         eosAccount: {
@@ -226,16 +231,18 @@ describe("profile thunks", () => {
           }
         },
         profile: {
-          profile: {
-            eosAccount: accountName
-          }
+          profiles: [
+            {
+              email,
+              eosAccount: accountName
+            }
+          ]
         }
       });
 
-      const email = "test@eafe.com";
-
       const profile = {
-        email
+        email,
+        eosAccount: accountName
       };
 
       fetch.resetMocks();
@@ -250,7 +257,7 @@ describe("profile thunks", () => {
         tryGetProfile(),
         unsetNotification(),
         succeedGetProfile(),
-        setProfile(profile)
+        updateProfiles([profile])
       ];
 
       await store.dispatch(updateProfileWithEOSAccountIfNeeded());

@@ -4,7 +4,7 @@ import Container from "components/TransferForm/index";
 import Transactions from "../../components/Transactions";
 import { AppNotifications as Notifications } from "../../components/Notification";
 
-const Transfer = () => (
+const Transfer = ({ transactions }) => (
   <div className="columns is-desktop content is-variable is-6">
     <div className="column is-7-desktop is-12-tablet">
       <Notifications />
@@ -24,7 +24,7 @@ const Transfer = () => (
           </p>
         </h3>
 
-        <Transactions count={5} />
+        <Transactions data={transactions} count={5} />
       </article>
     </div>
     <div className="column is-5-desktop is-12-tablet">
