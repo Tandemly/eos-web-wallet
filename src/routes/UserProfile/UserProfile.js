@@ -38,7 +38,7 @@ class UserProfile extends Component<Props> {
           userProfile.displayName && (
             <h2 className="title is-2">{userProfile.displayName}</h2>
           )}
-        <div className="columns is-variable is-6">
+        <div className="columns is-variable is-6 is-desktop">
           <div className="column">
             <Profile userId={userId} userProfile={userProfile} />
           </div>

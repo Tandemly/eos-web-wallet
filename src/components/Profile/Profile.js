@@ -20,7 +20,7 @@ const Profile = ({
     website
   }
 }: Props) => (
-  <div className={cx("columns is-variable is-2", css.profile)}>
+  <div className={cx("columns is-variable is-2 is-mobile", css.profile)}>
     <div className="column is-narrow">
       <img
         src={imageUrl === "" ? "/images/user.png" : imageUrl}
@@ -38,7 +38,7 @@ const Profile = ({
           {website}
         </a>
       )}
-      <p>{about}</p>
+      <p className="is-hidden-mobile">{about}</p>
     </div>
   </div>
 );

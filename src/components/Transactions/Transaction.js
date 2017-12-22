@@ -44,7 +44,7 @@ const Transaction = ({
             </div>
           </div>
           <div className="column">
-            <div>
+            <div className={css["user-info"]}>
               <p className="username">
                 {profile ? <Link to={profile}>{name}</Link> : <a>{name}</a>}
               </p>

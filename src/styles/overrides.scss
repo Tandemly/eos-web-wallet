@@ -400,6 +400,12 @@ input[type="radio"] {
   }
 }
 
+.financials {
+  .scaletext-wrapper {
+    max-width: 225px;
+  }
+}
+
 // Modals
 .ReactModal__Body--open {
   .ReactModal__Overlay {

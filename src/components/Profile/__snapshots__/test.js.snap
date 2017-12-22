@@ -2,7 +2,7 @@
 
 exports[`<Profile /> renders without crashing 1`] = `
 <div
-  className="columns is-variable is-2"
+  className="columns is-variable is-2 is-mobile"
 >
   <div
     className="column is-narrow"
@@ -30,7 +30,9 @@ exports[`<Profile /> renders without crashing 1`] = `
     >
       http://mywebsite.com/me
     </a>
-    <p>
+    <p
+      className="is-hidden-mobile"
+    >
       active
     </p>
   </div>
