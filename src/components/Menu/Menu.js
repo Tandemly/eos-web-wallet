@@ -10,15 +10,15 @@ const unauthLinks = [
   {
     to: "/users",
     text: "Users"
-  },
-  {
-    to: "/about",
-    text: "About"
-  },
-  {
-    to: "/faq",
-    text: "FAQ"
-  }
+  } //,
+  // {
+  //   to: "/about",
+  //   text: "About"
+  // },
+  // {
+  //   to: "/faq",
+  //   text: "FAQ"
+  // }
 ];
 const authLinks = ({ onLogout }) => [
   [
