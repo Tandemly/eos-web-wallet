@@ -13,17 +13,17 @@ const unauthLinks = ({ goTo }) => [
     to: "/users",
     onClick: goTo,
     text: "Users"
-  },
-  {
-    to: "/about",
-    onClick: goTo,
-    text: "About"
-  },
-  {
-    to: "/faq",
-    onClick: goTo,
-    text: "FAQ"
-  }
+  } //,
+  // {
+  //   to: "/about",
+  //   onClick: goTo,
+  //   text: "About"
+  // },
+  // {
+  //   to: "/faq",
+  //   onClick: goTo,
+  //   text: "FAQ"
+  // }
 ];
 const authLinks = ({ onLogout, goTo }) => [
   [
