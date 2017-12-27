@@ -93,8 +93,8 @@ You can use the provided `.env.example` file to get started.
 First, clone the application from the repo and create the local `.env` file:
 
 ```bash
-$ git clone https://github.com/Tandemly/eos-wallet-wip.git
-$ cd eos-wallet-aip
+$ git clone https://github.com/Tandemly/eos-web-wallet.git
+$ cd eos-web-wallet
 $ cp .env.example .env
 ```
 
