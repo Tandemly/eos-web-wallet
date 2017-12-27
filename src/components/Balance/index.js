@@ -1,5 +1,10 @@
 import Balance from "./Balance";
-import {withCurrentEOSBalance } from '../../containers/balance';
+import {
+  withCurrentEOSBalance,
+  withEOSBalanceForAccount
+} from "../../containers/balance";
+
+export const UserEOSBalance = withEOSBalanceForAccount(Balance);
 
 export const CurrentEOSBalance = withCurrentEOSBalance(Balance);
 

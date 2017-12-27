@@ -2,45 +2,37 @@
 
 exports[`<Profile /> renders without crashing 1`] = `
 <div
-  className="box"
+  className="columns is-variable is-2 is-mobile"
 >
   <div
-    className="columns is-variable is-2 is-vcentered"
+    className="column is-narrow"
+  >
+    <img
+      alt="Rick Sanchez"
+      className={undefined}
+      src="src"
+    />
+  </div>
+  <div
+    className="column u-mt1"
   >
     <div
-      className="column is-narrow"
-    >
-      <img
-        alt="Rick Sanchez"
-        className={undefined}
-        src="src"
-      />
-    </div>
+      className="heading is-6"
+    />
     <div
-      className="column"
+      className="title"
     >
-      <div>
-        <div
-          className="heading is-6"
-        >
-          Rick Sanchez
-        </div>
-        <div
-          className="title"
-        >
-          Friday Harbor, WA
-        </div>
-        <a
-          href="http://mywebsite.com/me"
-          target="_blank"
-        >
-          http://mywebsite.com/me
-        </a>
-      </div>
+      Friday Harbor, WA
     </div>
-  </div>
-  <div>
-    <p>
+    <a
+      href="http://mywebsite.com/me"
+      target="_blank"
+    >
+      http://mywebsite.com/me
+    </a>
+    <p
+      className="is-hidden-mobile"
+    >
       active
     </p>
   </div>

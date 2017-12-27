@@ -1,9 +1,7 @@
 import * as React from "react";
-import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
 import TransactionsList from "../../components/Transactions";
 //import Filter from "components/Filter";
-import { selectRecentTransactions } from "../../redux-modules/transactions/transactions-selectors";
 
 const Transactions = ({ transactions }) => (
   <div>
@@ -20,15 +18,11 @@ const Transactions = ({ transactions }) => (
 
       <div>
         {/*<Filter data={transactions}>*/}
-        <TransactionsList />
+        <TransactionsList data={transactions} />
         {/*</Filter>*/}
       </div>
     </div>
   </div>
 );
 
-const mapStateToProps = state => ({
-  transactions: selectRecentTransactions(state)
-});
-
-export default connect(mapStateToProps)(Transactions);
+export default Transactions;

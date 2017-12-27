@@ -10,54 +10,64 @@ const selectRecentTransactionState = createSelector(
   state => state.recents || []
 );
 
-export const selectRecentTransactions = createSelector(
+const filterAndTransformTransactionForAccount = eosAccountName => (transactions, profileMap) =>
+  transactions
+  // .filter(item => item && item.scope && item.scope.includes(eosAccountName))
+    .filter(
+      transaction =>
+        transaction.messages &&
+        transaction.messages[0] &&
+        transaction.messages[0].type === "transfer" &&
+        transaction.messages[0].data &&
+        (transaction.messages[0].data.to === eosAccountName ||
+          transaction.messages[0].data.from === eosAccountName)
+    )
+    .map(transaction => {
+      const created = Date.parse(transaction.createdAt);
+      const date = {
+        month: dateFormat(created, "mmm"),
+        day: dateFormat(created, "d")
+      };
+      let to = transaction.messages[0].data.to;
+      let from = transaction.messages[0].data.from;
+      const kind = to === eosAccountName ? "deposit" : "withdrawal";
+      let image;
+      let profile;
+      if (kind === "deposit") {
+        profile = profileMap[from];
+        from = (profile && profile.displayName) || from;
+        image = profile && profile.imageUrl;
+      } else {
+        profile = profileMap[to];
+        to = (profile && profile.displayName) || to;
+        image = profile && profile.imageUrl;
+      }
+      const name = kind === "deposit" ? from : to;
+      const amount = transaction.messages[0].data.amount;
+      const memo = transaction.messages[0].data.memo;
+      return {
+        profile: profile && `/user/${profile.email}`,
+        key: transaction.id,
+        date,
+        name,
+        memo,
+        amount,
+        kind,
+        image
+      };
+    });
+
+export const selectRecentTransactionsByAccount = eosAccountName => createSelector(
   selectRecentTransactionState,
-  selectEOSAccountName,
   selectProfileForEOSAccountMap,
-  (transactions, eosAccountName, profileMap) =>
-    transactions
-      // .filter(item => item && item.scope && item.scope.includes(eosAccountName))
-      .filter(
-        transaction =>
-          transaction.messages &&
-          transaction.messages[0] &&
-          transaction.messages[0].type === "transfer" &&
-          transaction.messages[0].data &&
-          (transaction.messages[0].data.to === eosAccountName ||
-            transaction.messages[0].data.from === eosAccountName)
-      )
-      .map(transaction => {
-        const created = Date.parse(transaction.createdAt);
-        const date = {
-          month: dateFormat(created, "mmm"),
-          day: dateFormat(created, "d")
-        };
-        let to = transaction.messages[0].data.to;
-        let from = transaction.messages[0].data.from;
-        const kind = to === eosAccountName ? "deposit" : "withdrawal";
-        let image;
-        if (kind === "deposit") {
-          const profile = profileMap[from];
-          from = (profile && profile.displayName) || from;
-          image = profile && profile.imageUrl;
-        } else {
-          const profile = profileMap[to];
-          to = (profile && profile.displayName) || to;
-          image = profile && profile.imageUrl;
-        }
-        const name = kind === "deposit" ? from : to;
-        const amount = transaction.messages[0].data.amount;
-        const memo = transaction.messages[0].data.memo;
-        return {
-          key: transaction.id,
-          date,
-          name,
-          memo,
-          amount,
-          kind,
-          image
-        };
-      })
+  filterAndTransformTransactionForAccount(eosAccountName)
+);
+
+export const selectRecentTransactions = createSelector(
+  selectEOSAccountName,
+  selectRecentTransactionState,
+  selectProfileForEOSAccountMap,
+  (eosAccountName, transactions, profileMap) => filterAndTransformTransactionForAccount(eosAccountName)(transactions, profileMap)
 );
 
 export const selectRecentTransactionAccounts = createSelector(

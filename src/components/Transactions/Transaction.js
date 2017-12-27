@@ -1,9 +1,11 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import css from "./styles.module.scss";
 import cx from "classnames";
 import numeral from "numeral";
 
 const Transaction = ({
+  profile,
   key,
   date,
   image = "/images/user.png",
@@ -24,17 +26,27 @@ const Transaction = ({
           </div>
           <div className="column is-narrow">
             <div className="thumb-wrapper">
-              <img
-                className="user-thumb"
-                src={image}
-                alt="Placeholder avatar thumbnail"
-              />
+              {profile ? (
+                <Link to={profile}>
+                  <img
+                    className="user-thumb"
+                    src={image}
+                    alt="Placeholder avatar thumbnail"
+                  />
+                </Link>
+              ) : (
+                <img
+                  className="user-thumb"
+                  src={image}
+                  alt="Placeholder avatar thumbnail"
+                />
+              )}
             </div>
           </div>
           <div className="column">
-            <div>
+            <div className={css["user-info"]}>
               <p className="username">
-                <a>{name}</a>
+                {profile ? <Link to={profile}>{name}</Link> : <a>{name}</a>}
               </p>
               <p className="memo">{memo}</p>
             </div>

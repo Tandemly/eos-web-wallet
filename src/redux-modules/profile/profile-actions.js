@@ -7,7 +7,6 @@ export const FAIL_UPDATE_PROFILE = "FAIL_UPDATE_PROFILE";
 export const TRY_GET_PROFILE = "TRY_GET_PROFILE";
 export const SUCCEED_GET_PROFILE = "SUCCEED_GET_PROFILE";
 export const FAIL_GET_PROFILE = "FAIL_GET_PROFILE";
-export const SET_USER_PROFILE = "SET_USER_PROFILE";
 export const UPDATE_PROFILES = "UPDATE_PROFILES";
 
 type UpdateProfileTryAction = {
@@ -37,11 +36,6 @@ type GetProfileFailureAction = {
   error: any
 };
 
-type SetProfileAction = {
-  type: "SET_USER_PROFILE",
-  profile: UserProfile
-};
-
 type UpdateProfilesAction = {
   type: "UPDATE_PROFILES",
   profiles: Array<UserProfile>
@@ -51,7 +45,6 @@ export type UpdateProfileActions =
   | UpdateProfileTryAction
   | UpdateProfileSuccessAction
   | UpdateProfileFailureAction
-  | SetProfileAction
   | GetProfileTryAction
   | GetProfileSuccessAction
   | GetProfileFailureAction
@@ -84,11 +77,6 @@ export const succeedGetProfile = (): GetProfileSuccessAction => ({
 export const failGetProfile = (error: string): GetProfileFailureAction => ({
   type: FAIL_GET_PROFILE,
   error
-});
-
-export const setProfile = (profile: UserProfile): SetProfileAction => ({
-  type: SET_USER_PROFILE,
-  profile
 });
 
 export const updateProfiles = (

@@ -5,15 +5,16 @@ exports[`<Balance /> renders without crashing 1`] = `
   className="-is-logged-in"
 >
   <div
-    className="financials u-p3"
+    className="financials"
   >
     <div
       className="scaletext-wrapper"
       style={
         Object {
           "fontSize": "inherit",
-          "height": "100%",
-          "overflow": "hidden",
+          "height": "auto",
+          "overflowX": "hidden",
+          "overflowY": "visible",
           "width": "100%",
         }
       }

@@ -1,5 +1,4 @@
 import { createReducer as createAccountReducer } from "redux-modules/eos-account";
-import { createReducer as createProfileReducer } from "redux-modules/profile";
 import { removeReducers, addReducers } from "../../util/configureStore";
 import {
   REHYDRATE_ACCOUNTS,
@@ -22,12 +21,6 @@ const persist = store => next => action => {
           selectWalletUserId(store.getState()),
           selectWalletUserHash(store.getState())
         )
-      },
-      {
-        name: "profile",
-        reducer: createProfileReducer(
-          selectWalletUserId(store.getState())
-        )
       }
     ]);
     return;
@@ -35,7 +28,7 @@ const persist = store => next => action => {
 
   if (action.type === DEHYDRATE_ACCOUNTS) {
     delay(1000).then(() => {
-      removeReducers(["eosAccount", "profile"]);
+      removeReducers(["eosAccount"]);
     });
     return;
   }

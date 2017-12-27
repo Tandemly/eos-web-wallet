@@ -23,7 +23,7 @@ import {
   tryCreateEOSAccount
 } from "../redux-modules/eos-account/account-actions";
 import {
-  setProfile,
+  updateProfiles,
   succeedGetProfile,
   tryGetProfile
 } from "../redux-modules/profile/profile-actions";
@@ -96,14 +96,14 @@ describe("eos-account thunks", () => {
           isAuthenticated: true
         },
         eosAccount: {
-          account: {
-            accountName
-          }
+          accountName
         },
         profile: {
-          profile: {
-            eosAccount: accountName
-          }
+          profiles: [
+            {
+              eosAccount: accountName
+            }
+          ]
         }
       });
 
@@ -136,7 +136,7 @@ describe("eos-account thunks", () => {
         tryGetProfile(),
         unsetNotification(),
         succeedGetProfile(),
-        setProfile(profile),
+        updateProfiles([profile]),
         push("/accounts")
       ];
 
@@ -175,7 +175,7 @@ describe("eos-account thunks", () => {
         tryGetProfile(),
         unsetNotification(),
         succeedGetProfile(),
-        setProfile({ email })
+        updateProfiles([{ email }])
       ];
 
       await store.dispatch(removeEOSAccount());

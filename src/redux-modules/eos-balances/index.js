@@ -1,11 +1,11 @@
-import profileReducer from "./profile-reducer";
+import balanceReducer from "./balance-reducer";
 import localforage from "localforage";
 import { persistReducer } from "redux-persist";
 
 export default persistReducer(
   {
-    key: `wallet-profiles`,
+    key: `eos-balances`,
     storage: localforage
   },
-  profileReducer
+  balanceReducer
 );

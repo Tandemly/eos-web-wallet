@@ -14,21 +14,21 @@ export const selectProfiles = createSelector(
 
 export const selectProfileEmailMap = createSelector(selectProfiles, profiles =>
   profiles.reduce((profileMap, profile) => {
-    profileMap[profile.email] = { ...defaultProfile, profile };
+    profileMap[profile.email] = { ...defaultProfile, ...profile };
     return profileMap;
   }, {})
 );
+
+export const selectUserProfile = email =>
+  createSelector(selectProfileEmailMap, profileMap => ({
+    ...defaultProfile,
+    ...profileMap[email]
+  }));
 
 export const selectCurrentUserProfile = createSelector(
   selectWalletUserId,
   selectProfileEmailMap,
   (email, profileMap) => ({ ...defaultProfile, ...profileMap[email] })
-);
-
-export const selectWalletUserProfile = createSelector(
-  selectProfileState,
-  selectCurrentUserProfile,
-  (profileState, userProfile) => profileState.profile || userProfile
 );
 
 export const selectProfileForEOSAccountMap = createSelector(

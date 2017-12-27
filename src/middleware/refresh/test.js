@@ -1,8 +1,8 @@
 import configureMockStore from "redux-mock-store";
 import middlewares from "middleware";
 import { tryGetTransactions } from "redux-modules/transactions/transactions-actions";
-import { tryGetBalance } from "redux-modules/eos-account/balance-actions";
-import { succeedGetBalance } from "../../redux-modules/eos-account/balance-actions";
+import { tryGetBalance } from "redux-modules/eos-balances/balance-actions";
+import { succeedGetBalance } from "../../redux-modules/eos-balances/balance-actions";
 import { succeedGetTransactions } from "../../redux-modules/transactions/transactions-actions";
 import { SUCCEED_LOGIN } from "../../redux-modules/user/user-actions";
 import { unsetNotification } from "../../redux-modules/notifications/notifications-actions";

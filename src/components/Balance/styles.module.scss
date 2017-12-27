@@ -1,15 +1,16 @@
 @import "../../styles/custom_variables.scss";
 
 .financials {
-  background-color: $grey-light;
   .balance {
-    line-height: 5rem;
+    line-height: normal;
     font-weight: 200;
+    min-width: 200px;
   }
   .full_balance {
     font-size: 1.125rem;
     line-height: 1rem;
     margin: 0;
+    margin-bottom: 0 !important;
     color: $grey-text;
     font-weight: 400;
   }
@@ -27,5 +28,9 @@
       background-color: $red;
       color: $white;
     }
+  }
+  .balance_suffix {
+    font-size: 50%;
+    text-transform: uppercase;
   }
 }

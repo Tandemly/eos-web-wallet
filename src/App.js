@@ -19,6 +19,7 @@ import Transactions from "./routes/Transactions/index";
 import Users from "./routes/Users/index";
 import Accounts from "./routes/Accounts/index";
 import EditProfile from "./routes/EditProfile/index";
+import Profile from "./routes/UserProfile/index";
 import NoMatch from "./routes/NoMatch/index";
 import { closeMenu } from "./redux-modules/app/app-actions";
 import { doLogout } from "./thunks/login";
@@ -32,7 +33,7 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
     <Redirect to="/login" />
   ) : (
     [
-      <Redirect exact from="/" to="/transfer" />,
+      <Route exact path="/" render={() => <Redirect to="/transfer" />} />,
       <Route path="/transfer" component={Transfer} key="transfer" />,
       <Route
         path="/transactions"
@@ -45,6 +46,7 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
         component={AddEOSAccount}
         key="connect-eos-account"
       />,
+      <Route path="/user/:userId" component={Profile} key="user-profile" />,
       <Route path="/profile" component={EditProfile} key="profile" />
     ]
   );

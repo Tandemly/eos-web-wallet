@@ -1,13 +1,11 @@
 //@flow
 /* global describe, it, expect */
 import randomize from "randomatic";
-import type { EOSAccountState, KeyPair } from "./types";
+import type { AccountState, KeyPair } from "./types";
 import {
   selectEOSAccountName,
   selectEOSActiveKeys,
-  selectEOSBalanceDifference,
-  selectEOSOwnerKeys,
-  selectEOSTotalBalance
+  selectEOSOwnerKeys
 } from "./account-selectors";
 
 describe("EOS Account Selectors", () => {
@@ -20,21 +18,13 @@ describe("EOS Account Selectors", () => {
     publicKey: randomize("aA0", 64),
     privateKey: randomize("aA0", 64)
   };
-  const total = Math.random() * 100;
-  const difference = Math.random() * 100;
 
-  const eosState: EOSAccountState = {
-    account: {
-      accountName,
-      ownerKeys,
-      activeKeys
-    },
-    balance: {
-      loading: false,
-      total,
-      difference
-    }
+  const eosState: AccountState = {
+    accountName,
+    ownerKeys,
+    activeKeys
   };
+
   const state = {
     eosAccount: eosState
   };
@@ -60,22 +50,6 @@ describe("EOS Account Selectors", () => {
       const actual = selectEOSActiveKeys(state);
 
       expect(actual).toEqual(activeKeys);
-    });
-  });
-
-  describe("total balance selector", () => {
-    it("should return the total balance", () => {
-      const actual = selectEOSTotalBalance(state);
-
-      expect(actual).toEqual(total);
-    });
-  });
-
-  describe("balance difference selector", () => {
-    it("should return the difference", () => {
-      const actual = selectEOSBalanceDifference(state);
-
-      expect(actual).toEqual(difference);
     });
   });
 });

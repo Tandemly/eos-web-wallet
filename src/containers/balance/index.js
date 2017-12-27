@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
 import {
-  selectEOSBalanceDifference,
-  selectEOSTotalBalance
-} from "../../redux-modules/eos-account/account-selectors";
+  selectEOSAccountBalance,
+  selectEOSBalanceForAccount
+} from "../../redux-modules/eos-balances/balance-selectors";
 
-const mapStateToProps = state => ({
-  difference: selectEOSBalanceDifference(state),
-  total: selectEOSTotalBalance(state)
-});
+export const withCurrentEOSBalance = connect(state =>
+  selectEOSAccountBalance(state)
+);
 
-export const withCurrentEOSBalance = connect(mapStateToProps);
+export const withEOSBalanceForAccount = connect((state, ownProps) =>
+  selectEOSBalanceForAccount(ownProps.account)(state)
+);

@@ -5,19 +5,16 @@ import {
   TRY_GET_PROFILE,
   SUCCEED_GET_PROFILE,
   FAIL_GET_PROFILE,
-  SET_USER_PROFILE,
   UPDATE_PROFILES
 } from "./profile-actions";
 import type { UserProfile } from "../../types/UserProfile";
 
 type StateShape = {
-  profile: ?UserProfile,
   profiles: Array<UserProfile>,
   isFetching: boolean
 };
 
 const initialState: StateShape = {
-  profile: null,
   profiles: [],
   isFetching: false
 };
@@ -42,15 +39,10 @@ export default (state = initialState, action = {}) => {
         ...state,
         isFetching: false
       };
-    case SET_USER_PROFILE:
-      return {
-        ...state,
-        profile: action.profile
-      };
     case UPDATE_PROFILES:
       return {
         ...state,
-        profiles: action.profiles
+        profiles: [...state.profiles, ...action.profiles]
       };
     default:
       return state;

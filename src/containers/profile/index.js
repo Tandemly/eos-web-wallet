@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import { selectWalletUserProfile } from "../../redux-modules/profile/profile-selectors";
+import { selectCurrentUserProfile } from "../../redux-modules/profile/profile-selectors";
 
 const mapStateToProps = state => ({
-  userProfile: selectWalletUserProfile(state)
+  userProfile: selectCurrentUserProfile(state)
 });
 
 const withProfile = connect(mapStateToProps);
