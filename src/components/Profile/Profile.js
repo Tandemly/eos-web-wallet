@@ -14,9 +14,9 @@ const Profile = ({
   userProfile: {
     eosAccount,
     imageUrl = "/images/user.png",
-    location = "Unknown",
+    location,
     displayName,
-    about = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    about,
     website
   }
 }: Props) => (
