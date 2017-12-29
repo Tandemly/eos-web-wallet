@@ -10,6 +10,11 @@ type Props = {
   userId: string,
   userProfile: UserProfileType,
   transactions: Array<any>,
+  match: {
+    params: {
+      userId: string
+    }
+  },
   loadUser: () => mixed
 };
 

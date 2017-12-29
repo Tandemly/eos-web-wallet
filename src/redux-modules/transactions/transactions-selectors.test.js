@@ -28,56 +28,58 @@ describe("EOS Transaction Selectors", () => {
   const state = {
     eosAccount: eosState,
     transactions: {
-      recents: [
-        {
-          scope: [accountName, duplicateName],
-          messages: [
-            {
-              type: "transfer",
-              data: {
-                to: accountName,
-                from: duplicateName
+      recents: {
+        [accountName]: [
+          {
+            scope: [accountName, duplicateName],
+            messages: [
+              {
+                type: "transfer",
+                data: {
+                  to: accountName,
+                  from: duplicateName
+                }
               }
-            }
-          ]
-        },
-        {
-          scope: [duplicateName, accountName],
-          messages: [
-            {
-              type: "transfer",
-              data: {
-                to: duplicateName,
-                from: accountName
+            ]
+          },
+          {
+            scope: [duplicateName, accountName],
+            messages: [
+              {
+                type: "transfer",
+                data: {
+                  to: duplicateName,
+                  from: accountName
+                }
               }
-            }
-          ]
-        },
-        {
-          scope: [testName, accountName],
-          messages: [
-            {
-              type: "transfer",
-              data: {
-                to: testName,
-                from: accountName
+            ]
+          },
+          {
+            scope: [testName, accountName],
+            messages: [
+              {
+                type: "transfer",
+                data: {
+                  to: testName,
+                  from: accountName
+                }
               }
-            }
-          ]
-        },
-        {
-          scope: [accountName, otherTestName],
-          messages: [
-            {
-              type: "transfer",
-              data: {
-                to: accountName,
-                from: otherTestName
+            ]
+          },
+          {
+            scope: [accountName, otherTestName],
+            messages: [
+              {
+                type: "transfer",
+                data: {
+                  to: accountName,
+                  from: otherTestName
+                }
               }
-            }
-          ]
-        }
-      ]
+            ]
+          }
+        ]
+      }
     }
   };
 
