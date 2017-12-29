@@ -17,6 +17,48 @@ type Props = {
   loadUser: () => mixed
 };
 
+const Pagination = ({ users, location, skip, limit }) => (
+  <div className="columns is-vcentered u-pt2">
+    <div className="column is-narrow">
+      <Link
+        to={{
+          pathname: location.pathname,
+          search: stringify({
+            ...location.query,
+            skip: skip < limit ? 0 : skip - limit
+          })
+        }}
+        disabled={skip <= 0}
+        className="button is-primary is-small is-outlined"
+        type="button"
+      >
+        Previous
+      </Link>
+    </div>
+    <div className="column"> </div>
+    <div className="column is-narrow">
+      <Link
+        to={
+          users.length >= limit
+            ? {
+                pathname: location.pathname,
+                search: stringify({
+                  ...location.query,
+                  skip: skip + limit
+                })
+              }
+            : location
+        }
+        disabled={users.length < limit}
+        className="button is-primary is-small is-outlined"
+        type="button"
+      >
+        Next
+      </Link>
+    </div>
+  </div>
+);
+
 class Users extends Component<Props> {
   constructor(props: Props, context: any) {
     super(props, context);
@@ -34,7 +76,7 @@ class Users extends Component<Props> {
   }
 
   render() {
-    const { users, location, skip, limit } = this.props;
+    const { users } = this.props;
     return (
       <div className="content">
         <Helmet>
@@ -42,48 +84,14 @@ class Users extends Component<Props> {
         </Helmet>
 
         <h2 className="title is-2">Users</h2>
+
+        <Pagination {...this.props} />
         <div>
           {/*<Filter data={users}>*/}
           <Container data={users} />
           {/*</Filter>*/}
         </div>
-        <div className="columns is-vcentered">
-          <div className="column is-narrow">
-            {skip > 0 ? (
-              <Link
-                to={{
-                  pathname: location.pathname,
-                  search: stringify({
-                    ...location.query,
-                    skip: skip < limit ? 0 : skip - limit
-                  })
-                }}
-              >
-                <Button
-                  className="button is-primary is-outlined"
-                  text="Previous"
-                />
-              </Link>
-            ) : (
-              <Button
-                disabled
-                className="button is-primary is-outlined is-disabled"
-                text="Previous"
-              />
-            )}
-          </div>
-          <div className="column"> </div>
-          <div className="column is-narrow">
-            <Link
-              to={{
-                pathname: location.pathname,
-                search: stringify({ ...location.query, skip: skip + limit })
-              }}
-            >
-              <Button className="button is-primary is-outlined" text="Next" />
-            </Link>
-          </div>
-        </div>
+        <Pagination {...this.props} />
       </div>
     );
   }

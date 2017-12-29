@@ -17,7 +17,7 @@ export const getTransactions = accountName => async (dispatch, getState) => {
       }"] }}`
     );
     const transactions = response ? changeCaseKeys(response, "camelize") : [];
-    dispatch(succeedGetTransactions(transactions));
+    dispatch(succeedGetTransactions(transactions, accountName));
     dispatch(updateProfilesForRecentTransactions());
   } catch (error) {
     dispatch(failGetTransactions(error));

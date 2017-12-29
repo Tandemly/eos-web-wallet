@@ -12,5 +12,5 @@ export const refreshUser = userId => async (dispatch, getState) => {
 
 export const refreshAccount = eosAccount => async dispatch => {
   dispatch(getBalance(eosAccount));
-  dispatch(getTransactions(eosAccount));
+  return dispatch(getTransactions(eosAccount));
 };

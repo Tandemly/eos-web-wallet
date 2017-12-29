@@ -7,14 +7,14 @@ const selectTransactionsState = state => state.transactions || {};
 
 const selectRecentTransactionState = createSelector(
   selectTransactionsState,
-  state => state.recents || []
+  state => state.recents || {}
 );
 
 const filterAndTransformTransactionForAccount = eosAccountName => (
   transactions,
   profileMap
 ) =>
-  transactions
+  (transactions[eosAccountName] || [])
     // .filter(item => item && item.scope && item.scope.includes(eosAccountName))
     .filter(
       transaction =>
@@ -84,8 +84,8 @@ export const selectRecentTransactionAccounts = createSelector(
   selectEOSAccountName,
   selectRecentTransactionState,
   (eosAccountName, transactions) =>
-    transactions
-      ? transactions.reduce(
+    transactions[eosAccountName]
+      ? transactions[eosAccountName].reduce(
           (users, transaction) =>
             users.concat(
               transaction.scope.filter(

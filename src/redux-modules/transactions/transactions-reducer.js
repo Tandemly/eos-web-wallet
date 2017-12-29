@@ -5,7 +5,7 @@ import {
 } from "./transactions-actions";
 
 const initialState = {
-  recents: []
+  recents: {}
 };
 
 export default (state = initialState, action) => {
@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
     case SUCCESS_GET_TRANSACTIONS:
       return {
         ...state,
-        recents: action.transactions
+        recents: { ...state.recents, [action.eosAccount]: action.transactions }
       };
     default:
       return state;
