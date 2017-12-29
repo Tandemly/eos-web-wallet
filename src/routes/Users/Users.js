@@ -35,7 +35,7 @@ const Pagination = ({ users, location, skip, limit }) => (
         Previous
       </Link>
     </div>
-    <div className="column"> </div>
+    <div className="column is-hidden-mobile"> </div>
     <div className="column is-narrow">
       <Link
         to={
