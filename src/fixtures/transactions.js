@@ -2,7 +2,7 @@ import moment from "moment";
 import { shuffle } from "lodash";
 import users from "./users";
 
-const names = users.map(({ name }) => name);
+const names = users.map(({ userProfile: { displayName } }) => displayName);
 const transactionTypes = ["withdrawal", "deposit"];
 
 const fixtureTransactions = (howMany = 25) => {
