@@ -6,16 +6,6 @@ import {
 
 const selectUsersListState = state => state.usersList || {};
 
-export const selectSkipUsers = createSelector(
-  selectUsersListState,
-  usersListState => usersListState.skipUsers || 0
-);
-
-export const selectPageSize = createSelector(
-  selectUsersListState,
-  usersListState => usersListState.pageSize || 30
-);
-
 export const selectPagedEOSAccounts = createSelector(
   selectUsersListState,
   usersListState => usersListState.pagedUsers || []
