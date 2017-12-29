@@ -1,19 +1,27 @@
 import Profile from "./UserProfile";
-import { selectUserProfile } from "../../redux-modules/profile/profile-selectors";
+import {
+  selectAccountProfile,
+  selectUserProfile
+} from "../../redux-modules/profile/profile-selectors";
 import { connect } from "react-redux";
-import { getTransactionsByUserId } from "../../thunks/transactions";
 // import { getBalanceByUserId } from "../../thunks/balance";
 import { withTransactionsForUserId } from "../../containers/transactions";
-import { getProfileByUserId } from "../../thunks/profile";
-import { refreshUser } from "../../thunks/users";
+import { refreshUser, refreshAccount } from "../../thunks/users";
 
 const mapStateToProps = (state, ownProps) => ({
-  userId: ownProps.match.params.userId,
-  userProfile: selectUserProfile(ownProps.match.params.userId)(state)
+  userId: !ownProps.match.params.userId.startsWith("@")
+    ? ownProps.match.params.userId
+    : undefined,
+  userProfile: !ownProps.match.params.userId.startsWith("@")
+    ? selectUserProfile(ownProps.match.params.userId)(state)
+    : selectAccountProfile(ownProps.match.params.userId.substr(1))(state)
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  loadUser: () => dispatch(refreshUser(ownProps.match.params.userId))
+  loadUser: () =>
+    !ownProps.match.params.userId.startsWith("@")
+      ? dispatch(refreshUser(ownProps.match.params.userId))
+      : dispatch(refreshAccount(ownProps.match.params.userId.substr(1)))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(

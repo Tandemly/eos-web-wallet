@@ -17,6 +17,7 @@ import { selectEOSAccountName } from "../redux-modules/eos-account/account-selec
 import { selectCurrentUserProfile } from "../redux-modules/profile/profile-selectors";
 import { selectRecentTransactionAccounts } from "../redux-modules/transactions/transactions-selectors";
 import { updateProfiles } from "../redux-modules/profile/profile-actions";
+import { selectPagedEOSAccounts } from '../redux-modules/users-list/users-list-selectors';
 
 export const updateProfile = (
   profile: UserProfile
@@ -64,6 +65,24 @@ export const updateProfileWithEOSAccountIfNeeded = () => /* prettier-ignore */ a
 
 export const updateProfilesForRecentTransactions = () => /* prettier-ignore */ async (dispatch: Dispatch<Action>, getState: () => mixed) => {
   const eosAccounts = selectRecentTransactionAccounts(getState());
+  if(eosAccounts && eosAccounts.length > 0) {
+    try {
+      const filter = encodeURIComponent(JSON.stringify({
+        "eos_account": {
+          "$in": eosAccounts
+        }
+      }));
+      const response = await appRequest(`/app/profile?filter=${filter}`);
+      const profiles: Array<UserProfile> = (changeCaseKeys(response, "camelize"): Array<UserProfile>);
+      dispatch(updateProfiles(profiles));
+    } catch (error) {
+      dispatch(failGetProfile(error));
+    }
+  }
+};
+
+export const updateProfilesForUsersList = () => /* prettier-ignore */ async (dispatch: Dispatch<Action>, getState: () => mixed) => {
+  const eosAccounts = selectPagedEOSAccounts(getState());
   if(eosAccounts && eosAccounts.length > 0) {
     try {
       const filter = encodeURIComponent(JSON.stringify({

@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { selectWalletUserId } from "../user/user-selectors";
 
-const defaultProfile = {
+export const defaultProfile = {
   imageUrl: "/images/user.png"
 };
 
@@ -36,8 +36,15 @@ export const selectProfileForEOSAccountMap = createSelector(
   profiles =>
     profiles.reduce((profileMap, profile) => {
       if (profile.eosAccount) {
-        profileMap[profile.eosAccount] = profile;
+        profileMap[profile.eosAccount] = { ...defaultProfile, ...profile };
       }
       return profileMap;
     }, {})
 );
+
+export const selectAccountProfile = eosAccount =>
+  createSelector(selectProfileForEOSAccountMap, profileMap => ({
+    ...defaultProfile,
+    ...profileMap[eosAccount],
+    eosAccount
+  }));
