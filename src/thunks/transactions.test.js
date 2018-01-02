@@ -65,7 +65,7 @@ describe("getTransactions", () => {
 
     const expectedActions = [
       tryGetTransactions(accountName),
-      succeedGetTransactions(response)
+      succeedGetTransactions(response, accountName)
     ];
 
     fetch.mockResponse(JSON.stringify(response));

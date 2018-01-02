@@ -1,140 +1,69 @@
 const users = [
   {
-    url: "",
-    name: "Aishwarya Balakrishna",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
+    key: 12345678,
+    userId: "might@haveone.com",
+    profile: "/users/might@haveone.com",
+    userProfile: {
+      eosAccount: "initd",
+      imageUrl: "/images/user.png",
+      displayName: "Aishwarya Balakrishna",
+      about: "",
+      website: ""
+    }
   },
   {
-    url: "",
-    name: "Brian Dawson",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
+    key: 23456789,
+    userId: undefined,
+    profile: "/users/@inite",
+    userProfile: {
+      eosAccount: "inite"
+    }
   },
   {
-    url: "",
-    name: "Xiao Jun",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
+    key: 34567890,
+    userId: "might@haveanother.com",
+    profile: "/users/might@haveanother.com",
+    userProfile: {
+      eosAccount: "initf",
+      imageUrl: "/images/male_1.jpg",
+      displayName: "Brian Dawson",
+      about: "I have stuff to say about me.",
+      website: ""
+    }
   },
   {
-    url: "",
-    name: "Juan Pérez",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
+    key: 45678901,
+    userId: "yep@haveanother.com",
+    profile: "/users/yep@haveanother.com",
+    userProfile: {
+      eosAccount: "initg",
+      imageUrl: "/images/male_2.jpg",
+      displayName: "Juan Pérez",
+      about: "",
+      website: "http://twitter.com/juanperez"
+    }
   },
   {
-    url: "",
-    name: "joesmith",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
+    key: 56789012,
+    userId: "ann@haveanother.com",
+    profile: "/users/ann@haveanother.com",
+    userProfile: {
+      eosAccount: "inith",
+      imageUrl: "/images/female_1.jpg",
+      displayName: "Ann Torres"
+    }
   },
   {
-    url: "",
-    name: "Terry Washington",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Kim Hyo-jung",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Justin Jay",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Benjamin Constantine",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Patrick Gordon",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Susan Margaret",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Anderson Taylor",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Anthony Lee",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Gary Lewis",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Martha Baker",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Ann Torres",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
-  {
-    url: "",
-    name: "Jean Murphy",
-    status: "",
-    image: {
-      src: "/images/male_2.jpg"
-    },
-  },
+    key: 67890123,
+    userId: "jean@haveanother.com",
+    profile: "/users/jean@haveanother.com",
+    userProfile: {
+      eosAccount: "initi",
+      about: "I'm awesome...that's pretty much all there is to it.",
+      imageUrl: "/images/female_2.jpg",
+      displayName: "Jean Murphy"
+    }
+  }
 ];
 
 export default users;

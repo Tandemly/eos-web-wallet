@@ -50,6 +50,7 @@
     "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.2",
     "numeral": "^2.0.6",
+    "querystring": "^0.2.0",
     "randomatic": "^2.0.0",
     "react": "^16.0.0",
     "react-copy-to-clipboard": "^5.0.1",

@@ -9,16 +9,17 @@ export function failGetTransactions(error) {
   };
 }
 
-export function succeedGetTransactions(transactions) {
+export function succeedGetTransactions(transactions, eosAccount) {
   return {
     type: SUCCESS_GET_TRANSACTIONS,
-    transactions
+    transactions,
+    eosAccount
   };
 }
 
-export function tryGetTransactions(account_name) {
+export function tryGetTransactions(eosAccount) {
   return {
     type: TRY_GET_TRANSACTIONS,
-    account_name
+    eosAccount
   };
 }

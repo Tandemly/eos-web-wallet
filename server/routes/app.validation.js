@@ -11,12 +11,12 @@ module.exports = {
         .required()
         .min(6)
         .max(128),
-      display_name: Joi.string(),
-      about: Joi.string(),
-      location: Joi.string(),
-      website: Joi.string(),
-      image_url: Joi.string(),
-      phone: Joi.string()
+      display_name: Joi.string().allow(""),
+      about: Joi.string().allow(""),
+      location: Joi.string().allow(""),
+      website: Joi.string().allow(""),
+      image_url: Joi.string().allow(""),
+      phone: Joi.string().allow("")
     }
   },
 
@@ -26,12 +26,12 @@ module.exports = {
       email: Joi.string()
         .email()
         .required(),
-      display_name: Joi.string(),
-      about: Joi.string(),
-      location: Joi.string(),
-      website: Joi.string(),
-      image_url: Joi.string(),
-      phone: Joi.string()
+      display_name: Joi.string().allow(""),
+      about: Joi.string().allow(""),
+      location: Joi.string().allow(""),
+      website: Joi.string().allow(""),
+      image_url: Joi.string().allow(""),
+      phone: Joi.string().allow("")
     }
   },
 

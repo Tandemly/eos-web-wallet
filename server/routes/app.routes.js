@@ -1,12 +1,7 @@
 const express = require("express");
 const validate = require("express-validation");
 const controller = require("./app.controller");
-const {
-  login,
-  register,
-  update,
-  getProfile,
-} = require("./app.validation");
+const { login, register, update, getProfile } = require("./app.validation");
 const { checkAuth } = require("../middleware/auth");
 
 const router = express.Router();
@@ -91,12 +86,10 @@ router
   .route("/profile")
   .put(checkAuth, validate(update), controller.updateProfile);
 
-router
-  .route("/profile")
-  .get(checkAuth, controller.getProfiles);
+router.route("/profile").get(controller.getProfiles);
 
 router
   .route("/profile/:email")
-  .get(checkAuth, validate(getProfile), controller.getProfile);
+  .get(validate(getProfile), controller.getProfile);
 
 module.exports = router;

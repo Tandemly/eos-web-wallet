@@ -46,7 +46,6 @@ const RoutesAuthenticated = ({ isAuthenticated, location }) =>
         component={AddEOSAccount}
         key="connect-eos-account"
       />,
-      <Route path="/user/:userId" component={Profile} key="user-profile" />,
       <Route path="/profile" component={EditProfile} key="profile" />
     ]
   );
@@ -158,7 +157,12 @@ class App extends React.Component<Props> {
             <Switch location={isModalOpen ? this.previousLocation : location}>
               <Redirect from="/create-account" to="/signup" />
               <Redirect from="/connect-account" to="/accounts" />
-              <Route path="/users" component={Users} key="users" />,
+              <Route
+                path="/users/:userId"
+                component={Profile}
+                key="user-profile"
+              />
+              <Route exact path="/users" component={Users} key="users" />
               <Route path="/about" component={About} />
               <Route path="/faq" component={Faq} />
               <RoutesAuthenticated isAuthenticated={isAuthenticated} />

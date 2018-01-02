@@ -7,12 +7,15 @@ const selectTransactionsState = state => state.transactions || {};
 
 const selectRecentTransactionState = createSelector(
   selectTransactionsState,
-  state => state.recents || []
+  state => state.recents || {}
 );
 
-const filterAndTransformTransactionForAccount = eosAccountName => (transactions, profileMap) =>
-  transactions
-  // .filter(item => item && item.scope && item.scope.includes(eosAccountName))
+const filterAndTransformTransactionForAccount = eosAccountName => (
+  transactions,
+  profileMap
+) =>
+  (transactions[eosAccountName] || [])
+    // .filter(item => item && item.scope && item.scope.includes(eosAccountName))
     .filter(
       transaction =>
         transaction.messages &&
@@ -46,7 +49,9 @@ const filterAndTransformTransactionForAccount = eosAccountName => (transactions,
       const amount = transaction.messages[0].data.amount;
       const memo = transaction.messages[0].data.memo;
       return {
-        profile: profile && `/user/${profile.email}`,
+        profile: profile
+          ? `/users/${profile.email}`
+          : kind === "deposit" ? `/users/@${from}` : `/users/@${to}`,
         key: transaction.id,
         date,
         name,
@@ -57,25 +62,30 @@ const filterAndTransformTransactionForAccount = eosAccountName => (transactions,
       };
     });
 
-export const selectRecentTransactionsByAccount = eosAccountName => createSelector(
-  selectRecentTransactionState,
-  selectProfileForEOSAccountMap,
-  filterAndTransformTransactionForAccount(eosAccountName)
-);
+export const selectRecentTransactionsByAccount = eosAccountName =>
+  createSelector(
+    selectRecentTransactionState,
+    selectProfileForEOSAccountMap,
+    filterAndTransformTransactionForAccount(eosAccountName)
+  );
 
 export const selectRecentTransactions = createSelector(
   selectEOSAccountName,
   selectRecentTransactionState,
   selectProfileForEOSAccountMap,
-  (eosAccountName, transactions, profileMap) => filterAndTransformTransactionForAccount(eosAccountName)(transactions, profileMap)
+  (eosAccountName, transactions, profileMap) =>
+    filterAndTransformTransactionForAccount(eosAccountName)(
+      transactions,
+      profileMap
+    )
 );
 
 export const selectRecentTransactionAccounts = createSelector(
   selectEOSAccountName,
   selectRecentTransactionState,
   (eosAccountName, transactions) =>
-    transactions
-      ? transactions.reduce(
+    transactions[eosAccountName]
+      ? transactions[eosAccountName].reduce(
           (users, transaction) =>
             users.concat(
               transaction.scope.filter(

@@ -10,6 +10,11 @@ type Props = {
   userId: string,
   userProfile: UserProfileType,
   transactions: Array<any>,
+  match: {
+    params: {
+      userId: string
+    }
+  },
   loadUser: () => mixed
 };
 
@@ -21,7 +26,9 @@ class UserProfile extends Component<Props> {
   }
 
   componentWillUpdate(nextProps: Props) {
-    if (nextProps.userId && nextProps.userId !== this.props.userId) {
+    const newUser = nextProps.match.params.userId;
+    const oldUser = this.props.match.params.userId;
+    if (newUser && newUser !== oldUser) {
       nextProps.loadUser();
     }
   }

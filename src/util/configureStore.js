@@ -5,6 +5,7 @@ import { routerMiddleware } from "react-router-redux";
 import { routerReducer } from "react-router-redux";
 import app from "redux-modules/app";
 import user from "redux-modules/user";
+import usersList from "redux-modules/users-list";
 import eosBalances from "redux-modules/eos-balances";
 import notification from "redux-modules/notifications";
 import transactions from "redux-modules/transactions";
@@ -28,17 +29,12 @@ const reducers = {
     form
   ),
   user,
+  usersList,
   eosBalances,
   notification,
   profile,
   transactions,
-  routing: persistReducer(
-    {
-      key: "routing",
-      storage: sessionStorage
-    },
-    routerReducer
-  )
+  routing: routerReducer
 };
 
 export const configureStore = (

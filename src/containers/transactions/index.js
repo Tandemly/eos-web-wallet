@@ -6,9 +6,15 @@ import {
 import { selectUserProfile } from "../../redux-modules/profile/profile-selectors";
 
 const mapStateToPropsForUserId = (state, ownProps) => ({
-  transactions: selectRecentTransactionsByAccount(
-    selectUserProfile(ownProps.userId)(state).eosAccount
-  )(state)
+  transactions: ownProps.userId
+    ? selectRecentTransactionsByAccount(
+        selectUserProfile(ownProps.userId)(state).eosAccount
+      )(state)
+    : ownProps.userProfile
+      ? selectRecentTransactionsByAccount(ownProps.userProfile.eosAccount)(
+          state
+        )
+      : []
 });
 
 export const withTransactionsForUserId = connect(mapStateToPropsForUserId);
