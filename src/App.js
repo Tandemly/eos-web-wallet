@@ -12,8 +12,8 @@ import CreateEOSAccount from "./routes/CreateEOSAccount";
 import AddEOSAccount from "./routes/AddEOSAccount/AddEOSAccount";
 import Login from "./routes/Login/index";
 import Signup from "./routes/Signup/index";
-import About from "./routes/About/index";
-import Faq from "./routes/Faq/index";
+// import About from "./routes/About/index";
+// import Faq from "./routes/Faq/index";
 import Transfer from "./routes/Transfer/index";
 import Transactions from "./routes/Transactions/index";
 import Users from "./routes/Users/index";
@@ -88,7 +88,7 @@ class App extends React.Component<Props> {
 
     /* eslint-disable */
     this.previousLocation = this.unauthLocation = {
-      pathname: "/about",
+      pathname: "/users",
       hash: "",
       search: ""
     };
@@ -163,8 +163,8 @@ class App extends React.Component<Props> {
                 key="user-profile"
               />
               <Route exact path="/users" component={Users} key="users" />
-              <Route path="/about" component={About} />
-              <Route path="/faq" component={Faq} />
+              {/*<Route path="/about" component={About} />*/}
+              {/*<Route path="/faq" component={Faq} />*/}
               <RoutesAuthenticated isAuthenticated={isAuthenticated} />
               <Route path="*" component={NoMatch} />
             </Switch>

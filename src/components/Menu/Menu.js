@@ -1,6 +1,5 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { push } from "react-router-redux";
 import { withRouter } from "react-router-dom";
 import cx from "classnames";
 import { CurrentEOSBalance } from "../Balance";
@@ -9,6 +8,7 @@ import Shortcuts from "components/Shortcuts";
 import { doLogout } from "../../thunks/login";
 import { closeMenu } from "../../redux-modules/app/app-actions";
 import styles from "./styles.module.scss";
+import withTransactions from "../../containers/transactions";
 
 const unauthLinks = ({ goTo }) => [
   {
@@ -27,35 +27,40 @@ const unauthLinks = ({ goTo }) => [
   //   text: "FAQ"
   // }
 ];
-const authLinks = ({ onLogout, goTo }) => [
-  [
-    {
-      to: "/transfer",
-      onClick: goTo,
-      text: "Transfer",
-      iconClass: "icon-transfer u-mr1"
-    },
-    {
+const authLinks = ({ transactions, onLogout, goTo }) => {
+  const menuItems = [
+    [
+      {
+        to: "/transfer",
+        onClick: goTo,
+        text: "Transfer",
+        iconClass: "icon-transfer u-mr1"
+      },
+      {
+        to: "/accounts",
+        onClick: goTo,
+        text: "Accounts",
+        iconClass: "icon-account u-mr1"
+      },
+      {
+        to: "/logout",
+        onClick: onLogout,
+        text: "Logout",
+        iconClass: "icon-logout u-mr1"
+      }
+    ],
+    ...unauthLinks({ goTo })
+  ];
+  if (transactions.length > 0) {
+    menuItems[0].splice(1, 0, {
       to: "/transactions",
       onClick: goTo,
       text: "Transaction History",
       iconClass: "icon-history u-mr1"
-    },
-    {
-      to: "/accounts",
-      onClick: goTo,
-      text: "Accounts",
-      iconClass: "icon-account u-mr1"
-    },
-    {
-      to: "/logout",
-      onClick: onLogout,
-      text: "Logout",
-      iconClass: "icon-logout u-mr1"
-    }
-  ],
-  ...unauthLinks({ goTo })
-];
+    });
+  }
+  return menuItems;
+};
 
 const Menu = props => {
   const { isAuthenticated } = props;
@@ -77,10 +82,11 @@ const Menu = props => {
 
 const mapDispatchToProps = dispatch => ({
   onLogout: () => dispatch(doLogout()),
-  goTo: e => {
-    dispatch(push(e.target.href));
+  goTo: () => {
     dispatch(closeMenu());
   }
 });
 
-export default withRouter(connect(undefined, mapDispatchToProps)(Menu));
+export default withRouter(
+  withTransactions(connect(undefined, mapDispatchToProps)(Menu))
+);
