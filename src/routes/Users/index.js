@@ -4,15 +4,22 @@ import { listEOSAccountBalances } from "../../thunks/balance";
 import { updateProfilesForUsersList } from "../../thunks/profile";
 import { selectPagedUsers } from "../../redux-modules/users-list/users-list-selectors";
 
+const getNumberItem = (location, name, defaultValue) =>
+  (location &&
+    location.query &&
+    location.query[name] &&
+    Number.parseInt(location.query[name], 10)) ||
+  defaultValue;
+
 const mapStateToProps = (state, ownProps) => ({
-  skip: Number.parseInt(ownProps.location.query.skip, 10) || 0,
-  limit: Number.parseInt(ownProps.location.query.limit, 10) || 30,
+  skip: getNumberItem(ownProps.location, "skip", 0),
+  limit: getNumberItem(ownProps.location, "limit", 30),
   users: selectPagedUsers(state)
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const skip = ownProps.location.query.skip || 0;
-  const limit = ownProps.location.query.limit || 30;
+  const skip = getNumberItem(ownProps.location, "skip", 0);
+  const limit = getNumberItem(ownProps.location, "limit", 30);
   return {
     loadUsers: async () => {
       await dispatch(listEOSAccountBalances(skip, limit));

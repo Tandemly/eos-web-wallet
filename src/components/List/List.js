@@ -14,7 +14,7 @@ const List = ({ data, renderItem, ...props }: PropTypes) => (
     {data &&
       data.map(
         (item, key) =>
-          Array.isArray(item)
+          item && Array.isArray(item)
             ? renderItem(item, key)
             : renderItem({ key, ...item })
       )}
