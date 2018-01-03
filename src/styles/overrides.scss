@@ -271,6 +271,13 @@ input[type="radio"] {
   margin-bottom: 0;
 }
 
+.error-message {
+  color: $red;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 3px;
+}
+
 .box {
   background-color: $grey-mid;
   box-shadow: none;

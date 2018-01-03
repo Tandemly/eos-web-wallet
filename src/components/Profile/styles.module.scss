@@ -12,6 +12,8 @@
     font-weight: bold;
     color: $white;
     text-transform: none;
+    word-break: break-all;
+    letter-spacing: 0;
   }
   .title {
     font-size: 18px;
