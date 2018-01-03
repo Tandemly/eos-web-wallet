@@ -29,7 +29,7 @@ const Pagination = ({ users, location, skip, limit }) => (
           })
         }}
         disabled={skip <= 0}
-        className="button is-primary is-small is-outlined"
+        className="button is-primary is-medium is-outlined"
         type="button"
       >
         Previous
@@ -50,7 +50,7 @@ const Pagination = ({ users, location, skip, limit }) => (
             : location
         }
         disabled={users.length < limit}
-        className="button is-primary is-small is-outlined"
+        className="button is-primary is-medium is-outlined"
         type="button"
       >
         Next
@@ -85,7 +85,6 @@ class Users extends Component<Props> {
 
         <h2 className="title is-2">Users</h2>
 
-        <Pagination {...this.props} />
         <div>
           {/*<Filter data={users}>*/}
           <Container data={users} />
