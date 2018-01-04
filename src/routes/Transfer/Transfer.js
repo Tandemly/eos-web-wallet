@@ -14,18 +14,21 @@ const Transfer = ({ transactions }) => (
 
         <Container />
       </article>
-      <article>
-        <h3 className="title is-3">
-          <p>
-            Transaction History
-            <Link className="help" to="/transactions">
-              See All
-            </Link>
-          </p>
-        </h3>
+      {transactions &&
+        transactions.length > 0 && (
+          <article>
+            <h3 className="title is-3">
+              <p>
+                Transaction History
+                <Link className="help" to="/transactions">
+                  See All
+                </Link>
+              </p>
+            </h3>
 
-        <Transactions data={transactions} count={5} />
-      </article>
+            <Transactions data={transactions} count={5} />
+          </article>
+        )}
     </div>
     <div className="column is-5-desktop is-12-tablet">
       <article className="section">

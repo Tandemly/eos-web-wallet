@@ -55,8 +55,13 @@ class UserProfile extends Component<Props> {
             </div>
           </div>
         </div>
-        <h3 className="title is-3">Transaction History</h3>
-        <TransactionsList data={transactions} />
+        {transactions &&
+          transactions.length > 0 && (
+            <div>
+              <h3 className="title is-3">Transaction History</h3>
+              <TransactionsList data={transactions} />
+            </div>
+          )}
       </div>
     );
   }
