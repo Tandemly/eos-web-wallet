@@ -6,7 +6,6 @@ import {
   FAIL_CREATE_EOS_ACCOUNT,
   SUCCESS_CREATE_EOS_ACCOUNT
 } from "../../redux-modules/eos-account/account-actions";
-import { FAIL_GET_TRANSACTIONS } from "../../redux-modules/transactions/transactions-actions";
 import {
   FAIL_LOGIN,
   SUCCEED_LOGIN,
@@ -16,7 +15,6 @@ import {
   FAIL_POST_TRANSACTION,
   SUCCESS_POST_TRANSACTION
 } from "../../redux-modules/transfer/transfer-actions";
-import { FAIL_GET_BALANCE } from "../../redux-modules/eos-balances/balance-actions";
 import {
   FAIL_POST_EOS_ACCOUNT,
   SUCCESS_POST_EOS_ACCOUNT
@@ -34,8 +32,6 @@ const api = store => next => action => {
   const errorActions = [
     FAIL_LOGIN,
     FAIL_GET_PROFILE,
-    FAIL_GET_BALANCE,
-    FAIL_GET_TRANSACTIONS,
     FAIL_POST_SIGNUP,
     FAIL_POST_EOS_ACCOUNT,
     FAIL_POST_TRANSACTION,
