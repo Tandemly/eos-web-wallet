@@ -40,7 +40,6 @@
     "jwt-decode": "^2.2.0",
     "localforage": "^1.5.3",
     "lodash": "^4.17.4",
-    "mathjs": "^3.16.4",
     "method-override": "^2.3.10",
     "moment": "^2.19.1",
     "moment-timezone": "^0.5.14",
