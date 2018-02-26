@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import type { UserProfile as UserProfileType } from "../../types/UserProfile";
-import Button from "components/Button";
 import Container from "../../components/Users";
 import { Link } from "react-router-dom";
 import { stringify } from "querystring";

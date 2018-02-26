@@ -58,10 +58,12 @@ export const removeEOSAccount = () => async dispatch => {
   await dispatch(updateProfileWithEOSAccountIfNeeded());
 };
 
-export const createEOSAccount = (eosAccountName, isDeveloper) => async (
-  dispatch,
-  getState
-) => {
+export const createEOSAccount = (
+  eosAccountName,
+  firstName,
+  lastName,
+  isDeveloper
+) => async (dispatch, getState) => {
   dispatch(tryCreateEOSAccount());
   return delay(1, async resolve => {
     try {
@@ -76,6 +78,8 @@ export const createEOSAccount = (eosAccountName, isDeveloper) => async (
 
       const payload = {
         name: eosAccountName,
+        first_name: firstName,
+        last_name: lastName,
         email: selectWalletUserId(getState()),
         wants_tokens: isDeveloper,
         keys: {
@@ -91,9 +95,7 @@ export const createEOSAccount = (eosAccountName, isDeveloper) => async (
       dispatch(setEOSActiveKeys(activeKeys));
       dispatch(
         setNotification(
-          `EOS Account "${
-            eosAccountName
-          }" created. Your keys should be copied and stored offline for security.`,
+          `EOS Account "${eosAccountName}" created. Your keys should be copied and stored offline for security.`,
           "success"
         )
       );

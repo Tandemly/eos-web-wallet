@@ -22,6 +22,28 @@ const CreateEOSAccountForm = ({
       type="text"
     />
 
+    <Field
+      aria-describedby="firstName"
+      className="input"
+      id="firstName"
+      label="First Name"
+      name="firstName"
+      required
+      component={renderField}
+      type="text"
+    />
+
+    <Field
+      aria-describedby="lastName"
+      className="input"
+      id="lastName"
+      label="Last Name"
+      name="lastName"
+      required
+      component={renderField}
+      type="text"
+    />
+
     <div className="field">
       <div className="control">
         <label className="label checkbox">
