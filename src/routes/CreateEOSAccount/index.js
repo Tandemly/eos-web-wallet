@@ -3,8 +3,8 @@ import CreateEOSAccount from "./CreateEOSAccount";
 import { createEOSAccount } from "../../thunks/eos-account";
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: ({ eosAccountName , isDeveloper}) => {
-    return dispatch(createEOSAccount(eosAccountName, isDeveloper));
+  onSubmit: ({ eosAccountName, firstName, lastName, isDeveloper}) => {
+    return dispatch(createEOSAccount(eosAccountName, firstName, lastName, isDeveloper));
   }
 });
 
