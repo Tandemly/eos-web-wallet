@@ -18,12 +18,12 @@ const filterAndTransformTransactionForAccount = eosAccountName => (
     // .filter(item => item && item.scope && item.scope.includes(eosAccountName))
     .filter(
       transaction =>
-        transaction.messages &&
-        transaction.messages[0] &&
-        transaction.messages[0].type === "transfer" &&
-        transaction.messages[0].data &&
-        (transaction.messages[0].data.to === eosAccountName ||
-          transaction.messages[0].data.from === eosAccountName)
+        transaction.actions &&
+        transaction.actions[0] &&
+        transaction.actions[0].type === "transfer" &&
+        transaction.actions[0].data &&
+        (transaction.actions[0].data.to === eosAccountName ||
+          transaction.actions[0].data.from === eosAccountName)
     )
     .map(transaction => {
       const created = Date.parse(transaction.createdAt);
@@ -31,8 +31,8 @@ const filterAndTransformTransactionForAccount = eosAccountName => (
         month: dateFormat(created, "mmm"),
         day: dateFormat(created, "d")
       };
-      let to = transaction.messages[0].data.to;
-      let from = transaction.messages[0].data.from;
+      let to = transaction.actions[0].data.to;
+      let from = transaction.actions[0].data.from;
       const kind = to === eosAccountName ? "deposit" : "withdrawal";
       let image;
       let profile;
@@ -46,8 +46,8 @@ const filterAndTransformTransactionForAccount = eosAccountName => (
         image = profile && profile.imageUrl;
       }
       const name = kind === "deposit" ? from : to;
-      const amount = transaction.messages[0].data.amount;
-      const memo = transaction.messages[0].data.memo;
+      const amount = transaction.actions[0].data.amount;
+      const memo = transaction.actions[0].data.memo;
       return {
         profile: profile
           ? `/users/${profile.email}`

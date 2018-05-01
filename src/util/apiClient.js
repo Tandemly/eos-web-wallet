@@ -39,13 +39,13 @@ const defaultAPIOptions = {
 };
 // Grab the correct, sorted scope from the list of messages
 // intended for a transaction
-const getScope = messages =>
-  uniq(
-    flatMap(messages, msg => [
-      msg.code,
-      ...map(msg.authorization, auth => auth.account)
-    ])
-  ).sort();
+// const getScope = messages =>
+//   uniq(
+//     flatMap(messages, msg => [
+//       msg.code,
+//       ...map(msg.authorization, auth => auth.account)
+//     ])
+//   ).sort();
 
 const rejectBadResponse = (response: Response): mixed =>
   response.ok || Promise.reject(response);
@@ -123,22 +123,22 @@ class APIClient {
   }
 
   async postTransaction(path, data, opts = {}) {
-    let { scope, messages } = data;
+    let { /* scope ,*/ actions } = data;
 
-    if (!messages) {
-      throw new Error("APIClient.post() data missing `messages` property");
+    if (!actions) {
+      throw new Error("APIClient.post() data missing `actions` property");
     }
-    if (!Array.isArray(messages)) {
+    if (!Array.isArray(actions)) {
       throw new Error(
-        "APIClient.post() messages should be an array of one or more messages"
+        "APIClient.post() actions should be an array of one or more actions"
       );
     }
-    if (!scope) {
-      // Attempt to get scope from messages
-      scope = getScope(messages);
-    }
-    // ensure scope is unique and sorted ascending alphabetically
-    scope = uniq(scope).sort();
+    // if (!scope) {
+    //   // Attempt to get scope from messages
+    //   scope = getScope(messages);
+    // }
+    // // ensure scope is unique and sorted ascending alphabetically
+    // scope = uniq(scope).sort();
 
     // build a public->private key mapping
     const keyMap = this.keyProvider.reduce((map, wif) => {
@@ -162,16 +162,41 @@ class APIClient {
       const transaction = {
         ref_block_num: info.head_block_num & 0xffff,
         ref_block_prefix: new Buffer(info.head_block_id, "hex").readUInt32LE(8),
+        region: 0,
         expiration: expr,
-        scope,
-        read_scope: [],
-        messages
+        // scope: [],
+        // read_scope: [],
+        actions,
+        // compression: "none",
+        // status: "",
+        max_kcpu_usage: 0,
+        max_net_usage_words: 0,
+        delay_sec: 0,
+        // id: "",
+        // compression: "none",
+        context_free_data: [],
+        packed_bandwidth_words: 0,
+        context_free_cpu_bandwidth: 0,
+        context_free_actions: []
       };
       // construct a buffer of the transaction to sign
       const trBuffer = Buffer.concat([
         chainId,
         Fcbuffer.toBuffer(this.structs.transaction, transaction)
+        // Fcbuffer.toBuffer("transaction", transaction)
       ]);
+      console.log("structs:", this.structs);
+
+      // Convert action.data to binary hex representation (shouldn't be needed)
+      // TODO: backend SHOULD accept action.data as JSON, but is currently flakey
+      // and throwing cast errors. Must do this before calling getRequiredKeys, as
+      // that endpoint is part of the problem.
+      transaction.actions = transaction.actions.map(action => {
+        const buf = Fcbuffer.toBuffer(this.structs.transfer, action.data);
+        // const buf = Fcbuffer.toBuffer(this.structs.action, action);
+        action.data = buf.toString("hex");
+        return action;
+      });
 
       const { required_keys } = await this.eos.getRequiredKeys(
         transaction,
@@ -187,12 +212,16 @@ class APIClient {
             }`
           );
         }
-        signatures.push(ecc.sign(trBuffer, keyMap[pubKey]));
+        signatures.push(ecc.Signature.sign(trBuffer, keyMap[pubKey]).toString());
       });
 
-      transaction.signatures = signatures;
+      const txn = {
+        compression: "none",
+        transaction,
+        signatures
+      };
 
-      return await this.post(path, transaction, opts);
+      return await this.post(path, txn, opts);
     } catch (err) {
       console.error("fetch error:", err);
       return Promise.reject(err.statusText || err);

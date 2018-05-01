@@ -53,17 +53,17 @@ describe("doTransfer", () => {
         refBlockNum: 795,
         refBlockPrefix: 3534734782,
         expiration: "2017-11-21T23:30:09",
-        scope: ["inita", "initb"],
+        // scope: ["inita", "initb"],
         signatures: [
           "1f36d285dd9f6eeb66e4dfc18163f83fc91f44cc5523d83b56992c7c18dd4e00e05cc59dd8ad120e08b711ed8082df502fe85b8483f5c1dfffbbfb7c95b1745534"
         ],
-        messages: [
+        actions: [
           {
             code: "eos",
-            type: "transfer",
+            name: "transfer",
             authorization: [
               {
-                account: "inita",
+                actor: "inita",
                 permission: "active"
               }
             ],

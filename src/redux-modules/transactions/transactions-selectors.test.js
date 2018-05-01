@@ -31,8 +31,8 @@ describe("EOS Transaction Selectors", () => {
       recents: {
         [accountName]: [
           {
-            scope: [accountName, duplicateName],
-            messages: [
+            // scope: [accountName, duplicateName],
+            actions: [
               {
                 type: "transfer",
                 data: {
@@ -43,8 +43,8 @@ describe("EOS Transaction Selectors", () => {
             ]
           },
           {
-            scope: [duplicateName, accountName],
-            messages: [
+            // scope: [duplicateName, accountName],
+            actions: [
               {
                 type: "transfer",
                 data: {
@@ -55,8 +55,8 @@ describe("EOS Transaction Selectors", () => {
             ]
           },
           {
-            scope: [testName, accountName],
-            messages: [
+            // scope: [testName, accountName],
+            actions: [
               {
                 type: "transfer",
                 data: {
@@ -67,8 +67,8 @@ describe("EOS Transaction Selectors", () => {
             ]
           },
           {
-            scope: [accountName, otherTestName],
-            messages: [
+            // scope: [accountName, otherTestName],
+            actions: [
               {
                 type: "transfer",
                 data: {

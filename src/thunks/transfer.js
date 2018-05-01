@@ -19,25 +19,30 @@ export const doTransfer = (to, amount, memo) => async (dispatch, getState) => {
   const deciMilliEOS = amount * 10000;
 
   const txn = {
-    code: "eos",
-    type: "transfer",
-    authorization: [{ account: from, permission: "active" }],
+    account: from,
+    // code: "eos",
+    name: "transfer",
+    recipients: [from, to],
+    authorization: [{ actor: from, permission: "active" }],
     data: {
       from,
       to,
-      amount: deciMilliEOS,
+      quantity: `${deciMilliEOS} EOS`,
       memo
     }
   };
 
   const payload = {
-    scope: [from, to],
-    messages: [txn]
+    // scope: [from, to],
+    actions: [txn]
   };
 
   dispatch(tryPostTransaction(to, amount, memo));
   try {
-    const response = await apiClient.postTransaction("/v1/transactions", payload);
+    const response = await apiClient.postTransaction(
+      "/v1/transactions",
+      payload
+    );
     dispatch(succeedPostTransaction(response));
     dispatch(
       setNotification(
